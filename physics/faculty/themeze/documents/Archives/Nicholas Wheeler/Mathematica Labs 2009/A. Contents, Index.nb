@@ -1,0 +1,1336 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 6.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     40645,       1327]
+NotebookOptionsPosition[     29492,        970]
+NotebookOutlinePosition[     29964,        989]
+CellTagsIndexPosition[     29921,        986]
+WindowFrame->Normal
+ContainsDynamic->False*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Table of Contents/Index", "Title",
+ CellChangeTimes->{{3.39665902678563*^9, 3.396659030809313*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Nicholas Wheeler", "Author",
+ CellChangeTimes->{{3.3966592922196007`*^9, 3.396659298615642*^9}}],
+
+Cell["\<\
+Reed College Physics Department\[LineSeparator]August 2007\
+\>", "Institution",
+ CellChangeTimes->{{3.3966592990130253`*^9, 3.396659325985386*^9}}]
+}, Open  ]],
+
+Cell["", "Text",
+ CellChangeTimes->{{3.396659377414731*^9, 3.396659377420828*^9}}],
+
+Cell[TextData[{
+ "I provide here a list\[LongDash]in order of appearance\[LongDash]of the \
+topics and commands presented in the 3rd edition (2007) of the six manuals \
+that comprise ",
+ StyleBox["PHYSICIST'S INTRODUCTION OF ",
+  FontWeight->"Bold",
+  FontColor->RGBColor[0, 0, 1]],
+ StyleBox["MATHEMATICA",
+  FontWeight->"Bold",
+  FontSlant->"Italic",
+  FontColor->RGBColor[0, 0, 1]],
+ StyleBox[" 6",
+  FontWeight->"Bold",
+  FontColor->RGBColor[0, 0, 1]],
+ "."
+}], "Text",
+ CellChangeTimes->{3.396659380527103*^9}],
+
+Cell[CellGroupData[{
+
+Cell["", "Author",
+ CellChangeTimes->{{3.3966594591756477`*^9, 3.3966594591803923`*^9}}],
+
+Cell["", "Institution"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Laboratory 0",
+ FontColor->RGBColor[1, 0, 0]]], "Subtitle",
+ CellChangeTimes->{{3.396659422025453*^9, 3.396659423358131*^9}, {
+  3.396659482041964*^9, 3.3966594853447857`*^9}}],
+
+Cell[TextData[{
+ "Why Bother to Learn ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ "?"
+}], "Subsection",
+ CellChangeTimes->{{3.396659562063203*^9, 3.396659607587653*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Getting Started...and Stopped", "Subsection",
+ CellChangeTimes->{{3.3966596105507936`*^9, 3.396659622326947*^9}}],
+
+Cell[BoxData["Timing"], "Input",
+ CellChangeTimes->{{3.396739336211136*^9, 3.39673933713881*^9}}],
+
+Cell["Terminating a Running Calculation", "Subsubsection",
+ CellChangeTimes->{{3.396739551712574*^9, 3.396739554687092*^9}}]
+}, Open  ]],
+
+Cell["Notebooks", "Subsection",
+ CellChangeTimes->{{3.396739572155683*^9, 3.3967395734743013`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Input Techniques & Tips", "Subsection",
+ CellChangeTimes->{{3.396739594123888*^9, 3.396739607824308*^9}}],
+
+Cell["Palettes", "Subsubsection",
+ CellChangeTimes->{{3.396739623590819*^9, 3.396739628315752*^9}}],
+
+Cell[TextData[{
+ "A ",
+ StyleBox["Cautionary Warning",
+  FontColor->RGBColor[1, 0, 0]]
+}], "Subsubsection",
+ CellChangeTimes->{{3.396739666765646*^9, 3.396739670918138*^9}}],
+
+Cell["\<\
+Creating 2-Dimensional Commands &  Special Symbols at the Keyboard\
+\>", "Subsubsection",
+ CellChangeTimes->{{3.396739701911021*^9, 3.396739727642355*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Three Flavors of =", "Subsection",
+ CellChangeTimes->{{3.3967397477874393`*^9, 3.39673975240182*^9}}],
+
+Cell["Assignment", "Subsubsection",
+ CellChangeTimes->{{3.3967397720183773`*^9, 3.396739773456395*^9}}],
+
+Cell["Delayed Assignment: Functional Definition", "Subsubsection",
+ CellChangeTimes->{{3.3967398221690073`*^9, 3.396739831621944*^9}}],
+
+Cell["Piece-wise Functional Definition", "Subsubsection",
+ CellChangeTimes->{{3.396739848804138*^9, 3.3967398581603327`*^9}}],
+
+Cell["Equality Tests", "Subsubsection",
+ CellChangeTimes->{{3.3967398846678343`*^9, 3.396739924054514*^9}}],
+
+Cell["Special Flavors of =, and Some of its Relatives", "Subsubsection",
+ CellChangeTimes->{{3.39673992894449*^9, 3.396739953537264*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Clear", "Subsection",
+ CellChangeTimes->{{3.396739988406083*^9, 3.396739989042992*^9}}],
+
+Cell["How to Clear a Subscripted Variable", "Subsubsection",
+ CellChangeTimes->{{3.3967400234546328`*^9, 3.3967400328407593`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Sources of Information", "Subsection",
+ CellChangeTimes->{{3.396740065407214*^9, 3.396740069260294*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Hardcopy Materials", "Subsubsection",
+ CellChangeTimes->{{3.396740119111656*^9, 3.396740129449006*^9}}],
+
+Cell[BoxData["Hyperlink"], "Input",
+ CellChangeTimes->{{3.396740091013443*^9, 3.396740092872244*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Built-in Sources", "Subsubsection",
+ CellChangeTimes->{{3.396740178090057*^9, 3.396740181920185*^9}, {
+  3.396740256241775*^9, 3.3967402574943123`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"<<", "PhysicalConstants`"}]], "Input"],
+
+Cell[BoxData[{
+ RowBox[{"?", "Information"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "Options"}]}], "Input",
+ CellChangeTimes->{{3.3948059530623827`*^9, 3.3948059912665367`*^9}},
+ TextAlignment->Left,
+ TextJustification->1.]
+}, Open  ]],
+
+Cell["Your Own \"My Tricks\" Notebook", "Subsubsection",
+ CellChangeTimes->{{3.396740354457203*^9, 3.3967403659288187`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Memory Management", "Subsection",
+ CellChangeTimes->{{3.39674037970632*^9, 3.396740391113439*^9}}],
+
+Cell[BoxData[
+ RowBox[{"MaxMemoryUsed", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.394806670332918*^9, 3.394806678886332*^9}}],
+
+Cell["", "Text",
+ CellChangeTimes->{{3.396740456966075*^9, 3.396740457054576*^9}}],
+
+Cell["", "Text"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Laboratory 1",
+ FontColor->RGBColor[1, 0, 0]]], "Subtitle",
+ CellChangeTimes->{{3.396659422025453*^9, 3.396659423358131*^9}, {
+   3.396659482041964*^9, 3.3966594853447857`*^9}, 3.3967404802394953`*^9}],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Basic Graphics",
+ FontSize->16]], "Subsection",
+ CellChangeTimes->{{3.3967405239164963`*^9, 3.396740527216148*^9}}],
+
+Cell["Basic Resources", "Subsubsection",
+ CellChangeTimes->{{3.3967405539554462`*^9, 3.396740558235148*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Simple 2-Dimensional Plotting", "Subsection",
+ CellChangeTimes->{{3.3967405954270353`*^9, 3.3967406017915087`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"?", "Plot"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "Ticks"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "Thickness"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "AbsoluteThickness"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "RGBColor"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "Hue"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "PlotRange"}]}], "Input",
+ CellChangeTimes->{{3.394828192588866*^9, 3.394828194558641*^9}, {
+  3.396740643622657*^9, 3.396740659587282*^9}, {3.396740708125244*^9, 
+  3.396740731853476*^9}}],
+
+Cell[BoxData[
+ RowBox[{"?", 
+  StyleBox["Series",
+   FontColor->GrayLevel[0]]}]], "Input"]
+}, Open  ]],
+
+Cell["Filled Plots", "Subsection",
+ CellChangeTimes->{{3.396740796342988*^9, 3.396740811813035*^9}}],
+
+Cell["Polar Plots", "Subsection",
+ CellChangeTimes->{{3.396740839799428*^9, 3.3967408460071983`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["List Plots", "Subsection",
+ CellChangeTimes->{{3.3967408685379467`*^9, 3.396740873433778*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"?", "Fibonacci"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "Table"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "AxesOrigin"}]}], "Input",
+ CellChangeTimes->{{3.3967409064397917`*^9, 3.39674090933912*^9}, {
+  3.396740945493129*^9, 3.3967409843693457`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Parametruc Plots", "Subsection",
+ CellChangeTimes->{{3.396740995305811*^9, 3.396741005086988*^9}}],
+
+Cell["", "Text",
+ CellChangeTimes->{{3.396741035018448*^9, 3.396741035072605*^9}}],
+
+Cell["", "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["3-Dimensional Plotting", "Subsection",
+ CellChangeTimes->{{3.3967410415380096`*^9, 3.39674104745096*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"?", "Plot3D"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "Mesh"}]}], "Input",
+ CellChangeTimes->{{3.396741063729179*^9, 3.3967410668526583`*^9}, {
+  3.396741097579693*^9, 3.3967410998237867`*^9}}],
+
+Cell["Spherical  Plots", "Subsubsection",
+ CellChangeTimes->{{3.396741113446267*^9, 3.3967411349376097`*^9}}],
+
+Cell["ListPlot3D", "Subsubsection",
+ CellChangeTimes->{{3.39674115925601*^9, 3.396741197929297*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Parametric Plot3D", "Subsubsection",
+ CellChangeTimes->{{3.396741204350691*^9, 3.396741208897628*^9}}],
+
+Cell["", "Text",
+ CellChangeTimes->{{3.396741239692677*^9, 3.396741239758059*^9}}],
+
+Cell["", "Text"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["2D Projections of 3S Surfaces", "Subsection",
+ CellChangeTimes->{{3.396741245737172*^9, 3.396741260742918*^9}}],
+
+Cell["Density Plots", "Subsubsection",
+ CellChangeTimes->{{3.396741334555378*^9, 3.396741352947928*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Contour Plots", "Subsubsection",
+ CellChangeTimes->{{3.3967413551582193`*^9, 3.396741360192711*^9}}],
+
+Cell["", "Text",
+ CellChangeTimes->{{3.396741744316691*^9, 3.396741744330494*^9}}],
+
+Cell["", "Text",
+ CellChangeTimes->{{3.396741744435861*^9, 3.396741744499992*^9}}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Laboratory 2",
+ FontColor->RGBColor[1, 0, 0]]], "Subtitle",
+ CellChangeTimes->{{3.396659422025453*^9, 3.396659423358131*^9}, {
+   3.396659482041964*^9, 3.3966594853447857`*^9}, 3.3967404802394953`*^9, 
+   3.39674175728205*^9}],
+
+Cell["More Advanced Graphics", "Subsection",
+ CellChangeTimes->{{3.3967418215176163`*^9, 3.396741826202714*^9}},
+ FontSize->18],
+
+Cell[CellGroupData[{
+
+Cell["Graphics Primitives", "Subsection",
+ CellChangeTimes->{{3.3967418622365713`*^9, 3.396741867574963*^9}, 
+   3.3967420299041862`*^9}],
+
+Cell[CellGroupData[{
+
+Cell["The Graphics Menu", "Subsubsection",
+ CellChangeTimes->{{3.396742088571456*^9, 3.396742091652327*^9}}],
+
+Cell[BoxData[
+ RowBox[{"?", "Arrow"}]], "Input",
+ CellChangeTimes->{{3.3949325358792343`*^9, 3.3949325372583113`*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Graphical Representation of Vector Fields",
+ FontColor->GrayLevel[0]]], "Subsection",
+ CellChangeTimes->{{3.3949344023628473`*^9, 3.3949344358608828`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"?", "Needs"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "Get"}]}], "Input",
+ CellChangeTimes->{{3.39674219121658*^9, 3.396742215198143*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<VectorFieldPlots`\>\"", "]"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"?", "VectorFieldPlot"}]], "Input",
+ CellChangeTimes->{{3.396742251455822*^9, 3.396742258338418*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"?", "GradientFieldPlot"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "HamiltonianFieldPlot"}]}], "Input",
+ CellChangeTimes->{{3.394935966563232*^9, 3.394935996294219*^9}}]
+}, Open  ]],
+
+Cell["Polyhedra", "Subsection",
+ CellChangeTimes->{{3.396742344709858*^9, 3.3967423471102533`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Composite Figures", "Subsection",
+ CellChangeTimes->{{3.39674237999*^9, 3.3967423860185947`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"?", "GraphicsGrid"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "Spacings"}]}], "Input",
+ CellChangeTimes->{{3.396742413579822*^9, 3.3967424467740793`*^9}}],
+
+Cell["", "Text",
+ CellChangeTimes->{{3.3968996383006353`*^9, 3.3968996383056383`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Exporting Graphics", "Subsection",
+ CellChangeTimes->{{3.396899650668025*^9, 3.396899654131261*^9}}],
+
+Cell["", "Text",
+ CellChangeTimes->{{3.396899664123447*^9, 3.396899664128297*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Dynamic Display", "Subsection",
+ CellChangeTimes->{{3.39674246985952*^9, 3.396742473682601*^9}}],
+
+Cell["Manipulate", "Subsubsection",
+ CellChangeTimes->{{3.396742486466805*^9, 3.396742487795671*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Animation", "Subsubsection",
+ CellChangeTimes->{{3.396742531357243*^9, 3.396742532586581*^9}}],
+
+Cell["Example: Motion of a Classical Oscillator", "Subsubsubsection",
+ CellChangeTimes->{{3.3949965062986813`*^9, 3.39499652321498*^9}, {
+  3.3967426380566597`*^9, 3.396742638085291*^9}}],
+
+Cell["Example: 3D Animation", "Subsubsubsection",
+ CellChangeTimes->{{3.39674263989159*^9, 3.396742670718192*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Audio", "Subsection",
+ CellChangeTimes->{{3.396742685746209*^9, 3.396742687071043*^9}}],
+
+Cell[BoxData[
+ RowBox[{"?", "Sound"}]], "Input",
+ CellChangeTimes->{{3.396742701276043*^9, 3.396742702614849*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Example: Non-acoustic Application of Audio", "Subsubsubsection",
+ CellChangeTimes->{{3.396742763347973*^9, 3.396742792698206*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<Music`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.395001016898931*^9, 3.395001020727593*^9}}],
+
+Cell["", "Text",
+ CellChangeTimes->{{3.396743281715489*^9, 3.396743281725534*^9}}],
+
+Cell["", "Text"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Laboratory 3",
+ FontColor->RGBColor[1, 0, 0]]], "Subtitle",
+ CellChangeTimes->{{3.396659422025453*^9, 3.396659423358131*^9}, {
+   3.396659482041964*^9, 3.3966594853447857`*^9}, 3.3967404802394953`*^9, 
+   3.39674175728205*^9, 3.396743290373221*^9}],
+
+Cell[CellGroupData[{
+
+Cell["Some Useful Standard Packages", "Subsection",
+ CellChangeTimes->{{3.396743327379668*^9, 3.396743333684825*^9}}],
+
+Cell["Physical Constants", "Subsubsection",
+ CellChangeTimes->{{3.3967433514477463`*^9, 3.3967433544467*^9}}],
+
+Cell["Units Conversions", "Subsubsection",
+ CellChangeTimes->{{3.39674337330443*^9, 3.39674337762494*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Calendar", "Subsubsection",
+ CellChangeTimes->{{3.396743396737915*^9, 3.396743399066783*^9}}],
+
+Cell["", "Text",
+ CellChangeTimes->{{3.396743416249496*^9, 3.39674341632812*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Algebra", "Subsection",
+ CellChangeTimes->{{3.3967434284964237`*^9, 3.396743430142023*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Short List of Basic Operations", "Subsubsection",
+ CellChangeTimes->{{3.396743441779447*^9, 3.396743447264646*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"?", "Together"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "Apart"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "Cancel"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "ExpandDenominator"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "ExpandNumerator"}]}], "Input",
+ CellChangeTimes->{{3.396743497803453*^9, 3.3967435457060633`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"?", "FactorInteger"}]], "Input",
+ CellChangeTimes->{{3.3967435609404697`*^9, 3.3967435696210413`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"?", "Factor"}]], "Input",
+ CellChangeTimes->{{3.396743586564897*^9, 3.396743587975047*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Finding the Roots of a Polynomial", "Subsection",
+ CellChangeTimes->{{3.396743606013328*^9, 3.3967436205127*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"?", "Solve"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "NSolve"}]}], "Input",
+ CellChangeTimes->{{3.396743626348464*^9, 3.39674363255757*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["The RootPlot Command", "Subsubsection",
+ CellChangeTimes->{{3.396743669797627*^9, 3.396743706504455*^9}}],
+
+Cell["", "Text",
+ CellChangeTimes->{{3.396743835761141*^9, 3.3967438357744017`*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Solving Systems of Simultaneous Equations", "Subsection",
+ CellChangeTimes->{{3.396743710852606*^9, 3.396743726100245*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Application to the Theory of One-dimensional Elastic Collisions\
+\>", "Subsubsubsection",
+ CellChangeTimes->{{3.396743775791198*^9, 3.3967437979613132`*^9}}],
+
+Cell["", "Text",
+ CellChangeTimes->{{3.396743842541584*^9, 3.396743842607312*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Trigonometry", "Subsection",
+ CellChangeTimes->{{3.3967438231005087`*^9, 3.3967438297483053`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"?", "TrigExpand"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "TrigFactor"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "TrigReduce"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "TrigToExp"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "ExpToTrig"}]}], "Input",
+ CellChangeTimes->{{3.395066034265338*^9, 3.395066116108564*^9}}],
+
+Cell["", "Text",
+ CellChangeTimes->{{3.396743875469063*^9, 3.396743875527452*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Matrices", "Subsection",
+ CellChangeTimes->{{3.3967438820303698`*^9, 3.3967438831930847`*^9}}],
+
+Cell["Creating Matrices", "Subsubsection",
+ CellChangeTimes->{{3.396743902250395*^9, 3.3967439230057*^9}}],
+
+Cell["Subscripts & Superscripts/Exponents", "Subsubsection",
+ CellChangeTimes->{{3.396743926198429*^9, 3.396743966641556*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Some Common Matrix Operations", "Subsubsection",
+ CellChangeTimes->{{3.396743978889822*^9, 3.39674398538704*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"?", "Trace"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "Det"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "Transpose"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "Inverse"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "Dimensions"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "MatrixPower"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "MatrixExp"}]}], "Input",
+ CellChangeTimes->{{3.3967439960154457`*^9, 3.3967441048662663`*^9}}],
+
+Cell["\<\
+Application of a Sort that Arises in Connection with the Solution of \
+Differential Equations\
+\>", "Subsubsubsection",
+ CellChangeTimes->{{3.396744156409927*^9, 3.396744182342132*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Characteristic Equation, Eigenvalues, Eigenvectors", "Subsubsection",
+ CellChangeTimes->{{3.396744209262527*^9, 3.396744227562392*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"?", "CharacteristicEquation"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "Eigenvalues"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "Eigenvectors"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "Eigensystem"}]}], "Input",
+ CellChangeTimes->{{3.396744255942775*^9, 3.396744280330628*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"?", "RandomReal"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "RandomComplex"}]}], "Input",
+ CellChangeTimes->{{3.396744297999653*^9, 3.396744306126315*^9}, {
+  3.396744340894292*^9, 3.396744348352541*^9}}],
+
+Cell["", "Text",
+ CellChangeTimes->{{3.39674437124905*^9, 3.39674437126302*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Differential & Integral Calculus", "Subsection",
+ CellChangeTimes->{{3.396744379556326*^9, 3.396744388411026*^9}}],
+
+Cell["Simple Indefinite/Definite Integrals", "Subsubsection",
+ CellChangeTimes->{{3.3967443976782084`*^9, 3.396744421150742*^9}, {
+  3.396744453494186*^9, 3.396744453566723*^9}}],
+
+Cell[TextData[{
+ "A Curious Quirk Regarding ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ "'s Use of the Word \"Assumptions\""
+}], "Subsubsection",
+ CellChangeTimes->{{3.396744454552204*^9, 3.396744503853887*^9}}],
+
+Cell["Functions Defined by Integrals", "Subsubsection",
+ CellChangeTimes->{{3.396744516818717*^9, 3.39674452486285*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Numerical Integration", "Subsubsection",
+ CellChangeTimes->{{3.39674453856555*^9, 3.396744542480071*^9}}],
+
+Cell["", "Text",
+ CellChangeTimes->{{3.396744563901862*^9, 3.3967445639775352`*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Ordinary & Partial Differentiation", "Subsection",
+ CellChangeTimes->{{3.396744571808732*^9, 3.396744579764196*^9}}],
+
+Cell["Ordinary Derivatives: Functions of a Single Variable", "Subsubsection",
+ CellChangeTimes->{{3.396744595574316*^9, 3.396744612401667*^9}}],
+
+Cell["Partial Derivatives: Functions of Several Variables", "Subsubsection",
+ CellChangeTimes->{{3.3967446305402107`*^9, 3.396744646402602*^9}, {
+  3.3967446765382223`*^9, 3.396744676640856*^9}}],
+
+Cell["Derivatives of Unspecified Functions", "Subsubsection",
+ CellChangeTimes->{{3.3967446788296623`*^9, 3.396744700994418*^9}}],
+
+Cell["Implicit Differentiation", "Subsubsection",
+ CellChangeTimes->{{3.396744701952276*^9, 3.396744722899124*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Maxima & Minima", "Subsubsection",
+ CellChangeTimes->{{3.396744723690987*^9, 3.3967447307463408`*^9}}],
+
+Cell["", "Text",
+ CellChangeTimes->{{3.396744745143498*^9, 3.39674474522363*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Limits & Series", "Subsection",
+ CellChangeTimes->{{3.396744753099442*^9, 3.396744756710231*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"?", "Limit"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "Series"}]}], "Input",
+ CellChangeTimes->{{3.396744766105075*^9, 3.39674477760363*^9}}],
+
+Cell["Evaluation of Limits", "Subsubsection",
+ CellChangeTimes->{{3.396744789932796*^9, 3.3967448138786373`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Construction and Summation of Power Series", "Subsubsection",
+ CellChangeTimes->{{3.396744815852272*^9, 3.396744823396598*^9}}],
+
+Cell["", "Text",
+ CellChangeTimes->{{3.396744900082355*^9, 3.3967449000974493`*^9}}],
+
+Cell["", "Text"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Laboratory 4",
+ FontColor->RGBColor[1, 0, 0]]], "Subtitle",
+ CellChangeTimes->{{3.396659422025453*^9, 3.396659423358131*^9}, {
+   3.396659482041964*^9, 3.3966594853447857`*^9}, 3.3967404802394953`*^9, 
+   3.39674175728205*^9, 3.396743290373221*^9, 3.396744906917848*^9}],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Obtaining/Displaying Solutions of Ordinary Differential Equations\
+\>", "Subsection",
+ CellChangeTimes->{{3.396777187724843*^9, 3.39677720376654*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"?", "DSolve"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "NDSolve"}]}], "Input",
+ CellChangeTimes->{{3.396777227231881*^9, 3.396777235037004*^9}}],
+
+Cell["Digression: Stan Wagopn's Extraction Trick", "Subsubsection",
+ CellChangeTimes->{{3.396777269097458*^9, 3.3967772829002123`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["The Slope Field Concept", "Subsubsection",
+ CellChangeTimes->{{3.396777316856361*^9, 3.396777322804343*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<VectorFieldPlots`\>\"", "]"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"?", "VectorFieldPlot"}]], "Input",
+ CellChangeTimes->{{3.395234649366414*^9, 3.395234654198838*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Harmonic Oscillator", "Subsubsection",
+ CellChangeTimes->{{3.3967773836919603`*^9, 3.396777390782634*^9}}],
+
+Cell["Graphic of Particle on a Spring", "Subsubsubsection",
+ CellChangeTimes->{{3.39677743045229*^9, 3.39677743913131*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Damped Harmonicv Oscillator", "Subsubsection",
+ CellChangeTimes->{{3.3967774765768843`*^9, 3.396777485291066*^9}}],
+
+Cell["Underdamped Display with Adjustable Damping Coefficient", \
+"Subsubsubsection",
+ CellChangeTimes->{{3.396777520933419*^9, 3.396777544077518*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Phase Space Methods", "Subsection",
+ CellChangeTimes->{{3.3967775732984047`*^9, 3.39677757851117*^9}}],
+
+Cell["Harmonically Forced Damped Oscillator", "Subsubsection",
+ CellChangeTimes->{{3.396777605473816*^9, 3.396777615302598*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Simple Pendulum", "Subsubsection",
+ CellChangeTimes->{{3.39677765442636*^9, 3.396777660025538*^9}}],
+
+Cell["Pendulum Graphic", "Subsubsubsection",
+ CellChangeTimes->{{3.396777679651586*^9, 3.396777694379292*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Damped Pendulum", "Subsubsection",
+ CellChangeTimes->{{3.396777742566546*^9, 3.396777745996749*^9}}],
+
+Cell["Animated Damped Pendulum Graphic", "Subsubsubsection",
+ CellChangeTimes->{{3.396777816291911*^9, 3.396777833538014*^9}}]
+}, Open  ]],
+
+Cell["Ballistics", "Subsubsection",
+ CellChangeTimes->{{3.39677784863276*^9, 3.3967778531291924`*^9}}],
+
+Cell["Planetary Motion", "Subsubsection",
+ CellChangeTimes->{{3.396777874398004*^9, 3.396777877266118*^9}}],
+
+Cell["Initial Conditions Replaced by Endpoint Conditions", "Subsubsection",
+ CellChangeTimes->{{3.396777900047308*^9, 3.396777915979682*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "An Unexplored Resource: ",
+ StyleBox["Equation Trekker",
+  FontSlant->"Italic"]
+}], "Subsubsection",
+ CellChangeTimes->{{3.39677793737921*^9, 3.396777962285294*^9}}],
+
+Cell["", "Text",
+ CellChangeTimes->{{3.3967779992645187`*^9, 3.396777999358568*^9}}],
+
+Cell["", "Text"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Laboratory 5",
+ FontColor->RGBColor[1, 0, 0]]], "Subtitle",
+ CellChangeTimes->{{3.396659422025453*^9, 3.396659423358131*^9}, {
+   3.396659482041964*^9, 3.3966594853447857`*^9}, 3.3967404802394953`*^9, 
+   3.39674175728205*^9, 3.396743290373221*^9, 3.396744906917848*^9, 
+   3.3967780093056183`*^9}],
+
+Cell[CellGroupData[{
+
+Cell["Partial Differential Equations", "Subsection",
+ CellChangeTimes->{{3.3967780453153*^9, 3.396778053153029*^9}}],
+
+Cell["Waves on a String", "Subsubsection",
+ CellChangeTimes->{{3.3967780828130608`*^9, 3.396778086185211*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Accommodating Prescribed Boundary Conditions: the Clamped String\
+\>", "Subsubsection",
+ CellChangeTimes->{{3.396778140569409*^9, 3.3967781569572353`*^9}}],
+
+Cell["Effect of Releasing a Clamp", "Subsubsubsection",
+ CellChangeTimes->{{3.396778199812635*^9, 3.39677822259838*^9}}],
+
+Cell["Gaussian Pulse on a Clamped String", "Subsubsubsection",
+ CellChangeTimes->{{3.39677822468804*^9, 3.396778234248447*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Solution by \"Separation of Variables\"", "Subsubsection",
+ CellChangeTimes->{{3.3967782619398203`*^9, 3.396778273602207*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Vibration of a Circular Drumhead", "Subsubsubsection",
+ CellChangeTimes->{{3.3967783052140427`*^9, 3.3967783130757113`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"?", "ArcTan"}]], "Input",
+ CellChangeTimes->{{3.396778359757889*^9, 3.396778362259535*^9}}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Curvilinear Coordinate Systems", "Subsection",
+ CellChangeTimes->{{3.396778403036148*^9, 3.396778415817142*^9}, 
+   3.39677846565975*^9}],
+
+Cell["To and From Various Coordinate Systems", "Subsubsection",
+ CellChangeTimes->{{3.396778430403726*^9, 3.396778440728384*^9}}],
+
+Cell["Evaluating the Jacobian", "Subsubsection",
+ CellChangeTimes->{{3.39677850498184*^9, 3.3967785099880047`*^9}}],
+
+Cell["Grad, Div, Curl & Laplacian", "Subsubsection",
+ CellChangeTimes->{{3.3967785299312897`*^9, 3.3967785432212152`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Total Derivatives, Total Differentials & Fractional Change", \
+"Subsection",
+ CellChangeTimes->{{3.396778564207406*^9, 3.3967785823022003`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Logarithmic Differentiation", "Subsubsection",
+ CellChangeTimes->{{3.396778601221129*^9, 3.396778607792927*^9}}],
+
+Cell["", "Text",
+ CellChangeTimes->{{3.3967786137858543`*^9, 3.396778613889193*^9}}],
+
+Cell["", "Text"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Laboratory 6",
+ FontColor->RGBColor[1, 0, 0]]], "Subtitle",
+ CellChangeTimes->{{3.396659422025453*^9, 3.396659423358131*^9}, {
+   3.396659482041964*^9, 3.3966594853447857`*^9}, 3.3967404802394953`*^9, 
+   3.39674175728205*^9, 3.396743290373221*^9, 3.396744906917848*^9, 
+   3.3967780093056183`*^9, 3.396778624839966*^9}],
+
+Cell[CellGroupData[{
+
+Cell["Recursive Processes", "Subsection",
+ CellChangeTimes->{{3.396778729467708*^9, 3.396778733178444*^9}}],
+
+Cell["Background", "Subsubsection",
+ CellChangeTimes->{{3.3967787425002193`*^9, 3.3967787447729692`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Basic Tools", "Subsubsection",
+ CellChangeTimes->{{3.396778759855248*^9, 3.396778768437858*^9}}],
+
+Cell[BoxData[
+ RowBox[{"?", "Nest"}]], "Input",
+ CellChangeTimes->{{3.396778779045032*^9, 3.396778779970633*^9}}]
+}, Open  ]],
+
+Cell["Wagon's Cobweb Plot", "Subsubsection",
+ CellChangeTimes->{{3.396778794550846*^9, 3.39677879960772*^9}}],
+
+Cell["Logistic Map: Bifurcation & the Onset of Chaos", "Subsubsection",
+ CellChangeTimes->{{3.396778843631098*^9, 3.396778858553339*^9}}],
+
+Cell["Wagon's Bifurcation Plot", "Subsubsection",
+ CellChangeTimes->{{3.396778893208956*^9, 3.396778900915097*^9}}],
+
+Cell["Comparison with Other Maps:  First Glimpse of Universality", \
+"Subsubsection",
+ CellChangeTimes->{{3.396778945809445*^9, 3.3967789867029123`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Coupled Nonlinear ODEs with Chaotic Solutions", "Subsection",
+ CellChangeTimes->{{3.396778992503646*^9, 3.396779011439712*^9}}],
+
+Cell["Rikitake;s Model of Geomagnetic Field Reversal", "Subsubsection",
+ CellChangeTimes->{{3.3967790238248367`*^9, 3.396779035040463*^9}}],
+
+Cell["Lorenz Model", "Subsubsection",
+ CellChangeTimes->{{3.396779058785041*^9, 3.396779059335514*^9}, {
+  3.3967791068128843`*^9, 3.396779110075624*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Fitting Curves to Data", "Subsection",
+ CellChangeTimes->{{3.396779129698429*^9, 3.3967791339325247`*^9}}],
+
+Cell["Importing Data", "Subsubsection",
+ CellChangeTimes->{{3.396779150935068*^9, 3.396779154333321*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Curve Fitting Techniques", "Subsubsection",
+ CellChangeTimes->{{3.3967791739151487`*^9, 3.3967791878147507`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"?", "Interpolation"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "Epilog"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "Map"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "Fit"}]}], "Input",
+ CellChangeTimes->{{3.396779215243622*^9, 3.396779252079747*^9}, {
+  3.396779319333788*^9, 3.3967793498954782`*^9}}]
+}, Open  ]],
+
+Cell["Fourier Analytic Curve Fitting", "Subsubsection",
+ CellChangeTimes->{{3.3967793686960278`*^9, 3.396779382895898*^9}}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowToolbars->"EditBar",
+WindowSize->{704, 710},
+WindowMargins->{{12, Automatic}, {22, Automatic}},
+ShowSelection->True,
+Magnification->1.25,
+FrontEndVersion->"6.0 for Mac OS X PowerPC (32-bit) (June 19, 2007)",
+StyleDefinitions->FrontEnd`FileName[{"Book"}, "Textbook.nb", 
+  CharacterEncoding -> "UTF-8"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[590, 23, 105, 1, 95, "Title"],
+Cell[CellGroupData[{
+Cell[720, 28, 102, 1, 45, "Author"],
+Cell[825, 31, 157, 3, 32, "Institution"]
+}, Open  ]],
+Cell[997, 37, 82, 1, 25, "Text"],
+Cell[1082, 40, 515, 16, 44, "Text"],
+Cell[CellGroupData[{
+Cell[1622, 60, 88, 1, 45, "Author"],
+Cell[1713, 63, 23, 0, 15, "Institution"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1773, 68, 200, 3, 57, "Subtitle"],
+Cell[1976, 73, 178, 6, 38, "Subsection"],
+Cell[CellGroupData[{
+Cell[2179, 83, 119, 1, 28, "Subsection"],
+Cell[2301, 86, 97, 1, 33, "Input"],
+Cell[2401, 89, 124, 1, 20, "Subsubsection"]
+}, Open  ]],
+Cell[2540, 93, 99, 1, 38, "Subsection"],
+Cell[CellGroupData[{
+Cell[2664, 98, 111, 1, 28, "Subsection"],
+Cell[2778, 101, 99, 1, 20, "Subsubsection"],
+Cell[2880, 104, 173, 5, 20, "Subsubsection"],
+Cell[3056, 111, 165, 3, 20, "Subsubsection"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3258, 119, 107, 1, 38, "Subsection"],
+Cell[3368, 122, 103, 1, 20, "Subsubsection"],
+Cell[3474, 125, 134, 1, 20, "Subsubsection"],
+Cell[3611, 128, 125, 1, 20, "Subsubsection"],
+Cell[3739, 131, 107, 1, 20, "Subsubsection"],
+Cell[3849, 134, 137, 1, 20, "Subsubsection"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4023, 140, 93, 1, 38, "Subsection"],
+Cell[4119, 143, 130, 1, 20, "Subsubsection"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4286, 149, 110, 1, 38, "Subsection"],
+Cell[CellGroupData[{
+Cell[4421, 154, 109, 1, 20, "Subsubsection"],
+Cell[4533, 157, 101, 1, 33, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4671, 163, 158, 2, 20, "Subsubsection"],
+Cell[4832, 167, 62, 1, 33, "Input"],
+Cell[4897, 170, 223, 5, 53, "Input"]
+}, Open  ]],
+Cell[5135, 178, 124, 1, 20, "Subsubsection"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5296, 184, 104, 1, 38, "Subsection"],
+Cell[5403, 187, 127, 2, 33, "Input"],
+Cell[5533, 191, 82, 1, 25, "Text"],
+Cell[5618, 194, 16, 0, 25, "Text"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5683, 200, 225, 3, 57, "Subtitle"],
+Cell[CellGroupData[{
+Cell[5933, 207, 139, 2, 42, "Subsection"],
+Cell[6075, 211, 108, 1, 20, "Subsubsection"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6220, 217, 121, 1, 38, "Subsection"],
+Cell[6344, 220, 528, 10, 148, "Input"],
+Cell[6875, 232, 90, 3, 33, "Input"]
+}, Open  ]],
+Cell[6980, 238, 100, 1, 38, "Subsection"],
+Cell[7083, 241, 101, 1, 28, "Subsection"],
+Cell[CellGroupData[{
+Cell[7209, 246, 100, 1, 28, "Subsection"],
+Cell[7312, 249, 275, 5, 72, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7624, 259, 104, 1, 38, "Subsection"],
+Cell[7731, 262, 82, 1, 25, "Text"],
+Cell[7816, 265, 16, 0, 25, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7869, 270, 111, 1, 38, "Subsection"],
+Cell[7983, 273, 218, 4, 53, "Input"],
+Cell[8204, 279, 109, 1, 20, "Subsubsection"],
+Cell[8316, 282, 100, 1, 20, "Subsubsection"],
+Cell[CellGroupData[{
+Cell[8441, 287, 108, 1, 20, "Subsubsection"],
+Cell[8552, 290, 82, 1, 25, "Text"],
+Cell[8637, 293, 16, 0, 25, "Text"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8702, 299, 117, 1, 38, "Subsection"],
+Cell[8822, 302, 104, 1, 20, "Subsubsection"],
+Cell[CellGroupData[{
+Cell[8951, 307, 106, 1, 20, "Subsubsection"],
+Cell[9060, 310, 82, 1, 25, "Text"],
+Cell[9145, 313, 82, 1, 25, "Text"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9288, 321, 250, 4, 57, "Subtitle"],
+Cell[9541, 327, 127, 2, 44, "Subsection"],
+Cell[CellGroupData[{
+Cell[9693, 333, 137, 2, 28, "Subsection"],
+Cell[CellGroupData[{
+Cell[9855, 339, 108, 1, 20, "Subsubsection"],
+Cell[9966, 342, 118, 2, 33, "Input"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10133, 350, 179, 2, 38, "Subsection"],
+Cell[10315, 354, 162, 3, 53, "Input"],
+Cell[10480, 359, 82, 1, 33, "Input"],
+Cell[10565, 362, 124, 2, 33, "Input"],
+Cell[10692, 366, 192, 3, 53, "Input"]
+}, Open  ]],
+Cell[10899, 372, 99, 1, 38, "Subsection"],
+Cell[CellGroupData[{
+Cell[11023, 377, 103, 1, 28, "Subsection"],
+Cell[11129, 380, 177, 3, 53, "Input"],
+Cell[11309, 385, 86, 1, 25, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11432, 391, 106, 1, 38, "Subsection"],
+Cell[11541, 394, 82, 1, 25, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11660, 400, 102, 1, 38, "Subsection"],
+Cell[11765, 403, 101, 1, 20, "Subsubsection"],
+Cell[CellGroupData[{
+Cell[11891, 408, 100, 1, 20, "Subsubsection"],
+Cell[11994, 411, 187, 2, 20, "Subsubsubsection"],
+Cell[12184, 415, 114, 1, 17, "Subsubsubsection"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12347, 422, 93, 1, 38, "Subsection"],
+Cell[12443, 425, 114, 2, 33, "Input"],
+Cell[CellGroupData[{
+Cell[12582, 431, 136, 1, 20, "Subsubsubsection"],
+Cell[12721, 434, 137, 2, 33, "Input"],
+Cell[12861, 438, 82, 1, 25, "Text"],
+Cell[12946, 441, 16, 0, 25, "Text"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13023, 448, 272, 4, 57, "Subtitle"],
+Cell[CellGroupData[{
+Cell[13320, 456, 117, 1, 38, "Subsection"],
+Cell[13440, 459, 109, 1, 20, "Subsubsection"],
+Cell[13552, 462, 106, 1, 20, "Subsubsection"],
+Cell[CellGroupData[{
+Cell[13683, 467, 99, 1, 20, "Subsubsection"],
+Cell[13785, 470, 81, 1, 25, "Text"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13915, 477, 97, 1, 38, "Subsection"],
+Cell[CellGroupData[{
+Cell[14037, 482, 121, 1, 20, "Subsubsection"],
+Cell[14161, 485, 340, 6, 110, "Input"],
+Cell[14504, 493, 126, 2, 33, "Input"],
+Cell[14633, 497, 115, 2, 33, "Input"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14797, 505, 119, 1, 38, "Subsection"],
+Cell[14919, 508, 165, 3, 53, "Input"],
+Cell[CellGroupData[{
+Cell[15109, 515, 111, 1, 20, "Subsubsection"],
+Cell[15223, 518, 84, 1, 25, "Text"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15356, 525, 129, 1, 38, "Subsection"],
+Cell[CellGroupData[{
+Cell[15510, 530, 167, 3, 20, "Subsubsubsection"],
+Cell[15680, 535, 82, 1, 25, "Text"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15811, 542, 104, 1, 38, "Subsection"],
+Cell[15918, 545, 335, 6, 110, "Input"],
+Cell[16256, 553, 82, 1, 25, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16375, 559, 100, 1, 38, "Subsection"],
+Cell[16478, 562, 106, 1, 20, "Subsubsection"],
+Cell[16587, 565, 126, 1, 20, "Subsubsection"],
+Cell[CellGroupData[{
+Cell[16738, 570, 119, 1, 20, "Subsubsection"],
+Cell[16860, 573, 433, 8, 148, "Input"],
+Cell[17296, 583, 195, 4, 20, "Subsubsubsection"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[17528, 592, 141, 1, 20, "Subsubsection"],
+Cell[17672, 595, 299, 5, 91, "Input"],
+Cell[17974, 602, 227, 4, 53, "Input"],
+Cell[18204, 608, 80, 1, 25, "Text"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[18333, 615, 120, 1, 38, "Subsection"],
+Cell[18456, 618, 178, 2, 20, "Subsubsection"],
+Cell[18637, 622, 220, 6, 20, "Subsubsection"],
+Cell[18860, 630, 120, 1, 20, "Subsubsection"],
+Cell[CellGroupData[{
+Cell[19005, 635, 111, 1, 20, "Subsubsection"],
+Cell[19119, 638, 84, 1, 25, "Text"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[19252, 645, 122, 1, 38, "Subsection"],
+Cell[19377, 648, 143, 1, 20, "Subsubsection"],
+Cell[19523, 651, 195, 2, 20, "Subsubsection"],
+Cell[19721, 655, 129, 1, 20, "Subsubsection"],
+Cell[19853, 658, 115, 1, 20, "Subsubsection"],
+Cell[CellGroupData[{
+Cell[19993, 663, 108, 1, 20, "Subsubsection"],
+Cell[20104, 666, 81, 1, 25, "Text"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20234, 673, 103, 1, 38, "Subsection"],
+Cell[20340, 676, 165, 3, 53, "Input"],
+Cell[20508, 681, 113, 1, 20, "Subsubsection"],
+Cell[CellGroupData[{
+Cell[20646, 686, 133, 1, 20, "Subsubsection"],
+Cell[20782, 689, 84, 1, 25, "Text"],
+Cell[20869, 692, 16, 0, 25, "Text"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20946, 699, 294, 4, 57, "Subtitle"],
+Cell[CellGroupData[{
+Cell[21265, 707, 160, 3, 38, "Subsection"],
+Cell[21428, 712, 168, 3, 53, "Input"],
+Cell[21599, 717, 135, 1, 20, "Subsubsection"],
+Cell[CellGroupData[{
+Cell[21759, 722, 114, 1, 20, "Subsubsection"],
+Cell[21876, 725, 82, 1, 33, "Input"],
+Cell[21961, 728, 124, 2, 33, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[22122, 735, 112, 1, 20, "Subsubsection"],
+Cell[22237, 738, 123, 1, 20, "Subsubsubsection"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[22397, 744, 120, 1, 20, "Subsubsection"],
+Cell[22520, 747, 151, 2, 20, "Subsubsubsection"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[22720, 755, 108, 1, 38, "Subsection"],
+Cell[22831, 758, 128, 1, 20, "Subsubsection"],
+Cell[CellGroupData[{
+Cell[22984, 763, 105, 1, 20, "Subsubsection"],
+Cell[23092, 766, 110, 1, 20, "Subsubsubsection"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[23239, 772, 106, 1, 20, "Subsubsection"],
+Cell[23348, 775, 126, 1, 20, "Subsubsubsection"]
+}, Open  ]],
+Cell[23489, 779, 102, 1, 20, "Subsubsection"],
+Cell[23594, 782, 107, 1, 20, "Subsubsection"],
+Cell[23704, 785, 141, 1, 20, "Subsubsection"],
+Cell[CellGroupData[{
+Cell[23870, 790, 183, 5, 20, "Subsubsection"],
+Cell[24056, 797, 84, 1, 25, "Text"],
+Cell[24143, 800, 16, 0, 25, "Text"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[24220, 807, 322, 5, 57, "Subtitle"],
+Cell[CellGroupData[{
+Cell[24567, 816, 116, 1, 38, "Subsection"],
+Cell[24686, 819, 110, 1, 20, "Subsubsection"],
+Cell[CellGroupData[{
+Cell[24821, 824, 165, 3, 20, "Subsubsection"],
+Cell[24989, 829, 120, 1, 20, "Subsubsubsection"],
+Cell[25112, 832, 127, 1, 17, "Subsubsubsection"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[25276, 838, 132, 1, 20, "Subsubsection"],
+Cell[CellGroupData[{
+Cell[25433, 843, 130, 1, 20, "Subsubsubsection"],
+Cell[25566, 846, 115, 2, 33, "Input"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[25742, 855, 143, 2, 38, "Subsection"],
+Cell[25888, 859, 129, 1, 20, "Subsubsection"],
+Cell[26020, 862, 115, 1, 20, "Subsubsection"],
+Cell[26138, 865, 122, 1, 20, "Subsubsection"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[26297, 871, 150, 2, 38, "Subsection"],
+Cell[CellGroupData[{
+Cell[26472, 877, 118, 1, 20, "Subsubsection"],
+Cell[26593, 880, 84, 1, 25, "Text"],
+Cell[26680, 883, 16, 0, 25, "Text"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[26757, 890, 344, 5, 57, "Subtitle"],
+Cell[CellGroupData[{
+Cell[27126, 899, 107, 1, 38, "Subsection"],
+Cell[27236, 902, 105, 1, 20, "Subsubsection"],
+Cell[CellGroupData[{
+Cell[27366, 907, 102, 1, 20, "Subsubsection"],
+Cell[27471, 910, 113, 2, 33, "Input"]
+}, Open  ]],
+Cell[27599, 915, 109, 1, 20, "Subsubsection"],
+Cell[27711, 918, 137, 1, 20, "Subsubsection"],
+Cell[27851, 921, 115, 1, 20, "Subsubsection"],
+Cell[27969, 924, 153, 2, 20, "Subsubsection"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[28159, 931, 133, 1, 38, "Subsection"],
+Cell[28295, 934, 139, 1, 20, "Subsubsection"],
+Cell[28437, 937, 154, 2, 20, "Subsubsection"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[28628, 944, 112, 1, 38, "Subsection"],
+Cell[28743, 947, 105, 1, 20, "Subsubsection"],
+Cell[CellGroupData[{
+Cell[28873, 952, 119, 1, 20, "Subsubsection"],
+Cell[28995, 955, 319, 6, 91, "Input"]
+}, Open  ]],
+Cell[29329, 964, 123, 1, 20, "Subsubsection"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

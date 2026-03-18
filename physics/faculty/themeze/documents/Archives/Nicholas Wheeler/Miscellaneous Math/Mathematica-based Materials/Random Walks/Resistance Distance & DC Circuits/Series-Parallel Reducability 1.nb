@@ -1,0 +1,593 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     20629,        584]
+NotebookOptionsPosition[     18866,        522]
+NotebookOutlinePosition[     19332,        540]
+CellTagsIndexPosition[     19289,        537]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"2", "-", "2"}]], "Input",
+ CellChangeTimes->{{3.530901287581616*^9, 3.530901287886014*^9}}],
+
+Cell[BoxData["0"], "Output",
+ CellChangeTimes->{3.530901293086891*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<GraphUtilities`\>\"", "]"}], ";"}]], "Input"],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input",
+ CellChangeTimes->{3.530901297008165*^9}],
+
+Cell[CellGroupData[{
+
+Cell["Series/Parallel Reducability", "Title",
+ CellChangeTimes->{{3.530901306495514*^9, 3.53090132558284*^9}}],
+
+Cell["\<\
+Nicholas Wheeler
+21 November 2011\
+\>", "Text",
+ CellChangeTimes->{{3.530901332206786*^9, 3.5309013419890137`*^9}},
+ FontSize->10],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input",
+ CellChangeTimes->{3.530904937782222*^9}],
+
+Cell[CellGroupData[{
+
+Cell["Introduction", "Subsection",
+ CellChangeTimes->{{3.530904943706977*^9, 3.5309049479994993`*^9}}],
+
+Cell[TextData[{
+ "My objective is to discover a criterion or algorithm by means of which one \
+can discover by inspection whether or not a given circuit yields to \
+series/paralled decomposition. I begin with no clear idea in \
+mind\[Ellipsis]with some simple exploratory doodles, informed only by the \
+hunch that the problem may be best approached by looking to patterns (if any) \
+that emerge when uses series/parallel constructions to ",
+ StyleBox["build up",
+  FontVariations->{"Underline"->True}],
+ " complex circuits; i.e., that assembly may be more informative than \
+disassembly. "
+}], "Text",
+ CellChangeTimes->{{3.530904968776658*^9, 3.5309053140820417`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"R", "[", 
+   RowBox[{"x_", ",", "y_"}], "]"}], ":=", 
+  RowBox[{"x", "\[Rule]", "y"}]}]], "Input",
+ CellChangeTimes->{{3.530901493378373*^9, 3.530901514142174*^9}}],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input",
+ CellChangeTimes->{3.530903130085807*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Exploratory doodles", "Subsection",
+ CellChangeTimes->{{3.530905358327248*^9, 3.53090536247832*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"g", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"R", "[", 
+      RowBox[{"1", ",", "2"}], "]"}], ",", 
+     RowBox[{"R", "[", 
+      RowBox[{"2", ",", "3"}], "]"}], ",", 
+     RowBox[{"R", "[", 
+      RowBox[{"3", ",", "4"}], "]"}], ",", 
+     RowBox[{"R", "[", 
+      RowBox[{"3", ",", "4"}], "]"}], ",", 
+     RowBox[{"R", "[", 
+      RowBox[{"4", ",", "5"}], "]"}], ",", 
+     RowBox[{"R", "[", 
+      RowBox[{"2", ",", "5"}], "]"}], ",", 
+     RowBox[{"R", "[", 
+      RowBox[{"5", ",", "6"}], "]"}]}], "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.53090313648517*^9, 3.5309031541426983`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GraphPlot", "[", 
+  RowBox[{"g", ",", 
+   RowBox[{"VertexLabeling", "\[Rule]", "True"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.530903183499125*^9, 3.5309031947586813`*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[
+  TagBox[GraphicsComplexBox[CompressedData["
+1:eJxdz2tIUwEcBfCrZmslsoioWZiGlOTKIg0F48wFRqOQBo5IkWmamabMxxIp
+02raItISEctMWvYgX1NTfE8WapqmkpnmY2XhzVd7de/1Tka3r/3h8P9wPhx+
+stRY73iCIJy57Pv3xbwUuYepx4ik4SHT1A1CTIQ4qSx3GmBMKJErdu2G4/Tb
+qLygbNAKqWGyuRom5bWltchF0FH7zK8ynLHcXcfWqrfBGGOq0yV+If47rM/l
+Zj/xrwK9QVOsWXiB9etSL2mMD6iV2nzlo16se8iVW8iXoKbC+pNT/8De/C6t
+6dheUAPnUlbvFsIua4xquSUC1UlmlZClYFcl92Pjs0A1sYNlai1YzQO1y/wl
+UHUPA4oudoH16R5z9+KDqqmPLzIDtrJp5UTfKKjqTVfntTGwBfLr2Whur6aW
+Z1fHwToSkROs0YJqmEonzofBmjSX7Cq6Dar9nrDV4yCsvN412TchqD69RHGy
+ApbnfgVdnoOgJtKFOQ0iWEJFZ3Uls6AWnzZ6aiZhniUV5Z/8QTuJ3eSxPZz/
+1MKMPhB0+5HXfn2rnN+V6nfkgx4dc75QOc75N+o7MstA/3CUu2Td5PxJ4fsb
+paBtunTveQHnl01nJhjBED8fvxfkgV2ZHgjdrAfDL5XkjVzm/L6luYEdYNwN
+NflVUs4f8fnZh2IwgsTjFQVnOH+aKjkjkut7ws3BqbAFVBpU9XYwbnO5ZoMZ
+1o+/23YeWgLDU/0iq/icP2fJsDUItEMTsizZwfmvjPdGh4K2CMOKK/fAov06
+kfKmE/T3Ayvb21phEZO+h4+KQQ8b/AWFJOfXDc3EdYNuIb2ZE7y/c3FBYA==
+
+    "], {
+     {RGBColor[0.5, 0., 0.], 
+      LineBox[{{1, 2}, {2, 3}, {2, 5}, {3, 7, 8, 9, 10, 11, 12, 13, 14, 15, 
+        16, 17, 18, 19, 20, 21, 22, 4}, {3, 23, 24, 25, 26, 27, 28, 29, 30, 
+        31, 32, 33, 34, 35, 36, 37, 38, 4}, {4, 5}, {5, 6}}]}, {InsetBox[
+       FrameBox["1",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 1], InsetBox[
+       FrameBox["2",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 2], InsetBox[
+       FrameBox["3",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 3], InsetBox[
+       FrameBox["4",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 4], InsetBox[
+       FrameBox["5",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 5], InsetBox[
+       FrameBox["6",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 6]}}],
+   Annotation[#, 
+    VertexCoordinateRules -> {{2.9288751702044777`, 0.003394510486785296}, {
+     2.0292996685758107`, 0.5126444518108175}, {1.8937276471583844`, 
+     1.4610088014991716`}, {1.0277070253121061`, 1.4599980773703014`}, {
+     0.8983993431212717, 0.5119555884842226}, {0., 0.}}]& ],
+  AspectRatio->Automatic,
+  FrameTicks->None,
+  PlotRange->All,
+  PlotRangePadding->Scaled[0.1]]], "Output",
+ CellChangeTimes->{{3.530903174489664*^9, 3.530903198711845*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AdjacencyMatrix", "[", "g", "]"}], "//", "MatrixForm"}]], "Input"],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"0", "1", "0", "0", "0", "0"},
+     {"0", "0", "1", "0", "1", "0"},
+     {"0", "0", "0", "2", "0", "0"},
+     {"0", "0", "0", "0", "1", "0"},
+     {"0", "0", "0", "0", "0", "1"},
+     {"0", "0", "0", "0", "0", "0"}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[
+   SparseArray[
+    Automatic, {6, 6}, 0, {
+     1, {{0, 1, 3, 4, 5, 6, 6}, {{2}, {3}, {5}, {4}, {5}, {6}}}, {1, 1, 1, 2, 
+      1, 1}}]]]]], "Output",
+ CellChangeTimes->{3.530903235313809*^9}]
+}, Open  ]],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input",
+ CellChangeTimes->{3.530905389664591*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Wheat", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"R", "[", 
+      RowBox[{"1", ",", "2"}], "]"}], ",", 
+     RowBox[{"R", "[", 
+      RowBox[{"2", ",", "3"}], "]"}], ",", 
+     RowBox[{"R", "[", 
+      RowBox[{"2", ",", "4"}], "]"}], ",", 
+     RowBox[{"R", "[", 
+      RowBox[{"3", ",", "5"}], "]"}], ",", 
+     RowBox[{"R", "[", 
+      RowBox[{"4", ",", "5"}], "]"}], ",", 
+     RowBox[{"R", "[", 
+      RowBox[{"5", ",", "6"}], "]"}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"GraphPlot", "[", 
+  RowBox[{"Wheat", ",", 
+   RowBox[{"VertexLabeling", "\[Rule]", "True"}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"AdjacencyMatrix", "[", "Wheat", "]"}], "//", 
+  "MatrixForm"}]}], "Input",
+ CellChangeTimes->{{3.5309034300592318`*^9, 3.530903498677884*^9}, 
+   3.530903560621332*^9, {3.530903621665257*^9, 3.5309036222620983`*^9}, {
+   3.5309037240208607`*^9, 3.530903724506913*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[
+  TagBox[GraphicsComplexBox[{{3.794971753260273, 0.4582298260829617}, {
+    2.7744892757587842`, 0.4584375107667676}, {1.8973241503365454`, 0.}, {
+    1.8970347683293896`, 0.9162373119504077}, {1.0196654716188411`, 
+    0.45807049730623345`}, {0., 0.4583296852679417}}, {
+     {RGBColor[0.5, 0., 0.], 
+      LineBox[{{1, 2}, {2, 3}, {2, 4}, {3, 5}, {4, 5}, {5, 6}}]}, {InsetBox[
+       FrameBox["1",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 1], InsetBox[
+       FrameBox["2",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 2], InsetBox[
+       FrameBox["3",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 3], InsetBox[
+       FrameBox["4",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 4], InsetBox[
+       FrameBox["5",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 5], InsetBox[
+       FrameBox["6",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 6]}}],
+   Annotation[#, 
+    VertexCoordinateRules -> {{3.794971753260273, 0.4582298260829617}, {
+     2.7744892757587842`, 0.4584375107667676}, {1.8973241503365454`, 0.}, {
+     1.8970347683293896`, 0.9162373119504077}, {1.0196654716188411`, 
+     0.45807049730623345`}, {0., 0.4583296852679417}}]& ],
+  AspectRatio->Automatic,
+  FrameTicks->None,
+  PlotRange->All,
+  PlotRangePadding->Scaled[0.1]]], "Output",
+ CellChangeTimes->{3.5309036279771*^9, 3.5309037423997602`*^9}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"0", "1", "0", "0", "0", "0"},
+     {"0", "0", "1", "1", "0", "0"},
+     {"0", "0", "0", "0", "1", "0"},
+     {"0", "0", "0", "0", "1", "0"},
+     {"0", "0", "0", "0", "0", "1"},
+     {"0", "0", "0", "0", "0", "0"}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[
+   SparseArray[
+    Automatic, {6, 6}, 0, {
+     1, {{0, 1, 3, 4, 5, 6, 6}, {{2}, {3}, {4}, {5}, {5}, {6}}}, {1, 1, 1, 1, 
+      1, 1}}]]]]], "Output",
+ CellChangeTimes->{3.5309036279771*^9, 3.530903742415524*^9}]
+}, Open  ]],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input",
+ CellChangeTimes->{3.530905402646842*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Wheatstone", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"R", "[", 
+      RowBox[{"1", ",", "2"}], "]"}], ",", 
+     RowBox[{"R", "[", 
+      RowBox[{"2", ",", "3"}], "]"}], ",", 
+     RowBox[{"R", "[", 
+      RowBox[{"2", ",", "4"}], "]"}], ",", 
+     RowBox[{"R", "[", 
+      RowBox[{"3", ",", "4"}], "]"}], ",", 
+     RowBox[{"R", "[", 
+      RowBox[{"3", ",", "5"}], "]"}], ",", 
+     RowBox[{"R", "[", 
+      RowBox[{"4", ",", "5"}], "]"}], ",", 
+     RowBox[{"R", "[", 
+      RowBox[{"5", ",", "6"}], "]"}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"GraphPlot", "[", 
+  RowBox[{"Wheatstone", ",", 
+   RowBox[{"VertexLabeling", "\[Rule]", "True"}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"AdjacencyMatrix", "[", "Wheatstone", "]"}], "//", 
+  "MatrixForm"}]}], "Input",
+ CellChangeTimes->{{3.530903649798917*^9, 3.5309036867001133`*^9}, {
+  3.530903734569872*^9, 3.5309037358903513`*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[
+  TagBox[GraphicsComplexBox[{{4.11342531486542, 0.32702141489029796`}, {
+    3.034168405625565, 0.3262205484834069}, {2.0580632118162314`, 0.}, {
+    2.0577688728810415`, 0.652806821733374}, {1.0813085019162119`, 
+    0.3264881297635973}, {0., 0.3268472707844651}}, {
+     {RGBColor[0.5, 0., 0.], 
+      LineBox[{{1, 2}, {2, 3}, {2, 4}, {3, 4}, {3, 5}, {4, 5}, {5, 6}}]}, {
+      InsetBox[
+       FrameBox["1",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 1], InsetBox[
+       FrameBox["2",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 2], InsetBox[
+       FrameBox["3",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 3], InsetBox[
+       FrameBox["4",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 4], InsetBox[
+       FrameBox["5",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 5], InsetBox[
+       FrameBox["6",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 6]}}],
+   Annotation[#, 
+    VertexCoordinateRules -> {{4.11342531486542, 0.32702141489029796`}, {
+     3.034168405625565, 0.3262205484834069}, {2.0580632118162314`, 0.}, {
+     2.0577688728810415`, 0.652806821733374}, {1.0813085019162119`, 
+     0.3264881297635973}, {0., 0.3268472707844651}}]& ],
+  AspectRatio->Automatic,
+  FrameTicks->None,
+  PlotRange->All,
+  PlotRangePadding->Scaled[0.1]]], "Output",
+ CellChangeTimes->{3.530903691672546*^9, 3.5309037486794558`*^9}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"0", "1", "0", "0", "0", "0"},
+     {"0", "0", "1", "1", "0", "0"},
+     {"0", "0", "0", "1", "1", "0"},
+     {"0", "0", "0", "0", "1", "0"},
+     {"0", "0", "0", "0", "0", "1"},
+     {"0", "0", "0", "0", "0", "0"}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[
+   SparseArray[
+    Automatic, {6, 6}, 0, {
+     1, {{0, 1, 3, 5, 6, 7, 7}, {{2}, {3}, {4}, {4}, {5}, {5}, {6}}}, {1, 1, 
+      1, 1, 1, 1, 1}}]]]]], "Output",
+ CellChangeTimes->{3.530903691672546*^9, 3.530903748722777*^9}]
+}, Open  ]],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input",
+ CellChangeTimes->{3.530905415979393*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"\[DoubleStruckCapitalM]", "=", 
+   RowBox[{"(", "\[NoBreak]", GridBox[{
+      {"0", "1", "0", "0", "0", "0", "0", "0"},
+      {"0", "0", "1", "1", "0", "0", "0", "0"},
+      {"0", "0", "0", "0", "1", "0", "0", "0"},
+      {"0", "0", "0", "0", "1", "1", "0", "0"},
+      {"0", "0", "0", "0", "0", "0", "1", "0"},
+      {"0", "0", "0", "0", "0", "0", "1", "0"},
+      {"0", "0", "0", "0", "0", "0", "0", "1"},
+      {"0", "0", "0", "0", "0", "0", "0", "0"}
+     },
+     GridBoxAlignment->{
+      "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}},
+        "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.7]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.530904702759371*^9, 3.5309047125889807`*^9}, {
+  3.5309047786397142`*^9, 3.530904801821306*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GraphPlot", "[", 
+  RowBox[{"\[DoubleStruckCapitalM]", ",", 
+   RowBox[{"VertexLabeling", "\[Rule]", "True"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.530904130772345*^9, 3.5309041510344257`*^9}, {
+   3.530904322775897*^9, 3.530904337112796*^9}, 3.530904372626995*^9, {
+   3.530904403799947*^9, 3.530904407020583*^9}, {3.530904451492915*^9, 
+   3.530904474313035*^9}, 3.530904524188092*^9, {3.530904723421365*^9, 
+   3.5309047361678867`*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[
+  TagBox[GraphicsComplexBox[{{4.70411613122846, 0.7417040455252886}, {
+    3.697173110647986, 0.6418148590188649}, {3.0476156728765122`, 0.}, {
+    2.630680241773029, 0.9502158720527679}, {2.0717128877350475`, 
+    0.27993110142613664`}, {1.6546821216209362`, 1.230084639231341}, {
+    1.005591656994027, 0.5880009863532353}, {0., 0.48790184601517433`}}, {
+     {RGBColor[0.5, 0., 0.], 
+      LineBox[{{1, 2}, {2, 3}, {2, 4}, {3, 5}, {4, 5}, {4, 6}, {5, 7}, {6, 
+       7}, {7, 8}}]}, {InsetBox[
+       FrameBox["1",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 1], InsetBox[
+       FrameBox["2",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 2], InsetBox[
+       FrameBox["3",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 3], InsetBox[
+       FrameBox["4",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 4], InsetBox[
+       FrameBox["5",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 5], InsetBox[
+       FrameBox["6",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 6], InsetBox[
+       FrameBox["7",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 7], InsetBox[
+       FrameBox["8",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 8]}}],
+   Annotation[#, 
+    VertexCoordinateRules -> {{4.70411613122846, 0.7417040455252886}, {
+     3.697173110647986, 0.6418148590188649}, {3.0476156728765122`, 0.}, {
+     2.630680241773029, 0.9502158720527679}, {2.0717128877350475`, 
+     0.27993110142613664`}, {1.6546821216209362`, 1.230084639231341}, {
+     1.005591656994027, 0.5880009863532353}, {0., 0.48790184601517433`}}]& ],
+  AspectRatio->Automatic,
+  FrameTicks->None,
+  PlotRange->All,
+  PlotRangePadding->Scaled[0.1]]], "Output",
+ CellChangeTimes->{3.5309044757130537`*^9, 3.530904526781391*^9, 
+  3.530904737603219*^9, 3.530904823346856*^9}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{881, 812},
+WindowMargins->{{169, Automatic}, {110, Automatic}},
+ShowSelection->True,
+Magnification:>FEPrivate`If[
+  FEPrivate`Equal[FEPrivate`$VersionNumber, 6.], 1.5, 1.5 Inherited],
+FrontEndVersion->"7.0 for Mac OS X PowerPC (32-bit) (November 11, 2008)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[567, 22, 115, 2, 40, "Input"],
+Cell[685, 26, 70, 1, 40, "Output"]
+}, Open  ]],
+Cell[770, 30, 98, 2, 40, "Input"],
+Cell[871, 34, 87, 1, 64, "Input"],
+Cell[CellGroupData[{
+Cell[983, 39, 110, 1, 114, "Title"],
+Cell[1096, 42, 140, 5, 56, "Text"],
+Cell[1239, 49, 87, 1, 64, "Input"],
+Cell[CellGroupData[{
+Cell[1351, 54, 102, 1, 51, "Subsection"],
+Cell[1456, 57, 670, 12, 152, "Text"],
+Cell[2129, 71, 199, 5, 42, "Input"],
+Cell[2331, 78, 87, 1, 64, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2455, 84, 106, 1, 51, "Subsection"],
+Cell[2564, 87, 639, 19, 40, "Input"],
+Cell[CellGroupData[{
+Cell[3228, 110, 199, 4, 40, "Input"],
+Cell[3430, 116, 2588, 56, 300, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6055, 177, 101, 2, 40, "Input"],
+Cell[6159, 181, 942, 26, 172, "Output"]
+}, Open  ]],
+Cell[7116, 210, 87, 1, 64, "Input"],
+Cell[CellGroupData[{
+Cell[7228, 215, 952, 26, 87, "Input"],
+Cell[8183, 243, 1792, 41, 159, "Output"],
+Cell[9978, 286, 962, 26, 172, "Output"]
+}, Open  ]],
+Cell[10955, 315, 87, 1, 64, "Input"],
+Cell[CellGroupData[{
+Cell[11067, 320, 960, 27, 110, "Input"],
+Cell[12030, 349, 1801, 42, 123, "Output"],
+Cell[13834, 393, 972, 26, 172, "Output"]
+}, Open  ]],
+Cell[14821, 422, 87, 1, 64, "Input"],
+Cell[14911, 425, 1068, 25, 202, "Input"],
+Cell[CellGroupData[{
+Cell[16004, 454, 467, 8, 40, "Input"],
+Cell[16474, 464, 2352, 53, 168, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

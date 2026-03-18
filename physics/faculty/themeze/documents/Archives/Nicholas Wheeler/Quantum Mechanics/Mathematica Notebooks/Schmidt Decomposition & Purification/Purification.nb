@@ -1,0 +1,1274 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     41569,       1265]
+NotebookOptionsPosition[     37732,       1143]
+NotebookOutlinePosition[     38200,       1161]
+CellTagsIndexPosition[     38157,       1158]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"2", "-", "2"}]], "Input",
+ CellChangeTimes->{{3.569621549572345*^9, 3.569621550307745*^9}}],
+
+Cell[BoxData["0"], "Output",
+ CellChangeTimes->{3.569621558182762*^9}]
+}, Open  ]],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"adj", "[", "x_", "]"}], ":=", 
+  RowBox[{"Conjugate", "[", 
+   RowBox[{"Transpose", "[", "x", "]"}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"InnerProd", "[", 
+   RowBox[{"x_", ",", "y_"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"adj", "[", "x", "]"}], ".", "y"}], ")"}], 
+    "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+   "\[LeftDoubleBracket]", "1", 
+   "\[RightDoubleBracket]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"p_", "\[CircleTimes]", "q_"}], ":=", 
+  RowBox[{"KroneckerProduct", "[", 
+   RowBox[{"p", ",", "q"}], "]"}]}]}], "Input",
+ CellChangeTimes->{{3.5696247428649073`*^9, 3.569624763780587*^9}, {
+  3.569638633580645*^9, 3.569638687323573*^9}, {3.5696387273440742`*^9, 
+  3.5696387291688747`*^9}, {3.569640939558605*^9, 3.5696409873647203`*^9}}],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input",
+ CellChangeTimes->{3.5696215614418707`*^9}],
+
+Cell[CellGroupData[{
+
+Cell["Purification of Quantum Mixtures", "Title",
+ CellChangeTimes->{{3.569621577178207*^9, 3.56962158316331*^9}, {
+  3.569622601751918*^9, 3.569622612447164*^9}}],
+
+Cell["\<\
+Nicholas Wheeler
+11 February 2013\
+\>", "Text",
+ CellChangeTimes->{{3.569621588929628*^9, 3.56962160446894*^9}},
+ FontSize->10],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.569621615185741*^9, 3.569621615473297*^9}}],
+
+Cell[TextData[{
+ "NOTE: This is an updated revision of a notebook written (in ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " v5) in October 2006. "
+}], "Text",
+ CellChangeTimes->{{3.569621621389977*^9, 3.569621655736828*^9}, {
+  3.569621700568733*^9, 3.569621719583272*^9}, {3.569621842109528*^9, 
+  3.569621870624732*^9}, {3.569623797448904*^9, 3.569623799776614*^9}}],
+
+Cell[TextData[{
+ "\"Purification\" is a concept developed and employed in all quantum \
+information texts (see, for example, Michael Nielsen & Isaac Chang, ",
+ StyleBox["Quantum Computation & Quantum Information",
+  FontSlant->"Italic"],
+ " (2000), page 110; Teiko Heinosaari & Mario Ziman, ",
+ StyleBox["The Mathematical Language of Quantum Theory: From Uncertainty to \
+Entanglement",
+  FontSlant->"Italic"],
+ " (2012), \[Section]2.4.2; Maximilian Schlosshauer, ",
+ StyleBox["Decoherence & the Quantum-to-Classical Transition",
+  FontSlant->"Italic"],
+ " (2008), \[Section]2.15.3; Stephen Barnett, ",
+ StyleBox["Quantum Information",
+  FontSlant->"Italic"],
+ " (2009), Appendix Q). Useful because of exceptionally clear brevity is the \
+account provided in"
+}], "Text",
+ CellChangeTimes->{{3.569622664042412*^9, 3.569622701261457*^9}, {
+  3.569622846964801*^9, 3.569622934027856*^9}, {3.5696230050588217`*^9, 
+  3.569623174800769*^9}, {3.569623241734804*^9, 3.5696233497317123`*^9}, {
+  3.56962350027518*^9, 3.5696235694140377`*^9}, {3.569623605961831*^9, 
+  3.569623705982669*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{
+  "\"\<Purification\>\"", ",", 
+   "\"\<ttp://en.wikipedia.org/wiki/Purification_of_quantum_state\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.569623709923629*^9, 3.569623752283331*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{False->"\<\"Purification\"\>", True->
+    StyleBox["\<\"Purification\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    BaselinePosition->Baseline,
+    FrameMargins->0,
+    ImageSize->Automatic],
+   BaseStyle->"Hyperlink",
+   ButtonData->{
+     URL["ttp://en.wikipedia.org/wiki/Purification_of_quantum_state"], None},
+   ButtonNote->"ttp://en.wikipedia.org/wiki/Purification_of_quantum_state"],
+  Annotation[#, "ttp://en.wikipedia.org/wiki/Purification_of_quantum_state", 
+   "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{3.5696237609277363`*^9}]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.569623770271082*^9, 3.5696237713845987`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["The basic idea", "Subsection",
+ CellChangeTimes->{{3.569623947462509*^9, 3.569623950835786*^9}}],
+
+Cell[TextData[{
+ "Let the n\[Cross]n density matrix \[Rho] describe a mixture of quantum \
+states that live in ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[ScriptCapitalH]", "n"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ". I construct, by two different methods, examples of such a density matrix, \
+on the presumption that n = 3:\n\n\n",
+ StyleBox["FIRST METHOD",
+  FontWeight->"Bold"],
+ " (see \"Schmidt Decomposition\"): "
+}], "Text",
+ CellChangeTimes->{{3.569624346636939*^9, 3.569624524005753*^9}, {
+   3.569624609806211*^9, 3.569624631541898*^9}, 3.5696253532255173`*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Table", "[", 
+   RowBox[{
+    RowBox[{
+     SubscriptBox["x", "k"], "=", 
+     RowBox[{"RandomComplex", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"-", "1"}], "-", "\[ImaginaryI]"}], ",", 
+         RowBox[{"1", "+", "\[ImaginaryI]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"3", ",", "1"}], "}"}]}], "]"}]}], ",", 
+    RowBox[{"{", 
+     RowBox[{"k", ",", "1", ",", "5"}], "}"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Table", "[", 
+   RowBox[{
+    RowBox[{
+     SubscriptBox["\[Xi]", "k"], "=", 
+     RowBox[{
+      SubscriptBox["x", "k"], "/", 
+      RowBox[{"Norm", "[", 
+       SubscriptBox["x", "k"], "]"}]}]}], ",", 
+    RowBox[{"{", 
+     RowBox[{"k", ",", "1", ",", "5"}], "}"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ProbListX", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      SubscriptBox["xp", "k"], "=", 
+      RowBox[{"RandomReal", "[", 
+       RowBox[{"{", "}"}], "]"}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"k", ",", "1", ",", "5"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Table", "[", 
+   RowBox[{
+    RowBox[{
+     SubscriptBox["px", "k"], "=", 
+     RowBox[{
+      SubscriptBox["xp", "k"], "/", 
+      RowBox[{"Total", "[", "ProbListX", "]"}]}]}], ",", 
+    RowBox[{"{", 
+     RowBox[{"k", ",", "1", ",", "5"}], "}"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   SubscriptBox["\[Rho]", "1"], "=", 
+   RowBox[{"Chop", "[", 
+    RowBox[{"Sum", "[", 
+     RowBox[{
+      RowBox[{
+       SubscriptBox["px", "k"], 
+       RowBox[{
+        SubscriptBox["\[Xi]", "k"], ".", 
+        RowBox[{"adj", "[", 
+         SubscriptBox["\[Xi]", "k"], "]"}]}]}], ",", 
+      RowBox[{"{", 
+       RowBox[{"k", ",", "1", ",", "5"}], "}"}]}], "]"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  SubscriptBox["\[Rho]", "1"], "//", "MatrixForm"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Eigenvalues", "[", 
+   SubscriptBox["\[Rho]", "1"], "]"}], "//", 
+  "Chop"}], "\[IndentingNewLine]", 
+ RowBox[{"Tr", "[", 
+  SubscriptBox["\[Rho]", "1"], "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Tr", "[", 
+   RowBox[{
+    SubscriptBox["\[Rho]", "1"], ".", 
+    SubscriptBox["\[Rho]", "1"]}], "]"}], "//", "Chop"}]}], "Input",
+ CellChangeTimes->{{3.569606222933227*^9, 3.569606345972929*^9}, {
+  3.569624660058874*^9, 3.5696247033645153`*^9}, {3.569625286645805*^9, 
+  3.569625306861739*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"0.4028256667114346`", 
+      RowBox[{"0.12601083858237452`", "\[InvisibleSpace]", "+", 
+       RowBox[{"0.11266865762880653`", " ", "\[ImaginaryI]"}]}], 
+      RowBox[{"0.16241328363719704`", "\[InvisibleSpace]", "+", 
+       RowBox[{"0.1469214142322738`", " ", "\[ImaginaryI]"}]}]},
+     {
+      RowBox[{"0.12601083858237452`", "\[InvisibleSpace]", "-", 
+       RowBox[{"0.11266865762880653`", " ", "\[ImaginaryI]"}]}], 
+      "0.3468767386763848`", 
+      RowBox[{"0.046339914033434806`", "\[InvisibleSpace]", "-", 
+       RowBox[{"0.04994963012488345`", " ", "\[ImaginaryI]"}]}]},
+     {
+      RowBox[{"0.16241328363719704`", "\[InvisibleSpace]", "-", 
+       RowBox[{"0.1469214142322738`", " ", "\[ImaginaryI]"}]}], 
+      RowBox[{"0.046339914033434806`", "\[InvisibleSpace]", "+", 
+       RowBox[{"0.04994963012488345`", " ", "\[ImaginaryI]"}]}], 
+      "0.25029759461218065`"}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{{3.5696252951959476`*^9, 3.569625311473798*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "0.6526326916350123`", ",", "0.27697449890298587`", ",", 
+   "0.0703928094620019`"}], "}"}]], "Output",
+ CellChangeTimes->{{3.5696252951959476`*^9, 3.569625311529954*^9}}],
+
+Cell[BoxData["1.`"], "Output",
+ CellChangeTimes->{{3.5696252951959476`*^9, 3.569625311548992*^9}}],
+
+Cell[BoxData["0.5075994508572748`"], "Output",
+ CellChangeTimes->{{3.5696252951959476`*^9, 3.569625311573049*^9}}]
+}, Open  ]],
+
+Cell[TextData[{
+ StyleBox["\nSECOND METHOD ",
+  FontWeight->"Bold"],
+ "(Wishart):"
+}], "Text",
+ CellChangeTimes->{{3.5696248408909283`*^9, 3.569624856333102*^9}, {
+   3.56962490609783*^9, 3.569624931997367*^9}, 3.569624972884861*^9, 
+   3.56962533477724*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"\[DoubleStruckCapitalW]", "=", 
+   RowBox[{"RandomComplex", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "1"}], "-", "\[ImaginaryI]"}], ",", 
+       RowBox[{"1", "+", "\[ImaginaryI]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"3", ",", "3"}], "}"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[DoubleStruckW]", "=", 
+   RowBox[{
+    RowBox[{"adj", "[", "\[DoubleStruckCapitalW]", "]"}], ".", 
+    "\[DoubleStruckCapitalW]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   SubscriptBox["\[Rho]", "2"], "=", 
+   RowBox[{"Chop", "[", 
+    FractionBox["\[DoubleStruckW]", 
+     RowBox[{"Tr", "[", "\[DoubleStruckW]", "]"}]], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  SubscriptBox["\[Rho]", "2"], "//", "MatrixForm"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Eigenvalues", "[", 
+   SubscriptBox["\[Rho]", "2"], "]"}], "//", 
+  "Chop"}], "\[IndentingNewLine]", 
+ RowBox[{"Tr", "[", 
+  SubscriptBox["\[Rho]", "2"], "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Tr", "[", 
+   RowBox[{
+    SubscriptBox["\[Rho]", "2"], ".", 
+    SubscriptBox["\[Rho]", "2"]}], "]"}], "//", 
+  "Chop"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.5696249808818007`*^9, 3.569625222798417*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"0.28134629985956394`", 
+      RowBox[{
+       RowBox[{"-", "0.158411252509892`"}], "-", 
+       RowBox[{"0.02192461127962093`", " ", "\[ImaginaryI]"}]}], 
+      RowBox[{
+       RowBox[{"-", "0.08664233607869534`"}], "+", 
+       RowBox[{"0.2729856335656821`", " ", "\[ImaginaryI]"}]}]},
+     {
+      RowBox[{
+       RowBox[{"-", "0.158411252509892`"}], "+", 
+       RowBox[{"0.02192461127962095`", " ", "\[ImaginaryI]"}]}], 
+      "0.3426427917851828`", 
+      RowBox[{
+       RowBox[{"-", "0.012740896390443998`"}], "-", 
+       RowBox[{"0.08714477184976127`", " ", "\[ImaginaryI]"}]}]},
+     {
+      RowBox[{
+       RowBox[{"-", "0.08664233607869534`"}], "-", 
+       RowBox[{"0.2729856335656821`", " ", "\[ImaginaryI]"}]}], 
+      RowBox[{
+       RowBox[{"-", "0.012740896390443995`"}], "+", 
+       RowBox[{"0.0871447718497613`", " ", "\[ImaginaryI]"}]}], 
+      "0.37601090835525325`"}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{
+  3.569625173470942*^9, {3.569625210732361*^9, 3.569625230284113*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "0.7001600537555893`", ",", "0.2793161483501613`", ",", 
+   "0.020523797894248658`"}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.569625173470942*^9, {3.569625210732361*^9, 3.5696252302999487`*^9}}],
+
+Cell[BoxData["1.`"], "Output",
+ CellChangeTimes->{
+  3.569625173470942*^9, {3.569625210732361*^9, 3.56962523030824*^9}}],
+
+Cell[BoxData["0.5686628378842038`"], "Output",
+ CellChangeTimes->{
+  3.569625173470942*^9, {3.569625210732361*^9, 3.569625230313077*^9}}]
+}, Open  ]],
+
+Cell[TextData[{
+ "\nThe claim is that ",
+ StyleBox["it is always possible (in multiple ways) to recover any such \
+density matrix as a partial trace of the density matrix associated with a \
+pure state",
+  FontWeight->"Bold"],
+ " \[Psi] that lives in ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[ScriptCapitalG]", 
+    RowBox[{" ", 
+     RowBox[{"3", "n"}]}]], TraditionalForm]]],
+ " = ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[ScriptCapitalH]", 
+     RowBox[{" ", "3"}]], "\[CircleTimes]", 
+    SubscriptBox["\[ScriptCapitalJ]", 
+     RowBox[{"n", " "}]]}], TraditionalForm]]],
+ "with n \[GreaterSlantEqual] 3. Here ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[ScriptCapitalJ]", "n"], TraditionalForm]]],
+ " is a \"spectator,\" introduced to make purification possible, but usually \
+of no independent physical interest."
+}], "Text",
+ CellChangeTimes->{{3.569625394165798*^9, 3.569625409248785*^9}, {
+   3.569625524744049*^9, 3.569625529790031*^9}, {3.5696258813449297`*^9, 
+   3.569626075159387*^9}, {3.569637767989778*^9, 3.569638016741695*^9}, {
+   3.569638053565268*^9, 3.569638112595356*^9}, 3.569641748321035*^9, {
+   3.5696794239050503`*^9, 3.5696795164666147`*^9}, {3.569725951829383*^9, 
+   3.569725953917573*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Demonstration", "Subsection",
+ CellChangeTimes->{{3.569626101355208*^9, 3.569626102870854*^9}, {
+   3.569638135326425*^9, 3.569638141644329*^9}, 3.569641806237039*^9}],
+
+Cell[TextData[{
+ "Construct the material that feeds into the spectral representation of ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Rho]", "1"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ":"
+}], "Text",
+ CellChangeTimes->{{3.569626113126708*^9, 3.569626148348195*^9}, {
+  3.569639809133932*^9, 3.569639813789906*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Table", "[", 
+   RowBox[{
+    RowBox[{
+     SubscriptBox["\[Lambda]", "j"], "=", 
+     RowBox[{
+      RowBox[{"Chop", "[", 
+       RowBox[{"Eigenvalues", "[", 
+        SubscriptBox["\[Rho]", "1"], "]"}], "]"}], "\[LeftDoubleBracket]", 
+      "j", "\[RightDoubleBracket]"}]}], ",", 
+    RowBox[{"{", 
+     RowBox[{"j", ",", "1", ",", "3"}], "}"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Table", "[", 
+   RowBox[{
+    RowBox[{
+     SubscriptBox["u", "j"], "=", 
+     RowBox[{"Transpose", "[", 
+      RowBox[{"{", 
+       RowBox[{"Chop", "[", 
+        RowBox[{
+         RowBox[{"Eigenvectors", "[", 
+          SubscriptBox["\[Rho]", "1"], "]"}], "\[LeftDoubleBracket]", "j", 
+         "\[RightDoubleBracket]"}], "]"}], "}"}], "]"}]}], ",", 
+    RowBox[{"{", 
+     RowBox[{"j", ",", "1", ",", "3"}], "}"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Table", "[", 
+   RowBox[{
+    RowBox[{"Chop", "[", 
+     RowBox[{"InnerProd", "[", 
+      RowBox[{
+       SubscriptBox["u", "j"], ",", 
+       SubscriptBox["u", "k"]}], "]"}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"j", ",", "1", ",", "3"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"k", ",", "1", ",", "3"}], "}"}]}], "]"}], "//", 
+  "MatrixForm"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Chop", "[", 
+   RowBox[{
+    SubscriptBox["\[Rho]", "1"], "-", 
+    RowBox[{
+     UnderoverscriptBox["\[Sum]", 
+      RowBox[{"j", "=", "1"}], "3"], 
+     RowBox[{
+      SubscriptBox["\[Lambda]", "j"], 
+      RowBox[{
+       SubscriptBox["u", "j"], ".", 
+       RowBox[{"adj", "[", 
+        SubscriptBox["u", "j"], "]"}]}]}]}]}], "]"}], "//", 
+  "MatrixForm"}]}], "Input",
+ CellChangeTimes->{{3.569626171166394*^9, 3.569626196960271*^9}, {
+  3.569626248972556*^9, 3.569626261311576*^9}, {3.569638839933844*^9, 
+  3.5696388492634706`*^9}, {3.5696397507551413`*^9, 3.569639753307023*^9}, {
+  3.569639834803802*^9, 3.5696398353481617`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"0.9999999999999999`", "0", "0"},
+     {"0", "0.9999999999999996`", "0"},
+     {"0", "0", "1.0000000000000002`"}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{3.569638854531458*^9, 3.569639281780013*^9, 
+  3.569639765982366*^9, 3.569639842619781*^9}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"0", "0", "0"},
+     {"0", "0", "0"},
+     {"0", "0", "0"}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{3.569638854531458*^9, 3.569639281780013*^9, 
+  3.569639765982366*^9, 3.569639842640134*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+ "We need now a set (",
+ StyleBox["any",
+  FontSlant->"Italic"],
+ " set) of 3 orthonormal vectors drawn from ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[ScriptCapitalJ]", "4"], ".", " "}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ "It is simplest to take those to be 3 of the eigenvectors of an arbitrarily \
+constructed 4\[Cross]4 Wishart matrix (all such matrices are hermitian, and \
+their eigenvectors therefore orthogonal\[Ellipsis]and already normalized as \
+",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " supplies them): "
+}], "Text",
+ CellChangeTimes->{{3.569640274252417*^9, 3.5696404075976343`*^9}, {
+  3.569641835663096*^9, 3.569641927528945*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"\[DoubleStruckCapitalZ]", "=", 
+   RowBox[{"RandomComplex", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "1"}], "-", "\[ImaginaryI]"}], ",", 
+       RowBox[{"1", "+", "\[ImaginaryI]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"4", ",", "4"}], "}"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[DoubleStruckZ]", "=", 
+   RowBox[{
+    RowBox[{"adj", "[", "\[DoubleStruckCapitalZ]", "]"}], ".", 
+    "\[DoubleStruckCapitalZ]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Table", "[", 
+   RowBox[{
+    RowBox[{
+     SubscriptBox["v", "k"], "=", 
+     RowBox[{"Transpose", "[", 
+      RowBox[{"{", 
+       RowBox[{"Chop", "[", 
+        RowBox[{
+         RowBox[{"Eigenvectors", "[", "\[DoubleStruckZ]", "]"}], 
+         "\[LeftDoubleBracket]", "k", "\[RightDoubleBracket]"}], "]"}], "}"}],
+       "]"}]}], ",", 
+    RowBox[{"{", 
+     RowBox[{"k", ",", "1", ",", "3"}], "}"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Table", "[", 
+   RowBox[{
+    RowBox[{"Chop", "[", 
+     RowBox[{"InnerProd", "[", 
+      RowBox[{
+       SubscriptBox["v", "j"], ",", 
+       SubscriptBox["v", "k"]}], "]"}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"j", ",", "1", ",", "3"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"k", ",", "1", ",", "3"}], "}"}]}], "]"}], "//", 
+  "MatrixForm"}]}], "Input",
+ CellChangeTimes->{{3.569640476519805*^9, 3.5696405874099283`*^9}, {
+  3.569640648368821*^9, 3.569640664624217*^9}, {3.569641509485345*^9, 
+  3.569641511242813*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"0.9999999999999997`", "0", "0"},
+     {"0", "1.0000000000000002`", "0"},
+     {"0", "0", "1.0000000000000002`"}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{3.5696406699127274`*^9, 3.569641518400543*^9}]
+}, Open  ]],
+
+Cell[" Constuct now (in Schmidt decomposed form) the 12-vector", "Text",
+ CellChangeTimes->{{3.569640713560318*^9, 3.569640789105646*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"\[Psi]", "=", 
+   RowBox[{
+    UnderoverscriptBox["\[Sum]", 
+     RowBox[{"j", "=", "1"}], "3"], 
+    RowBox[{
+     SqrtBox[
+      SubscriptBox["\[Lambda]", "j"]], 
+     RowBox[{
+      SubscriptBox["u", "j"], "\[CircleTimes]", 
+      SubscriptBox["v", "j"]}]}]}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.5696407927849703`*^9, 3.569640842688795*^9}, 
+   3.5696410772317877`*^9}],
+
+Cell["and the associated pure density matrix", "Text",
+ CellChangeTimes->{{3.569678948992094*^9, 3.5696789778300962`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"\[DoubleStruckCapitalR]", "=", 
+   RowBox[{"Chop", "[", 
+    RowBox[{"\[Psi]", ".", 
+     RowBox[{"adj", "[", "\[Psi]", "]"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.569640871129807*^9, 3.569640899332097*^9}, {
+  3.56964101560563*^9, 3.569641021614996*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Dimensions", "[", "\[DoubleStruckCapitalR]", "]"}]], "Input",
+ CellChangeTimes->{{3.569641476547597*^9, 3.569641489549492*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"12", ",", "12"}], "}"}]], "Output",
+ CellChangeTimes->{3.569641491160729*^9, 3.5696415361854486`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"Tr", "[", "\[DoubleStruckCapitalR]", "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Tr", "[", 
+   RowBox[{"\[DoubleStruckCapitalR]", ".", "\[DoubleStruckCapitalR]"}], "]"}],
+   "//", "Chop"}]}], "Input",
+ CellChangeTimes->{{3.569641027501643*^9, 3.5696410503464823`*^9}, {
+  3.569641094757492*^9, 3.56964109718968*^9}}],
+
+Cell[BoxData["0.9999999999999998`"], "Output",
+ CellChangeTimes->{
+  3.569641054940558*^9, {3.569641088737105*^9, 3.5696410995173883`*^9}, 
+   3.569641540960153*^9}],
+
+Cell[BoxData["0.9999999999999993`"], "Output",
+ CellChangeTimes->{
+  3.569641054940558*^9, {3.569641088737105*^9, 3.5696410995173883`*^9}, 
+   3.569641540981238*^9}]
+}, Open  ]],
+
+Cell["\<\
+Construct partial trace operations appropriate to the 3:4 partitioning of \
+12-space\
+\>", "Text",
+ CellChangeTimes->{{3.5696790497012053`*^9, 3.569679106346043*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   SubscriptBox["\[DoubleStruckCapitalI]", "3"], "=", 
+   RowBox[{"IdentityMatrix", "[", "3", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   SubscriptBox["\[DoubleStruckCapitalI]", "4"], "=", 
+   RowBox[{"IdentityMatrix", "[", "4", "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.5696411570124397`*^9, 3.56964118804412*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Table", "[", 
+   RowBox[{
+    RowBox[{
+     SubscriptBox["e", "j"], "=", 
+     RowBox[{"Transpose", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        SubscriptBox["\[DoubleStruckCapitalI]", "3"], "\[LeftDoubleBracket]", 
+        "j", "\[RightDoubleBracket]"}], "}"}], "]"}]}], ",", 
+    RowBox[{"{", 
+     RowBox[{"j", ",", "1", ",", "3"}], "}"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Table", "[", 
+   RowBox[{
+    RowBox[{
+     SubscriptBox["f", "k"], "=", 
+     RowBox[{"Transpose", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        SubscriptBox["\[DoubleStruckCapitalI]", "4"], "\[LeftDoubleBracket]", 
+        "k", "\[RightDoubleBracket]"}], "}"}], "]"}]}], ",", 
+    RowBox[{"{", 
+     RowBox[{"k", ",", "1", ",", "4"}], "}"}]}], "]"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.5696412307818747`*^9, 3.569641247829487*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   SubscriptBox["Tr", "A"], "[", "x_", "]"}], ":=", 
+  RowBox[{
+   UnderoverscriptBox["\[Sum]", 
+    RowBox[{"j", "=", "1"}], "3"], 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"Transpose", "[", 
+       SubscriptBox["e", "j"], "]"}], "\[CircleTimes]", 
+      SubscriptBox["\[DoubleStruckCapitalI]", "4"]}], ")"}], ".", "x", ".", 
+    RowBox[{"(", 
+     RowBox[{
+      SubscriptBox["e", "j"], "\[CircleTimes]", 
+      SubscriptBox["\[DoubleStruckCapitalI]", "4"]}], 
+     ")"}]}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   SubscriptBox["Tr", "B"], "[", "x_", "]"}], ":=", 
+  RowBox[{
+   UnderoverscriptBox["\[Sum]", 
+    RowBox[{"k", "=", "1"}], "4"], 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      SubscriptBox["\[DoubleStruckCapitalI]", "3"], "\[CircleTimes]", 
+      RowBox[{"Transpose", "[", 
+       SubscriptBox["f", "k"], "]"}]}], ")"}], ".", "x", ".", 
+    RowBox[{"(", 
+     RowBox[{
+      SubscriptBox["\[DoubleStruckCapitalI]", "3"], "\[CircleTimes]", 
+      SubscriptBox["f", "k"]}], ")"}]}]}]}]}], "Input",
+ CellChangeTimes->{{3.56961486127096*^9, 3.569615077949991*^9}, {
+  3.569641320576316*^9, 3.5696413455073853`*^9}}],
+
+Cell[TextData[{
+ "and recover ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[Rho]", "1"], " "}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " as the density matrix that results when the \[ScriptCapitalJ]-component of \
+\[DoubleStruckCapitalR] is traced out:"
+}], "Text",
+ CellChangeTimes->{{3.569679145883984*^9, 3.5696791680126133`*^9}, {
+  3.5696792001718073`*^9, 3.5696792141805773`*^9}, {3.5696792471189423`*^9, 
+  3.5696792662149*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Chop", "[", 
+   RowBox[{
+    RowBox[{
+     SubscriptBox["Tr", "B"], "[", "\[DoubleStruckCapitalR]", "]"}], "-", 
+    SubscriptBox["\[Rho]", "1"]}], "]"}], "//", "MatrixForm"}]], "Input",
+ CellChangeTimes->{{3.569641368916163*^9, 3.56964138132213*^9}, {
+  3.569641558818915*^9, 3.56964163543608*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"0", "0", "0"},
+     {"0", "0", "0"},
+     {"0", "0", "0"}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{
+  3.569641390064991*^9, {3.569641549294067*^9, 3.569641563904924*^9}, {
+   3.569641618748354*^9, 3.569641641183982*^9}}]
+}, Open  ]],
+
+Cell[TextData[{
+ "Which establishes that \[DoubleStruckCapitalR] is one of the infinitely \
+many possible \"purifications\" of ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Rho]", "1"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ".\n"
+}], "Text",
+ CellChangeTimes->{{3.569679293353139*^9, 3.569679366022512*^9}, 
+   3.569679588381192*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Comments", "Subsection",
+ CellChangeTimes->{{3.569679581850281*^9, 3.569679583174831*^9}}],
+
+Cell[TextData[{
+ "The spectral decomposition of ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Rho]", 
+    RowBox[{"1", " "}]], TraditionalForm]],
+  FormatType->"TraditionalForm"]
+}], "Text",
+ CellChangeTimes->{{3.5696796128190603`*^9, 3.5696796359497557`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  SubscriptBox["\[Rho]", "1"], "=", 
+  RowBox[{
+   UnderoverscriptBox["\[Sum]", 
+    RowBox[{"j", "=", "1"}], "3"], 
+   RowBox[{
+    SubscriptBox["\[Lambda]", "j"], 
+    RowBox[{
+     SubscriptBox["u", "j"], ".", 
+     RowBox[{"adj", "[", 
+      SubscriptBox["u", "j"], "]"}]}]}]}]}]], "Output",
+ CellChangeTimes->{{3.569679641616528*^9, 3.56967967371721*^9}}],
+
+Cell["can be written", "Text",
+ CellChangeTimes->{{3.569679689354019*^9, 3.569679691649988*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  SubscriptBox["\[Rho]", "1"], "=", 
+  RowBox[{
+   UnderoverscriptBox["\[Sum]", 
+    RowBox[{"j", "=", "1"}], "3"], 
+   RowBox[{
+    SubscriptBox["\[Lambda]", "j"], 
+    SubscriptBox["\[DoubleStruckCapitalP]", "j"]}]}]}]], "Output",
+ CellChangeTimes->{{3.5696797016663218`*^9, 3.569679720678483*^9}}],
+
+Cell["\<\
+where the \[DoubleStruckCapitalP]-matrices comprise a complete set of \
+orthogonal hermitian projection matrices. Writing\
+\>", "Text",
+ CellChangeTimes->{{3.569679730547842*^9, 3.569679815390032*^9}, {
+  3.569679854354141*^9, 3.569679856282826*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\[DoubleStruckCapitalM]", "=", 
+  RowBox[{
+   UnderoverscriptBox["\[Sum]", 
+    RowBox[{"j", "=", "1"}], "3"], 
+   RowBox[{
+    SqrtBox[
+     SubscriptBox["\[Lambda]", "j"]], 
+    SubscriptBox["\[DoubleStruckCapitalP]", "j"]}]}]}]], "Output",
+ CellChangeTimes->{{3.5696798599334927`*^9, 3.569679922065886*^9}}],
+
+Cell["\<\
+(which is hermitian because the \[Lambda]s are non-negative real numbers) we \
+have\
+\>", "Text",
+ CellChangeTimes->{{3.569679950828615*^9, 3.569680048372208*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  SubscriptBox["\[Rho]", "1"], "=", 
+  RowBox[{
+   RowBox[{"adj", "[", "\[DoubleStruckCapitalM]", "]"}], ".", 
+   "\[DoubleStruckCapitalM]"}]}]], "Output",
+ CellChangeTimes->{{3.5696800514051733`*^9, 3.569680058379958*^9}, {
+  3.569680091065909*^9, 3.569680105691043*^9}}],
+
+Cell[TextData[{
+ "which is the \"Wishart representation\" of ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Rho]", "1"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.569680123971833*^9, 3.569680193123423*^9}}],
+
+Cell[TextData[{
+ "I constructed ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Rho]", "1"], TraditionalForm]]],
+ "and ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Rho]", "2"], TraditionalForm]]],
+ " by alternative methods because I was aware (see \"Some Miscellaneous \
+Adventures in Experimental Mathematical Physics,\" notes for a Reed College \
+Physics Seminar presented 9 November 2011) that the spectra of large \
+hermitian matrices of the form"
+}], "Text",
+ CellChangeTimes->{{3.5696867350699053`*^9, 3.5696867785334806`*^9}, {
+  3.569686979717915*^9, 3.569686995258191*^9}, {3.569687030805777*^9, 
+  3.5696871557435837`*^9}}],
+
+Cell[BoxData[
+ FractionBox[
+  RowBox[{"\[DoubleStruckCapitalM]", "+", 
+   SuperscriptBox["\[DoubleStruckCapitalM]", "adj"]}], "2"]], "Output",
+ CellChangeTimes->{{3.569687162265955*^9, 3.569687200959722*^9}}],
+
+Cell[TextData[{
+ "conform to the ",
+ StyleBox["Wigner semicircle distribution",
+  FontWeight->"Bold"],
+ ", while the spectra of large hermitian matrices of Wishart design"
+}], "Text",
+ CellChangeTimes->{{3.569687214403984*^9, 3.569687242362219*^9}, {
+  3.5696873117436523`*^9, 3.5696873181744328`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\[DoubleStruckCapitalM]", ".", 
+  SuperscriptBox["\[DoubleStruckCapitalM]", "adj"]}]], "Output",
+ CellChangeTimes->{{3.569687252438944*^9, 3.5696872618275547`*^9}}],
+
+Cell[TextData[{
+ "conform to the ",
+ StyleBox["Marchenko-Pastur distribution",
+  FontWeight->"Bold"],
+ ". But it is clear ",
+ Cell[BoxData[
+  FormBox["that", TraditionalForm]]],
+ " ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Rho]", "2"], TraditionalForm]]],
+ " can be purified by precisely the means that served to purify ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Rho]", "1"], TraditionalForm]]],
+ ", so I omit the explicit demonstration.\n\nOne encounters purification most \
+often in the context of arguments that begin with words to the effect that \
+\"We can (by purification) assume without loss of generality that \[Rho] is \
+pure, so\[Ellipsis]\"\n\nThe idea of achieving simplification by expanding \
+the dimension is encountered in many contexts: think of the embedding problem \
+in differential geometry. Or of the ",
+ StyleBox["Neumark dilation theorem",
+  FontWeight->"Bold"],
+ ", which asserts that POVMs in n-space can be realized as projection-valued \
+measures in a space of higher dimension N. See pages 16-18 in \"Generalized \
+Quantum Measurements\" (2012) and "
+}], "Text",
+ CellChangeTimes->{{3.5696873278293257`*^9, 3.569687334693022*^9}, {
+  3.5696873796687517`*^9, 3.5696874042262583`*^9}, {3.5696874376070137`*^9, 
+  3.569687580080367*^9}, {3.56968782114222*^9, 3.569688024244329*^9}, {
+  3.569688574704166*^9, 3.569688593147779*^9}, {3.569688631124091*^9, 
+  3.5696887191724367`*^9}, {3.5697102685830727`*^9, 3.569710298819624*^9}, {
+  3.569710341515299*^9, 3.5697103756427593`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{
+  "\"\<POVMs, Neumark's Theorem & Quantum Measurement\>\"", ",", 
+   "\"\<http://en.wikipedia.org/wiki/POVM\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.569688766094297*^9, 3.5696888376469812`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{
+    False->"\<\"POVMs, Neumark's Theorem & Quantum Measurement\"\>", True->
+    StyleBox["\<\"POVMs, Neumark's Theorem & Quantum Measurement\"\>", 
+     "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    BaselinePosition->Baseline,
+    FrameMargins->0,
+    ImageSize->Automatic],
+   BaseStyle->"Hyperlink",
+   ButtonData->{
+     URL["http://en.wikipedia.org/wiki/POVM"], None},
+   ButtonNote->"http://en.wikipedia.org/wiki/POVM"],
+  Annotation[#, "http://en.wikipedia.org/wiki/POVM", 
+   "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{3.569709462126045*^9}]
+}, Open  ]],
+
+Cell["or \[Section]3.1.4 in", "Text",
+ CellChangeTimes->{{3.569688901267774*^9, 3.569688901649131*^9}, {
+  3.569688935129774*^9, 3.569688938759033*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{
+  "\"\<Preskill's Quantum Information Notes\>\"", ",", 
+   "\"\<http://www.theory.caltech.edu/people/preskill/ph229/notes/book.ps\>\"\
+"}], "]"}]], "Input",
+ CellChangeTimes->{{3.569688944028212*^9, 3.569688988350133*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{False->"\<\"Preskill's Quantum Information Notes\"\>", 
+    True->
+    StyleBox["\<\"Preskill's Quantum Information Notes\"\>", 
+     "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    BaselinePosition->Baseline,
+    FrameMargins->0,
+    ImageSize->Automatic],
+   BaseStyle->"Hyperlink",
+   ButtonData->{
+     URL["http://www.theory.caltech.edu/people/preskill/ph229/notes/book.ps"],
+      None},
+   ButtonNote->
+    "http://www.theory.caltech.edu/people/preskill/ph229/notes/book.ps"],
+  Annotation[#, 
+   "http://www.theory.caltech.edu/people/preskill/ph229/notes/book.ps", 
+   "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{3.569709493101192*^9}]
+}, Open  ]],
+
+Cell["Related mathematical material can be found in", "Text",
+ CellChangeTimes->{{3.569689256799513*^9, 3.569689267907837*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{
+  "\"\<Choi's Theorem\>\"", ",", 
+   "\"\<http://en.wikipedia.org/wiki/Choi%27s_theorem_on_completely_positive_\
+maps\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.569689273075375*^9, 3.5696893128306437`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{False->"\<\"Choi's Theorem\"\>", True->
+    StyleBox["\<\"Choi's Theorem\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    BaselinePosition->Baseline,
+    FrameMargins->0,
+    ImageSize->Automatic],
+   BaseStyle->"Hyperlink",
+   ButtonData->{
+     URL["http://en.wikipedia.org/wiki/Choi%27s_theorem_on_completely_\
+positive_maps"], None},
+   ButtonNote->
+    "http://en.wikipedia.org/wiki/Choi%27s_theorem_on_completely_positive_\
+maps"],
+  Annotation[#, 
+   "http://en.wikipedia.org/wiki/Choi%27s_theorem_on_completely_positive_\
+maps", "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{3.569709520098415*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+ "On pages 12 & 13 of \"Selected topics in Quantum Measurement Theory\" \
+(2009) I am led to contemplate notions that I call \"disentanglement by \
+measurement\" and \"",
+ StyleBox["purification by measurement",
+  FontWeight->"Bold"],
+ ".\""
+}], "Text",
+ CellChangeTimes->{{3.569692701545583*^9, 3.5696928495995092`*^9}}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowToolbars->"EditBar",
+WindowSize->{930, 714},
+WindowMargins->{{9, Automatic}, {Automatic, 0}},
+Magnification:>FEPrivate`If[
+  FEPrivate`Equal[FEPrivate`$VersionNumber, 6.], 1.5, 1.5 Inherited],
+FrontEndVersion->"7.0 for Mac OS X PowerPC (32-bit) (November 11, 2008)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[567, 22, 115, 2, 40, "Input"],
+Cell[685, 26, 70, 1, 40, "Output"]
+}, Open  ]],
+Cell[770, 30, 876, 22, 90, "Input"],
+Cell[1649, 54, 89, 1, 64, "Input"],
+Cell[CellGroupData[{
+Cell[1763, 59, 163, 2, 185, "Title"],
+Cell[1929, 63, 137, 5, 56, "Text"],
+Cell[2069, 70, 92, 1, 40, "Input"],
+Cell[2164, 73, 377, 8, 39, "Text"],
+Cell[2544, 83, 1084, 22, 152, "Text"],
+Cell[CellGroupData[{
+Cell[3653, 109, 244, 6, 65, "Input"],
+Cell[3900, 117, 655, 16, 40, "Output"]
+}, Open  ]],
+Cell[4570, 136, 94, 1, 40, "Input"],
+Cell[CellGroupData[{
+Cell[4689, 141, 102, 1, 51, "Subsection"],
+Cell[4794, 144, 593, 14, 129, "Text"],
+Cell[CellGroupData[{
+Cell[5412, 162, 2530, 82, 228, "Input"],
+Cell[7945, 246, 1510, 33, 86, "Output"],
+Cell[9458, 281, 213, 5, 40, "Output"],
+Cell[9674, 288, 98, 1, 40, "Output"],
+Cell[9775, 291, 114, 1, 40, "Output"]
+}, Open  ]],
+Cell[9904, 295, 258, 7, 62, "Text"],
+Cell[CellGroupData[{
+Cell[10187, 306, 1323, 38, 231, "Input"],
+Cell[11513, 346, 1541, 40, 86, "Output"],
+Cell[13057, 388, 239, 6, 40, "Output"],
+Cell[13299, 396, 120, 2, 40, "Output"],
+Cell[13422, 400, 137, 2, 40, "Output"]
+}, Open  ]],
+Cell[13574, 405, 1249, 32, 131, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14860, 442, 173, 2, 51, "Subsection"],
+Cell[15036, 446, 333, 9, 39, "Text"],
+Cell[CellGroupData[{
+Cell[15394, 459, 1969, 59, 177, "Input"],
+Cell[17366, 520, 782, 20, 86, "Output"],
+Cell[18151, 542, 728, 20, 86, "Output"]
+}, Open  ]],
+Cell[18894, 565, 711, 19, 84, "Text"],
+Cell[CellGroupData[{
+Cell[19630, 588, 1593, 47, 116, "Input"],
+Cell[21226, 637, 737, 19, 86, "Output"]
+}, Open  ]],
+Cell[21978, 659, 138, 1, 39, "Text"],
+Cell[22119, 662, 413, 13, 127, "Input"],
+Cell[22535, 677, 122, 1, 58, "Text"],
+Cell[22660, 680, 303, 7, 60, "Input"],
+Cell[CellGroupData[{
+Cell[22988, 691, 151, 2, 60, "Input"],
+Cell[23142, 695, 141, 3, 60, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[23320, 703, 349, 7, 96, "Input"],
+Cell[23672, 712, 165, 3, 60, "Output"],
+Cell[23840, 717, 165, 3, 60, "Output"]
+}, Open  ]],
+Cell[24020, 723, 176, 4, 58, "Text"],
+Cell[24199, 729, 381, 10, 97, "Input"],
+Cell[24583, 741, 890, 26, 106, "Input"],
+Cell[25476, 769, 1197, 35, 235, "Input"],
+Cell[26676, 806, 465, 12, 58, "Text"],
+Cell[CellGroupData[{
+Cell[27166, 822, 334, 8, 60, "Input"],
+Cell[27503, 832, 758, 21, 129, "Output"]
+}, Open  ]],
+Cell[28276, 856, 351, 10, 93, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[28664, 871, 96, 1, 76, "Subsection"],
+Cell[28763, 874, 262, 8, 58, "Text"],
+Cell[29028, 884, 384, 12, 127, "Output"],
+Cell[29415, 898, 96, 1, 58, "Text"],
+Cell[29514, 901, 324, 9, 127, "Output"],
+Cell[29841, 912, 260, 5, 58, "Text"],
+Cell[30104, 919, 334, 9, 127, "Output"],
+Cell[30441, 930, 173, 4, 58, "Text"],
+Cell[30617, 936, 296, 7, 60, "Output"],
+Cell[30916, 945, 257, 8, 58, "Text"],
+Cell[31176, 955, 636, 16, 126, "Text"],
+Cell[31815, 973, 208, 4, 102, "Output"],
+Cell[32026, 979, 302, 7, 93, "Text"],
+Cell[32331, 988, 188, 3, 67, "Output"],
+Cell[32522, 993, 1519, 32, 363, "Text"],
+Cell[CellGroupData[{
+Cell[34066, 1029, 253, 5, 96, "Input"],
+Cell[34322, 1036, 660, 18, 60, "Output"]
+}, Open  ]],
+Cell[34997, 1057, 152, 2, 58, "Text"],
+Cell[CellGroupData[{
+Cell[35174, 1063, 275, 6, 96, "Input"],
+Cell[35452, 1071, 751, 21, 60, "Output"]
+}, Open  ]],
+Cell[36218, 1095, 127, 1, 58, "Text"],
+Cell[CellGroupData[{
+Cell[36370, 1100, 263, 6, 133, "Input"],
+Cell[36636, 1108, 716, 20, 60, "Output"]
+}, Open  ]],
+Cell[37367, 1131, 337, 8, 93, "Text"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

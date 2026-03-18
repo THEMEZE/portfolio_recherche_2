@@ -1,0 +1,289 @@
+@charset "UTF-8";
+ body {
+	 background: #c1bcad;
+	 padding: 0;
+	 margin: 0;
+	 font: 90% "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+/* ------------------------------------------ */
+/* ----------------- HEADER ----------------- */
+/* ------------------------------------------ */
+ #headerContainer {
+	 background: #360200;
+}
+ #header {
+	 background: #5e0501;
+	 width: 900px;
+	 margin: 0 auto;
+	 font-weight: 300;
+}
+#nameplate {
+    text-align: right;
+    padding: 40px 40px 40px 20px;
+}
+@media screen and (min-width: 721px) {
+	#nameplate {
+		background: url(../images/themeze.png) no-repeat bottom 10px right -10px;
+		text-align: right;
+		padding: 45px 110px 20px 0;
+		background-size: 120px;
+	}
+}
+ #nameplate h1 {
+	 color: #fff;
+	 font-size: 1.8em;
+	 font-weight: 300;
+	 padding: 0;
+	 border: none;
+	 margin: 0;
+}
+ #nameplate h1 a {
+	 color: #fff;
+	 text-decoration: none;
+}
+ #nameplate h2 {
+	 color: #ccc;
+	 font-size: .9em;
+	 font-weight: 300;
+	 line-height: 1.2;
+	 letter-spacing: 1px;
+	 padding: 0;
+	 border: none;
+	 margin: 0;
+}
+ #nameplate p {
+	 color: #ccc;
+	 font-size: .9em;
+	 line-height: 1.2;
+	 letter-spacing: 1px;
+	 line-height: normal;
+	 margin: 0;
+}
+ #nameplate a {
+	 color: #fff;
+}
+/* ------------------------------------------------ */
+/* ----------------- PAGE BODY ----------------- */
+/* ------------------------------------------------ */
+ #pageBody {
+	 position: relative;
+	 width: 900px;
+	 margin: 0 auto;
+	 background: #eae6d9;
+}
+/* --------------------------------------- */
+/* ----------------- NAV ----------------- */
+/* --------------------------------------- */
+ #siteNav {
+	 float: left;
+	 width: 220px;
+}
+ #siteNav_links h3 {
+	 position: absolute;
+	 left: -999em;
+}
+ #siteNav_links ul {
+	 margin: 40px;
+	 padding: 0;
+	 list-style: none;
+}
+ #siteNav_links ul li {
+	 margin: 0 0 1em 0;
+	 padding: 0;
+}
+ #siteNav_links ul li a {
+	 display: inline-block;
+	 text-decoration: none;
+	 font-weight: 400;
+	 font-size: 1.1em;
+}
+/* ------------------------------------------- */
+/* ----------------- CONTENT ----------------- */
+/* ------------------------------------------- */
+ #mainContent {
+	 width: 680px;
+	 width
+	/**/
+	:
+	/**/
+	 600px;
+	 padding: 40px;
+	 margin-left: 220px;
+	 background: #fff;
+	 color: #333;
+}
+ #mainContentFooter {
+	 clear: both;
+}
+ p {
+	 line-height: 140%;
+	 margin: 0 0 10px 0;
+}
+ h1 {
+	 color: #333;
+	 font-size: 2.4em;
+	 font-weight: 300;
+	 margin: 0 0 15px 0;
+}
+ h2 {
+	 color: #333;
+	 font-size: 1.6em;
+	 font-weight: 400;
+	 margin-top: 1.5em;
+}
+ h3 {
+	 color: #333;
+	 font-size: 1.2em;
+	 margin-top: 1.5em;
+}
+ h4 {
+	 font-size: 1em;
+	 margin-bottom: .5em;
+	 margin-top: 1.5em;
+}
+ a {
+	 color: #5e0501;
+}
+/* ---------------------------------------- */
+/* ----------------- MISC ----------------- */
+/* ---------------------------------------- */
+ #accessLinks {
+	 position: absolute;
+	 top: -999px;
+	 left: 0;
+	 width: 80%;
+	 z-index: 999;
+}
+ #accessLinks a {
+	 position: absolute;
+	 top: 0;
+	 left: 0;
+}
+ .crazyIEfix:active, #accessLinks a:focus, #accessLinks a:active {
+	 top: 999px;
+	 background-color: #434343;
+	 color: #f0e4d4;
+	 padding: 2px 4px;
+	 border: 1px solid #000;
+	 margin: 5px;
+	 white-space: nowrap;
+}
+ .floatRight {
+	 float: right;
+	 margin: 0 0 10px 10px;
+}
+ .floatLeft {
+	 float: left;
+	 margin: 0 10px 10px 0;
+}
+/* ----------------------------------------- */
+/* ----------------- MEDIA ----------------- */
+/* ----------------------------------------- */
+ @media screen and (max-width: 900px) {
+	 #header, #pageBody {
+		 width: auto;
+	}
+	 #siteNav_links ul {
+		 margin: 25px;
+	}
+	 #mainContent {
+		 width: auto;
+		 padding: 25px;
+	}
+}
+ @media screen and (max-width: 720px) {
+	 #nameplate {
+		 padding: 25px 25px 25px 10px;
+	}
+	 #siteNav {
+		 width: 170px;
+	}
+	 #mainContent {
+		 margin-left: 170px;
+	}
+}
+ @media screen and (max-width: 620px) {
+	 #nameplate {
+		 text-align: center;
+		 padding: 20px;
+	}
+	 #siteNav {
+		 float: none;
+		 width: auto;
+		 text-align: center;
+	}
+	 #siteNav_links ul {
+		 margin: 0;
+		 padding: .5em 0;
+	}
+	 #siteNav_links ul li {
+		 display: inline-block;
+		 vertical-align: middle;
+		 margin: .5em;
+	}
+	 #mainContent {
+		 margin-left: 0;
+	}
+	 #mainContent h1 {
+		 text-align: center;
+	}
+}
+/* ---------------------------------------- */
+/* ----------------- DOCS ----------------- */
+/* ---------------------------------------- */
+#docs {margin-bottom: 2em;}
+#docs ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+#docs li a {
+    display: block;
+    color: #444;
+    text-decoration: none;
+    padding: 0 0 0 27px;
+    line-height: 24px;
+}
+#docs li.folder a {
+    font-weight: bold;
+    background: url(../../../../../global_assets/images/icons/fugue.24/blue-folder-horizontal-open.png) 0 50% no-repeat;
+}
+#docs li.folder.closed a {background: url(../../../../../global_assets/images/icons/fugue.24/blue-folder-horizontal.png) 0 50% no-repeat;}
+#docs li.folder.closed ul  {display: none;}
+#docs li li {margin-left: 20px;}
+#docs li.document a {
+    font-weight: normal;
+    color: #000;
+    background: url(../../../../../global_assets/images/icons/fugue.24/document-text.png) 0 50% no-repeat;
+    padding-left: 25px;
+}
+#docs #docSrch label {
+    position: absolute;
+    top: -999em;
+    left: -999em;
+}
+#docs #docSrch input {
+    width: 367px;
+}
+#docs #docSrch input.emptySearch { color: #666; }
+#docs #docSrchResults {
+    display: none;
+    border-bottom: 1px dashed #999;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+#docs #docSrchResults h3 {
+    display: inline-block;
+    font-size: .9em;
+    color: #999;
+    margin: 0 0 5px 0;
+}
+#docs #docSrchResults .clearDocQuery {
+    display: inline-block;
+    font-size: .9em;
+    text-decoration: none;
+    border-left: 1px solid #999;
+    padding-left: 5px;
+    margin: 0 0 5px 5px;
+    color: #b00;
+}

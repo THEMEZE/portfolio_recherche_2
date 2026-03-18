@@ -1,0 +1,3022 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     95961,       3013]
+NotebookOptionsPosition[     84433,       2654]
+NotebookOutlinePosition[     84904,       2672]
+CellTagsIndexPosition[     84861,       2669]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData["\[IndentingNewLine]"], "Input",
+ CellChangeTimes->{3.568905995808909*^9}],
+
+Cell[CellGroupData[{
+
+Cell["Richard's Last Problem", "Title",
+ CellChangeTimes->{{3.568906023669989*^9, 3.568906029650618*^9}}],
+
+Cell["\<\
+Nicholas Wheeler
+3 February 2013\
+\>", "Text",
+ CellChangeTimes->{{3.568906041392951*^9, 3.5689060582612867`*^9}},
+ FontSize->10],
+
+Cell[BoxData[" "], "Input",
+ CellChangeTimes->{3.568906110579776*^9}],
+
+Cell[CellGroupData[{
+
+Cell["Problem posed", "Subsection",
+ CellChangeTimes->{{3.568906143553319*^9, 3.568906146984029*^9}}],
+
+Cell[TextData[{
+ "On the evening of 16 May 2012, Richard Crandall (from his iPhone, \
+inevitably) sent me the note reproduced below:\n\n",
+ StyleBox["Nicholas,\n\nI have a fascinating engineering problem that comes \
+down to the following question: Let",
+  FontColor->RGBColor[0, 0, 1]]
+}], "Text",
+ CellChangeTimes->{{3.568906160304408*^9, 3.5689062226787043`*^9}, {
+  3.5689062601919394`*^9, 3.568906367212441*^9}, {3.5689068898521233`*^9, 
+  3.568906895280838*^9}, {3.568987339541215*^9, 3.568987366475965*^9}}],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"\[DoubleStruckCapitalU]", "=", 
+   RowBox[{"(", "\[NoBreak]", GridBox[{
+      {"a", "b"},
+      {"c", "d"}
+     }], "\[NoBreak]", ")"}]}],
+  FontColor->RGBColor[0, 0, 1]]], "Input",
+ CellChangeTimes->{3.5689067707001762`*^9}],
+
+Cell[TextData[{
+ StyleBox["be unimodular (",
+  FontColor->RGBColor[0, 0, 1]],
+ StyleBox["Det[\[DoubleStruckCapitalU]] = 1", "Output",
+  FontColor->RGBColor[0, 0, 1]],
+ StyleBox["). Is there an elegant way to factor \[DoubleStruckCapitalU] into",
+  
+  FontColor->RGBColor[0, 0, 1]]
+}], "Text",
+ CellChangeTimes->{{3.568906403886215*^9, 3.568906484059869*^9}, {
+  3.5689396426544724`*^9, 3.5689396448069363`*^9}}],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+  "\[DoubleStruckCapitalU]", "=", 
+   "\[DoubleStruckCapitalR]\[DoubleStruckCapitalS]"}],
+  FontColor->RGBColor[0, 0, 1]]], "Input",
+ CellChangeTimes->{3.5689067920566587`*^9}],
+
+Cell[TextData[StyleBox["where \[DoubleStruckCapitalR] is a rotation matrix",
+ FontColor->RGBColor[0, 0, 1]]], "Text",
+ CellChangeTimes->{{3.568906510456563*^9, 3.5689065250529013`*^9}}],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"\[DoubleStruckCapitalR]", "=", 
+   RowBox[{"(", "\[NoBreak]", GridBox[{
+      {
+       RowBox[{"Cos", "[", "t", "]"}], 
+       RowBox[{"-", 
+        RowBox[{"Sin", "[", "t", "]"}]}]},
+      {
+       RowBox[{"Sin", "[", "t", "]"}], 
+       RowBox[{"Cos", "[", "t", "]"}]}
+     }], "\[NoBreak]", ")"}]}],
+  FontColor->RGBColor[0, 0, 1]]], "Input",
+ CellChangeTimes->{3.568906813939076*^9}],
+
+Cell[TextData[StyleBox["and \[DoubleStruckCapitalS] has \"simple\" structure? \
+I suppose I am asking for a way to factor \[DoubleStruckCapitalU] such that \
+\[DoubleStruckCapitalS] has only a few (less than 4) parameters?\n\nr",
+ FontColor->RGBColor[0, 0, 1]]], "Text",
+ CellChangeTimes->{{3.568906582773587*^9, 3.5689067108293247`*^9}}],
+
+Cell[TextData[{
+ "On 18 May I sent Richard email to which was attached the following ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " notebook (v7):"
+}], "Text",
+ CellChangeTimes->{{3.5689077195760193`*^9, 3.5689077596794977`*^9}, {
+  3.568924710343482*^9, 3.568924744580755*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Richard's Problem", "Title",
+ CellChangeTimes->{{3.5463552551697493`*^9, 3.546355261540833*^9}}],
+
+Cell["\<\
+Nicholas Wheeler
+18 May 2012\
+\>", "Text",
+ CellChangeTimes->{{3.54635527431952*^9, 3.5463552915551023`*^9}},
+ FontSize->10],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input",
+ CellChangeTimes->{3.5463553020083513`*^9}],
+
+Cell[CellGroupData[{
+
+Cell["Introduction", "Subsection",
+ CellChangeTimes->{{3.5463557660109367`*^9, 3.546355771767292*^9}}],
+
+Cell["Let ", "Text",
+ CellChangeTimes->{{3.546355793522119*^9, 3.546355795133615*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"\[DoubleStruckCapitalU]", "=", 
+   RowBox[{"(", "\[NoBreak]", GridBox[{
+      {"a", "b"},
+      {"c", "d"}
+     }], "\[NoBreak]", ")"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.546355800758829*^9, 3.546355844350279*^9}}],
+
+Cell["\<\
+be unimodular. Richard asks (16 May 2012) \"Is there an elegant way to write \
+\[DoubleStruckCapitalU] in factored form \[DoubleStruckCapitalU] = \
+\[DoubleStruckCapitalR]\[DoubleStruckCapitalS] where \[DoubleStruckCapitalR] \
+is a rotation matrix and \[DoubleStruckCapitalS] is as simple as possible?\"\
+\>", "Text",
+ CellChangeTimes->{{3.546355853533618*^9, 3.546355859704233*^9}, {
+  3.5463559462404623`*^9, 3.5463560846219597`*^9}}],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.546356121570965*^9, 3.5463561253545523`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+General properties of 2 \[Times] 2 unimodular matrices\
+\>", "Subsection",
+ CellChangeTimes->{{3.546356168464602*^9, 3.546356195621003*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Unprotect", "[", "D", "]"}], ";"}]], "Input"],
+
+Cell["Introduce the notations", "Text",
+ CellChangeTimes->{{3.546356283173703*^9, 3.5463563312050943`*^9}, 
+   3.546356699611793*^9}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"T", "=", 
+   RowBox[{"Tr", "[", "\[DoubleStruckCapitalU]", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"D", "=", 
+   RowBox[{"Det", "[", "\[DoubleStruckCapitalU]", "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.546356336485354*^9, 3.546356356477859*^9}, 
+   3.546356388647868*^9, {3.546356430373822*^9, 3.546356459851018*^9}, {
+   3.546356601523924*^9, 3.546356624542582*^9}}],
+
+Cell["\<\
+The characteristic polynomial of \[DoubleStruckCapitalU] becomes\
+\>", "Text",
+ CellChangeTimes->{{3.546356707409243*^9, 3.546356721653899*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"CharacteristicPolynomial", "[", 
+    RowBox[{"\[DoubleStruckCapitalU]", ",", "x"}], "]"}], "\[Equal]", 
+   RowBox[{
+    SuperscriptBox["x", "2"], "-", 
+    RowBox[{"T", " ", "x"}], "+", "D"}]}], "//", "Simplify"}]], "Input",
+ CellChangeTimes->{{3.546356227349225*^9, 3.546356244781363*^9}, {
+  3.546356644030136*^9, 3.546356684787404*^9}}],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{
+  3.54635624861397*^9, {3.546356668523231*^9, 3.546356686546832*^9}, 
+   3.56893988331958*^9}]
+}, Open  ]],
+
+Cell["and when we assume unimodularity becomes", "Text",
+ CellChangeTimes->{{3.5463567846663923`*^9, 3.546356825055848*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"p", "[", "x_", "]"}], ":=", 
+  RowBox[{
+   SuperscriptBox["x", "2"], "-", 
+   RowBox[{"T", " ", "x"}], "+", "1"}]}]], "Input",
+ CellChangeTimes->{{3.546356831474471*^9, 3.546356860908312*^9}}],
+
+Cell["From", "Text",
+ CellChangeTimes->{{3.5463570233369827`*^9, 3.5463570241718407`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"Clear", "[", "T", "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Solve", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"p", "[", "x", "]"}], "\[Equal]", "0"}], ",", "x"}], "]"}], "//",
+   "Simplify"}]}], "Input",
+ CellChangeTimes->{{3.546356882166473*^9, 3.546356935596224*^9}, {
+  3.546356975198184*^9, 3.5463569822283907`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"x", "\[Rule]", 
+     RowBox[{
+      FractionBox["1", "2"], " ", 
+      RowBox[{"(", 
+       RowBox[{"T", "-", 
+        SqrtBox[
+         RowBox[{
+          RowBox[{"-", "4"}], "+", 
+          SuperscriptBox["T", "2"]}]]}], ")"}]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", "\[Rule]", 
+     RowBox[{
+      FractionBox["1", "2"], " ", 
+      RowBox[{"(", 
+       RowBox[{"T", "+", 
+        SqrtBox[
+         RowBox[{
+          RowBox[{"-", "4"}], "+", 
+          SuperscriptBox["T", "2"]}]]}], ")"}]}]}], "}"}]}], "}"}]], "Output",\
+
+ CellChangeTimes->{{3.546356896200513*^9, 3.546356937228444*^9}, 
+   3.546356987826725*^9}]
+}, Open  ]],
+
+Cell["we obtain eigenvalues", "Text",
+ CellChangeTimes->{{3.546357075232823*^9, 3.5463570868485203`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   SubscriptBox["\[Lambda]", "1"], "=", 
+   RowBox[{
+    FractionBox["1", "2"], " ", 
+    RowBox[{"(", 
+     RowBox[{"T", "+", 
+      SqrtBox[
+       RowBox[{
+        RowBox[{"-", "4"}], "+", 
+        SuperscriptBox["T", "2"]}]]}], ")"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   SubscriptBox["\[Lambda]", "2"], "=", 
+   RowBox[{
+    FractionBox["1", "2"], " ", 
+    RowBox[{"(", 
+     RowBox[{"T", "-", 
+      SqrtBox[
+       RowBox[{
+        RowBox[{"-", "4"}], "+", 
+        SuperscriptBox["T", "2"]}]]}], ")"}]}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.54635709870247*^9, 3.546357141725172*^9}, {
+  3.5463571907682858`*^9, 3.5463571927670307`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"Simplify", "[", 
+  RowBox[{
+   SubscriptBox["\[Lambda]", "1"], "+", 
+   SubscriptBox["\[Lambda]", "2"]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Simplify", "[", 
+  RowBox[{
+   SubscriptBox["\[Lambda]", "1"], 
+   SubscriptBox["\[Lambda]", "2"]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.5463572022590446`*^9, 3.5463572408460293`*^9}}],
+
+Cell[BoxData["T"], "Output",
+ CellChangeTimes->{3.5463572119300222`*^9, 3.54635724375681*^9}],
+
+Cell[BoxData["1"], "Output",
+ CellChangeTimes->{3.5463572119300222`*^9, 3.546357243761389*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+ "Evidently, unimodular 2 \[Times] 2 matrices with identical traces have \
+identical spectra. \n\nAssuming the elements of \[DoubleStruckCapitalU] to be \
+real, the eigenvalues are real iff ",
+ Cell[BoxData[
+  StyleBox[
+   RowBox[{
+    SuperscriptBox["T", "2"], "\[GreaterSlantEqual]", "4"}], "Output"]],
+  CellChangeTimes->{{3.5463574418998528`*^9, 3.5463574436054068`*^9}, 
+    3.546357505725527*^9}],
+ " and the spectrum becomes degenerate when ",
+ Cell[BoxData[
+  StyleBox[
+   RowBox[{
+    SuperscriptBox["T", "2"], "=", "4"}], "Output"]],
+  CellChangeTimes->{{3.546357591318486*^9, 3.54635759645255*^9}}],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.546357300176311*^9, 3.546357424268134*^9}, {
+  3.546357650681726*^9, 3.546357693669548*^9}}],
+
+Cell["", "Text",
+ CellChangeTimes->{{3.546360403136239*^9, 3.546360423113649*^9}, {
+  3.5463605366032352`*^9, 3.5463605385395727`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Solution", "Subsection",
+ CellChangeTimes->{{3.54638828311802*^9, 3.546388285623726*^9}}],
+
+Cell[TextData[{
+ "Occupying a special place within the population of matrices with specified \
+trace  ",
+ StyleBox["t ", "Output"],
+ "are those of the manifestly unimodular form "
+}], "Text",
+ CellChangeTimes->{{3.5463621002412443`*^9, 3.5463621801857224`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"\[DoubleStruckCapitalS]", "=", 
+   RowBox[{"(", "\[NoBreak]", GridBox[{
+      {"t", "s"},
+      {
+       RowBox[{
+        RowBox[{"-", "1"}], "/", "s"}], "0"}
+     }], "\[NoBreak]", ")"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.5463621875750933`*^9, 3.546362220838822*^9}}],
+
+Cell["Let", "Text",
+ CellChangeTimes->{{3.5463622688307533`*^9, 3.546362269492022*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"\[DoubleStruckCapitalR]", "=", 
+   RowBox[{"(", "\[NoBreak]", GridBox[{
+      {
+       RowBox[{"Cos", "[", "\[Beta]", "]"}], 
+       RowBox[{"-", 
+        RowBox[{"Sin", "[", "\[Beta]", "]"}]}]},
+      {
+       RowBox[{"Sin", "[", "\[Beta]", "]"}], 
+       RowBox[{"Cos", "[", "\[Beta]", "]"}]}
+     }], "\[NoBreak]", ")"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.546362273588705*^9, 3.546362288301594*^9}}],
+
+Cell["Then", "Text",
+ CellChangeTimes->{{3.54636231329799*^9, 3.546362313929381*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"\[DoubleStruckCapitalR]", ".", "\[DoubleStruckCapitalS]"}], "//", 
+  "MatrixForm"}]], "Input",
+ CellChangeTimes->{{3.546362319818515*^9, 3.546362332754991*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      RowBox[{
+       RowBox[{"t", " ", 
+        RowBox[{"Cos", "[", "\[Beta]", "]"}]}], "+", 
+       FractionBox[
+        RowBox[{"Sin", "[", "\[Beta]", "]"}], "s"]}], 
+      RowBox[{"s", " ", 
+       RowBox[{"Cos", "[", "\[Beta]", "]"}]}]},
+     {
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox[
+         RowBox[{"Cos", "[", "\[Beta]", "]"}], "s"]}], "+", 
+       RowBox[{"t", " ", 
+        RowBox[{"Sin", "[", "\[Beta]", "]"}]}]}], 
+      RowBox[{"s", " ", 
+       RowBox[{"Sin", "[", "\[Beta]", "]"}]}]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{3.546362335256833*^9}]
+}, Open  ]],
+
+Cell["Such 3-parameter matrices are trivially unimodular:", "Text",
+ CellChangeTimes->{{3.546362418486663*^9, 3.546362440234125*^9}, {
+  3.5463626124321203`*^9, 3.546362635303912*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Simplify", "[", 
+  RowBox[{"Det", "[", 
+   RowBox[{"\[DoubleStruckCapitalR]", ".", "\[DoubleStruckCapitalS]"}], "]"}],
+   "]"}]], "Input",
+ CellChangeTimes->{{3.5463624488203373`*^9, 3.546362466968115*^9}}],
+
+Cell[BoxData["1"], "Output",
+ CellChangeTimes->{3.5463624696039886`*^9}]
+}, Open  ]],
+
+Cell["To cast", "Text",
+ CellChangeTimes->{{3.546362368049212*^9, 3.546362374173807*^9}, {
+  3.546362483466805*^9, 3.546362486495191*^9}, {3.546362590780038*^9, 
+  3.5463625952007227`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[DoubleStruckCapitalU]", "//", "MatrixForm"}]], "Input",
+ CellChangeTimes->{{3.546362378965518*^9, 3.546362392319544*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"a", "b"},
+     {"c", "d"}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{3.546362394353285*^9}]
+}, Open  ]],
+
+Cell["into that form we set", "Text",
+ CellChangeTimes->{{3.546362509671414*^9, 3.546362513245551*^9}, {
+  3.5463627067811327`*^9, 3.546362713337706*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"Tan", "[", "\[Beta]", "]"}], "=", 
+   RowBox[{"d", "/", "b"}]}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+
+ RowBox[{
+  RowBox[{"s", "=", 
+   SqrtBox[
+    RowBox[{
+     SuperscriptBox["b", "2"], "+", 
+     SuperscriptBox["d", "2"]}]]}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"t", "=", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{"a", "-", 
+     FractionBox["d", 
+      RowBox[{
+       SuperscriptBox["b", "2"], "+", 
+       SuperscriptBox["d", "2"]}]]}], ")"}], 
+   RowBox[{"s", "/", "b"}]}]}]}], "Input",
+ CellChangeTimes->{{3.5463627689340143`*^9, 3.546362910313717*^9}}],
+
+Cell["\<\
+The first pair of those equations admit of trivial geometrical \
+representation. The first permits the \[DoubleStruckCapitalR] matrix to be \
+written\
+\>", "Text",
+ CellChangeTimes->{{3.5463639492189407`*^9, 3.546364005148884*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"\[DoubleStruckR]", "=", 
+   RowBox[{
+    FractionBox["1", 
+     SqrtBox[
+      RowBox[{
+       SuperscriptBox["b", "2"], "+", 
+       SuperscriptBox["d", "2"]}]]], 
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {"b", 
+        RowBox[{"-", "d"}]},
+       {"d", "b"}
+      }], "\[NoBreak]", ")"}]}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.546363593917118*^9, 3.546363675686801*^9}}],
+
+Cell["which is indeed rotational:", "Text",
+ CellChangeTimes->{{3.5463640254998693`*^9, 3.546364036058951*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Simplify", "[", 
+   RowBox[{"\[DoubleStruckR]", ".", 
+    RowBox[{"Transpose", "[", "\[DoubleStruckR]", "]"}]}], "]"}], "//", 
+  "MatrixForm"}]], "Input",
+ CellChangeTimes->{{3.5463636843229218`*^9, 3.546363714184697*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"1", "0"},
+     {"0", "1"}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{3.546363715733861*^9}]
+}, Open  ]],
+
+Cell["The product \[DoubleStruckCapitalR]\[DoubleStruckCapitalS] has become", \
+"Text",
+ CellChangeTimes->{{3.546364066241249*^9, 3.546364085591977*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"\[DoubleStruckR]", ".", 
+   RowBox[{"(", "\[NoBreak]", GridBox[{
+      {
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"a", "-", 
+          FractionBox["d", 
+           RowBox[{
+            SuperscriptBox["b", "2"], "+", 
+            SuperscriptBox["d", "2"]}]]}], ")"}], 
+        RowBox[{
+         SqrtBox[
+          RowBox[{
+           SuperscriptBox["b", "2"], "+", 
+           SuperscriptBox["d", "2"]}]], "/", "b"}]}], 
+       SqrtBox[
+        RowBox[{
+         SuperscriptBox["b", "2"], "+", 
+         SuperscriptBox["d", "2"]}]]},
+      {
+       FractionBox[
+        RowBox[{"-", "1"}], 
+        SqrtBox[
+         RowBox[{
+          SuperscriptBox["b", "2"], "+", 
+          SuperscriptBox["d", "2"]}]]], "0"}
+     }], "\[NoBreak]", ")"}]}], "//", "Simplify"}]], "Input",
+ CellChangeTimes->{{3.546363773577636*^9, 3.546363862458098*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"a", ",", "b"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     FractionBox[
+      RowBox[{
+       RowBox[{"-", "1"}], "+", 
+       RowBox[{"a", " ", "d"}]}], "b"], ",", "d"}], "}"}]}], "}"}]], "Output",\
+
+ CellChangeTimes->{3.5463638643692102`*^9}]
+}, Open  ]],
+
+Cell["\<\
+which is seen to be a manifestly unimodular rendition of \
+\[DoubleStruckCapitalU]. \
+\>", "Text",
+ CellChangeTimes->{{3.5463641085827417`*^9, 3.546364142245222*^9}}],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input",
+ CellChangeTimes->{3.546397290091178*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Spectral decomposition", "Subsection",
+ CellChangeTimes->{{3.546455883296998*^9, 3.546455887981267*^9}}],
+
+Cell["\<\
+Though the solution of the problem that motivated this exercise is now in \
+hand, I carry the discussion forward a little way to see whether things stay \
+simple or get uninformatively complicated, and to establish one small but \
+curious point.\
+\>", "Text",
+ CellChangeTimes->{{3.5464559022791433`*^9, 3.54645592472753*^9}, {
+  3.5464559702731867`*^9, 3.546456084788756*^9}, {3.5465333548054533`*^9, 
+  3.546533397644621*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"Clear", "[", 
+  RowBox[{"\[DoubleStruckCapitalS]", ",", "t", ",", "s"}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[DoubleStruckCapitalS]", "=", 
+   RowBox[{"(", "\[NoBreak]", GridBox[{
+      {"t", "s"},
+      {
+       RowBox[{
+        RowBox[{"-", "1"}], "/", "s"}], "0"}
+     }], "\[NoBreak]", ")"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.546456088892913*^9, 3.546456128636777*^9}}],
+
+Cell["From", "Text",
+ CellChangeTimes->{{3.546456145065607*^9, 3.546456145774576*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Eigenvalues", "[", "\[DoubleStruckCapitalS]", "]"}]], "Input",
+ CellChangeTimes->{
+  3.546456070531321*^9, {3.546456152042588*^9, 3.5464561615274067`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    FractionBox["1", "2"], " ", 
+    RowBox[{"(", 
+     RowBox[{"t", "-", 
+      SqrtBox[
+       RowBox[{
+        RowBox[{"-", "4"}], "+", 
+        SuperscriptBox["t", "2"]}]]}], ")"}]}], ",", 
+   RowBox[{
+    FractionBox["1", "2"], " ", 
+    RowBox[{"(", 
+     RowBox[{"t", "+", 
+      SqrtBox[
+       RowBox[{
+        RowBox[{"-", "4"}], "+", 
+        SuperscriptBox["t", "2"]}]]}], ")"}]}]}], "}"}]], "Output",
+ CellChangeTimes->{3.546456170130274*^9}]
+}, Open  ]],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   SubscriptBox["\[Lambda]", "1"], "=", 
+   RowBox[{
+    FractionBox["1", "2"], " ", 
+    RowBox[{"(", 
+     RowBox[{"t", "+", 
+      SqrtBox[
+       RowBox[{
+        RowBox[{"-", "4"}], "+", 
+        SuperscriptBox["t", "2"]}]]}], ")"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   SubscriptBox["\[Lambda]", "2"], "=", 
+   RowBox[{
+    FractionBox["1", "2"], " ", 
+    RowBox[{"(", 
+     RowBox[{"t", "-", 
+      SqrtBox[
+       RowBox[{
+        RowBox[{"-", "4"}], "+", 
+        SuperscriptBox["t", "2"]}]]}], ")"}]}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.546456190291131*^9, 3.546456230192791*^9}}],
+
+Cell["we see that the (right) eigenvectors", "Text",
+ CellChangeTimes->{{3.546456247783051*^9, 3.546456265773149*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Eigenvectors", "[", "\[DoubleStruckCapitalS]", "]"}]], "Input",
+ CellChangeTimes->{{3.546456273135007*^9, 3.54645628031177*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      FractionBox["1", "2"], " ", "s", " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", "t"}], "+", 
+        SqrtBox[
+         RowBox[{
+          RowBox[{"-", "4"}], "+", 
+          SuperscriptBox["t", "2"]}]]}], ")"}]}], ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"-", 
+       FractionBox["1", "2"]}], " ", "s", " ", 
+      RowBox[{"(", 
+       RowBox[{"t", "+", 
+        SqrtBox[
+         RowBox[{
+          RowBox[{"-", "4"}], "+", 
+          SuperscriptBox["t", "2"]}]]}], ")"}]}], ",", "1"}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.546456282760119*^9}]
+}, Open  ]],
+
+Cell["are quite simple:", "Text",
+ CellChangeTimes->{{3.5464562940651703`*^9, 3.5464562992729063`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   SubscriptBox["r", "1"], "=", 
+   RowBox[{"(", "\[NoBreak]", GridBox[{
+      {
+       RowBox[{
+        RowBox[{"-", "s"}], " ", 
+        SubscriptBox["\[Lambda]", "1"]}]},
+      {"1"}
+     }], "\[NoBreak]", ")"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   SubscriptBox["r", "2"], "=", 
+   RowBox[{"(", "\[NoBreak]", GridBox[{
+      {
+       RowBox[{
+        RowBox[{"-", "s"}], " ", 
+        SubscriptBox["\[Lambda]", "2"]}]},
+      {"1"}
+     }], "\[NoBreak]", ")"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.546456303047703*^9, 3.546456376268779*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"Simplify", "[", 
+  RowBox[{
+   RowBox[{"\[DoubleStruckCapitalS]", ".", 
+    SubscriptBox["r", "1"]}], "\[Equal]", 
+   RowBox[{
+    SubscriptBox["\[Lambda]", "1"], 
+    SubscriptBox["r", "1"]}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Simplify", "[", 
+  RowBox[{
+   RowBox[{"\[DoubleStruckCapitalS]", ".", 
+    SubscriptBox["r", "2"]}], "\[Equal]", 
+   RowBox[{
+    SubscriptBox["\[Lambda]", "2"], 
+    SubscriptBox["r", "2"]}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.546456386994375*^9, 3.5464564240469217`*^9}}],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{3.5464564338594093`*^9}],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{3.54645643404427*^9}]
+}, Open  ]],
+
+Cell["\<\
+Transposition of \[DoubleStruckCapitalS] is accomplished by the simple \
+replacement \
+\>", "Text",
+ CellChangeTimes->{{3.546456456475678*^9, 3.5464564892901506`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"s", "\[RightArrow]", 
+  RowBox[{
+   RowBox[{"-", "1"}], "/", "s"}]}]], "Output",
+ CellChangeTimes->{{3.546456495173378*^9, 3.546456520399473*^9}}],
+
+Cell["\<\
+so the left eigenvectors of \[DoubleStruckCapitalS] (transposed right \
+eigenvectors of \[DoubleStruckCapitalS] transpose) are\
+\>", "Text",
+ CellChangeTimes->{{3.546456553528975*^9, 3.5464566335515738`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   SubscriptBox["l", "1"], "=", 
+   RowBox[{"(", "\[NoBreak]", GridBox[{
+      {
+       RowBox[{
+        SubscriptBox["\[Lambda]", "1"], "/", "s"}], "1"}
+     }], "\[NoBreak]", ")"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   SubscriptBox["l", "2"], "=", 
+   RowBox[{"(", "\[NoBreak]", GridBox[{
+      {
+       RowBox[{
+        SubscriptBox["\[Lambda]", "2"], "/", "s"}], "1"}
+     }], "\[NoBreak]", ")"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.546456640140493*^9, 3.5464567190332947`*^9}, {
+  3.546459776378891*^9, 3.546459821678631*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"Simplify", "[", 
+  RowBox[{
+   RowBox[{
+    SubscriptBox["l", "1"], ".", "\[DoubleStruckCapitalS]"}], "\[Equal]", 
+   RowBox[{
+    SubscriptBox["\[Lambda]", "1"], 
+    SubscriptBox["l", "1"]}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Simplify", "[", 
+  RowBox[{
+   RowBox[{
+    SubscriptBox["l", "2"], ".", "\[DoubleStruckCapitalS]"}], "\[Equal]", 
+   RowBox[{
+    SubscriptBox["\[Lambda]", "2"], 
+    SubscriptBox["l", "2"]}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.546456708034404*^9, 3.546456768051867*^9}}],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{3.54645679151318*^9, 3.546459832615305*^9}],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{3.54645679151318*^9, 3.5464598326292677`*^9}]
+}, Open  ]],
+
+Cell["Introducing the inner product function", "Text",
+ CellChangeTimes->{{3.546456815292005*^9, 3.546456817545322*^9}, {
+  3.54645684944411*^9, 3.546456865022979*^9}, {3.546460688978572*^9, 
+  3.546460716860573*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"f", "[", 
+   RowBox[{"x_", ",", "y_"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Simplify", "[", 
+     RowBox[{"x", ".", "y"}], "]"}], "\[LeftDoubleBracket]", "1", 
+    "\[RightDoubleBracket]"}], "\[LeftDoubleBracket]", "1", 
+   "\[RightDoubleBracket]"}]}]], "Input",
+ CellChangeTimes->{{3.546460267306259*^9, 3.546460332288581*^9}, {
+  3.546460390782851*^9, 3.546460407279224*^9}}],
+
+Cell["we have these biorthogonality relations:", "Text",
+ CellChangeTimes->{{3.546460726275728*^9, 3.546460736806879*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"f", "[", 
+  RowBox[{
+   SubscriptBox["l", "1"], ",", 
+   SubscriptBox["r", "2"]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"f", "[", 
+  RowBox[{
+   SubscriptBox["l", "2"], ",", 
+   SubscriptBox["r", "1"]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.546460466369473*^9, 3.546460481154068*^9}}],
+
+Cell[BoxData["0"], "Output",
+ CellChangeTimes->{3.546460484409339*^9}],
+
+Cell[BoxData["0"], "Output",
+ CellChangeTimes->{3.546460484425591*^9}]
+}, Open  ]],
+
+Cell["while", "Text",
+ CellChangeTimes->{{3.546460747778932*^9, 3.546460748607511*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"f", "[", 
+    RowBox[{
+     SubscriptBox["l", "1"], ",", 
+     SubscriptBox["r", "1"]}], "]"}], "\[Equal]", 
+   RowBox[{"1", "-", 
+    SuperscriptBox[
+     SubscriptBox["\[Lambda]", "1"], "2"]}]}], "//", 
+  "Simplify"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"f", "[", 
+    RowBox[{
+     SubscriptBox["l", "2"], ",", 
+     SubscriptBox["r", "2"]}], "]"}], "\[Equal]", 
+   RowBox[{"1", "-", 
+    SuperscriptBox[
+     SubscriptBox["\[Lambda]", "2"], "2"]}]}], "//", "Simplify"}]}], "Input",
+ CellChangeTimes->{{3.5464605178166513`*^9, 3.546460604796015*^9}}],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{
+  3.5464605259843693`*^9, {3.546460562366193*^9, 3.546460606942267*^9}}],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{
+  3.5464605259843693`*^9, {3.546460562366193*^9, 3.546460606964843*^9}}]
+}, Open  ]],
+
+Cell["\<\
+Proceeding now along lines spelled out on page 5 of \"Some uncommon matrix \
+theory\" (April 2012), we construct\
+\>", "Text",
+ CellChangeTimes->{{3.546530557860251*^9, 3.5465306359144907`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   SubscriptBox["r", "1"], ".", 
+   SubscriptBox["l", "1"]}], "//", "MatrixForm"}]], "Input",
+ CellChangeTimes->{{3.5464584833068113`*^9, 3.546458531399537*^9}, {
+  3.546460663640077*^9, 3.5464606691613092`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox["1", "4"]}], " ", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         RowBox[{"t", "+", 
+          SqrtBox[
+           RowBox[{
+            RowBox[{"-", "4"}], "+", 
+            SuperscriptBox["t", "2"]}]]}], ")"}], "2"]}], 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox["1", "2"]}], " ", "s", " ", 
+       RowBox[{"(", 
+        RowBox[{"t", "+", 
+         SqrtBox[
+          RowBox[{
+           RowBox[{"-", "4"}], "+", 
+           SuperscriptBox["t", "2"]}]]}], ")"}]}]},
+     {
+      FractionBox[
+       RowBox[{"t", "+", 
+        SqrtBox[
+         RowBox[{
+          RowBox[{"-", "4"}], "+", 
+          SuperscriptBox["t", "2"]}]]}], 
+       RowBox[{"2", " ", "s"}]], "1"}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{{3.546458497939499*^9, 3.546458532972252*^9}, 
+   3.546460670609421*^9, 3.546530669815518*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"%", "==", 
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      RowBox[{"-", 
+       SuperscriptBox[
+        SubscriptBox["\[Lambda]", "1"], "2"]}], 
+      RowBox[{
+       RowBox[{"-", "s"}], " ", 
+       SubscriptBox["\[Lambda]", "1"]}]},
+     {
+      RowBox[{
+       SubscriptBox["\[Lambda]", "1"], "/", "s"}], "1"}
+    }], "\[NoBreak]", ")"}]}]], "Input",
+ CellChangeTimes->{{3.546530676332725*^9, 3.546530678971408*^9}}],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{3.546530682207367*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   SubscriptBox["r", "2"], ".", 
+   SubscriptBox["l", "2"]}], "//", "MatrixForm"}]], "Input",
+ CellChangeTimes->{{3.546458646658325*^9, 3.546458649692939*^9}, {
+  3.546530691370449*^9, 3.546530693213166*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox["1", "4"]}], " ", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         RowBox[{"t", "-", 
+          SqrtBox[
+           RowBox[{
+            RowBox[{"-", "4"}], "+", 
+            SuperscriptBox["t", "2"]}]]}], ")"}], "2"]}], 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox["1", "2"]}], " ", "s", " ", 
+       RowBox[{"(", 
+        RowBox[{"t", "-", 
+         SqrtBox[
+          RowBox[{
+           RowBox[{"-", "4"}], "+", 
+           SuperscriptBox["t", "2"]}]]}], ")"}]}]},
+     {
+      FractionBox[
+       RowBox[{"t", "-", 
+        SqrtBox[
+         RowBox[{
+          RowBox[{"-", "4"}], "+", 
+          SuperscriptBox["t", "2"]}]]}], 
+       RowBox[{"2", " ", "s"}]], "1"}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{3.546458654351109*^9, 3.546530697697357*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"%", "==", 
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      RowBox[{"-", 
+       SuperscriptBox[
+        SubscriptBox["\[Lambda]", "2"], "2"]}], 
+      RowBox[{
+       RowBox[{"-", "s"}], " ", 
+       SubscriptBox["\[Lambda]", "2"]}]},
+     {
+      RowBox[{
+       SubscriptBox["\[Lambda]", "2"], "/", "s"}], "1"}
+    }], "\[NoBreak]", ")"}]}]], "Input",
+ CellChangeTimes->{{3.546530713987545*^9, 3.5465307150685673`*^9}}],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{3.5465307181409407`*^9}]
+}, Open  ]],
+
+Cell["and on the basis of that information define", "Text",
+ CellChangeTimes->{{3.5465307850611677`*^9, 3.546530795610301*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   SubscriptBox["\[DoubleStruckCapitalP]", "1"], "=", 
+   RowBox[{
+    FractionBox["1", 
+     RowBox[{"1", "-", 
+      SuperscriptBox[
+       SubscriptBox["\[Lambda]", "1"], "2"]}]], 
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {
+        RowBox[{"-", 
+         SuperscriptBox[
+          SubscriptBox["\[Lambda]", "1"], "2"]}], 
+        RowBox[{
+         RowBox[{"-", "s"}], " ", 
+         SubscriptBox["\[Lambda]", "1"]}]},
+       {
+        RowBox[{
+         SubscriptBox["\[Lambda]", "1"], "/", "s"}], "1"}
+      }], "\[NoBreak]", ")"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   SubscriptBox["\[DoubleStruckCapitalP]", "2"], "=", 
+   RowBox[{
+    FractionBox["1", 
+     RowBox[{"1", "-", 
+      SuperscriptBox[
+       SubscriptBox["\[Lambda]", "2"], "2"]}]], 
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {
+        RowBox[{"-", 
+         SuperscriptBox[
+          SubscriptBox["\[Lambda]", "2"], "2"]}], 
+        RowBox[{
+         RowBox[{"-", "s"}], " ", 
+         SubscriptBox["\[Lambda]", "2"]}]},
+       {
+        RowBox[{
+         SubscriptBox["\[Lambda]", "2"], "/", "s"}], "1"}
+      }], "\[NoBreak]", ")"}]}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.546530800637973*^9, 3.546530884682612*^9}}],
+
+Cell["which we verify comprise a COMPLETE", "Text",
+ CellChangeTimes->{{3.546531063560629*^9, 3.546531082127166*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    SubscriptBox["\[DoubleStruckCapitalP]", "1"], "+", 
+    SubscriptBox["\[DoubleStruckCapitalP]", "2"]}], "//", "Simplify"}], "//", 
+  "MatrixForm"}]], "Input",
+ CellChangeTimes->{{3.546531003425151*^9, 3.54653102284435*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"1", "0"},
+     {"0", "1"}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{3.54653102837759*^9}]
+}, Open  ]],
+
+Cell["set of ORTHOGONAL", "Text",
+ CellChangeTimes->{{3.546531093392164*^9, 3.546531097585973*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    SubscriptBox["\[DoubleStruckCapitalP]", "1"], ".", 
+    SubscriptBox["\[DoubleStruckCapitalP]", "2"]}], "//", "Simplify"}], "//", 
+  "MatrixForm"}]], "Input",
+ CellChangeTimes->{{3.546531043810012*^9, 3.546531051064687*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"0", "0"},
+     {"0", "0"}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{3.5465310552494593`*^9}]
+}, Open  ]],
+
+Cell["PROJECTION MATRICES:", "Text",
+ CellChangeTimes->{{3.546531110649623*^9, 3.54653111913839*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     SubscriptBox["\[DoubleStruckCapitalP]", "1"], ".", 
+     SubscriptBox["\[DoubleStruckCapitalP]", "1"]}], "-", 
+    SubscriptBox["\[DoubleStruckCapitalP]", 
+     RowBox[{"1", " "}]]}], "//", "Simplify"}], "//", 
+  "MatrixForm"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     SubscriptBox["\[DoubleStruckCapitalP]", "2"], ".", 
+     SubscriptBox["\[DoubleStruckCapitalP]", "2"]}], "-", 
+    SubscriptBox["\[DoubleStruckCapitalP]", 
+     RowBox[{"2", " "}]]}], "//", "Simplify"}], "//", 
+  "MatrixForm"}]}], "Input",
+ CellChangeTimes->{{3.5465308992499332`*^9, 3.546530960335766*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"0", "0"},
+     {"0", "0"}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{{3.546530936351615*^9, 3.546530965127709*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"0", "0"},
+     {"0", "0"}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{{3.546530936351615*^9, 3.5465309652740517`*^9}}]
+}, Open  ]],
+
+Cell["\<\
+We have now in hand the (\"generalized\") spectral decomposition of \
+\[DoubleStruckCapitalS]:\
+\>", "Text",
+ CellChangeTimes->{{3.5465316756636972`*^9, 3.546531714629784*^9}, {
+  3.546531919628622*^9, 3.546531947911813*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      SubscriptBox["\[Lambda]", "1"], 
+      SubscriptBox["\[DoubleStruckCapitalP]", "1"]}], "+", 
+     RowBox[{
+      SubscriptBox["\[Lambda]", "2"], 
+      SubscriptBox["\[DoubleStruckCapitalP]", "2"]}]}], "\[Equal]", 
+    "\[DoubleStruckCapitalS]"}], "//", "Simplify"}], "//", 
+  "MatrixForm"}]], "Input",
+ CellChangeTimes->{{3.546531142969488*^9, 3.54653120126571*^9}}],
+
+Cell[BoxData[
+ TagBox["True",
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{{3.546531179037903*^9, 3.546531203698387*^9}}]
+}, Open  ]],
+
+Cell[TextData[{
+ "We are in position to describe  ",
+ Cell[BoxData[
+  RowBox[{
+   SubscriptBox["\[Lambda]", "1"], ",", 
+   SubscriptBox["\[Lambda]", "2"]}]],
+  CellChangeTimes->{{3.5465318200652037`*^9, 3.546531828313833*^9}}],
+ " and the elements of ",
+ Cell[BoxData[
+  RowBox[{
+   SubscriptBox["\[DoubleStruckCapitalP]", "1"], ",", 
+   SubscriptBox["\[DoubleStruckCapitalP]", "2"]}]],
+  CellChangeTimes->{{3.546531868113566*^9, 3.546531882162036*^9}}],
+ " and \[DoubleStruckCapitalS] in terms of the elements  a, b, d  of  \
+\[DoubleStruckCapitalU], and to write"
+}], "Text",
+ CellChangeTimes->{{3.546531780332*^9, 3.546531810303966*^9}, {
+   3.546531848720284*^9, 3.546531853607355*^9}, {3.546531897630073*^9, 
+   3.5465319024347067`*^9}, {3.5465319565613527`*^9, 
+   3.5465319661391153`*^9}, {3.546532008274922*^9, 3.54653205091113*^9}, 
+   3.568940121487563*^9}],
+
+Cell[BoxData[
+ RowBox[{"\[DoubleStruckCapitalU]", "=", 
+  RowBox[{
+   RowBox[{
+    SubscriptBox["\[Lambda]", "1"], 
+    RowBox[{"\[DoubleStruckCapitalR]", ".", 
+     SubscriptBox["\[DoubleStruckCapitalP]", "1"]}]}], "+", 
+   RowBox[{
+    SubscriptBox["\[Lambda]", "2"], 
+    RowBox[{"\[DoubleStruckCapitalR]", ".", 
+     SubscriptBox["\[DoubleStruckCapitalP]", "2"]}]}]}]}]], "Output",
+ CellChangeTimes->{{3.546532066829339*^9, 3.546532103320335*^9}}],
+
+Cell["\<\
+but this is NOT the spectral decomposition of \[DoubleStruckCapitalU]: we \
+established early on that the eigenvalues of \[DoubleStruckCapitalU]\
+\>", "Text",
+ CellChangeTimes->{{3.5465321510599327`*^9, 3.5465321963041353`*^9}, {
+  3.546532603072863*^9, 3.5465326053123007`*^9}, {3.546551349624413*^9, 
+  3.5465513661850557`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Eigenvalues", "[", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"a", ",", "b"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{
+      FractionBox[
+       RowBox[{
+        RowBox[{"-", "1"}], "+", 
+        RowBox[{"a", " ", "d"}]}], "b"], ",", "d"}], "}"}]}], "}"}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.5465322098229723`*^9, 3.54653221732209*^9}, {
+   3.546532260379305*^9, 3.546532262121067*^9}, 3.546532328321116*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    FractionBox["1", "2"], " ", 
+    RowBox[{"(", 
+     RowBox[{"a", "+", "d", "-", 
+      SqrtBox[
+       RowBox[{
+        RowBox[{"-", "4"}], "+", 
+        SuperscriptBox["a", "2"], "+", 
+        RowBox[{"2", " ", "a", " ", "d"}], "+", 
+        SuperscriptBox["d", "2"]}]]}], ")"}]}], ",", 
+   RowBox[{
+    FractionBox["1", "2"], " ", 
+    RowBox[{"(", 
+     RowBox[{"a", "+", "d", "+", 
+      SqrtBox[
+       RowBox[{
+        RowBox[{"-", "4"}], "+", 
+        SuperscriptBox["a", "2"], "+", 
+        RowBox[{"2", " ", "a", " ", "d"}], "+", 
+        SuperscriptBox["d", "2"]}]]}], ")"}]}]}], "}"}]], "Output",
+ CellChangeTimes->{3.546532264170944*^9, 3.5465323349687567`*^9, 
+  3.546532440612691*^9, 3.54653248500115*^9, 3.546532563060836*^9, 
+  3.5465513311429863`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Assuming", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"a", "+", "d"}], "\[Equal]", "T"}], ",", 
+   RowBox[{"Simplify", "[", "%", "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.54653239434671*^9, 3.546532434808444*^9}, {
+  3.54653247681706*^9, 3.546532476981744*^9}, {3.5465325393121557`*^9, 
+  3.546532550813735*^9}, {3.5465513146921597`*^9, 3.546551322552785*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    FractionBox["1", "2"], " ", 
+    RowBox[{"(", 
+     RowBox[{"T", "-", 
+      SqrtBox[
+       RowBox[{
+        RowBox[{"-", "4"}], "+", 
+        SuperscriptBox["T", "2"]}]]}], ")"}]}], ",", 
+   RowBox[{
+    FractionBox["1", "2"], " ", 
+    RowBox[{"(", 
+     RowBox[{"T", "+", 
+      SqrtBox[
+       RowBox[{
+        RowBox[{"-", "4"}], "+", 
+        SuperscriptBox["T", "2"]}]]}], ")"}]}]}], "}"}]], "Output",
+ CellChangeTimes->{3.546532448337883*^9, 3.54653248965239*^9, 
+  3.5465325669950647`*^9, 3.546551336450713*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+ "possess the ",
+ StyleBox["form",
+  FontSlant->"Italic"],
+ " of the eigenvalues of \[DoubleStruckCapitalS]"
+}], "Text",
+ CellChangeTimes->{{3.546551388500217*^9, 3.5465514053765907`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   SubscriptBox["\[Lambda]", "1"], "=", 
+   RowBox[{
+    FractionBox["1", "2"], " ", 
+    RowBox[{"(", 
+     RowBox[{"t", "+", 
+      SqrtBox[
+       RowBox[{
+        RowBox[{"-", "4"}], "+", 
+        SuperscriptBox["t", "2"]}]]}], ")"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   SubscriptBox["\[Lambda]", "2"], "=", 
+   RowBox[{
+    FractionBox["1", "2"], " ", 
+    RowBox[{"(", 
+     RowBox[{"t", "-", 
+      SqrtBox[
+       RowBox[{
+        RowBox[{"-", "4"}], "+", 
+        SuperscriptBox["t", "2"]}]]}], ")"}]}]}], ";"}]}], "Output",
+ CellChangeTimes->{{3.546456190291131*^9, 3.546456230192791*^9}}],
+
+Cell["but they differ in value, because ", "Text",
+ CellChangeTimes->{{3.5465515298783627`*^9, 3.5465515393736486`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"T", "=", 
+  RowBox[{"a", "+", "d"}]}], "\[IndentingNewLine]", 
+ RowBox[{"t", "=", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{"a", "-", 
+     FractionBox["d", 
+      RowBox[{
+       SuperscriptBox["b", "2"], "+", 
+       SuperscriptBox["d", "2"]}]]}], ")"}], 
+   FractionBox[
+    SqrtBox[
+     RowBox[{
+      SuperscriptBox["b", "2"], "+", 
+      SuperscriptBox["d", "2"]}]], "b"]}]}]}], "Output"],
+
+Cell["Moreover, the matrices", "Text",
+ CellChangeTimes->{{3.5465326110597773`*^9, 3.5465326296864223`*^9}, {
+  3.546551693941922*^9, 3.5465516984989357`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  SubscriptBox["\[DoubleStruckCapitalQ]", "1"], "=", 
+  RowBox[{"\[DoubleStruckCapitalR]", ".", 
+   SubscriptBox["\[DoubleStruckCapitalP]", "1"]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  SubscriptBox["\[DoubleStruckCapitalQ]", "2"], "=", 
+  RowBox[{"\[DoubleStruckCapitalR]", ".", 
+   SubscriptBox["\[DoubleStruckCapitalP]", "2"]}]}]}], "Output",
+ CellChangeTimes->{{3.546532643982182*^9, 3.546532674377727*^9}}],
+
+Cell[TextData[{
+ StyleBox["do not comprise a complete set of orthogonal projection operators",
+  
+  FontVariations->{"Underline"->True}],
+ ". They would if the transformation"
+}], "Text",
+ CellChangeTimes->{{3.546532688278668*^9, 3.546532767729741*^9}, 
+   3.546534807685563*^9}],
+
+Cell[BoxData[
+ RowBox[{"\[DoubleStruckCapitalP]", "\[RightArrow]", 
+  "\[DoubleStruckCapitalQ]"}]], "Output",
+ CellChangeTimes->{{3.546532773236758*^9, 3.546532783002549*^9}}],
+
+Cell["\<\
+were a rotational similarity transformation, but it isn't  (is lop-sided). To \
+construct the spectral decomposition of \[DoubleStruckCapitalU] one would \
+have to work from\
+\>", "Text",
+ CellChangeTimes->{{3.5465327999402018`*^9, 3.546532867095792*^9}, {
+  3.546533024690884*^9, 3.5465330627716017`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Eigenvectors", "[", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"a", ",", "b"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{
+      FractionBox[
+       RowBox[{
+        RowBox[{"-", "1"}], "+", 
+        RowBox[{"a", " ", "d"}]}], "b"], ",", "d"}], "}"}]}], "}"}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.546532885963633*^9, 3.546532887617402*^9}, {
+   3.5465329233479757`*^9, 3.546532925690958*^9}, 3.546532963310316*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", 
+      FractionBox[
+       RowBox[{"b", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", "a"}], "+", "d", "+", 
+          SqrtBox[
+           RowBox[{
+            RowBox[{"-", "4"}], "+", 
+            SuperscriptBox["a", "2"], "+", 
+            RowBox[{"2", " ", "a", " ", "d"}], "+", 
+            SuperscriptBox["d", "2"]}]]}], ")"}]}], 
+       RowBox[{"2", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", "1"}], "+", 
+          RowBox[{"a", " ", "d"}]}], ")"}]}]]}], ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     FractionBox[
+      RowBox[{"b", " ", 
+       RowBox[{"(", 
+        RowBox[{"a", "-", "d", "+", 
+         SqrtBox[
+          RowBox[{
+           RowBox[{"-", "4"}], "+", 
+           SuperscriptBox["a", "2"], "+", 
+           RowBox[{"2", " ", "a", " ", "d"}], "+", 
+           SuperscriptBox["d", "2"]}]]}], ")"}]}], 
+      RowBox[{"2", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", "1"}], "+", 
+         RowBox[{"a", " ", "d"}]}], ")"}]}]], ",", "1"}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.546532893494508*^9, 3.546610681754273*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Assuming", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"a", "+", "d"}], "\[Equal]", "T"}], ",", 
+   RowBox[{"Simplify", "[", "%", "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.546532950911355*^9, 3.546532953893485*^9}, 
+   3.546610687444765*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     FractionBox[
+      RowBox[{"b", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"-", "2"}], " ", "d"}], "+", "T", "-", 
+         SqrtBox[
+          RowBox[{
+           RowBox[{"-", "4"}], "+", 
+           SuperscriptBox["T", "2"]}]]}], ")"}]}], 
+      RowBox[{
+       RowBox[{"-", "2"}], "+", 
+       RowBox[{"2", " ", "a", " ", "d"}]}]], ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     FractionBox[
+      RowBox[{"b", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"-", "2"}], " ", "d"}], "+", "T", "+", 
+         SqrtBox[
+          RowBox[{
+           RowBox[{"-", "4"}], "+", 
+           SuperscriptBox["T", "2"]}]]}], ")"}]}], 
+      RowBox[{
+       RowBox[{"-", "2"}], "+", 
+       RowBox[{"2", " ", "a", " ", "d"}]}]], ",", "1"}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.5465329712452106`*^9, 3.546610690630582*^9}]
+}, Open  ]],
+
+Cell["\<\
+which I will not take the trouble to do; I don't off-hand see the utility of \
+such a result, and anyway I have already established the point I wanted to \
+make\[Ellipsis]which is that the lop-sided nature of Richard's transformation \
+tends to throw things out of kilter.\
+\>", "Text",
+ CellChangeTimes->{{3.54653307742867*^9, 3.546533085687846*^9}, {
+  3.546533194819481*^9, 3.546533330727317*^9}}],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input",
+ CellChangeTimes->{3.568908127518766*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Richard's response, and follow-up problem", "Subsection",
+ CellChangeTimes->{{3.5689081475589933`*^9, 3.56890816641418*^9}}],
+
+Cell["\<\
+On the evening (again at 7:26 PM; seems to have been his habit to write \
+during dinner) of 18 June 2012 Richard responded:\
+\>", "Text",
+ CellChangeTimes->{{3.56890817922703*^9, 3.568908354281179*^9}}],
+
+Cell[BoxData[" "], "Input",
+ CellChangeTimes->{3.568908313697061*^9}],
+
+Cell["\<\
+Nicholas,
+
+I am delighted to say, your latest unimodular matrix analysis has aided me a \
+great deal in the analysis of stereo audio signals. I owe you a big favor for \
+that!
+
+So my next dilemma, if it interests you, is this:
+
+Being as a unimodular matrix \
+\>", "Text",
+ CellChangeTimes->{{3.568908365105217*^9, 3.5689083795463963`*^9}, {
+  3.56890841677691*^9, 3.5689085075112743`*^9}},
+ FontColor->RGBColor[0, 0, 1]],
+
+Cell[BoxData[
+ RowBox[{"\[DoubleStruckCapitalU]", 
+  StyleBox["=",
+   FontColor->GrayLevel[0]], 
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"a", "b"},
+     {"c", "d"}
+    }], "\[NoBreak]", ")"}]}]], "Input",
+ FontColor->RGBColor[0, 0, 1]],
+
+Cell["\<\
+has Det[\[DoubleStruckCapitalU]]=1, which is one constraint, we expect the \
+whole unimodular set has 3 genuine parameters.
+
+So you have shown me one such 3-parameter composition in your previous \
+analysis\[Ellipsis]so far so good.
+
+Now, in the world of digital stereo sound, we are interested in so-called \
+\"lifting\" matrices of the form \
+\>", "Text",
+ CellChangeTimes->{{3.568908625995982*^9, 3.568908798409297*^9}},
+ FontColor->RGBColor[0, 0, 1]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"1", "a"},
+     {"0", "1"}
+    }], "\[NoBreak]", ")"}], " ", "or", " ", 
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"1", "0"},
+     {"b", "1"}
+    }], "\[NoBreak]", ")"}]}]], "Output",
+ CellChangeTimes->{{3.5689088148892403`*^9, 3.5689088508738956`*^9}},
+ FontColor->RGBColor[0, 0, 1]],
+
+Cell["\<\
+both of which have Det 1.
+
+My new question for your expertise is: Can any unimodular matrix be expresed \
+as a product of three such lifting marices?
+
+I am not changing the original question\[LongDash]in fact, I'm already using \
+what you sent me, to good effect! There are engineering efficiencies to be \
+gained, though, by this new question/foray!
+
+r
+
+PS Sir Michael Berry gave me a gift for you. I have it in my possession, and \
+shall deliver same to you when mutually convenient. [The gift was a \
+thumbdrive containing Berry's collected works.]\
+\>", "Text",
+ CellChangeTimes->{{3.56890885841261*^9, 3.56890911446651*^9}, 
+   3.568917585660226*^9},
+ FontColor->RGBColor[0, 0, 1]],
+
+Cell[TextData[{
+ "[Concerning the reference to Berry (to whom Richard invariably referred in \
+recent years as \"Sir Michael\":  how much pleasure it would have given \
+Richard to have become \"Sir Richard\"! Which, had he lived on the other side \
+of the Atlantic, I think he might well have managed to do.): Berry had a \
+speaking engagement in Portland in late May. Richard had arranged lunch with \
+Berry, and had invited me to tag along, since he knew I shared his admiration \
+of Berry's work. On 27 May he wrote\n\n",
+ StyleBox["Nicholas,\n\nI am hiring my company chauffeur to drive me to the \
+Michael Berry luncheon on 31 May. You are welcome to ride with us, to avoid \
+downtown parking completely. If you wish, we can pick you up at 12:30 in the \
+Reed parking lot, and after lunch we would deliver you back to Reed. Tell me \
+your preference!",
+  FontColor->RGBColor[0, 0, 1]],
+ " \n\nI had, however, a conflicting obligation, and had to miss the lunch. \n\
+\nIn correspondence with Berry after Richard's death I reminded him that he \
+and I had met (glancingly) when he visited Reed maybe twenty years \
+previously, on which occasion Richard had arranged an on-campus post-seminar \
+departmental dinner with Berry and his beautiful companion. Berry responded \
+that he had recollection neither of me nor of Richard, but did have vivid \
+recollection of a conversation with David Griffiths! He referred to Richard \
+as a person whom\[LongDash]to his regret\[LongDash]he had met only recently \
+(in Portland, and again at the Simon Fraser conference), and whose last words \
+to him had been \"We must do a paper together.\"]"
+}], "Text",
+ CellChangeTimes->{{3.568922697017728*^9, 3.568923176463107*^9}, {
+  3.568923212792101*^9, 3.5689237214831867`*^9}, {3.568923850430396*^9, 
+  3.568923853083424*^9}, {3.568940309805217*^9, 3.5689403148557873`*^9}, {
+  3.5689403699314213`*^9, 3.5689403786534452`*^9}, {3.568987553923699*^9, 
+  3.568987560442107*^9}, {3.568987643063555*^9, 3.568987665434078*^9}}],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input",
+ CellChangeTimes->{3.5689244329026937`*^9}],
+
+Cell["\<\
+Oya and I were in California during the final ten days of June (home-exchange \
+in Davis, visited David Griffiths at his Inverness retreat), so it was 2 July \
+before I could respond:\
+\>", "Text",
+ CellChangeTimes->{{3.568909302391675*^9, 3.568909303900079*^9}, {
+  3.568909688273615*^9, 3.56890973207979*^9}, {3.5689106806261187`*^9, 
+  3.5689107207804747`*^9}, {3.568923899877997*^9, 3.568923925286262*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Richard's 2nd Problem", "Title",
+ CellChangeTimes->{{3.55025681166989*^9, 3.5502568223669853`*^9}}],
+
+Cell["\<\
+Nicholas Wheeler
+2 July 2012\
+\>", "Text",
+ CellChangeTimes->{{3.550256846936387*^9, 3.550256852993346*^9}, {
+  3.550256977029348*^9, 3.5502569889023247`*^9}},
+ FontSize->10],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input",
+ CellChangeTimes->{3.550257004158396*^9}],
+
+Cell[CellGroupData[{
+
+Cell["Introduction", "Subsection",
+ CellChangeTimes->{{3.550257065304853*^9, 3.5502570675013514`*^9}}],
+
+Cell["The following matrices", "Text",
+ CellChangeTimes->{{3.550257105145681*^9, 3.550257121578951*^9}, 
+   3.568910836847124*^9}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"\[DoubleStruckCapitalP]", "=", 
+   RowBox[{
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {"1", "a"},
+       {"0", "1"}
+      }], "\[NoBreak]", ")"}], ".", 
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {"1", "0"},
+       {"b", "1"}
+      }], "\[NoBreak]", ")"}], ".", 
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {"1", "c"},
+       {"0", "1"}
+      }], "\[NoBreak]", ")"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[DoubleStruckCapitalQ]", "=", 
+   RowBox[{
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {"1", "0"},
+       {"b", "1"}
+      }], "\[NoBreak]", ")"}], ".", 
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {"1", "c"},
+       {"0", "1"}
+      }], "\[NoBreak]", ")"}], ".", 
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {"1", "0"},
+       {"d", "1"}
+      }], "\[NoBreak]", ")"}]}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.550257166449019*^9, 3.550257250670542*^9}, {
+  3.5502591444170647`*^9, 3.550259227079912*^9}}],
+
+Cell["\<\
+are, for all real/complex values of {a, b, c, d}, manifestly unimodular. When \
+spelled out in detail, they read\
+\>", "Text",
+ CellChangeTimes->{{3.550257272830283*^9, 3.5502573416528378`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"\[DoubleStruckCapitalP]", "//", 
+  "MatrixForm"}], "\[IndentingNewLine]", 
+ RowBox[{"\[DoubleStruckCapitalQ]", "//", "MatrixForm"}]}], "Input",
+ CellChangeTimes->{{3.550257345487331*^9, 3.550257365238606*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      RowBox[{"1", "+", 
+       RowBox[{"a", " ", "b"}]}], 
+      RowBox[{"a", "+", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"1", "+", 
+          RowBox[{"a", " ", "b"}]}], ")"}], " ", "c"}]}]},
+     {"b", 
+      RowBox[{"1", "+", 
+       RowBox[{"b", " ", "c"}]}]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{3.550257367182364*^9, 3.550259242004157*^9}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      RowBox[{"1", "+", 
+       RowBox[{"c", " ", "d"}]}], "c"},
+     {
+      RowBox[{"b", "+", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"1", "+", 
+          RowBox[{"b", " ", "c"}]}], ")"}], " ", "d"}]}], 
+      RowBox[{"1", "+", 
+       RowBox[{"b", " ", "c"}]}]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{3.550257367182364*^9, 3.550259242018652*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+ "On 18 June, Richard posed this question:",
+ StyleBox[" Can every 2 \[Times] 2 unimodular matrix be presented in factored \
+form as an instance of a \[DoubleStruckCapitalP]-matrix? a \
+\[DoubleStruckCapitalQ]-matrix?",
+  FontColor->RGBColor[0, 0, 1]]
+}], "Text",
+ CellChangeTimes->{{3.550257464155014*^9, 3.550257625565752*^9}}],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.5502576829844093`*^9, 3.550257683663158*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Numerical evidence that the answer is YES", "Subsection",
+ CellChangeTimes->{{3.5502576965158873`*^9, 3.5502577111418343`*^9}}],
+
+Cell["\<\
+Construct at random a 2 \[Times] 2 real unimodular matrix\
+\>", "Text",
+ CellChangeTimes->{{3.550258233029189*^9, 3.550258277158589*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"\[DoubleStruckU]", "=", 
+   RowBox[{"RandomReal", "[", 
+    RowBox[{
+     RowBox[{"{", "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"2", ",", "2"}], "}"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[DoubleStruckCapitalU]", "=", 
+   RowBox[{
+    FractionBox["1", 
+     SqrtBox[
+      RowBox[{"Det", "[", "\[DoubleStruckU]", "]"}]]], "\[DoubleStruckU]"}]}],
+   ";"}], "\[IndentingNewLine]", 
+ RowBox[{"\[DoubleStruckCapitalU]", "//", 
+  "MatrixForm"}], "\[IndentingNewLine]", 
+ RowBox[{"Det", "[", "\[DoubleStruckCapitalU]", "]"}]}], "Input",
+ CellChangeTimes->{{3.550258303434668*^9, 3.550258384324367*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"1.5598940180285414`", "1.009595941448209`"},
+     {"0.06562004936531082`", "0.6835398579606193`"}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{3.550258393606015*^9}],
+
+Cell[BoxData["1.`"], "Output",
+ CellChangeTimes->{3.550258393642445*^9}]
+}, Open  ]],
+
+Cell["Give names to its elements", "Text",
+ CellChangeTimes->{{3.5502584174966516`*^9, 3.550258423262238*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"w", "=", 
+   RowBox[{
+    RowBox[{
+    "\[DoubleStruckCapitalU]", "\[LeftDoubleBracket]", "1", 
+     "\[RightDoubleBracket]"}], "\[LeftDoubleBracket]", "1", 
+    "\[RightDoubleBracket]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"x", "=", 
+   RowBox[{
+    RowBox[{
+    "\[DoubleStruckCapitalU]", "\[LeftDoubleBracket]", "1", 
+     "\[RightDoubleBracket]"}], "\[LeftDoubleBracket]", "2", 
+    "\[RightDoubleBracket]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"y", "=", 
+   RowBox[{
+    RowBox[{
+    "\[DoubleStruckCapitalU]", "\[LeftDoubleBracket]", "2", 
+     "\[RightDoubleBracket]"}], "\[LeftDoubleBracket]", "1", 
+    "\[RightDoubleBracket]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"z", "=", 
+   RowBox[{
+    RowBox[{
+    "\[DoubleStruckCapitalU]", "\[LeftDoubleBracket]", "2", 
+     "\[RightDoubleBracket]"}], "\[LeftDoubleBracket]", "2", 
+    "\[RightDoubleBracket]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.550258431530908*^9, 3.550258524908325*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"w", "x"},
+     {"y", "z"}
+    }], "\[NoBreak]", ")"}], "\[Equal]", "\[DoubleStruckCapitalU]"}]], "Input",\
+
+ CellChangeTimes->{{3.550258562359302*^9, 3.550258583406423*^9}}],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{3.550258585292555*^9}]
+}, Open  ]],
+
+Cell["\<\
+and to construct the \[DoubleStruckCapitalP]-representation of \
+\[DoubleStruckCapitalU] proceed\
+\>", "Text",
+ CellChangeTimes->{{3.550258621933957*^9, 3.550258651685865*^9}, {
+  3.55025891890552*^9, 3.5502589435602818`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Solve", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"w", "\[Equal]", 
+      RowBox[{"1", "+", 
+       RowBox[{"a", " ", "b"}]}]}], ",", 
+     RowBox[{"y", "\[Equal]", "b"}], ",", 
+     RowBox[{"z", "\[Equal]", 
+      RowBox[{"1", "+", 
+       RowBox[{"b", " ", "c"}]}]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"a", ",", "b", ",", "c"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.5502586565127068`*^9, 3.550258662794983*^9}, {
+  3.550258702941033*^9, 3.550258724139503*^9}, {3.550258771960837*^9, 
+  3.550258799358926*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"a", "\[Rule]", "8.532362036358387`"}], ",", 
+    RowBox[{"c", "\[Rule]", 
+     RowBox[{"-", "4.822613592952783`"}]}], ",", 
+    RowBox[{"b", "\[Rule]", "0.06562004936531084`"}]}], "}"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.550258811700467*^9}]
+}, Open  ]],
+
+Cell["Those results could have been obtained by simple algebra", "Text",
+ CellChangeTimes->{{3.550259863775017*^9, 3.5502598964867764`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"a", "=", 
+  FractionBox[
+   RowBox[{"w", "-", "1"}], "y"]}], "\[IndentingNewLine]", 
+ RowBox[{"b", "=", "y"}], "\[IndentingNewLine]", 
+ RowBox[{"c", "=", 
+  FractionBox[
+   RowBox[{"z", "-", "1"}], "y"]}]}], "Input",
+ CellChangeTimes->{{3.550259697982723*^9, 3.550259804819536*^9}}],
+
+Cell[BoxData["8.53236203635839`"], "Output",
+ CellChangeTimes->{3.550259699530779*^9, 3.550259809613167*^9}],
+
+Cell[BoxData["0.06562004936531082`"], "Output",
+ CellChangeTimes->{3.550259699530779*^9, 3.550259809733971*^9}],
+
+Cell[BoxData[
+ RowBox[{"-", "4.822613592952784`"}]], "Output",
+ CellChangeTimes->{3.550259699530779*^9, 3.5502598099598637`*^9}]
+}, Open  ]],
+
+Cell["and, by way of verification, supply", "Text",
+ CellChangeTimes->{{3.550259905264401*^9, 3.5502599070644608`*^9}, {
+  3.55025997166496*^9, 3.550259981652052*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"x", "\[Equal]", 
+  RowBox[{"a", "+", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"1", "+", 
+      RowBox[{"a", " ", "b"}]}], ")"}], "c"}]}]}]], "Input",
+ CellChangeTimes->{{3.550259925261301*^9, 3.550259959185058*^9}}],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{3.550259960984383*^9}]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.5502599955838327`*^9, 3.550259996568078*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Clear", "[", 
+  RowBox[{"a", ",", "b", ",", "c", ",", "d"}], "]"}]], "Input",
+ CellChangeTimes->{{3.5502602239303493`*^9, 3.550260230781419*^9}}],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.550261020942444*^9, 3.550261022385899*^9}}],
+
+Cell["\<\
+To construct the \[DoubleStruckCapitalQ]-representation of \
+\[DoubleStruckCapitalU] we proceed\
+\>", "Text",
+ CellChangeTimes->{{3.550260010226289*^9, 3.5502600494806147`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Solve", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"w", "\[Equal]", 
+      RowBox[{"1", "+", 
+       RowBox[{"c", " ", "d"}]}]}], ",", 
+     RowBox[{"x", "\[Equal]", "c"}], ",", 
+     RowBox[{"z", "\[Equal]", 
+      RowBox[{"1", "+", 
+       RowBox[{"b", " ", "c"}]}]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"b", ",", "c", ",", "d"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.5502601696285067`*^9, 3.550260207804717*^9}, 
+   3.550261208161025*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"b", "\[Rule]", 
+     RowBox[{"-", "0.3134522723867494`"}]}], ",", 
+    RowBox[{"d", "\[Rule]", "0.5545723739988543`"}], ",", 
+    RowBox[{"c", "\[Rule]", "1.009595941448209`"}]}], "}"}], "}"}]], "Output",\
+
+ CellChangeTimes->{{3.550260212235772*^9, 3.55026024182108*^9}, 
+   3.550260883456691*^9, {3.550261216932951*^9, 3.550261227431542*^9}}]
+}, Open  ]],
+
+Cell["which by simple algebra could have been obtained from", "Text",
+ CellChangeTimes->{{3.550260422162602*^9, 3.5502604405328093`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"b", "=", 
+  FractionBox[
+   RowBox[{"z", "-", "1"}], "x"]}], "\[IndentingNewLine]", 
+ RowBox[{"c", "=", "x"}], "\[IndentingNewLine]", 
+ RowBox[{"d", "=", 
+  FractionBox[
+   RowBox[{"w", "-", "1"}], "x"]}]}], "Input",
+ CellChangeTimes->{{3.550260307268175*^9, 3.550260395397757*^9}, {
+  3.550261254874473*^9, 3.550261261408224*^9}}],
+
+Cell[BoxData[
+ RowBox[{"-", "0.31345227238674933`"}]], "Output",
+ CellChangeTimes->{3.550260402162923*^9, 3.550260894211782*^9, 
+  3.5502612669681187`*^9}],
+
+Cell[BoxData["1.009595941448209`"], "Output",
+ CellChangeTimes->{3.550260402162923*^9, 3.550260894211782*^9, 
+  3.5502612671441917`*^9}],
+
+Cell[BoxData["0.5545723739988542`"], "Output",
+ CellChangeTimes->{3.550260402162923*^9, 3.550260894211782*^9, 
+  3.550261267225436*^9}]
+}, Open  ]],
+
+Cell["and, by way of verification, supply", "Text",
+ CellChangeTimes->{{3.550260455034584*^9, 3.5502604853306713`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"y", "\[Equal]", 
+  RowBox[{"b", "+", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"1", "+", 
+      RowBox[{"b", " ", "c"}]}], ")"}], "d"}]}]}]], "Input",
+ CellChangeTimes->{{3.550260568796361*^9, 3.5502606014970818`*^9}, {
+  3.550260671784443*^9, 3.5502606745314302`*^9}, {3.550260734478532*^9, 
+  3.550260739406373*^9}, {3.550260781374563*^9, 3.550260813910171*^9}}],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{3.550260604485673*^9, 3.550260740889544*^9, 
+  3.550260793869968*^9, 3.550260911607689*^9, 3.550261277495337*^9}]
+}, Open  ]],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input",
+ CellChangeTimes->{3.5502612943686943`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Generalization to complex unimodulars", "Subsection",
+ CellChangeTimes->{{3.5502616751793222`*^9, 3.5502616964579163`*^9}, {
+  3.550262379605215*^9, 3.550262391160372*^9}}],
+
+Cell["\<\
+All of which works out perfectly well when \[DoubleStruckCapitalU] is complex:\
+\>", "Text",
+ CellChangeTimes->{{3.5502624001453342`*^9, 3.5502624406998997`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"\[DoubleStruckU]", "=", 
+   RowBox[{"RandomComplex", "[", 
+    RowBox[{
+     RowBox[{"{", "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"2", ",", "2"}], "}"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[DoubleStruckCapitalU]", "=", 
+   RowBox[{
+    FractionBox["1", 
+     SqrtBox[
+      RowBox[{"Det", "[", "\[DoubleStruckU]", "]"}]]], "\[DoubleStruckU]"}]}],
+   ";"}], "\[IndentingNewLine]", 
+ RowBox[{"\[DoubleStruckCapitalU]", "//", 
+  "MatrixForm"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Det", "[", "\[DoubleStruckCapitalU]", "]"}], "//", 
+  "Chop"}]}], "Input",
+ CellChangeTimes->{{3.550258303434668*^9, 3.550258384324367*^9}, {
+  3.5502624735389843`*^9, 3.5502624953809347`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      RowBox[{
+       RowBox[{"-", "1.0459725059601643`"}], "+", 
+       RowBox[{"0.3644384622553083`", " ", "\[ImaginaryI]"}]}], 
+      RowBox[{
+       RowBox[{"-", "0.4237413286108501`"}], "+", 
+       RowBox[{"0.3005849782235618`", " ", "\[ImaginaryI]"}]}]},
+     {
+      RowBox[{
+       RowBox[{"-", "0.9042772045032635`"}], "+", 
+       RowBox[{"1.0475435736761192`", " ", "\[ImaginaryI]"}]}], 
+      RowBox[{
+       RowBox[{"-", "1.1233794031428619`"}], "+", 
+       RowBox[{"0.29283464484481253`", " ", "\[ImaginaryI]"}]}]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{{3.55026248451149*^9, 3.550262496888391*^9}}],
+
+Cell[BoxData["1.0000000000000002`"], "Output",
+ CellChangeTimes->{{3.55026248451149*^9, 3.550262496898271*^9}}]
+}, Open  ]],
+
+Cell["\<\
+I do not explore the details because I assume Richard's \
+\[DoubleStruckCapitalU]-matrices to be real.\
+\>", "Text",
+ CellChangeTimes->{{3.550262532154674*^9, 3.550262568688664*^9}}],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input",
+ CellChangeTimes->{3.550262581689127*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Application to matrices of Richard's 1st canonical form", "Subsection",
+ CellChangeTimes->{{3.5502627048651323`*^9, 3.550262757747327*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Clear", "[", 
+  RowBox[{
+  "w", ",", "x", ",", "y", ",", "z", ",", "a", ",", "b", ",", "c", ",", "d"}],
+   "]"}]], "Input"],
+
+Cell["\<\
+In a previous notebook we have established that every real 2 \[Times] 2 \
+unimodular can be presented \
+\>", "Text",
+ CellChangeTimes->{{3.5502627687829647`*^9, 3.5502627791522284`*^9}, {
+  3.550262891256545*^9, 3.550262925468095*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\[DoubleStruckCapitalU]", "=", 
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"w", "x"},
+     {"y", "z"}
+    }], "\[NoBreak]", ")"}]}]], "Output",
+ CellChangeTimes->{{3.5502629757605753`*^9, 3.550262983281478*^9}}],
+
+Cell["in \"canonical form\" with", "Text",
+ CellChangeTimes->{{3.550263014784791*^9, 3.5502630193972893`*^9}, {
+  3.550263712030032*^9, 3.550263724401967*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"w", "=", 
+   RowBox[{
+    RowBox[{"t", " ", 
+     RowBox[{"Cos", "[", "\[Beta]", "]"}]}], "+", 
+    FractionBox[
+     RowBox[{"Sin", "[", "\[Beta]", "]"}], "s"]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"x", "=", 
+   RowBox[{"s", " ", 
+    RowBox[{"Cos", "[", "\[Beta]", "]"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"y", "=", 
+   RowBox[{
+    RowBox[{"-", 
+     FractionBox[
+      RowBox[{"Cos", "[", "\[Beta]", "]"}], "s"]}], "+", 
+    RowBox[{"t", " ", 
+     RowBox[{"Sin", "[", "\[Beta]", "]"}]}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"z", "=", 
+   RowBox[{"s", " ", 
+    RowBox[{"Sin", "[", "\[Beta]", "]"}]}]}], 
+  ";"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.550263027964478*^9, 3.5502631074692717`*^9}, {
+  3.550263265565413*^9, 3.550263276077183*^9}}],
+
+Cell["\<\
+To obtain the \[DoubleStruckCapitalP]-representation of such a matrix we have\
+\
+\>", "Text",
+ CellChangeTimes->{{3.5502631780299997`*^9, 3.550263193981907*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"a", "=", 
+  RowBox[{
+   FractionBox[
+    RowBox[{"w", "-", "1"}], "y"], "//", 
+   "Simplify"}]}], "\[IndentingNewLine]", 
+ RowBox[{"b", "=", 
+  RowBox[{"y", "//", "Simplify"}]}], "\[IndentingNewLine]", 
+ RowBox[{"c", "=", 
+  RowBox[{
+   FractionBox[
+    RowBox[{"z", "-", "1"}], "y"], "//", "Simplify"}]}]}], "Input",
+ CellChangeTimes->{{3.550263296921709*^9, 3.550263313662642*^9}}],
+
+Cell[BoxData[
+ FractionBox[
+  RowBox[{
+   RowBox[{"-", "s"}], "+", 
+   RowBox[{"s", " ", "t", " ", 
+    RowBox[{"Cos", "[", "\[Beta]", "]"}]}], "+", 
+   RowBox[{"Sin", "[", "\[Beta]", "]"}]}], 
+  RowBox[{
+   RowBox[{"-", 
+    RowBox[{"Cos", "[", "\[Beta]", "]"}]}], "+", 
+   RowBox[{"s", " ", "t", " ", 
+    RowBox[{"Sin", "[", "\[Beta]", "]"}]}]}]]], "Output",
+ CellChangeTimes->{3.550263249813899*^9, 3.55026328643804*^9, 
+  3.55026331909929*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"-", 
+   FractionBox[
+    RowBox[{"Cos", "[", "\[Beta]", "]"}], "s"]}], "+", 
+  RowBox[{"t", " ", 
+   RowBox[{"Sin", "[", "\[Beta]", "]"}]}]}]], "Output",
+ CellChangeTimes->{3.550263249813899*^9, 3.55026328643804*^9, 
+  3.550263319249689*^9}],
+
+Cell[BoxData[
+ FractionBox[
+  RowBox[{"s", " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"-", "1"}], "+", 
+     RowBox[{"s", " ", 
+      RowBox[{"Sin", "[", "\[Beta]", "]"}]}]}], ")"}]}], 
+  RowBox[{
+   RowBox[{"-", 
+    RowBox[{"Cos", "[", "\[Beta]", "]"}]}], "+", 
+   RowBox[{"s", " ", "t", " ", 
+    RowBox[{"Sin", "[", "\[Beta]", "]"}]}]}]]], "Output",
+ CellChangeTimes->{3.550263249813899*^9, 3.55026328643804*^9, 
+  3.5502633193636503`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[DoubleStruckCapitalP]", "//", "Simplify"}]], "Input",
+ CellChangeTimes->{{3.55026352654582*^9, 3.550263543655633*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"t", " ", 
+       RowBox[{"Cos", "[", "\[Beta]", "]"}]}], "+", 
+      FractionBox[
+       RowBox[{"Sin", "[", "\[Beta]", "]"}], "s"]}], ",", 
+     RowBox[{"s", " ", 
+      RowBox[{"Cos", "[", "\[Beta]", "]"}]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"-", 
+       FractionBox[
+        RowBox[{"Cos", "[", "\[Beta]", "]"}], "s"]}], "+", 
+      RowBox[{"t", " ", 
+       RowBox[{"Sin", "[", "\[Beta]", "]"}]}]}], ",", 
+     RowBox[{"s", " ", 
+      RowBox[{"Sin", "[", "\[Beta]", "]"}]}]}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.550263531562848*^9, 3.550263545857007*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Det", "[", "%", "]"}], "//", "Simplify"}]], "Input",
+ CellChangeTimes->{{3.550263555536899*^9, 3.5502635674132633`*^9}}],
+
+Cell[BoxData["1"], "Output",
+ CellChangeTimes->{3.550263568718829*^9}]
+}, Open  ]],
+
+Cell["\<\
+and could proceed similarly to construct the \
+\[DoubleStruckCapitalQ]-representations of such matrices.
+
+The \"factored\" and \"canonical\" presentations of \[DoubleStruckCapitalU] \
+do not appear to stand in an attractively natural relationship.\
+\>", "Text",
+ CellChangeTimes->{
+  3.550263592402791*^9, {3.550263624778253*^9, 3.5502636465717297`*^9}, {
+   3.5502637555425863`*^9, 3.550263881778069*^9}}],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input",
+ CellChangeTimes->{3.5689113165843678`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Richard's final mail", "Subsection",
+ CellChangeTimes->{{3.568911383718542*^9, 3.568911394807055*^9}, {
+  3.5689239641036*^9, 3.568923964950898*^9}}],
+
+Cell[TextData[{
+ "On 24 October 2012 Richard spoke at the Reed Physics Seminar, and took that \
+opportunity to relay to me the Michael Berry gift that had been in his \
+possession since late May (and of which, he told me, he had made a copy).  At \
+dinner\[LongDash]from which,  though held in his honor, he departed early, as \
+was his custom, and which marked the last occasion we were together, the last \
+time I saw him\[LongDash]I asked him \"whether anything ever came of that \
+unimodular stuff,\" but in the noisy confusion of dinner conversation got \
+only a vaguely affirmative word of response.  But at 11:41 that evening he \
+wrote\n\n",
+ StyleBox["Nicholas my eternal colleague:\n\nI meant it when I said tonight \
+your unimodular matrix decomposition found its way into Apple technology. \n\n\
+The basic idea is, treat stereo left/right sound as a column vector (Left, \
+Right) transpose, and \"hit it\" with a unimodular matrix.  Point being, the \
+resulting entropy (compressibility) is enhanced by this procedure, via \
+compression techniques.\n\nWe can talk about this more, but I need to thank \
+you once again!\n\nr",
+  FontColor->RGBColor[0, 0, 1]]
+}], "Text",
+ CellChangeTimes->{{3.5689114409137297`*^9, 3.568911471012451*^9}, {
+  3.568911507251087*^9, 3.568911720420554*^9}, {3.568911775107172*^9, 
+  3.568911922425405*^9}, {3.568917631964737*^9, 3.568917694790861*^9}, {
+  3.568917725738708*^9, 3.568917748124119*^9}, {3.568917793329093*^9, 
+  3.568917844735454*^9}, {3.5689178892982397`*^9, 3.568917937271248*^9}, {
+  3.568917972421596*^9, 3.568918018648098*^9}, {3.56892398280514*^9, 
+  3.568923986716756*^9}, {3.568924019613203*^9, 3.5689240533885527`*^9}, {
+  3.568925043293549*^9, 3.568925057492244*^9}, {3.56893359214685*^9, 
+  3.56893359413376*^9}, {3.5689405455063143`*^9, 3.568940547483453*^9}}],
+
+Cell[TextData[{
+ "At the time I dismissed his \"eternal colleague\" as another instance of \
+Richard's occasional tendency toward florid writing, and to the strangely \
+reverent regard which he seems for 45 years to have held for \
+me\[Ellipsis]which I never understood (attributed to the sentimentality that \
+was a component of his complex personality), certainly did not deserve, and \
+found flatteringly embarrassing. But in retrospect  I have to wonder whether \
+it reflected a premonition that the days in which we would live as colleagues \
+were numbered.\n\nRichard was always quick to respond to problems that I fed \
+his way\[Ellipsis]of which the most recent (2009?) had to do with statistical \
+properties of the function q[n,m] defined\n\nq[n,m] = # of m-term elements \
+among the partitions of n\n\nBut in recent years I gained the feeling that \
+the problems that he in his turn fed to me were\[LongDash]such as the \
+problems treated in this notebook\[LongDash]\"baby problems,\" problems that \
+he thought would lie still within my reach, and from the solution of which I \
+could take an old man's sense that I was still useful. \n \n\nOn the \
+afternoon of 5 November, Richard distributed to members of the physics \
+faculty (+ Tom Wieting and Joe Buhler) the pdf drafts of two papers\n\n\"The \
+Poisson equation and 'natural' Madelung constants\" (27 October  2012)\n\n\
+\"Lattice sums arising from the Poisson equation\" (27 October 2012), with \
+co-authors David H. Bailey, Jonathan Borwein & John Zucker\n\nwith this text:\
+\n\n",
+ StyleBox["Colleagues,",
+  FontColor->RGBColor[0, 0, 1]],
+ "\n\n",
+ StyleBox["Please find attached two papers on Poisson solutions, as follow-up \
+on my seminar of two weeks ago.\n\nIt still astounds me that modern graphics \
+engineering is so well connected with the classical Euler-Lagrange picture, \
+so to speak.\n\nR. E. Crandall ",
+  FontColor->RGBColor[0, 0, 1]]
+}], "Text",
+ CellChangeTimes->{{3.568918088810156*^9, 3.568918141392564*^9}, {
+  3.568918172099544*^9, 3.568918243051175*^9}, {3.568918675309067*^9, 
+  3.5689188039608088`*^9}, {3.568918851406343*^9, 3.5689188537254763`*^9}, {
+  3.568918887606614*^9, 3.568919064849291*^9}, {3.568919099555328*^9, 
+  3.568919113165744*^9}, {3.568919151295061*^9, 3.568919151462603*^9}, {
+  3.568919190658793*^9, 3.568919505196406*^9}, {3.568919547487953*^9, 
+  3.568919547662662*^9}, {3.568919582834117*^9, 3.568919682780594*^9}, {
+  3.5689203249233007`*^9, 3.568920338387233*^9}, {3.5689207230648813`*^9, 
+  3.568920995119605*^9}, {3.568924151591714*^9, 3.568924187264226*^9}, {
+  3.568925115580504*^9, 3.568925117976502*^9}, {3.5689251701429663`*^9, 
+  3.568925180783682*^9}, {3.56893404149583*^9, 3.568934042381337*^9}, {
+  3.568940677554325*^9, 3.568940724417893*^9}, {3.568987951862938*^9, 
+  3.568987956467374*^9}}],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input",
+ CellChangeTimes->{3.568919836736431*^9}],
+
+Cell[TextData[{
+ "And on 14 November 2012 Richard sent (to Wheeler, Wieting, Powell, Essick, \
+Franklin and Griffiths of the Reed physics/math departments) a note that read\
+\n\n",
+ StyleBox["Colleagues,\n\nPertaining to some research I mentioned recently at \
+a seminar dinner\[Ellipsis]\n\nAttached is my slideshow from the 2-3 November \
+2012 SFU Riemann-zeta Conference, where Sir Michael Berry and I and some \
+other colleagues waxed on the Riemann zeta function.\n\ncheers\nr",
+  FontColor->RGBColor[0, 0, 1]]
+}], "Text",
+ CellChangeTimes->{{3.568919871382443*^9, 3.568919893848279*^9}, {
+   3.5689199255992527`*^9, 3.568920111325069*^9}, 3.568940828914427*^9}],
+
+Cell["\<\
+The 18-page slideshow in question was entitled \"Analytical algorithms for \
+prime numbers.\"\
+\>", "Text",
+ CellChangeTimes->{{3.5689201676886683`*^9, 3.568920195084485*^9}, {
+  3.5689202898180103`*^9, 3.5689203047772827`*^9}}],
+
+Cell["\<\
+That was the last mail I received from Richard; within six weeks (37 days) he \
+was dead.
+
+Though Richard seemed (in all of its complexity) his normal self when we were \
+together on 24 October,  Jonathan Borwein\
+\>", "Text",
+ CellChangeTimes->{{3.56892105177948*^9, 3.568921066905099*^9}, {
+   3.5689211111812983`*^9, 3.5689211867248783`*^9}, {3.568921852917838*^9, 
+   3.568921884969495*^9}, {3.568924296966435*^9, 3.568924306875634*^9}, 
+   3.5689252498796873`*^9, {3.568988030963896*^9, 3.5689880390344687`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{
+  "\"\<Borwein's Obituary\>\"", ",", 
+   "\"\<http://experimentalmath.info/blog/2012/12/\
+mathematicianphysicistinventor-richard-crandall-dies-at-64/\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.568921890049034*^9, 3.568921954426073*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{False->"\<\"Borwein's Obituary\"\>", True->
+    StyleBox["\<\"Borwein's Obituary\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    BaselinePosition->Baseline,
+    FrameMargins->0,
+    ImageSize->Automatic],
+   BaseStyle->"Hyperlink",
+   ButtonData->{
+     URL["http://experimentalmath.info/blog/2012/12/\
+mathematicianphysicistinventor-richard-crandall-dies-at-64/"], None},
+   ButtonNote->
+    "http://experimentalmath.info/blog/2012/12/mathematicianphysicistinventor-\
+richard-crandall-dies-at-64/"],
+  Annotation[#, 
+   "http://experimentalmath.info/blog/2012/12/mathematicianphysicistinventor-\
+richard-crandall-dies-at-64/", "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{3.568921973417308*^9}]
+}, Open  ]],
+
+Cell["\<\
+has remarked that he was \"clearly not well\" when he spoke on 2 November at \
+the Simon Fraser University Zeta Function Workshop.   \
+\>", "Text",
+ CellChangeTimes->{{3.5689219859317703`*^9, 3.568922038087462*^9}, {
+  3.56892207374666*^9, 3.568922074776968*^9}, {3.568922117281477*^9, 
+  3.5689221903189983`*^9}, {3.568924337815667*^9, 3.568924345568555*^9}}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowToolbars->"EditBar",
+WindowSize->{767, 624},
+WindowMargins->{{331, Automatic}, {Automatic, 30}},
+Magnification:>FEPrivate`If[
+  FEPrivate`Equal[FEPrivate`$VersionNumber, 6.], 1.5, 1.5 Inherited],
+FrontEndVersion->"7.0 for Mac OS X PowerPC (32-bit) (November 11, 2008)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[545, 20, 87, 1, 64, "Input"],
+Cell[CellGroupData[{
+Cell[657, 25, 105, 1, 114, "Title"],
+Cell[765, 28, 139, 5, 56, "Text"],
+Cell[907, 35, 69, 1, 40, "Input"],
+Cell[CellGroupData[{
+Cell[1001, 40, 101, 1, 51, "Subsection"],
+Cell[1105, 43, 514, 9, 174, "Text"],
+Cell[1622, 54, 261, 8, 64, "Input"],
+Cell[1886, 64, 411, 10, 39, "Text"],
+Cell[2300, 76, 212, 6, 40, "Input"],
+Cell[2515, 84, 185, 2, 39, "Text"],
+Cell[2703, 88, 423, 13, 66, "Input"],
+Cell[3129, 103, 338, 4, 107, "Text"],
+Cell[3470, 109, 286, 7, 62, "Text"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3805, 122, 102, 1, 114, "Title"],
+Cell[3910, 125, 134, 5, 56, "Text"],
+Cell[4047, 132, 89, 1, 64, "Input"],
+Cell[CellGroupData[{
+Cell[4161, 137, 102, 1, 51, "Subsection"],
+Cell[4266, 140, 86, 1, 39, "Text"],
+Cell[4355, 143, 256, 7, 64, "Input"],
+Cell[4614, 152, 446, 7, 62, "Text"],
+Cell[5063, 161, 94, 1, 40, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5194, 167, 150, 3, 51, "Subsection"],
+Cell[5347, 172, 80, 2, 40, "Input"],
+Cell[5430, 176, 133, 2, 39, "Text"],
+Cell[5566, 180, 433, 10, 64, "Input"],
+Cell[6002, 192, 154, 3, 39, "Text"],
+Cell[CellGroupData[{
+Cell[6181, 199, 386, 9, 68, "Input"],
+Cell[6570, 210, 146, 3, 40, "Output"]
+}, Open  ]],
+Cell[6731, 216, 124, 1, 39, "Text"],
+Cell[6858, 219, 227, 6, 46, "Input"],
+Cell[7088, 227, 90, 1, 39, "Text"],
+Cell[CellGroupData[{
+Cell[7203, 232, 357, 9, 64, "Input"],
+Cell[7563, 243, 701, 25, 66, "Output"]
+}, Open  ]],
+Cell[8279, 271, 105, 1, 39, "Text"],
+Cell[8387, 274, 712, 25, 120, "Input"],
+Cell[CellGroupData[{
+Cell[9124, 303, 360, 9, 64, "Input"],
+Cell[9487, 314, 93, 1, 40, "Output"],
+Cell[9583, 317, 94, 1, 40, "Output"]
+}, Open  ]],
+Cell[9692, 321, 758, 19, 113, "Text"],
+Cell[10453, 342, 135, 2, 39, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10625, 349, 95, 1, 51, "Subsection"],
+Cell[10723, 352, 261, 6, 62, "Text"],
+Cell[10987, 360, 310, 9, 62, "Input"],
+Cell[11300, 371, 87, 1, 39, "Text"],
+Cell[11390, 374, 444, 12, 66, "Input"],
+Cell[11837, 388, 85, 1, 39, "Text"],
+Cell[CellGroupData[{
+Cell[11947, 393, 195, 4, 40, "Input"],
+Cell[12145, 399, 1118, 33, 92, "Output"]
+}, Open  ]],
+Cell[13278, 435, 184, 2, 39, "Text"],
+Cell[CellGroupData[{
+Cell[13487, 441, 230, 5, 40, "Input"],
+Cell[13720, 448, 72, 1, 40, "Output"]
+}, Open  ]],
+Cell[13807, 452, 189, 3, 39, "Text"],
+Cell[CellGroupData[{
+Cell[14021, 459, 147, 2, 40, "Input"],
+Cell[14171, 463, 627, 18, 64, "Output"]
+}, Open  ]],
+Cell[14813, 484, 154, 2, 39, "Text"],
+Cell[14970, 488, 648, 22, 181, "Input"],
+Cell[15621, 512, 241, 5, 62, "Text"],
+Cell[15865, 519, 419, 14, 85, "Input"],
+Cell[16287, 535, 111, 1, 39, "Text"],
+Cell[CellGroupData[{
+Cell[16423, 540, 257, 6, 40, "Input"],
+Cell[16683, 548, 627, 18, 64, "Output"]
+}, Open  ]],
+Cell[17325, 569, 153, 2, 39, "Text"],
+Cell[CellGroupData[{
+Cell[17503, 575, 888, 29, 114, "Input"],
+Cell[18394, 606, 319, 12, 64, "Output"]
+}, Open  ]],
+Cell[18728, 621, 176, 4, 39, "Text"],
+Cell[18907, 627, 87, 1, 64, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[19031, 633, 110, 1, 51, "Subsection"],
+Cell[19144, 636, 438, 8, 84, "Text"],
+Cell[19585, 646, 427, 12, 87, "Input"],
+Cell[20015, 660, 86, 1, 39, "Text"],
+Cell[CellGroupData[{
+Cell[20126, 665, 179, 3, 40, "Input"],
+Cell[20308, 670, 507, 19, 66, "Output"]
+}, Open  ]],
+Cell[20830, 692, 660, 24, 120, "Input"],
+Cell[21493, 718, 118, 1, 39, "Text"],
+Cell[CellGroupData[{
+Cell[21636, 723, 152, 2, 40, "Input"],
+Cell[21791, 727, 707, 26, 66, "Output"]
+}, Open  ]],
+Cell[22513, 756, 103, 1, 39, "Text"],
+Cell[22619, 759, 607, 21, 113, "Input"],
+Cell[CellGroupData[{
+Cell[23251, 784, 543, 15, 64, "Input"],
+Cell[23797, 801, 75, 1, 40, "Output"],
+Cell[23875, 804, 72, 1, 40, "Output"]
+}, Open  ]],
+Cell[23962, 808, 177, 4, 39, "Text"],
+Cell[24142, 814, 170, 4, 40, "Output"],
+Cell[24315, 820, 218, 4, 39, "Text"],
+Cell[24536, 826, 594, 18, 65, "Input"],
+Cell[CellGroupData[{
+Cell[25155, 848, 541, 15, 64, "Input"],
+Cell[25699, 865, 94, 1, 40, "Output"],
+Cell[25796, 868, 96, 1, 40, "Output"]
+}, Open  ]],
+Cell[25907, 872, 217, 3, 39, "Text"],
+Cell[26127, 877, 426, 11, 42, "Input"],
+Cell[26556, 890, 122, 1, 39, "Text"],
+Cell[CellGroupData[{
+Cell[26703, 895, 315, 9, 64, "Input"],
+Cell[27021, 906, 70, 1, 40, "Output"],
+Cell[27094, 909, 70, 1, 40, "Output"]
+}, Open  ]],
+Cell[27179, 913, 87, 1, 39, "Text"],
+Cell[CellGroupData[{
+Cell[27291, 918, 622, 20, 72, "Input"],
+Cell[27916, 940, 124, 2, 40, "Output"],
+Cell[28043, 944, 124, 2, 40, "Output"]
+}, Open  ]],
+Cell[28182, 949, 204, 4, 62, "Text"],
+Cell[CellGroupData[{
+Cell[28411, 957, 247, 6, 40, "Input"],
+Cell[28661, 965, 1419, 45, 114, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[30117, 1015, 447, 14, 68, "Input"],
+Cell[30567, 1031, 73, 1, 40, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[30677, 1037, 243, 6, 40, "Input"],
+Cell[30923, 1045, 1369, 44, 114, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[32329, 1094, 449, 14, 68, "Input"],
+Cell[32781, 1110, 75, 1, 40, "Output"]
+}, Open  ]],
+Cell[32871, 1114, 127, 1, 39, "Text"],
+Cell[33001, 1117, 1265, 41, 133, "Input"],
+Cell[34269, 1160, 117, 1, 39, "Text"],
+Cell[CellGroupData[{
+Cell[34411, 1165, 274, 7, 40, "Input"],
+Cell[34688, 1174, 626, 18, 64, "Output"]
+}, Open  ]],
+Cell[35329, 1195, 99, 1, 39, "Text"],
+Cell[CellGroupData[{
+Cell[35453, 1200, 275, 7, 40, "Input"],
+Cell[35731, 1209, 629, 18, 64, "Output"]
+}, Open  ]],
+Cell[36375, 1230, 101, 1, 39, "Text"],
+Cell[CellGroupData[{
+Cell[36501, 1235, 677, 19, 64, "Input"],
+Cell[37181, 1256, 651, 18, 64, "Output"],
+Cell[37835, 1276, 653, 18, 64, "Output"]
+}, Open  ]],
+Cell[38503, 1297, 235, 5, 39, "Text"],
+Cell[CellGroupData[{
+Cell[38763, 1306, 447, 13, 40, "Input"],
+Cell[39213, 1321, 159, 4, 40, "Output"]
+}, Open  ]],
+Cell[39387, 1328, 867, 20, 62, "Text"],
+Cell[40257, 1350, 451, 11, 40, "Output"],
+Cell[40711, 1363, 340, 6, 62, "Text"],
+Cell[CellGroupData[{
+Cell[41076, 1373, 461, 14, 68, "Input"],
+Cell[41540, 1389, 824, 25, 117, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[42401, 1419, 388, 8, 40, "Input"],
+Cell[42792, 1429, 577, 20, 66, "Output"]
+}, Open  ]],
+Cell[43384, 1452, 204, 6, 39, "Text"],
+Cell[43591, 1460, 661, 24, 117, "Output"],
+Cell[44255, 1486, 120, 1, 39, "Text"],
+Cell[44378, 1489, 419, 15, 105, "Output"],
+Cell[44800, 1506, 159, 2, 39, "Text"],
+Cell[44962, 1510, 436, 9, 64, "Output"],
+Cell[45401, 1521, 279, 7, 62, "Text"],
+Cell[45683, 1530, 175, 3, 40, "Output"],
+Cell[45861, 1535, 316, 6, 62, "Text"],
+Cell[CellGroupData[{
+Cell[46202, 1545, 463, 14, 68, "Input"],
+Cell[46668, 1561, 1224, 40, 169, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[47929, 1606, 268, 7, 40, "Input"],
+Cell[48200, 1615, 984, 34, 86, "Output"]
+}, Open  ]],
+Cell[49199, 1652, 410, 7, 107, "Text"],
+Cell[49612, 1661, 87, 1, 64, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[49736, 1667, 130, 1, 51, "Subsection"],
+Cell[49869, 1670, 212, 4, 62, "Text"],
+Cell[50084, 1676, 69, 1, 40, "Input"],
+Cell[50156, 1679, 430, 13, 197, "Text"],
+Cell[50589, 1694, 240, 8, 64, "Input"],
+Cell[50832, 1704, 464, 11, 197, "Text"],
+Cell[51299, 1717, 356, 11, 64, "Output"],
+Cell[51658, 1730, 696, 18, 332, "Text"],
+Cell[52357, 1750, 2011, 29, 557, "Text"],
+Cell[54371, 1781, 89, 1, 64, "Input"],
+Cell[54463, 1784, 420, 7, 84, "Text"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[54932, 1797, 105, 1, 114, "Title"],
+Cell[55040, 1800, 184, 6, 56, "Text"],
+Cell[55227, 1808, 87, 1, 64, "Input"],
+Cell[CellGroupData[{
+Cell[55339, 1813, 102, 1, 51, "Subsection"],
+Cell[55444, 1816, 130, 2, 39, "Text"],
+Cell[55577, 1820, 996, 32, 113, "Input"],
+Cell[56576, 1854, 204, 4, 62, "Text"],
+Cell[CellGroupData[{
+Cell[56805, 1862, 234, 4, 64, "Input"],
+Cell[57042, 1868, 904, 27, 64, "Output"],
+Cell[57949, 1897, 904, 27, 64, "Output"]
+}, Open  ]],
+Cell[58868, 1927, 345, 7, 62, "Text"],
+Cell[59216, 1936, 94, 1, 40, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[59347, 1942, 133, 1, 51, "Subsection"],
+Cell[59483, 1945, 147, 3, 39, "Text"],
+Cell[CellGroupData[{
+Cell[59655, 1952, 665, 18, 150, "Input"],
+Cell[60323, 1972, 699, 18, 64, "Output"],
+Cell[61025, 1992, 72, 1, 40, "Output"]
+}, Open  ]],
+Cell[61112, 1996, 110, 1, 39, "Text"],
+Cell[61225, 1999, 1039, 29, 110, "Input"],
+Cell[CellGroupData[{
+Cell[62289, 2032, 243, 7, 62, "Input"],
+Cell[62535, 2041, 73, 1, 40, "Output"]
+}, Open  ]],
+Cell[62623, 2045, 236, 5, 39, "Text"],
+Cell[CellGroupData[{
+Cell[62884, 2054, 574, 16, 40, "Input"],
+Cell[63461, 2072, 319, 9, 40, "Output"]
+}, Open  ]],
+Cell[63795, 2084, 140, 1, 39, "Text"],
+Cell[CellGroupData[{
+Cell[63960, 2089, 307, 8, 152, "Input"],
+Cell[64270, 2099, 108, 1, 40, "Output"],
+Cell[64381, 2102, 111, 1, 40, "Output"],
+Cell[64495, 2105, 128, 2, 40, "Output"]
+}, Open  ]],
+Cell[64638, 2110, 167, 2, 39, "Text"],
+Cell[CellGroupData[{
+Cell[64830, 2116, 242, 7, 40, "Input"],
+Cell[65075, 2125, 73, 1, 40, "Output"]
+}, Open  ]],
+Cell[65163, 2129, 94, 1, 40, "Input"],
+Cell[65260, 2132, 169, 3, 40, "Input"],
+Cell[65432, 2137, 92, 1, 40, "Input"],
+Cell[65527, 2140, 187, 4, 39, "Text"],
+Cell[CellGroupData[{
+Cell[65739, 2148, 502, 15, 40, "Input"],
+Cell[66244, 2165, 413, 10, 40, "Output"]
+}, Open  ]],
+Cell[66672, 2178, 137, 1, 39, "Text"],
+Cell[CellGroupData[{
+Cell[66834, 2183, 356, 9, 142, "Input"],
+Cell[67193, 2194, 155, 3, 40, "Output"],
+Cell[67351, 2199, 136, 2, 40, "Output"],
+Cell[67490, 2203, 135, 2, 40, "Output"]
+}, Open  ]],
+Cell[67640, 2208, 119, 1, 39, "Text"],
+Cell[CellGroupData[{
+Cell[67784, 2213, 390, 9, 40, "Input"],
+Cell[68177, 2224, 164, 2, 40, "Output"]
+}, Open  ]],
+Cell[68356, 2229, 89, 1, 64, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[68482, 2235, 178, 2, 51, "Subsection"],
+Cell[68663, 2239, 172, 3, 39, "Text"],
+Cell[CellGroupData[{
+Cell[68860, 2246, 751, 21, 150, "Input"],
+Cell[69614, 2269, 1155, 30, 64, "Output"],
+Cell[70772, 2301, 111, 1, 40, "Output"]
+}, Open  ]],
+Cell[70898, 2305, 192, 4, 39, "Text"],
+Cell[71093, 2311, 87, 1, 64, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[71217, 2317, 145, 1, 51, "Subsection"],
+Cell[71365, 2320, 147, 4, 40, "Input"],
+Cell[71515, 2326, 245, 5, 62, "Text"],
+Cell[71763, 2333, 237, 6, 62, "Output"],
+Cell[72003, 2341, 159, 2, 39, "Text"],
+Cell[72165, 2345, 865, 27, 194, "Input"],
+Cell[73033, 2374, 171, 4, 39, "Text"],
+Cell[CellGroupData[{
+Cell[73229, 2382, 408, 12, 152, "Input"],
+Cell[73640, 2396, 448, 13, 67, "Output"],
+Cell[74091, 2411, 276, 8, 64, "Output"],
+Cell[74370, 2421, 449, 14, 67, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[74856, 2440, 144, 2, 40, "Input"],
+Cell[75003, 2444, 713, 22, 114, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[75753, 2471, 155, 3, 40, "Input"],
+Cell[75911, 2476, 70, 1, 40, "Output"]
+}, Open  ]],
+Cell[75996, 2480, 416, 9, 107, "Text"],
+Cell[76415, 2491, 89, 1, 64, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[76541, 2497, 155, 2, 51, "Subsection"],
+Cell[76699, 2501, 1828, 27, 489, "Text"],
+Cell[78530, 2530, 2827, 43, 894, "Text"],
+Cell[81360, 2575, 87, 1, 64, "Input"],
+Cell[81450, 2578, 667, 11, 309, "Text"],
+Cell[82120, 2591, 238, 5, 62, "Text"],
+Cell[82361, 2598, 527, 10, 129, "Text"],
+Cell[CellGroupData[{
+Cell[82913, 2612, 296, 7, 110, "Input"],
+Cell[83212, 2621, 808, 20, 40, "Output"]
+}, Open  ]],
+Cell[84035, 2644, 370, 6, 62, "Text"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

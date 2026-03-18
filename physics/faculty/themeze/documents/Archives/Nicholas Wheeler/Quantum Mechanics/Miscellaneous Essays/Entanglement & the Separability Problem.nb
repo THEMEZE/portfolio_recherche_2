@@ -1,0 +1,6280 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[    178377,       6271]
+NotebookOptionsPosition[    162370,       5823]
+NotebookOutlinePosition[    162767,       5840]
+CellTagsIndexPosition[    162724,       5837]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"2", "-", "2"}], "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{3.569621030744905*^9},
+ CellLabel->"In[1]:="],
+
+Cell[CellGroupData[{
+
+Cell["ENTANGLED?", "Title"],
+
+Cell["\<\
+Notes for a Reed College Physics Seminar presented 11 October 2006\
+\>", "Note"],
+
+Cell["\<\
+REMARK ADDED AFTER COMPLETION OF THE NOTEBOOK: In the seminar I allowed \
+myself, in the interest of expository simplicity, to assume that all vector \
+components are real.  In an addendum\[LongDash]written partly in response to \
+a remark by Tom Wieting\[LongDash]I develop the quite independent separation \
+criteria that arise when complex phase factors are assigned to the components \
+of composite state vectors. \
+\>", "Note"],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input",
+ CellChangeTimes->{3.569621059496962*^9}],
+
+Cell[TextData[{
+ StyleBox["NOTE",
+  FontWeight->"Bold"],
+ ": This notebook was originally written in ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " 5.2, and converted to v7.0 on 11 February 2013. It is based upon material \
+I wrote in an effort to be of assistance to Julia Keller in her thesis \
+project (\"Quantifying Entanglement\" (2007)), at a time when I was largely \
+ignorant of the literature and standard methods that bear on the problem \
+addressed. The work seems in retrospect to be of interest in only one \
+respect: the use made of the Moore-Penrose pseudo-inverse.\n"
+}], "Text",
+ CellChangeTimes->{{3.569690463992347*^9, 3.569690495931312*^9}, {
+  3.5696905368525143`*^9, 3.569690556207684*^9}, {3.569691497472989*^9, 
+  3.569691541549264*^9}, {3.569691744977455*^9, 3.5696917746628523`*^9}, {
+  3.56969181119665*^9, 3.569691906662903*^9}, {3.5696919787242813`*^9, 
+  3.5696920290435762`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Introduction: correlations latent in the states of composite quantum systems\
+\>", "Subsection"],
+
+Cell[TextData[{
+ "Alice is in her laboratory, studying quantum system ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[ScriptCapitalS]", "Alice"], TraditionalForm]]],
+ ". Bob is in his lab, studying his quite independent system ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[ScriptCapitalS]", "Bob"], TraditionalForm]]],
+ "."
+}], "Text"],
+
+Cell[BoxData[""], "Input"],
+
+Cell["\<\
+For expository convenience we assume both systems to be 2-state systems \
+(which, experimentally, happens actually to be the most commonly encountered \
+situation). Alice writes \
+\>", "Text"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   SubscriptBox["\[Psi]", "Alice"], "=", 
+   RowBox[{"(", GridBox[{
+      {
+       SubscriptBox["\[Alpha]", "1"]},
+      {
+       SubscriptBox["\[Alpha]", "2"]}
+     }], ")"}]}], ";"}]], "Input",
+ CellLabel->"In[2]:="],
+
+Cell[TextData[{
+ "to describe the (in this instance \"pure\") quantum state of ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[ScriptCapitalS]", "Alice"], TraditionalForm]]],
+ " , and"
+}], "Text"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"A", "=", 
+   RowBox[{"(", GridBox[{
+      {
+       SubscriptBox["a", "11"], 
+       SubscriptBox["a", "12"]},
+      {
+       SubscriptBox["a", "21"], 
+       SubscriptBox["a", "22"]}
+     }], ")"}]}], ";"}]], "Input",
+ CellLabel->"In[3]:="],
+
+Cell["to describe her Hamiltonian, meters, etc. Bob writes", "Text"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   SubscriptBox["\[Psi]", "Bob"], "=", 
+   RowBox[{"(", GridBox[{
+      {
+       SubscriptBox["\[Beta]", "1"]},
+      {
+       SubscriptBox["\[Beta]", "2"]}
+     }], ")"}]}], ";"}]], "Input",
+ CellLabel->"In[4]:="],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"B", "=", 
+   RowBox[{"(", GridBox[{
+      {
+       SubscriptBox["b", "11"], 
+       SubscriptBox["b", "12"]},
+      {
+       SubscriptBox["b", "21"], 
+       SubscriptBox["b", "22"]}
+     }], ")"}]}], ";"}]], "Input",
+ CellLabel->"In[5]:="],
+
+Cell["Constructions like this", "Text"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"A", ".", 
+   SubscriptBox["\[Psi]", "Alice"]}], "//", 
+  "MatrixForm"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"B", ".", 
+   SubscriptBox["\[Psi]", "Bob"]}], "//", "MatrixForm"}]}], "Input",
+ CellLabel->"In[6]:="],
+
+Cell["\<\
+assume importance when they sit down to do standard quantum calculations.\
+\>", "Text"],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input"],
+
+Cell[TextData[{
+ "God, looking down from on high, gives equal attention simultaneously to ",
+ StyleBox["both",
+  FontSlant->"Italic"],
+ " Alice and Bob. How does He do it?"
+}], "Text"],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input"],
+
+Cell[CellGroupData[{
+
+Cell["Introduction of the KRONECKER PRODUCT:", "Subsubsection"],
+
+Cell[TextData[{
+ "Let ",
+ StyleBox["P", "Input"],
+ " and ",
+ StyleBox["Q", "Input"],
+ " be matrices of arbitrary\[LongDash]and typically \
+dissimilar\[LongDash]dimension:"
+}], "Text"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"P", "=", 
+   RowBox[{"(", GridBox[{
+      {
+       SubscriptBox["p", "11"], 
+       SubscriptBox["p", "12"]},
+      {
+       SubscriptBox["p", "21"], 
+       SubscriptBox["p", "22"]},
+      {
+       SubscriptBox["p", "31"], 
+       SubscriptBox["p", 
+        RowBox[{"32", " "}]]}
+     }], ")"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Q", "=", 
+   RowBox[{"(", GridBox[{
+      {
+       SubscriptBox["q", "11"], 
+       SubscriptBox["q", "12"]},
+      {
+       SubscriptBox["q", "21"], 
+       SubscriptBox["q", "22"]}
+     }], ")"}]}], ";"}]}], "Input",
+ CellLabel->"In[8]:="],
+
+Cell["The Kronecker product has this meaning", "Text"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   RowBox[{"P", "\[CircleTimes]", "Q"}], "\[Congruent]", 
+   RowBox[{"(", GridBox[{
+      {
+       RowBox[{
+        SubscriptBox["p", "11"], "Q"}], 
+       RowBox[{
+        SubscriptBox["p", "12"], "Q"}]},
+      {
+       RowBox[{
+        SubscriptBox["p", "21"], "Q"}], 
+       RowBox[{
+        SubscriptBox["p", "22"], "Q"}]},
+      {
+       RowBox[{
+        SubscriptBox["p", "31"], "Q"}], 
+       RowBox[{
+        SubscriptBox["p", 
+         RowBox[{"32", " "}]], "Q"}]}
+     }], ")"}]}],
+  FontColor->GrayLevel[0.500008]]], "Input"],
+
+Cell["and is produced by the following command:", "Text"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"P_", "\[CircleTimes]", "Q_"}], ":=", 
+  RowBox[{"Flatten", "[", 
+   RowBox[{
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"Flatten", "[", 
+       RowBox[{"Table", "[", 
+        RowBox[{
+         RowBox[{"Part", "[", 
+          RowBox[{
+           RowBox[{"Outer", "[", 
+            RowBox[{"Times", ",", "P", ",", "Q"}], "]"}], ",", "i", ",", "j", 
+           ",", "k"}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"j", ",", 
+           RowBox[{
+            RowBox[{"Dimensions", "[", "P", "]"}], "\[LeftDoubleBracket]", 
+            "2", "\[RightDoubleBracket]"}]}], "}"}]}], "]"}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"i", ",", 
+        RowBox[{
+         RowBox[{"Dimensions", "[", "P", "]"}], "\[LeftDoubleBracket]", "1", 
+         "\[RightDoubleBracket]"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"k", ",", 
+        RowBox[{
+         RowBox[{"Dimensions", "[", "Q", "]"}], "\[LeftDoubleBracket]", "1", 
+         "\[RightDoubleBracket]"}]}], "}"}]}], "]"}], ",", "1"}], 
+   "]"}]}]], "Input",
+ CellLabel->"In[10]:="],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"P", "\[CircleTimes]", "Q"}], "//", "MatrixForm"}]], "Input",
+ CellLabel->"In[11]:="],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      StyleBox[
+       RowBox[{
+        SubscriptBox["p", "11"], " ", 
+        SubscriptBox["q", "11"]}],
+       FontColor->RGBColor[1, 0, 0]], 
+      StyleBox[
+       RowBox[{
+        SubscriptBox["p", "11"], " ", 
+        SubscriptBox["q", "12"]}],
+       FontColor->RGBColor[1, 0, 0]], 
+      RowBox[{
+       SubscriptBox["p", "12"], " ", 
+       SubscriptBox["q", "11"]}], 
+      RowBox[{
+       SubscriptBox["p", "12"], " ", 
+       SubscriptBox["q", "12"]}]},
+     {
+      StyleBox[
+       RowBox[{
+        SubscriptBox["p", "11"], " ", 
+        SubscriptBox["q", "21"]}],
+       FontColor->RGBColor[1, 0, 0]], 
+      StyleBox[
+       RowBox[{
+        SubscriptBox["p", "11"], " ", 
+        SubscriptBox["q", "22"]}],
+       FontColor->RGBColor[1, 0, 0]], 
+      RowBox[{
+       SubscriptBox["p", "12"], " ", 
+       SubscriptBox["q", "21"]}], 
+      RowBox[{
+       SubscriptBox["p", "12"], " ", 
+       SubscriptBox["q", "22"]}]},
+     {
+      RowBox[{
+       SubscriptBox["p", "21"], " ", 
+       SubscriptBox["q", "11"]}], 
+      RowBox[{
+       SubscriptBox["p", "21"], " ", 
+       SubscriptBox["q", "12"]}], 
+      RowBox[{
+       SubscriptBox["p", "22"], " ", 
+       SubscriptBox["q", "11"]}], 
+      RowBox[{
+       SubscriptBox["p", "22"], " ", 
+       SubscriptBox["q", "12"]}]},
+     {
+      RowBox[{
+       SubscriptBox["p", "21"], " ", 
+       SubscriptBox["q", "21"]}], 
+      RowBox[{
+       SubscriptBox["p", "21"], " ", 
+       SubscriptBox["q", "22"]}], 
+      RowBox[{
+       SubscriptBox["p", "22"], " ", 
+       SubscriptBox["q", "21"]}], 
+      RowBox[{
+       SubscriptBox["p", "22"], " ", 
+       SubscriptBox["q", "22"]}]},
+     {
+      RowBox[{
+       SubscriptBox["p", "31"], " ", 
+       SubscriptBox["q", "11"]}], 
+      RowBox[{
+       SubscriptBox["p", "31"], " ", 
+       SubscriptBox["q", "12"]}], 
+      RowBox[{
+       SubscriptBox["p", "32"], " ", 
+       SubscriptBox["q", "11"]}], 
+      RowBox[{
+       SubscriptBox["p", "32"], " ", 
+       SubscriptBox["q", "12"]}]},
+     {
+      RowBox[{
+       SubscriptBox["p", "31"], " ", 
+       SubscriptBox["q", "21"]}], 
+      RowBox[{
+       SubscriptBox["p", "31"], " ", 
+       SubscriptBox["q", "22"]}], 
+      RowBox[{
+       SubscriptBox["p", "32"], " ", 
+       SubscriptBox["q", "21"]}], 
+      RowBox[{
+       SubscriptBox["p", "32"], " ", 
+       SubscriptBox["q", "22"]}]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Input",
+ CellLabel->"Out[11]//MatrixForm="],
+
+Cell["\<\
+The Kronecker product provides a natural mechanism for developing multiple \
+copies of linear algebra simultaneously , and at the same time for \
+establishing cross-talk among them.\
+\>", "Text"],
+
+Cell[BoxData[""], "Input"],
+
+Cell[TextData[{
+ "To described the state of the ",
+ StyleBox["composite Alice/Bob system",
+  FontWeight->"Bold",
+  FontColor->RGBColor[1, 0, 0]],
+ ", God writes "
+}], "Text"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"\[CapitalPsi]", "=", 
+   RowBox[{
+    SubscriptBox["\[Psi]", "Alice"], "\[CircleTimes]", 
+    SubscriptBox["\[Psi]", "Bob"]}]}], ";"}]], "Input",
+ CellLabel->"In[12]:="],
+
+Cell[BoxData[
+ RowBox[{"\[CapitalPsi]", "//", "MatrixForm"}]], "Input",
+ CellLabel->"In[13]:="],
+
+Cell["\<\
+and to describe their respective Hamiltonians/meters/etc. He writes\
+\>", "Text"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   SubscriptBox["A", "God"], "=", 
+   RowBox[{"A", "\[CircleTimes]", 
+    RowBox[{"(", GridBox[{
+       {"1", "0"},
+       {"0", "1"}
+      }], ")"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   SubscriptBox["B", "God"], "=", 
+   RowBox[{
+    RowBox[{"(", GridBox[{
+       {"1", "0"},
+       {"0", "1"}
+      }], ")"}], "\[CircleTimes]", "B"}]}], ";"}]}], "Input",
+ CellLabel->"In[14]:="],
+
+Cell[BoxData[{
+ RowBox[{
+  SubscriptBox["A", "God"], "//", "MatrixForm"}], "\[IndentingNewLine]", 
+ RowBox[{
+  SubscriptBox["B", "God"], "//", "MatrixForm"}]}], "Input",
+ CellLabel->"In[16]:="],
+
+Cell["\<\
+He is thus enabled to describe Alice/Bob's activity in a unified way:\
+\>", "Text"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"(", 
+     SubscriptBox["A", "God"], ")"}], ".", "\[CapitalPsi]"}], "\[Equal]", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"A", ".", 
+      SubscriptBox["\[Psi]", "Alice"]}], ")"}], "\[CircleTimes]", 
+    SubscriptBox["\[Psi]", "Bob"]}]}], "//", 
+  "Simplify"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"(", 
+     SubscriptBox["B", "God"], ")"}], ".", "\[CapitalPsi]"}], "\[Equal]", 
+   RowBox[{
+    SubscriptBox["\[Psi]", "Alice"], "\[CircleTimes]", 
+    RowBox[{"(", 
+     RowBox[{"B", ".", 
+      SubscriptBox["\[Psi]", "Bob"]}], ")"}]}]}], "//", 
+  "Simplify"}]}], "Input",
+ CellLabel->"In[18]:="],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+TYPICAL CONCRETE CASE (of, as it happens, very great special interest):\
+\>", "Subsubsection"],
+
+Cell["\<\
+Alice selects the measurement device (or \"meter\") described by the \
+hermitian matrix\
+\>", "Text"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"A", "=", 
+   RowBox[{"(", GridBox[{
+      {"1", "0"},
+      {"0", 
+       RowBox[{"-", "1"}]}
+     }], ")"}]}], ";"}]], "Input",
+ CellLabel->"In[20]:="],
+
+Cell["From", "Text"],
+
+Cell[BoxData[
+ RowBox[{"Eigenvalues", "[", "A", "]"}]], "Input",
+ CellLabel->"In[21]:="],
+
+Cell[TextData[{
+ "we see that her meter always announces either ",
+ StyleBox["+1", "Input"],
+ " or ",
+ StyleBox["-1", "Input",
+  FontSize->14],
+ " (up/down, true/false, yes/no). God writes"
+}], "Text"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   SubscriptBox["A", "God"], "=", 
+   RowBox[{"A", "\[CircleTimes]", 
+    RowBox[{"(", GridBox[{
+       {"1", "0"},
+       {"0", "1"}
+      }], ")"}]}]}], ";"}]], "Input",
+ CellLabel->"In[22]:="],
+
+Cell[BoxData[
+ RowBox[{
+  SubscriptBox["A", "God"], "//", "MatrixForm"}]], "Input",
+ CellLabel->"In[23]:="],
+
+Cell[TextData[{
+ "to describe Alice's meter. The \"spectral resolution\" of",
+ StyleBox[" ", "Input"],
+ StyleBox[Cell[BoxData[
+  FormBox[
+   SubscriptBox["A", "God"], TraditionalForm]], "Input"], "Input"],
+ " is immediate:"
+}], "Text"],
+
+Cell[BoxData[
+ RowBox[{
+  SubscriptBox["A", "God"], "==", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"+", "1"}], ")"}], 
+    RowBox[{"(", GridBox[{
+       {"1", "0", "0", "0"},
+       {"0", "1", "0", "0"},
+       {"0", "0", "0", "0"},
+       {"0", "0", "0", "0"}
+      }], ")"}]}], "+", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"-", "1"}], ")"}], 
+    RowBox[{"(", GridBox[{
+       {"0", "0", "0", "0"},
+       {"0", "0", "0", "0"},
+       {"0", "0", "1", "0"},
+       {"0", "0", "0", "1"}
+      }], ")"}]}]}]}]], "Input",
+ CellLabel->"In[24]:="],
+
+Cell["\<\
+where the matrices are obviously projective (project onto orthogonal 2-spaces.\
+\>", "Text"],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input"],
+
+Cell["We will suppose Bob to have selected a similar meter", "Text"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"B", "=", 
+   RowBox[{"(", GridBox[{
+      {"1", "0"},
+      {"0", 
+       RowBox[{"-", "1"}]}
+     }], ")"}]}], ";"}]], "Input",
+ CellLabel->"In[25]:="],
+
+Cell["which leads God to write", "Text"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   SubscriptBox["B", "God"], "=", 
+   RowBox[{
+    RowBox[{"(", GridBox[{
+       {"1", "0"},
+       {"0", "1"}
+      }], ")"}], "\[CircleTimes]", "B"}]}], ";"}]], "Input",
+ CellLabel->"In[26]:="],
+
+Cell[BoxData[
+ RowBox[{
+  SubscriptBox["B", "God"], "//", "MatrixForm"}]], "Input",
+ CellLabel->"In[27]:="],
+
+Cell["Immediately", "Text"],
+
+Cell[BoxData[
+ RowBox[{
+  SubscriptBox["B", "God"], "==", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"+", "1"}], ")"}], 
+    TagBox[
+     RowBox[{"(", "\[NoBreak]", GridBox[{
+        {"1", "0", "0", "0"},
+        {"0", "0", "0", "0"},
+        {"0", "0", "1", "0"},
+        {"0", "0", "0", "0"}
+       },
+       GridBoxAlignment->{
+        "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}},
+          "RowsIndexed" -> {}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.7]}, 
+           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+     Function[BoxForm`e$, 
+      MatrixForm[BoxForm`e$]]]}], "+", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"-", "1"}], ")"}], 
+    TagBox[
+     RowBox[{"(", "\[NoBreak]", GridBox[{
+        {"0", "0", "0", "0"},
+        {"0", "1", "0", "0"},
+        {"0", "0", "0", "0"},
+        {"0", "0", "0", "1"}
+       },
+       GridBoxAlignment->{
+        "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}},
+          "RowsIndexed" -> {}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.7]}, 
+           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+     Function[BoxForm`e$, 
+      MatrixForm[BoxForm`e$]]]}]}]}]], "Input",
+ CellLabel->"In[28]:="],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input"],
+
+Cell["\<\
+Suppose God\[LongDash]trickster that He is\[LongDash]presents Alice serially \
+with many copies of the state \
+\>", "Text"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"\[CapitalPsi]", "=", 
+   FractionBox[
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", GridBox[{
+         {"1"},
+         {"0"}
+        }], ")"}], "\[CircleTimes]", 
+      RowBox[{"(", GridBox[{
+         {"0"},
+         {"1"}
+        }], ")"}]}], "+", 
+     RowBox[{
+      RowBox[{"(", GridBox[{
+         {"0"},
+         {"1"}
+        }], ")"}], "\[CircleTimes]", 
+      RowBox[{"(", GridBox[{
+         {"1"},
+         {"0"}
+        }], ")"}]}]}], 
+    SqrtBox["2"]]}], ";"}]], "Input",
+ CellLabel->"In[29]:="],
+
+Cell[BoxData[
+ RowBox[{"\[CapitalPsi]", "//", "MatrixForm"}]], "Input",
+ CellLabel->"In[30]:="],
+
+Cell[TextData[{
+ "Alice's meter announces ",
+ StyleBox["+1", "Input",
+  FontSize->16],
+ " with probability"
+}], "Text"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Transpose", "[", "\[CapitalPsi]", "]"}], ".", 
+  RowBox[{"(", GridBox[{
+     {"1", "0", "0", "0"},
+     {"0", "1", "0", "0"},
+     {"0", "0", "0", "0"},
+     {"0", "0", "0", "0"}
+    }], ")"}], ".", "\[CapitalPsi]"}]], "Input",
+ CellLabel->"In[31]:="],
+
+Cell[TextData[{
+ "and on such occasions prepares the state (here the ",
+ Cell[BoxData[
+  FormBox[
+   SqrtBox["2"], TraditionalForm]]],
+ " is  normalization factor)"
+}], "Text"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AliceOutUp", "=", 
+   RowBox[{
+    SqrtBox["2"], 
+    RowBox[{
+     RowBox[{"(", GridBox[{
+        {"1", "0", "0", "0"},
+        {"0", "1", "0", "0"},
+        {"0", "0", "0", "0"},
+        {"0", "0", "0", "0"}
+       }], ")"}], ".", "\[CapitalPsi]"}]}]}], ";"}]], "Input",
+ CellLabel->"In[32]:="],
+
+Cell[BoxData[
+ RowBox[{"AliceOutUp", "//", "MatrixForm"}]], "Input",
+ CellLabel->"In[33]:="],
+
+Cell[TextData[{
+ "Alternatively, her meter announces ",
+ StyleBox["-1", "Input"],
+ " with probabilty"
+}], "Text"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Transpose", "[", "\[CapitalPsi]", "]"}], ".", 
+  RowBox[{"(", GridBox[{
+     {"0", "0", "0", "0"},
+     {"0", "0", "0", "0"},
+     {"0", "0", "1", "0"},
+     {"0", "0", "0", "1"}
+    }], ")"}], ".", "\[CapitalPsi]"}]], "Input",
+ CellLabel->"In[34]:="],
+
+Cell["and prepares the state", "Text"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AliceOutDn", "=", 
+   RowBox[{
+    SqrtBox["2"], 
+    RowBox[{
+     RowBox[{"(", GridBox[{
+        {"0", "0", "0", "0"},
+        {"0", "0", "0", "0"},
+        {"0", "0", "1", "0"},
+        {"0", "0", "0", "1"}
+       }], ")"}], ".", "\[CapitalPsi]"}]}]}], ";"}]], "Input",
+ CellLabel->"In[35]:="],
+
+Cell[BoxData[
+ RowBox[{"AliceOutDn", "//", "MatrixForm"}]], "Input",
+ CellLabel->"In[36]:="],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input"],
+
+Cell[TextData[{
+ "Because Bob\[LongDash]gentleman that he is\[LongDash]always lets Alice go \
+first, he with his B-meter examines states that have been altered by Alice's \
+prior measurement activity. When he inherits an ",
+ StyleBox["AliceOutUp", "Input"],
+ " state his meter reads ",
+ StyleBox["+1", "Input"],
+ " with probability"
+}], "Text"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Transpose", "[", "AliceOutUp", "]"}], ".", 
+  TagBox[
+   RowBox[{"(", "\[NoBreak]", GridBox[{
+      {"1", "0", "0", "0"},
+      {"0", "0", "0", "0"},
+      {"0", "0", "1", "0"},
+      {"0", "0", "0", "0"}
+     },
+     GridBoxAlignment->{
+      "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+       "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.7]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+   Function[BoxForm`e$, 
+    MatrixForm[BoxForm`e$]]], ".", "AliceOutUp"}]], "Input",
+ CellLabel->"In[37]:="],
+
+Cell[TextData[{
+ "\[LongDash]which is to say: never\[LongDash]and reads ",
+ StyleBox["-1", "Input"],
+ " with probability"
+}], "Text"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Transpose", "[", "AliceOutUp", "]"}], ".", 
+  TagBox[
+   RowBox[{"(", "\[NoBreak]", GridBox[{
+      {"0", "0", "0", "0"},
+      {"0", "1", "0", "0"},
+      {"0", "0", "0", "0"},
+      {"0", "0", "0", "1"}
+     },
+     GridBoxAlignment->{
+      "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+       "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.7]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+   Function[BoxForm`e$, 
+    MatrixForm[BoxForm`e$]]], ".", "AliceOutUp"}]], "Input",
+ CellLabel->"In[38]:="],
+
+Cell[TextData[{
+ "\[LongDash]which is to say: with certainty. On  the other hand, when he \
+inherits an ",
+ StyleBox["AliceOutDn", "Input"],
+ " state his meter reads ",
+ StyleBox["+1", "Input"],
+ " with probability"
+}], "Text"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Transpose", "[", "AliceOutDn", "]"}], ".", 
+  TagBox[
+   RowBox[{"(", "\[NoBreak]", GridBox[{
+      {"1", "0", "0", "0"},
+      {"0", "0", "0", "0"},
+      {"0", "0", "1", "0"},
+      {"0", "0", "0", "0"}
+     },
+     GridBoxAlignment->{
+      "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+       "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.7]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+   Function[BoxForm`e$, 
+    MatrixForm[BoxForm`e$]]], ".", "AliceOutDn"}]], "Input",
+ CellLabel->"In[39]:="],
+
+Cell[TextData[{
+ "\[LongDash]which is to say: with certainty\[LongDash]and never reads ",
+ StyleBox["-1", "Input"],
+ ":"
+}], "Text"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Transpose", "[", "AliceOutDn", "]"}], ".", 
+  TagBox[
+   TagBox[
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {"0", "0", "0", "0"},
+       {"0", "1", "0", "0"},
+       {"0", "0", "0", "0"},
+       {"0", "0", "0", "1"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+    Function[BoxForm`e$, 
+     MatrixForm[BoxForm`e$]]],
+   Function[BoxForm`e$, 
+    MatrixForm[BoxForm`e$]]], ".", "AliceOutDn"}]], "Input",
+ CellLabel->"In[40]:="],
+
+Cell[TextData[{
+ "Those statistical results are summarized in the following table, where the \
+red entries are ",
+ StyleBox["JOINT",
+  FontColor->RGBColor[1, 0, 0]],
+ " probabilities, while the blue entries are ",
+ StyleBox["MARGINAL",
+  FontColor->RGBColor[0, 0, 1]],
+ " probabilities, got by adding all joint probabilities in a  row/column."
+}], "Text"],
+
+Cell[BoxData[GridBox[{
+   {"\[Placeholder]", "BobUp", "BobDn", 
+    RowBox[{"Alice", " ", "Marginal"}]},
+   {"AliceUp", 
+    StyleBox["0",
+     FontColor->RGBColor[1, 0, 0]], 
+    StyleBox[
+     FractionBox["1", "2"],
+     FontColor->RGBColor[1, 0, 0]], 
+    StyleBox[
+     FractionBox["1", "2"],
+     FontColor->RGBColor[0, 0, 1]]},
+   {"AliceDn", 
+    StyleBox[
+     FractionBox["1", "2"],
+     FontColor->RGBColor[1, 0, 0]], 
+    StyleBox["0",
+     FontColor->RGBColor[1, 0, 0]], 
+    StyleBox[
+     FractionBox["1", "2"],
+     FontColor->RGBColor[0, 0, 1]]},
+   {
+    RowBox[{"Bob", " ", "Marginal"}], 
+    StyleBox[
+     FractionBox["1", "2"],
+     FontColor->RGBColor[0, 0, 1]], 
+    StyleBox[
+     FractionBox["1", "2"],
+     FontColor->RGBColor[0, 0, 1]], "\[Placeholder]"}
+  }]], "Input"],
+
+Cell[TextData[{
+ "Alice's meter reads ",
+ StyleBox["\[PlusMinus]", "Input"],
+ " with equal frequency, and so does Bob's. But when they come together \
+(Alice works at Stanford, Bob at Harvard) they find that their respective \
+meter readings are ",
+ StyleBox["perfectly anticorrelated", "Subsubsection"],
+ "! "
+}], "Text"],
+
+Cell[BoxData[""], "Input"],
+
+Cell[TextData[{
+ "What we have encountered here is David Bohm's sharp illustration (1951) of \
+the essential upshot of the famous ",
+ StyleBox["EPR paradox", "Subsubsection",
+  FontColor->RGBColor[1, 0, 0]],
+ StyleBox[" ", "Subsubsection",
+  FontColor->GrayLevel[0]],
+ "(1935)",
+ ". It was in this setting that John Bell (1964)\[LongDash]after supplying \
+Alice and Bob with more general devices"
+}], "Text"],
+
+Cell[BoxData[{
+ RowBox[{"A", "=", 
+  RowBox[{"(", GridBox[{
+     {
+      SubscriptBox["a", "3"], 
+      RowBox[{
+       SubscriptBox["a", "1"], "-", 
+       RowBox[{"\[ImaginaryI]", " ", 
+        SubscriptBox["a", "2"]}]}]},
+     {
+      RowBox[{
+       SubscriptBox["a", "1"], "+", 
+       RowBox[{"\[ImaginaryI]", " ", 
+        SubscriptBox["a", "2"]}]}], 
+      RowBox[{"-", 
+       SubscriptBox["a", "3"]}]}
+    }], ")"}]}], "\[IndentingNewLine]", 
+ RowBox[{"B", "=", 
+  RowBox[{"(", GridBox[{
+     {
+      SubscriptBox["b", "3"], 
+      RowBox[{
+       SubscriptBox["b", "1"], "-", 
+       RowBox[{"\[ImaginaryI]", " ", 
+        SubscriptBox["b", "2"]}]}]},
+     {
+      RowBox[{
+       SubscriptBox["b", "1"], "+", 
+       RowBox[{"\[ImaginaryI]", " ", 
+        SubscriptBox["b", "2"]}]}], 
+      RowBox[{"-", 
+       SubscriptBox["b", "3"]}]}
+    }], ")"}]}]}], "Input"],
+
+Cell[TextData[{
+ "\[LongDash]was led to the ",
+ StyleBox["Bell inequality", "Subsubsection",
+  FontColor->RGBColor[1, 0, 0]],
+ StyleBox[" ", "Subsubsection"],
+ "that sparked the on-going  ",
+ StyleBox["experimental",
+  FontSlant->"Italic",
+  FontVariations->{"Underline"->True},
+  FontColor->RGBColor[0, 0, 1]],
+ StyleBox[" inquiry into the foundations of quantum mechanics",
+  FontVariations->{"Underline"->True},
+  FontColor->RGBColor[0, 0, 1]],
+ ", one early result of which was to ",
+ StyleBox["rule out the possibility that behind quantum theory lurks a \
+deterministic local hidden variable theory",
+  FontVariations->{"Underline"->True}],
+ "."
+}], "Text"],
+
+Cell[BoxData[""], "Input"],
+
+Cell["\<\
+To lend quantitative precision to our intuitive allusion to \"correlation\", \
+write\
+\>", "Text"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"\[CapitalPsi]", "=", 
+   RowBox[{"(", GridBox[{
+      {
+       SubscriptBox["\[Psi]", "1"]},
+      {
+       SubscriptBox["\[Psi]", "2"]},
+      {
+       SubscriptBox["\[Psi]", "3"]},
+      {
+       SubscriptBox["\[Psi]", "4"]}
+     }], ")"}]}],
+  FontColor->GrayLevel[0.500008]]], "Input"],
+
+Cell["and define", "Text"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"correlation", "\[Congruent]", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"averaged", " ", "product"}], ")"}], "-", 
+    RowBox[{"(", 
+     RowBox[{"product", " ", "of", " ", "averages"}], ")"}]}]}],
+  FontColor->GrayLevel[0.500008]]], "Input"],
+
+Cell["\<\
+Are led by just such argumentation\[LongDash]analysis of Alice/Bob statistics\
+\[LongDash]to define\
+\>", "Text"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"correlation", "[", 
+   RowBox[{"w_", ",", "x_", ",", "y_", ",", "z_"}], "]"}], ":=", 
+  RowBox[{
+   SuperscriptBox["w", "2"], "-", 
+   SuperscriptBox["x", "2"], "-", 
+   SuperscriptBox["y", "2"], "+", 
+   SuperscriptBox["z", "2"], "-", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      SuperscriptBox["w", "2"], "+", 
+      SuperscriptBox["x", "2"], "-", 
+      SuperscriptBox["y", "2"], "-", 
+      SuperscriptBox["z", "2"]}], ")"}], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      SuperscriptBox["w", "2"], "-", 
+      SuperscriptBox["x", "2"], "+", 
+      SuperscriptBox["y", "2"], "-", 
+      SuperscriptBox["z", "2"]}], ")"}]}]}]}]], "Input",
+ CellLabel->"In[41]:="],
+
+Cell[TextData[{
+ "which when applied to ",
+ StyleBox["\[CapitalPsi]", "Input"],
+ "  gives"
+}], "Text"],
+
+Cell[BoxData[
+ RowBox[{"correlation", "[", 
+  RowBox[{
+   SubscriptBox["\[Psi]", "1"], ",", 
+   SubscriptBox["\[Psi]", "2"], ",", 
+   SubscriptBox["\[Psi]", "3"], ",", 
+   SubscriptBox["\[Psi]", "4"]}], "]"}]], "Input",
+ CellLabel->"In[42]:="],
+
+Cell["and in the example just studied ", "Text"],
+
+Cell[BoxData[
+ StyleBox[
+  TagBox[
+   RowBox[{"\[CapitalPsi]", "=", 
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {"0"},
+       {
+        FractionBox["1", 
+         SqrtBox["2"]]},
+       {
+        FractionBox["1", 
+         SqrtBox["2"]]},
+       {"0"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}]}],
+   Function[BoxForm`e$, 
+    MatrixForm[BoxForm`e$]]],
+  FontColor->GrayLevel[0.500008]]], "Input",
+ CellLabel->"In[43]:="],
+
+Cell["supplies", "Text"],
+
+Cell[BoxData[
+ RowBox[{"correlation", "[", 
+  RowBox[{"0", ",", 
+   FractionBox["1", 
+    SqrtBox["2"]], ",", 
+   FractionBox["1", 
+    SqrtBox["2"]], ",", "0"}], "]"}]], "Input",
+ CellLabel->"In[44]:="],
+
+Cell["\<\
+If, on the other hand, God had respected the \"physical independence\" of \
+Alice/Bob's systems we would have had\
+\>", "Text"],
+
+Cell[BoxData[
+ StyleBox[
+  TagBox[
+   RowBox[{"\[CapitalPsi]", "=", 
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {
+        RowBox[{
+         SubscriptBox["\[Alpha]", "1"], " ", 
+         SubscriptBox["\[Beta]", "1"]}]},
+       {
+        RowBox[{
+         SubscriptBox["\[Alpha]", "1"], " ", 
+         SubscriptBox["\[Beta]", "2"]}]},
+       {
+        RowBox[{
+         SubscriptBox["\[Alpha]", "2"], " ", 
+         SubscriptBox["\[Beta]", "1"]}]},
+       {
+        RowBox[{
+         SubscriptBox["\[Alpha]", "2"], " ", 
+         SubscriptBox["\[Beta]", "2"]}]}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}]}],
+   Function[BoxForm`e$, 
+    MatrixForm[BoxForm`e$]]],
+  FontColor->GrayLevel[0.500008]]], "Input"],
+
+Cell["giving the intuitively more comprehensible result", "Text"],
+
+Cell[BoxData[
+ RowBox[{"FullSimplify", "[", 
+  RowBox[{"correlation", "[", 
+   RowBox[{
+    RowBox[{
+     SubscriptBox["\[Alpha]", "1"], " ", 
+     SubscriptBox["\[Beta]", "1"]}], ",", 
+    RowBox[{
+     SubscriptBox["\[Alpha]", "1"], " ", 
+     SubscriptBox["\[Beta]", "2"]}], ",", 
+    RowBox[{
+     SubscriptBox["\[Alpha]", "2"], " ", 
+     SubscriptBox["\[Beta]", "1"]}], ",", 
+    RowBox[{
+     SubscriptBox["\[Alpha]", "2"], " ", 
+     SubscriptBox["\[Beta]", "2"]}]}], "]"}], "]"}]], "Input",
+ CellLabel->"In[45]:="],
+
+Cell[BoxData[
+ RowBox[{"%", "/.", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       SubsuperscriptBox["\[Alpha]", "1", "2"], "+", 
+       SubsuperscriptBox["\[Alpha]", "2", "2"]}], ")"}], "\[Rule]", "1"}], 
+    ",", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       SubsuperscriptBox["\[Beta]", "1", "2"], "+", 
+       SubsuperscriptBox["\[Beta]", "2", "2"]}], ")"}], "\[Rule]", "1"}]}], 
+   "}"}]}]], "Input",
+ CellLabel->"In[46]:="],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Entangled states of composite quantum systems", "Subsection"],
+
+Cell[TextData[{
+ "Correlation effects have been shown to be absent when the composite state \
+vector ",
+ StyleBox["\[CapitalPsi]", "Input"],
+ " possesses the ",
+ StyleBox["Kronecker factored form",
+  FontColor->RGBColor[1, 0, 0]],
+ " ",
+ StyleBox["\[Alpha]\[CircleTimes]\[Beta]", "Input"],
+ ". In all other (\"non-separable\") cases they are present, and \
+\[CapitalPsi] is said to describe an ",
+ StyleBox["entangled composite state", "Subsubsection",
+  FontColor->RGBColor[1, 0, 0]],
+ ".",
+ StyleBox["  ",
+  FontColor->RGBColor[1, 0, 0]],
+ "One can then not speak separately of \n\t\[Bullet] the quantum physics of \
+",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[ScriptCapitalS]", "Alice"], TraditionalForm]]],
+ "\n\t\[Bullet] the quantum physics of ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[ScriptCapitalS]", "Bob"], TraditionalForm]]],
+ "\nbut can speak only of \n\t\[Bullet] the quantum physics of ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[ScriptCapitalS]", "composite"], "\[Congruent]", " ", 
+    RowBox[{
+     SubscriptBox["\[ScriptCapitalS]", "Alice"], "\[CircleTimes]", 
+     SubscriptBox["\[ScriptCapitalS]", "Bob"]}]}], TraditionalForm]]],
+ ".\nIt is the entanglement phenomenon that lies at the base of\n\t\[Bullet] ",
+ StyleBox["quantum computation",
+  FontWeight->"Bold"],
+ "\n\t\[Bullet] ",
+ StyleBox["quantum encryption",
+  FontWeight->"Bold"],
+ "\n\t\[Bullet] ",
+ StyleBox["teleportation",
+  FontWeight->"Bold"],
+ ", etc.\nIt was Schr\[ODoubleDot]dinger\[LongDash]writing in response to \
+publication of the EPR paper\[LongDash]who coined the term \"entanglement,\" \
+and who wrote\n",
+ StyleBox["\"W",
+  FontColor->RGBColor[0, 0, 1]],
+ StyleBox["hen two systems, of which we know the states by their respective \
+representatives, enter into temporary physical interaction due to known \
+forces between them, and when after a time of mutual influence the systems \
+separate again, then they can no longer be described in the same way as \
+before, viz. by endowing each of them with a representative of its own. I \
+would not call that ",
+  FontSize->16,
+  FontColor->RGBColor[0, 0, 1]],
+ StyleBox["one",
+  FontSize->16,
+  FontSlant->"Italic",
+  FontColor->RGBColor[0, 0, 1]],
+ StyleBox[" but rather ",
+  FontSize->16,
+  FontColor->RGBColor[0, 0, 1]],
+ StyleBox["the",
+  FontSize->16,
+  FontSlant->"Italic",
+  FontColor->RGBColor[0, 0, 1]],
+ StyleBox[" characteristic trait of quantum mechanics, the one that enforces \
+its entire departure from classical lines of thought. By the interaction the \
+two representatives [the quantum states] have become entangled.\n\
+\[Ellipsis]Another way of expressing the peculiar situation is: the best \
+possible knowledge of a ",
+  FontSize->16,
+  FontColor->RGBColor[0, 0, 1]],
+ StyleBox["whole",
+  FontSize->16,
+  FontSlant->"Italic",
+  FontColor->RGBColor[0, 0, 1]],
+ StyleBox[" does not necessarily include the best possible knowledge of all \
+its ",
+  FontSize->16,
+  FontColor->RGBColor[0, 0, 1]],
+ StyleBox["parts,",
+  FontSize->16,
+  FontSlant->"Italic",
+  FontColor->RGBColor[0, 0, 1]],
+ StyleBox[" even though they may be entirely separate and therefore virtually \
+capable of being \[OpenCurlyQuote]best possibly known,\[CloseCurlyQuote] \
+i.e., of possessing, each of them, a representative of its own. The lack of \
+knowledge is by no means due to the interaction being insufficiently known \
+\[LongDash] at least not in the way that it could possibly be known more \
+completely \[LongDash] it is due to the interaction itself.\"",
+  FontSize->16,
+  FontColor->RGBColor[0, 0, 1]]
+}], "Text"],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "DECISION PROBL",
+ StyleBox["E",
+  FontSize->14],
+ "M and the related QUANTIFICATION PROBLEM"
+}], "Subsection"],
+
+Cell["\<\
+I quote from \"The decision problem for entanglement,\" by Wayne C. Myrvold \
+(1997):
+\
+\>", "Text"],
+
+Cell[TextData[{
+ StyleBox["In March 1995, Abner Shimony [professor of philosophy at Boston \
+University, and an influential theorist in this area] attended a conference \
+held in honor of hte 60th anniversary of the famous EPR paper at Technion \
+University in Haifa, Israel. Among the lecturers at the conference was Alain \
+Aspect [a leading experimentalist]. In Paris, immediately after the \
+conference, Abner had a dream in which Aspect\[Ellipsis]posed the problem:",
+  FontSlant->"Italic"],
+ StyleBox[" is it algorithmically decidable whether a given quantum \
+mechanical state is decidable or not?",
+  FontSlant->"Italic",
+  FontColor->RGBColor[1, 0, 0]],
+ StyleBox["  Upon returning to the United States, Abner posed the question to \
+me [Myrvold, then a recent PhD in philosophy, who specialized in \
+\"computability theory\"].\n[Within a couple of weeks, Myrvold had \
+established that] the question is almost decidable\[LongDash]there is an \
+algorithmic procedure that answers correctly in all but the borderline cases, \
+and for these cases fails to terminate\[Ellipsis]  The function that gives \
+the minimum distance from \[CapitalPsi]  to a product state is a computable \
+function, even though there is no effective procedure that always produces \
+the product state [in question].\" ",
+  FontSlant->"Italic"]
+}], "Text"],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input"],
+
+Cell[TextData[{
+ "Beyond answering \"yes/no\" to the question \"Is \[CapitalPsi] separable?\" \
+one would like, in non-separable cases, to be in position to respond to the \
+question \"How nearly separable is it; ",
+ StyleBox["how",
+  FontSlant->"Italic"],
+ " entangled is the state \[CapitalPsi]?\""
+}], "Text"],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input"],
+
+Cell["\<\
+The literature provides many attempted answers to these questions. 
+\t\[Bullet] Many are elegantly abstruse;
+\t\[Bullet] Some claim to be \"stronger\" than others;
+\t\[Bullet] Most are computationally awkward.
+\
+\>", "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Elementary solution of the decision problem", "Subsection"],
+
+Cell[TextData[{
+ StyleBox["QUESTION",
+  FontWeight->"Bold"],
+ ": Do there exist normalized vectors ",
+ Cell[BoxData[
+  RowBox[{"(", GridBox[{
+     {
+      SubscriptBox["a", "1"]},
+     {
+      SubscriptBox["a", "2"]}
+    }], ")"}]]],
+ "and ",
+ Cell[BoxData[
+  RowBox[{"(", GridBox[{
+     {
+      SubscriptBox["b", "1"]},
+     {
+      SubscriptBox["b", "2"]}
+    }], ")"}]]],
+ "that satisfy the non-linear coupled system of equations"
+}], "Text"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   RowBox[{"(", GridBox[{
+      {
+       RowBox[{
+        SubscriptBox["a", "1"], 
+        SubscriptBox["b", "1"]}]},
+      {
+       RowBox[{
+        SubscriptBox["a", "1"], 
+        SubscriptBox["b", "2"]}]},
+      {
+       RowBox[{
+        SubscriptBox["a", "2"], 
+        SubscriptBox["b", "1"]}]},
+      {
+       RowBox[{
+        SubscriptBox["a", "2"], 
+        SubscriptBox["b", "2"]}]}
+     }], ")"}], "=", 
+   RowBox[{"(", GridBox[{
+      {
+       SubscriptBox["\[Psi]", "1"]},
+      {
+       SubscriptBox["\[Psi]", "2"]},
+      {
+       SubscriptBox["\[Psi]", "3"]},
+      {
+       SubscriptBox["\[Psi]", "4"]}
+     }], ")"}]}],
+  FontColor->GrayLevel[0.500008]]], "Input"],
+
+Cell["\<\
+where the \[Psi]s are the specified components of a normalized 4-vector?\
+\>", "Text"],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input"],
+
+Cell[TextData[{
+ StyleBox["REMARK",
+  FontWeight->"Bold"],
+ ": From"
+}], "Text"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    SubscriptBox["\[Psi]", "1"], 
+    RowBox[{
+     RowBox[{"(", GridBox[{
+        {"1"},
+        {"0"}
+       }], ")"}], "\[CircleTimes]", 
+     RowBox[{"(", GridBox[{
+        {"1"},
+        {"0"}
+       }], ")"}]}]}], "+", 
+   RowBox[{
+    SubscriptBox["\[Psi]", "2"], 
+    RowBox[{
+     RowBox[{"(", GridBox[{
+        {"1"},
+        {"0"}
+       }], ")"}], "\[CircleTimes]", 
+     RowBox[{"(", GridBox[{
+        {"0"},
+        {"1"}
+       }], ")"}]}]}], "+", 
+   RowBox[{
+    SubscriptBox["\[Psi]", "3"], 
+    RowBox[{
+     RowBox[{"(", GridBox[{
+        {"0"},
+        {"1"}
+       }], ")"}], "\[CircleTimes]", 
+     RowBox[{"(", GridBox[{
+        {"1"},
+        {"0"}
+       }], ")"}]}]}], "+", 
+   RowBox[{
+    SubscriptBox["\[Psi]", "4"], 
+    RowBox[{
+     RowBox[{"(", GridBox[{
+        {"0"},
+        {"1"}
+       }], ")"}], "\[CircleTimes]", 
+     RowBox[{"(", GridBox[{
+        {"0"},
+        {"1"}
+       }], ")"}]}]}]}], "//", "MatrixForm"}]], "Input",
+ CellLabel->"In[47]:="],
+
+Cell[TextData[{
+ "we see that it is always possible to display ",
+ StyleBox["\[CapitalPsi]", "Input"],
+ " as a linear combination of not more than four separated terms. And the \
+elegant ",
+ StyleBox["Schmidt decomposition theorem\[LongDash]",
+  FontColor->RGBColor[0, 0, 1]],
+ "which is based upon the SVD of the associated ",
+ StyleBox["density matrix",
+  FontSlant->"Italic"]
+}], "Text"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"\[Rho]", "\[Congruent]", 
+   RowBox[{"\[CapitalPsi]", ".", 
+    RowBox[{"Transpose", "[", "\[CapitalPsi]", "]"}]}]}],
+  FontColor->GrayLevel[0.500008]]], "Input"],
+
+Cell["\<\
+\[LongDash]asserts that it is always possible to write\
+\>", "Text"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"\[CapitalPsi]", "=", 
+   RowBox[{
+    RowBox[{
+     SqrtBox[
+      SubscriptBox["\[Mu]", "1"]], 
+     RowBox[{
+      SubscriptBox["u", "1"], "\[CircleTimes]", 
+      SubscriptBox["v", "1"]}]}], "+", 
+    RowBox[{
+     SqrtBox[
+      SubscriptBox["\[Mu]", "2"]], 
+     RowBox[{
+      SubscriptBox["u", "2"], "\[CircleTimes]", 
+      SubscriptBox["v", "2"]}]}]}]}],
+  FontColor->GrayLevel[0.500008]]], "Input"],
+
+Cell[TextData[{
+ "where ",
+ Cell[BoxData[
+  SubscriptBox["u", "1"]], "Input",
+  FontWeight->"Plain"],
+ " and ",
+ Cell[BoxData[
+  RowBox[{
+   SubscriptBox["u", "2"], " "}]]],
+ "(ditto ",
+ Cell[BoxData[
+  SubscriptBox["v", "1"]]],
+ " and ",
+ Cell[BoxData[
+  SubscriptBox["v", "2"]]],
+ ") are orthogonal 2-vectors. This method is restricted, however, to \
+bipartite systems, cannot be extended to (for example) tripartite systems, \
+where in separable/disentangled  cases one has"
+}], "Text"],
+
+Cell[BoxData[
+ RowBox[{"\[CapitalPsi]", "=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"(", GridBox[{
+         {
+          SubscriptBox["a", "1"]},
+         {
+          SubscriptBox["a", "2"]}
+        }], ")"}], "\[CircleTimes]", 
+      RowBox[{"(", GridBox[{
+         {
+          SubscriptBox["b", "1"]},
+         {
+          SubscriptBox["b", "2"]}
+        }], ")"}]}], ")"}], "\[CircleTimes]", 
+    RowBox[{"(", GridBox[{
+       {
+        SubscriptBox["c", "1"]},
+       {
+        SubscriptBox["c", "2"]}
+      }], ")"}]}], "//", "MatrixForm"}]}]], "Input",
+ CellLabel->"In[48]:="],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input"],
+
+Cell["Constructive solution of the decision problem", "Subsubsection",
+ FontSize->18,
+ FontColor->RGBColor[1, 0, 0]],
+
+Cell[CellGroupData[{
+
+Cell["Step One:", "Subsubsection"],
+
+Cell["Take logs, get", "Text"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   RowBox[{"(", GridBox[{
+      {
+       RowBox[{
+        RowBox[{"Log", "[", 
+         SubscriptBox["a", "1"], "]"}], "+", 
+        RowBox[{"Log", "[", 
+         SubscriptBox["b", "1"], "]"}]}]},
+      {
+       RowBox[{
+        RowBox[{"Log", "[", 
+         SubscriptBox["a", "1"], "]"}], "+", 
+        RowBox[{"Log", "[", 
+         SubscriptBox["b", "2"], "]"}]}]},
+      {
+       RowBox[{
+        RowBox[{"Log", "[", 
+         SubscriptBox["a", "2"], "]"}], "+", 
+        RowBox[{"Log", "[", 
+         SubscriptBox["b", "1"], "]"}]}]},
+      {
+       RowBox[{
+        RowBox[{"Log", "[", 
+         SubscriptBox["a", "2"], "]"}], "+", 
+        RowBox[{"Log", "[", 
+         SubscriptBox["b", "2"], "]"}]}]}
+     }], ")"}], "=", 
+   RowBox[{"(", GridBox[{
+      {
+       RowBox[{"Log", "[", 
+        SubscriptBox["\[Psi]", "1"], "]"}]},
+      {
+       RowBox[{"Log", "[", 
+        SubscriptBox["\[Psi]", "2"], "]"}]},
+      {
+       RowBox[{"Log", "[", 
+        SubscriptBox["\[Psi]", "3"], "]"}]},
+      {
+       RowBox[{"Log", "[", 
+        SubscriptBox["\[Psi]", "4"], "]"}]}
+     }], ")"}]}],
+  FontColor->GrayLevel[0.500008]]], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Step Two:", "Subsubsection"],
+
+Cell["Write", "Text"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{"(", GridBox[{
+       {"1", "0", "1", "0"},
+       {"1", "0", "0", "1"},
+       {"0", "1", "1", "0"},
+       {"0", "1", "0", "1"}
+      }], ")"}], 
+    RowBox[{"(", GridBox[{
+       {
+        RowBox[{"Log", "[", 
+         SubscriptBox["a", "1"], "]"}]},
+       {
+        RowBox[{"Log", "[", 
+         SubscriptBox["a", "2"], "]"}]},
+       {
+        RowBox[{"Log", "[", 
+         SubscriptBox["b", "1"], "]"}]},
+       {
+        RowBox[{"Log", "[", 
+         SubscriptBox["b", "1"], "]"}]}
+      }], ")"}]}], "=", 
+   RowBox[{"(", GridBox[{
+      {
+       RowBox[{"Log", "[", 
+        SubscriptBox["\[Psi]", "1"], "]"}]},
+      {
+       RowBox[{"Log", "[", 
+        SubscriptBox["\[Psi]", "2"], "]"}]},
+      {
+       RowBox[{"Log", "[", 
+        SubscriptBox["\[Psi]", "3"], "]"}]},
+      {
+       RowBox[{"Log", "[", 
+        SubscriptBox["\[Psi]", "4"], "]"}]}
+     }], ")"}]}],
+  FontColor->GrayLevel[0.500008]]], "Input"],
+
+Cell["Straightforward inversion is not possible, because", "Text"],
+
+Cell[BoxData[
+ RowBox[{"Det", "[", 
+  RowBox[{"(", GridBox[{
+     {"1", "0", "1", "0"},
+     {"1", "0", "0", "1"},
+     {"0", "1", "1", "0"},
+     {"0", "1", "0", "1"}
+    }], ")"}], "]"}]], "Input",
+ CellLabel->"In[49]:="],
+
+Cell[TextData[{
+ "But the singularity (non-invertibility) of the matrix signals not that the \
+equations cannot be solved, but only that the ",
+ StyleBox["solutions are non-unique",
+  FontVariations->{"Underline"->True}],
+ ": from"
+}], "Text"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Transpose", "[", 
+   RowBox[{"NullSpace", "[", 
+    RowBox[{"(", GridBox[{
+       {"1", "0", "1", "0"},
+       {"1", "0", "0", "1"},
+       {"0", "1", "1", "0"},
+       {"0", "1", "0", "1"}
+      }], ")"}], "]"}], "]"}], "//", "MatrixForm"}]], "Input",
+ CellLabel->"In[50]:="],
+
+Cell["we see that to every purported solution vector", "Text"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"(", GridBox[{
+     {
+      RowBox[{"Log", "[", 
+       SubscriptBox["a", "1"], "]"}]},
+     {
+      RowBox[{"Log", "[", 
+       SubscriptBox["a", "2"], "]"}]},
+     {
+      RowBox[{"Log", "[", 
+       SubscriptBox["b", "1"], "]"}]},
+     {
+      RowBox[{"Log", "[", 
+       SubscriptBox["b", "1"], "]"}]}
+    }], ")"}],
+  FontColor->GrayLevel[0.500008]]], "Input"],
+
+Cell["can be added any vector of the form", "Text"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"(", GridBox[{
+     {
+      RowBox[{"-", "\[Lambda]"}]},
+     {
+      RowBox[{"-", "\[Lambda]"}]},
+     {"\[Lambda]"},
+     {"\[Lambda]"}
+    }], ")"}],
+  FontColor->GrayLevel[0.500008]]], "Input"],
+
+Cell["since", "Text"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"(", GridBox[{
+      {"1", "0", "1", "0"},
+      {"1", "0", "0", "1"},
+      {"0", "1", "1", "0"},
+      {"0", "1", "0", "1"}
+     }], ")"}], ".", 
+   RowBox[{"(", GridBox[{
+      {
+       RowBox[{"-", "\[Lambda]"}]},
+      {
+       RowBox[{"-", "\[Lambda]"}]},
+      {"\[Lambda]"},
+      {"\[Lambda]"}
+     }], ")"}]}], "==", 
+  RowBox[{"(", GridBox[{
+     {"0"},
+     {"0"},
+     {"0"},
+     {"0"}
+    }], ")"}]}]], "Input",
+ CellLabel->"In[51]:="],
+
+Cell["We are led thus to write", "Text"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   RowBox[{"(", GridBox[{
+      {
+       RowBox[{"Log", "[", 
+        SubscriptBox["a", "1"], "]"}]},
+      {
+       RowBox[{"Log", "[", 
+        SubscriptBox["a", "2"], "]"}]},
+      {
+       RowBox[{"Log", "[", 
+        SubscriptBox["b", "1"], "]"}]},
+      {
+       RowBox[{"Log", "[", 
+        SubscriptBox["b", "1"], "]"}]}
+     }], ")"}], "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"PseudoInverse", "[", 
+      RowBox[{"(", GridBox[{
+         {"1", "0", "1", "0"},
+         {"1", "0", "0", "1"},
+         {"0", "1", "1", "0"},
+         {"0", "1", "0", "1"}
+        }], ")"}], "]"}], ".", 
+     RowBox[{"(", GridBox[{
+        {
+         RowBox[{"Log", "[", 
+          SubscriptBox["\[Psi]", "1"], "]"}]},
+        {
+         RowBox[{"Log", "[", 
+          SubscriptBox["\[Psi]", "2"], "]"}]},
+        {
+         RowBox[{"Log", "[", 
+          SubscriptBox["\[Psi]", "3"], "]"}]},
+        {
+         RowBox[{"Log", "[", 
+          SubscriptBox["\[Psi]", "4"], "]"}]}
+       }], ")"}]}], "+", 
+    RowBox[{"(", GridBox[{
+       {
+        RowBox[{"-", "\[Lambda]"}]},
+       {
+        RowBox[{"-", "\[Lambda]"}]},
+       {"\[Lambda]"},
+       {"\[Lambda]"}
+      }], ")"}]}]}],
+  FontColor->GrayLevel[0.500008]]], "Input"],
+
+Cell["\<\
+That the Moore-Penrose \"pseudo-inverse\"\[LongDash]which can be considered \
+to be a child of the SVD\[LongDash]is in this intance a funny-looking thing\
+\>", "Text"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"PseudoInverse", "[", 
+   RowBox[{"(", GridBox[{
+      {"1", "0", "1", "0"},
+      {"1", "0", "0", "1"},
+      {"0", "1", "1", "0"},
+      {"0", "1", "0", "1"}
+     }], ")"}], "]"}], "//", "MatrixForm"}]], "Input",
+ CellLabel->"In[52]:="],
+
+Cell["need not concern us. If we set", "Text"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"\[Lambda]", "=", 
+   RowBox[{"Log", "[", "k", "]"}]}],
+  FontColor->GrayLevel[0.500008]]], "Input"],
+
+Cell["then the preceding equation becomes", "Text"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   RowBox[{"(", GridBox[{
+      {
+       RowBox[{"Log", "[", 
+        RowBox[{"k", " ", 
+         SubscriptBox["a", "1"]}], "]"}]},
+      {
+       RowBox[{"Log", "[", 
+        RowBox[{"k", " ", 
+         SubscriptBox["a", "2"]}], "]"}]},
+      {
+       RowBox[{"Log", "[", 
+        RowBox[{
+         SubscriptBox["b", "1"], "/", "k"}], "]"}]},
+      {
+       RowBox[{"Log", "[", 
+        RowBox[{
+         SubscriptBox["b", "1"], "/", "k"}], "]"}]}
+     }], ")"}], "=", 
+   RowBox[{
+    RowBox[{"PseudoInverse", "[", 
+     RowBox[{"(", GridBox[{
+        {"1", "0", "1", "0"},
+        {"1", "0", "0", "1"},
+        {"0", "1", "1", "0"},
+        {"0", "1", "0", "1"}
+       }], ")"}], "]"}], ".", 
+    RowBox[{"(", GridBox[{
+       {
+        RowBox[{"Log", "[", 
+         SubscriptBox["\[Psi]", "1"], "]"}]},
+       {
+        RowBox[{"Log", "[", 
+         SubscriptBox["\[Psi]", "2"], "]"}]},
+       {
+        RowBox[{"Log", "[", 
+         SubscriptBox["\[Psi]", "3"], "]"}]},
+       {
+        RowBox[{"Log", "[", 
+         SubscriptBox["\[Psi]", "4"], "]"}]}
+      }], ")"}]}]}],
+  FontColor->GrayLevel[0.500008]]], "Input"],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input"],
+
+Cell[TextData[{
+ StyleBox["DIGRESSION",
+  FontWeight->"Bold",
+  FontColor->RGBColor[0, 0, 1]],
+ ": It helps to notice that matrices are ",
+ StyleBox["lists of lists",
+  FontVariations->{"Underline"->True}],
+ ", and that functions like ",
+ StyleBox["Log", "Input"],
+ " and ",
+ StyleBox["Exp", "Input"],
+ " are, in ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ "'s opinion, \"listable\" in the very useful sense that I now demonstrate:"
+}], "Text"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Log", "[", 
+   RowBox[{"(", GridBox[{
+      {
+       SubscriptBox["\[Psi]", "1"]},
+      {
+       SubscriptBox["\[Psi]", "2"]},
+      {
+       SubscriptBox["\[Psi]", "3"]},
+      {
+       SubscriptBox["\[Psi]", "4"]}
+     }], ")"}], "]"}], "//", "MatrixForm"}]], "Input",
+ CellLabel->"In[53]:="],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Exp", "[", "%", "]"}], "//", "MatrixForm"}]], "Input",
+ CellLabel->"In[54]:="],
+
+Cell[TextData[{
+ StyleBox["End of digression",
+  FontColor->RGBColor[0, 0, 1]],
+ "."
+}], "Text"],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input"],
+
+Cell["We are placed thus in position to set", "Text"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Exp", "[", 
+   RowBox[{"(", GridBox[{
+      {
+       RowBox[{"Log", "[", 
+        RowBox[{"k", " ", 
+         SubscriptBox["a", "1"]}], "]"}]},
+      {
+       RowBox[{"Log", "[", 
+        RowBox[{"k", " ", 
+         SubscriptBox["a", "2"]}], "]"}]},
+      {
+       RowBox[{"Log", "[", 
+        RowBox[{
+         SubscriptBox["b", "1"], "/", "k"}], "]"}]},
+      {
+       RowBox[{"Log", "[", 
+        RowBox[{
+         SubscriptBox["b", "1"], "/", "k"}], "]"}]}
+     }], ")"}], "]"}], "//", "MatrixForm"}]], "Input",
+ CellLabel->"In[55]:="],
+
+Cell["equal to", "Text"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"Exp", "[", 
+   RowBox[{
+    RowBox[{"PseudoInverse", "[", 
+     RowBox[{"(", GridBox[{
+        {"1", "0", "1", "0"},
+        {"1", "0", "0", "1"},
+        {"0", "1", "1", "0"},
+        {"0", "1", "0", "1"}
+       }], ")"}], "]"}], ".", 
+    RowBox[{"Log", "[", 
+     RowBox[{"(", GridBox[{
+        {
+         SubscriptBox["\[Psi]", "1"]},
+        {
+         SubscriptBox["\[Psi]", "2"]},
+        {
+         SubscriptBox["\[Psi]", "3"]},
+        {
+         SubscriptBox["\[Psi]", "4"]}
+       }], ")"}], "]"}]}], "]"}],
+  FontColor->GrayLevel[0.500008]]], "Input"],
+
+Cell["Or, still more efficiently, to write", "Text"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(", GridBox[{
+     {
+      SubscriptBox["a", "1"]},
+     {
+      SubscriptBox["a", "2"]},
+     {
+      SubscriptBox["b", "1"]},
+     {
+      SubscriptBox["b", "2"]}
+    }], ")"}], "=", 
+  RowBox[{
+   RowBox[{"(", GridBox[{
+      {
+       RowBox[{"1", "/", 
+        SubscriptBox["k", "a"]}], "0", "0", "0"},
+      {"0", 
+       RowBox[{"1", "/", 
+        SubscriptBox["k", "a"]}], "0", "0"},
+      {"0", "0", 
+       SubscriptBox["k", "b"], "0"},
+      {"0", "0", "0", 
+       SubscriptBox["k", "b"]}
+     }], ")"}], ".", 
+   RowBox[{"Exp", "[", 
+    RowBox[{
+     RowBox[{"PseudoInverse", "[", 
+      RowBox[{"(", GridBox[{
+         {"1", "0", "1", "0"},
+         {"1", "0", "0", "1"},
+         {"0", "1", "1", "0"},
+         {"0", "1", "0", "1"}
+        }], ")"}], "]"}], ".", 
+     RowBox[{"Log", "[", 
+      RowBox[{"(", GridBox[{
+         {
+          SubscriptBox["\[Psi]", "1"]},
+         {
+          SubscriptBox["\[Psi]", "2"]},
+         {
+          SubscriptBox["\[Psi]", "3"]},
+         {
+          SubscriptBox["\[Psi]", "4"]}
+        }], ")"}], "]"}]}], "]"}]}]}]], "Input",
+ CellLabel->"In[56]:="],
+
+Cell[BoxData[
+ RowBox[{"MatrixForm", "[", "%", "]"}]], "Input",
+ CellLabel->"In[57]:="],
+
+Cell[TextData[{
+ "The multipliers ",
+ Cell[BoxData[
+  SubscriptBox["k", "a"]]],
+ " and ",
+ Cell[BoxData[
+  SubscriptBox["k", "b"]]],
+ " acquire values from the requirements that ",
+ StyleBox["\[Alpha]", "Input"],
+ " and ",
+ StyleBox["\[Beta]", "Input"],
+ " be unit vectors:"
+}], "Text"],
+
+Cell[BoxData[{
+ RowBox[{"Solve", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     SuperscriptBox[
+      RowBox[{"(", 
+       FractionBox[
+        RowBox[{
+         SubsuperscriptBox["\[Psi]", "1", 
+          RowBox[{"3", "/", "8"}]], " ", 
+         SubsuperscriptBox["\[Psi]", "2", 
+          RowBox[{"3", "/", "8"}]]}], 
+        RowBox[{
+         SubscriptBox["k", "a"], " ", 
+         SubsuperscriptBox["\[Psi]", "3", 
+          RowBox[{"1", "/", "8"}]], " ", 
+         SubsuperscriptBox["\[Psi]", "4", 
+          RowBox[{"1", "/", "8"}]]}]], ")"}], "2"], "+", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       FractionBox[
+        RowBox[{
+         SubsuperscriptBox["\[Psi]", "3", 
+          RowBox[{"3", "/", "8"}]], " ", 
+         SubsuperscriptBox["\[Psi]", "4", 
+          RowBox[{"3", "/", "8"}]]}], 
+        RowBox[{
+         SubscriptBox["k", "a"], " ", 
+         SubsuperscriptBox["\[Psi]", "1", 
+          RowBox[{"1", "/", "8"}]], " ", 
+         SubsuperscriptBox["\[Psi]", "2", 
+          RowBox[{"1", "/", "8"}]]}]], ")"}], "2"]}], "\[Equal]", "1"}], ",", 
+   
+   SubscriptBox["k", "a"]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Solve", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     SuperscriptBox[
+      RowBox[{"(", 
+       FractionBox[
+        RowBox[{
+         SubscriptBox["k", "b"], " ", 
+         SubsuperscriptBox["\[Psi]", "1", 
+          RowBox[{"3", "/", "8"}]], " ", 
+         SubsuperscriptBox["\[Psi]", "3", 
+          RowBox[{"3", "/", "8"}]]}], 
+        RowBox[{
+         SubsuperscriptBox["\[Psi]", "2", 
+          RowBox[{"1", "/", "8"}]], " ", 
+         SubsuperscriptBox["\[Psi]", "4", 
+          RowBox[{"1", "/", "8"}]]}]], ")"}], "2"], "+", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       FractionBox[
+        RowBox[{
+         SubscriptBox["k", "b"], " ", 
+         SubsuperscriptBox["\[Psi]", "2", 
+          RowBox[{"3", "/", "8"}]], " ", 
+         SubsuperscriptBox["\[Psi]", "4", 
+          RowBox[{"3", "/", "8"}]]}], 
+        RowBox[{
+         SubsuperscriptBox["\[Psi]", "1", 
+          RowBox[{"1", "/", "8"}]], " ", 
+         SubsuperscriptBox["\[Psi]", "3", 
+          RowBox[{"1", "/", "8"}]]}]], ")"}], "2"]}], "\[Equal]", "1"}], ",", 
+   
+   SubscriptBox["k", "b"]}], "]"}]}], "Input",
+ CellLabel->"In[58]:="],
+
+Cell[TextData[{
+ "The composite state vector ",
+ StyleBox["\[CapitalPsi]", "Input"],
+ " will be separable if and only if"
+}], "Text"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   SubscriptBox["k", "a"], "=", 
+   SubscriptBox["k", "b"]}],
+  FontColor->GrayLevel[0.500008]]], "Input"],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["FIRST EXAMPLE:", "Subsubsection"],
+
+Cell["Look to the case", "Text"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"\[CapitalPsi]", "=", 
+   RowBox[{"(", GridBox[{
+      {
+       SqrtBox[
+        RowBox[{"3", "/", "8"}]]},
+      {
+       SqrtBox[
+        RowBox[{"3", "/", "8"}]]},
+      {
+       SqrtBox[
+        RowBox[{"1", "/", "8"}]]},
+      {
+       SqrtBox[
+        RowBox[{"1", "/", "8"}]]}
+     }], ")"}]}], ";"}]], "Input",
+ CellLabel->"In[60]:="],
+
+Cell["We in this case have", "Text"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(", GridBox[{
+     {
+      RowBox[{"1", "/", 
+       SubscriptBox["k", "a"]}], "0", "0", "0"},
+     {"0", 
+      RowBox[{"1", "/", 
+       SubscriptBox["k", "a"]}], "0", "0"},
+     {"0", "0", 
+      SubscriptBox["k", "b"], "0"},
+     {"0", "0", "0", 
+      SubscriptBox["k", "b"]}
+    }], ")"}], ".", 
+  RowBox[{"Exp", "[", 
+   RowBox[{
+    RowBox[{"PseudoInverse", "[", 
+     RowBox[{"(", GridBox[{
+        {"1", "0", "1", "0"},
+        {"1", "0", "0", "1"},
+        {"0", "1", "1", "0"},
+        {"0", "1", "0", "1"}
+       }], ")"}], "]"}], ".", 
+    RowBox[{"Log", "[", "\[CapitalPsi]", "]"}]}], "]"}]}]], "Input",
+ CellLabel->"In[61]:="],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Solve", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      SuperscriptBox[
+       RowBox[{"(", 
+        FractionBox[
+         SuperscriptBox["3", 
+          RowBox[{"3", "/", "8"}]], 
+         RowBox[{
+          SuperscriptBox["2", 
+           RowBox[{"3", "/", "4"}]], " ", 
+          SubscriptBox["k", "a"]}]], ")"}], "2"], "+", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        FractionBox["1", 
+         RowBox[{
+          SuperscriptBox["2", 
+           RowBox[{"3", "/", "4"}]], " ", 
+          SuperscriptBox["3", 
+           RowBox[{"1", "/", "8"}]], " ", 
+          SubscriptBox["k", "a"]}]], ")"}], "2"]}], "\[Equal]", "1"}], ",", 
+    SubscriptBox["k", "a"]}], "]"}], "//", 
+  "Simplify"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Solve", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      SuperscriptBox[
+       RowBox[{"(", 
+        FractionBox[
+         RowBox[{
+          SuperscriptBox["3", 
+           RowBox[{"1", "/", "8"}]], " ", 
+          SubscriptBox["k", "b"]}], 
+         SuperscriptBox["2", 
+          RowBox[{"3", "/", "4"}]]], ")"}], "2"], "+", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        FractionBox[
+         RowBox[{
+          SuperscriptBox["3", 
+           RowBox[{"1", "/", "8"}]], " ", 
+          SubscriptBox["k", "b"]}], 
+         SuperscriptBox["2", 
+          RowBox[{"3", "/", "4"}]]], ")"}], "2"]}], "\[Equal]", "1"}], ",", 
+    SubscriptBox["k", "b"]}], "]"}], "//", "Simplify"}]}], "Input",
+ CellLabel->"In[62]:="],
+
+Cell[TextData[{
+ "Here  ",
+ Cell[BoxData[
+  SubscriptBox["k", 
+   RowBox[{"a", " "}]]]],
+ "= ",
+ Cell[BoxData[
+  SubscriptBox["k", "b"]]],
+ "  so the composite state ",
+ StyleBox["\[CapitalPsi]", "Input"],
+ " is disentangled/separable. Our calculation has supplied "
+}], "Text"],
+
+Cell[BoxData[{
+ RowBox[{"\[Alpha]", "=", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      FractionBox[
+       SuperscriptBox["3", 
+        RowBox[{"3", "/", "8"}]], 
+       RowBox[{
+        SuperscriptBox["2", 
+         RowBox[{"3", "/", "4"}]], " ", 
+        SubscriptBox["k", "a"]}]], "}"}], ",", 
+     RowBox[{"{", 
+      FractionBox["1", 
+       RowBox[{
+        SuperscriptBox["2", 
+         RowBox[{"3", "/", "4"}]], " ", 
+        SuperscriptBox["3", 
+         RowBox[{"1", "/", "8"}]], " ", 
+        SubscriptBox["k", "a"]}]], "}"}]}], "}"}], "/.", 
+   RowBox[{
+    SubscriptBox["k", "a"], "\[Rule]", 
+    FractionBox[
+     SuperscriptBox["2", 
+      RowBox[{"1", "/", "4"}]], 
+     SuperscriptBox["3", 
+      RowBox[{"1", "/", "8"}]]]}]}]}], "\[IndentingNewLine]", 
+ RowBox[{"\[Beta]", "=", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      FractionBox[
+       RowBox[{
+        SuperscriptBox["3", 
+         RowBox[{"1", "/", "8"}]], " ", 
+        SubscriptBox["k", "b"]}], 
+       SuperscriptBox["2", 
+        RowBox[{"3", "/", "4"}]]], "}"}], ",", 
+     RowBox[{"{", 
+      FractionBox[
+       RowBox[{
+        SuperscriptBox["3", 
+         RowBox[{"1", "/", "8"}]], " ", 
+        SubscriptBox["k", "b"]}], 
+       SuperscriptBox["2", 
+        RowBox[{"3", "/", "4"}]]], "}"}]}], "}"}], "/.", 
+   RowBox[{
+    SubscriptBox["k", "b"], "\[Rule]", 
+    FractionBox[
+     SuperscriptBox["2", 
+      RowBox[{"1", "/", "4"}]], 
+     SuperscriptBox["3", 
+      RowBox[{"1", "/", "8"}]]]}]}]}]}], "Input",
+ CellLabel->"In[64]:="],
+
+Cell["and it is indeed the case that", "Text"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"\[Alpha]", "\[CircleTimes]", "\[Beta]"}], "\[Equal]", 
+  "\[CapitalPsi]"}]], "Input",
+ CellLabel->"In[66]:="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["SECOND EXAMPLE:", "Subsubsection"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"\[CapitalPsi]", "=", 
+   RowBox[{
+    FractionBox["1", 
+     SqrtBox[
+      RowBox[{
+       SuperscriptBox["8", "2"], "+", 
+       SuperscriptBox["10", "2"], "+", 
+       SuperscriptBox["12", "2"], "+", 
+       SuperscriptBox["15", "2"]}]]], 
+    RowBox[{"(", GridBox[{
+       {"8"},
+       {"10"},
+       {"12"},
+       {"15"}
+      }], ")"}]}]}], ";"}]], "Input",
+ CellLabel->"In[67]:="],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(", GridBox[{
+     {
+      RowBox[{"1", "/", 
+       SubscriptBox["k", "a"]}], "0", "0", "0"},
+     {"0", 
+      RowBox[{"1", "/", 
+       SubscriptBox["k", "a"]}], "0", "0"},
+     {"0", "0", 
+      SubscriptBox["k", "b"], "0"},
+     {"0", "0", "0", 
+      SubscriptBox["k", "b"]}
+    }], ")"}], ".", 
+  RowBox[{"Exp", "[", 
+   RowBox[{
+    RowBox[{"PseudoInverse", "[", 
+     RowBox[{"(", GridBox[{
+        {"1", "0", "1", "0"},
+        {"1", "0", "0", "1"},
+        {"0", "1", "1", "0"},
+        {"0", "1", "0", "1"}
+       }], ")"}], "]"}], ".", 
+    RowBox[{"Log", "[", "\[CapitalPsi]", "]"}]}], "]"}]}]], "Input",
+ CellLabel->"In[68]:="],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Solve", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      SuperscriptBox[
+       RowBox[{"(", 
+        FractionBox[
+         RowBox[{"2", " ", 
+          SuperscriptBox[
+           RowBox[{"(", 
+            FractionBox["10", "1599"], ")"}], 
+           RowBox[{"1", "/", "4"}]]}], 
+         SubscriptBox["k", "a"]], ")"}], "2"], "+", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        FractionBox[
+         RowBox[{
+          SuperscriptBox[
+           RowBox[{"(", 
+            FractionBox["10", "533"], ")"}], 
+           RowBox[{"1", "/", "4"}]], " ", 
+          SuperscriptBox["3", 
+           RowBox[{"3", "/", "4"}]]}], 
+         SubscriptBox["k", "a"]], ")"}], "2"]}], "\[Equal]", "1"}], ",", 
+    SubscriptBox["k", "a"]}], "]"}], "//", "N"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Solve", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{"2", " ", 
+         SuperscriptBox[
+          RowBox[{"(", 
+           FractionBox["3", "2665"], ")"}], 
+          RowBox[{"1", "/", "4"}]], " ", 
+         SuperscriptBox["2", 
+          RowBox[{"3", "/", "4"}]], " ", 
+         SubscriptBox["k", "b"]}], ")"}], "2"], "+", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox[
+          RowBox[{"(", 
+           FractionBox["3", "1066"], ")"}], 
+          RowBox[{"1", "/", "4"}]], " ", 
+         SuperscriptBox["5", 
+          RowBox[{"3", "/", "4"}]], " ", 
+         SubscriptBox["k", "b"]}], ")"}], "2"]}], "\[Equal]", "1"}], ",", 
+    SubscriptBox["k", "b"]}], "]"}], "//", "N"}]}], "Input",
+ CellLabel->"In[69]:="],
+
+Cell["\<\
+We have come again upon an disentangled case, and proceed now to check out \
+that claim:\
+\>", "Text"],
+
+Cell[BoxData[{
+ RowBox[{"\[Alpha]", "=", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      FractionBox[
+       RowBox[{"2", " ", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          FractionBox["10", "1599"], ")"}], 
+         RowBox[{"1", "/", "4"}]]}], 
+       SubscriptBox["k", "a"]], "}"}], ",", 
+     RowBox[{"{", 
+      FractionBox[
+       RowBox[{
+        SuperscriptBox[
+         RowBox[{"(", 
+          FractionBox["10", "533"], ")"}], 
+         RowBox[{"1", "/", "4"}]], " ", 
+        SuperscriptBox["3", 
+         RowBox[{"3", "/", "4"}]]}], 
+       SubscriptBox["k", "a"]], "}"}]}], "}"}], "/.", 
+   RowBox[{
+    SubscriptBox["k", "a"], "\[Rule]", 
+    "1.0139337054294644`"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{"\[Beta]", "=", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"2", " ", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         FractionBox["3", "2665"], ")"}], 
+        RowBox[{"1", "/", "4"}]], " ", 
+       SuperscriptBox["2", 
+        RowBox[{"3", "/", "4"}]], " ", 
+       SubscriptBox["k", "b"]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       SuperscriptBox[
+        RowBox[{"(", 
+         FractionBox["3", "1066"], ")"}], 
+        RowBox[{"1", "/", "4"}]], " ", 
+       SuperscriptBox["5", 
+        RowBox[{"3", "/", "4"}]], " ", 
+       SubscriptBox["k", "b"]}], "}"}]}], "}"}], "/.", 
+   RowBox[{
+    SubscriptBox["k", "b"], "\[Rule]", "1.0139337054294646`"}]}]}]}], "Input",\
+
+ CellLabel->"In[71]:="],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"\[Alpha]", "\[CircleTimes]", "\[Beta]"}], "-", "\[CapitalPsi]"}],
+    "//", "Chop"}], "//", "MatrixForm"}]], "Input",
+ CellLabel->"In[73]:="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["THIRD EXAMPLE:", "Subsubsection"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"\[CapitalPsi]", "=", 
+   RowBox[{
+    FractionBox["1", 
+     SqrtBox[
+      RowBox[{
+       SuperscriptBox["23", "2"], "+", 
+       SuperscriptBox["12", "2"], "+", 
+       SuperscriptBox["42", "2"], "+", 
+       SuperscriptBox["37", "2"]}]]], 
+    RowBox[{"(", GridBox[{
+       {"23"},
+       {"12"},
+       {"42"},
+       {"37"}
+      }], ")"}]}]}], ";"}]], "Input",
+ CellLabel->"In[74]:="],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"(", GridBox[{
+      {
+       RowBox[{"1", "/", 
+        SubscriptBox["k", "a"]}], "0", "0", "0"},
+      {"0", 
+       RowBox[{"1", "/", 
+        SubscriptBox["k", "a"]}], "0", "0"},
+      {"0", "0", 
+       SubscriptBox["k", "b"], "0"},
+      {"0", "0", "0", 
+       SubscriptBox["k", "b"]}
+     }], ")"}], ".", 
+   RowBox[{"Exp", "[", 
+    RowBox[{
+     RowBox[{"PseudoInverse", "[", 
+      RowBox[{"(", GridBox[{
+         {"1", "0", "1", "0"},
+         {"1", "0", "0", "1"},
+         {"0", "1", "1", "0"},
+         {"0", "1", "0", "1"}
+        }], ")"}], "]"}], ".", 
+     RowBox[{"Log", "[", "\[CapitalPsi]", "]"}]}], "]"}]}], "//", 
+  "N"}]], "Input",
+ CellLabel->"In[75]:="],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Solve", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      SuperscriptBox[
+       RowBox[{"(", 
+        FractionBox["0.41811171195346475`", 
+         SubscriptBox["k", "a"]], ")"}], "2"], "+", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        FractionBox["0.9921179316209712`", 
+         SubscriptBox["k", "a"]], ")"}], "2"]}], "\[Equal]", "1"}], ",", 
+    SubscriptBox["k", "a"]}], "]"}], "//", "N"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Solve", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{"0.7822153877636896`", " ", 
+         SubscriptBox["k", "b"]}], ")"}], "2"], "+", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{"0.5303093410572127`", " ", 
+         SubscriptBox["k", "b"]}], ")"}], "2"]}], "\[Equal]", "1"}], ",", 
+    SubscriptBox["k", "b"]}], "]"}], "//", "N"}]}], "Input",
+ CellLabel->"In[76]:="],
+
+Cell[TextData[{
+ "Here ",
+ Cell[BoxData[
+  SubscriptBox["k", "a"]]],
+ "  and  ",
+ Cell[BoxData[
+  SubscriptBox["k", "b"]]],
+ "  are distinct, so \[CapitalPsi] is NOT separable, describes an entangled \
+composite state. If we nevertheless construct"
+}], "Text"],
+
+Cell[BoxData[{
+ RowBox[{"\[Alpha]", "=", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      FractionBox["0.41811171195346475`", 
+       SubscriptBox["k", "a"]], "}"}], ",", 
+     RowBox[{"{", 
+      FractionBox["0.9921179316209712`", 
+       SubscriptBox["k", "a"]], "}"}]}], "}"}], "/.", 
+   RowBox[{
+    SubscriptBox["k", "a"], "->", 
+    "1.0766222150394869`"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{"\[Beta]", "=", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0.7822153877636896`", " ", 
+       SubscriptBox["k", "b"]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0.5303093410572127`", " ", 
+       SubscriptBox["k", "b"]}], "}"}]}], "}"}], "/.", 
+   RowBox[{
+    SubscriptBox["k", "b"], "->", "1.0581631947198626`"}]}]}]}], "Input",
+ CellLabel->"In[78]:="],
+
+Cell["then", "Text"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"\[Alpha]", "\[CircleTimes]", "\[Beta]"}], "//", 
+  "MatrixForm"}]], "Input",
+ CellLabel->"In[80]:="],
+
+Cell["describes a disentangled \"neighbor\" of the entangled state", "Text"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"\[CapitalPsi]", "//", "N"}], "//", "MatrixForm"}]], "Input",
+ CellLabel->"In[81]:="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["FOURTH EXAMPLE:", "Subsubsection"],
+
+Cell["Look finally to the state", "Text"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"\[CapitalPsi]", "=", 
+   TagBox[
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {"0"},
+       {
+        FractionBox["1", 
+         SqrtBox["2"]]},
+       {
+        FractionBox["1", 
+         SqrtBox["2"]]},
+       {"0"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+    Function[BoxForm`e$, 
+     MatrixForm[BoxForm`e$]]]}], ";"}]], "Input",
+ CellLabel->"In[82]:="],
+
+Cell[TextData[{
+ "that a playful God inflicted upon Alice. ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ ", when asked to execute our algorithm, complains "
+}], "Text"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(", GridBox[{
+     {
+      RowBox[{"1", "/", 
+       SubscriptBox["k", "a"]}], "0", "0", "0"},
+     {"0", 
+      RowBox[{"1", "/", 
+       SubscriptBox["k", "a"]}], "0", "0"},
+     {"0", "0", 
+      SubscriptBox["k", "b"], "0"},
+     {"0", "0", "0", 
+      SubscriptBox["k", "b"]}
+    }], ")"}], ".", 
+  RowBox[{"Exp", "[", 
+   RowBox[{
+    RowBox[{"PseudoInverse", "[", 
+     RowBox[{"(", GridBox[{
+        {"1", "0", "1", "0"},
+        {"1", "0", "0", "1"},
+        {"0", "1", "1", "0"},
+        {"0", "1", "0", "1"}
+       }], ")"}], "]"}], ".", 
+    RowBox[{"Log", "[", "\[CapitalPsi]", "]"}]}], "]"}]}]], "Input",
+ CellLabel->"In[83]:="],
+
+Cell[TextData[{
+ "because it has encountered terms of the indeterminate form ",
+ StyleBox["Log[0]", "Input"],
+ ". These we eliminate by setting"
+}], "Text"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   SubscriptBox["\[CapitalPsi]", "God"], "=", 
+   TagBox[
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {"\[Epsilon]"},
+       {
+        FractionBox["1", 
+         SqrtBox["2"]]},
+       {
+        FractionBox["1", 
+         SqrtBox["2"]]},
+       {"\[Epsilon]"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+    Function[BoxForm`e$, 
+     MatrixForm[BoxForm`e$]]]}], ";"}]], "Input",
+ CellLabel->"In[84]:="],
+
+Cell[TextData[{
+ "with the intention of letting ",
+ StyleBox["\[Epsilon] \[DownArrow] 0", "Input"],
+ " at the end of the day. We get"
+}], "Text"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(", GridBox[{
+     {
+      RowBox[{"1", "/", 
+       SubscriptBox["k", "a"]}], "0", "0", "0"},
+     {"0", 
+      RowBox[{"1", "/", 
+       SubscriptBox["k", "a"]}], "0", "0"},
+     {"0", "0", 
+      SubscriptBox["k", "b"], "0"},
+     {"0", "0", "0", 
+      SubscriptBox["k", "b"]}
+    }], ")"}], ".", 
+  RowBox[{"Exp", "[", 
+   RowBox[{
+    RowBox[{"PseudoInverse", "[", 
+     RowBox[{"(", GridBox[{
+        {"1", "0", "1", "0"},
+        {"1", "0", "0", "1"},
+        {"0", "1", "1", "0"},
+        {"0", "1", "0", "1"}
+       }], ")"}], "]"}], ".", 
+    RowBox[{"Log", "[", 
+     SubscriptBox["\[CapitalPsi]", "God"], "]"}]}], "]"}]}]], "Input",
+ CellLabel->"In[85]:="],
+
+Cell["Proceeding in the standard way", "Text"],
+
+Cell[BoxData[{
+ RowBox[{"Solve", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     SuperscriptBox[
+      RowBox[{"(", 
+       FractionBox[
+        SuperscriptBox["\[Epsilon]", 
+         RowBox[{"1", "/", "4"}]], 
+        RowBox[{
+         SuperscriptBox["2", 
+          RowBox[{"1", "/", "8"}]], " ", 
+         SubscriptBox["k", "a"]}]], ")"}], "2"], "+", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       FractionBox[
+        SuperscriptBox["\[Epsilon]", 
+         RowBox[{"1", "/", "4"}]], 
+        RowBox[{
+         SuperscriptBox["2", 
+          RowBox[{"1", "/", "8"}]], " ", 
+         SubscriptBox["k", "a"]}]], ")"}], "2"]}], "\[Equal]", "1"}], ",", 
+   SubscriptBox["k", "a"]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Solve", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     SuperscriptBox[
+      RowBox[{"(", 
+       FractionBox[
+        RowBox[{
+         SuperscriptBox["\[Epsilon]", 
+          RowBox[{"1", "/", "4"}]], " ", 
+         SubscriptBox["k", "b"]}], 
+        SuperscriptBox["2", 
+         RowBox[{"1", "/", "8"}]]], ")"}], "2"], "+", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       FractionBox[
+        RowBox[{
+         SuperscriptBox["\[Epsilon]", 
+          RowBox[{"1", "/", "4"}]], " ", 
+         SubscriptBox["k", "b"]}], 
+        SuperscriptBox["2", 
+         RowBox[{"1", "/", "8"}]]], ")"}], "2"]}], "\[Equal]", "1"}], ",", 
+   SubscriptBox["k", "b"]}], "]"}]}], "Input",
+ CellLabel->"In[86]:="],
+
+Cell[TextData[{
+ "we find that  ",
+ Cell[BoxData[
+  SubscriptBox["k", "a"]]],
+ "  and  ",
+ Cell[BoxData[
+  SubscriptBox["k", "b"]]],
+ "  are certainly unequal (the state \[CapitalPsi] is certainly entangled) \
+and that in the limit"
+}], "Text"],
+
+Cell[BoxData[{
+ StyleBox[
+  RowBox[{
+   SubscriptBox["k", "a"], "\[DownArrow]", "0"}],
+  FontColor->GrayLevel[0.500008]], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{
+   SubscriptBox["k", "b"], "\[UpArrow]", "\[Infinity]"}],
+  FontColor->GrayLevel[0.500008]]}], "Input"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  SubscriptBox["k", "a"]]],
+ "  and  ",
+ Cell[BoxData[
+  SubscriptBox["k", "b"]]],
+ "  ",
+ StyleBox["could not be more different",
+  FontWeight->"Bold",
+  FontColor->RGBColor[1, 0, 0]],
+ "!"
+}], "Text"],
+
+Cell[TextData[{
+ "The state ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    SubscriptBox["\[CapitalPsi]", "God"], "Input"], TraditionalForm]]],
+ " was actually drawn from the population of so-called \"Bell states,\" which \
+are commonly held to be composite ",
+ StyleBox["states of maximal entanglement",
+  FontWeight->"Bold",
+  FontColor->RGBColor[1, 0, 0]],
+ "."
+}], "Text"],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Concluding comments", "Subsection"],
+
+Cell[CellGroupData[{
+
+Cell["1. Quantification", "Subsubsection"],
+
+Cell[TextData[{
+ "One cannot speak of \"maximal entanglement\" except in reference to some \
+well-defined ",
+ StyleBox["measure of entanglement ",
+  FontSlant->"Italic"],
+ "(though one can speak unambituously of the ",
+ StyleBox["absence",
+  FontSlant->"Italic"],
+ " of entanglement). Of those, easily half a dozen have been proposed, of \
+which the most widely accepted is the ",
+ StyleBox["entropy of entanglement",
+  FontColor->RGBColor[1, 0, 0]],
+ ", the definition of which may be taken up in Julia Keller's thesis seminar, \
+and is patterned upon von Neumann's definition of the thermodynamic"
+}], "Text"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"entropy", " ", "of", " ", "mixture"}], " ", "=", "  ", 
+  RowBox[{"-", 
+   RowBox[{"Tr", "[", 
+    RowBox[{"\[Rho]", " ", 
+     RowBox[{"Log", "[", "\[Rho]", "]"}]}], "]"}]}]}]], "Input"],
+
+Cell[TextData[{
+ "where ",
+ StyleBox["\[Rho]", "Input"],
+ " is the density matrix. I am prepared, by the pattern of the preceding \
+argument, to suggest this "
+}], "Text"],
+
+Cell[BoxData[
+ RowBox[{"Clear", "[", 
+  RowBox[{"ka", ",", "kb"}], "]"}]], "Input",
+ CellLabel->"In[303]:="],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"NewMeasureOfEntanglement", "[", 
+   RowBox[{"ka_", ",", " ", "kb_"}], "]"}], " ", ":=", " ", 
+  RowBox[{"1", "-", 
+   SuperscriptBox["\[ExponentialE]", 
+    RowBox[{"-", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"kb", "-", "ka"}], ")"}], "2"]}]]}]}]], "Input",
+ CellLabel->"In[88]:="],
+
+Cell["For unentangled states we would then have", "Text"],
+
+Cell[BoxData[
+ RowBox[{"NewMeasureOfEntanglement", "[", 
+  RowBox[{
+   SubscriptBox["k", "a"], ",", 
+   SubscriptBox["k", "a"]}], "]"}]], "Input",
+ CellLabel->"In[89]:="],
+
+Cell["while for God's Bell state", "Text"],
+
+Cell[BoxData[
+ RowBox[{"NewMeasureOfEntanglement", "[", 
+  RowBox[{"0", ",", "\[Infinity]"}], "]"}]], "Input",
+ CellLabel->"In[90]:="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["2. Source of the k-ambiguity", "Subsubsection"],
+
+Cell[BoxData[{
+ RowBox[{"Clear", "[", 
+  RowBox[{"\[Alpha]", ",", "\[Beta]"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  SubscriptBox["a", "1"], "=."}], "\[IndentingNewLine]", 
+ RowBox[{
+  SubscriptBox["a", "2"], "=."}], "\[IndentingNewLine]", 
+ RowBox[{
+  SubscriptBox["b", "1"], "=."}], "\[IndentingNewLine]", 
+ RowBox[{
+  SubscriptBox["b", "2"], "=."}]}], "Input",
+ CellLabel->"In[98]:="],
+
+Cell["\<\
+The k-ambiguity has a very simple and very general origin, which I illustrate \
+in the simplest instance. Suppose once again that\
+\>", "Text"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"\[Alpha]", "=", 
+   RowBox[{"(", GridBox[{
+      {
+       SubscriptBox["a", "1"]},
+      {
+       SubscriptBox["a", "2"]}
+     }], ")"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Beta]", "=", 
+   RowBox[{"(", GridBox[{
+      {
+       SubscriptBox["b", "1"]},
+      {
+       SubscriptBox["b", "2"]}
+     }], ")"}]}], ";"}]}], "Input",
+ CellLabel->"In[103]:="],
+
+Cell["Then", "Text"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"\[Alpha]", "\[CircleTimes]", "\[Beta]"}], "//", 
+  "MatrixForm"}]], "Input",
+ CellLabel->"In[105]:="],
+
+Cell["renders transparent the fact that", "Text"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{"k", " ", "\[Alpha]"}], ")"}], "\[CircleTimes]", 
+   RowBox[{"(", 
+    RowBox[{"\[Beta]", "/", "k"}], ")"}]}], "==", 
+  RowBox[{"\[Alpha]", "\[CircleTimes]", "\[Beta]"}]}]], "Input",
+ CellLabel->"In[106]:="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+3. It takes two to entangle, but\[Ellipsis]\
+\>", "Subsubsection"],
+
+Cell[TextData[{
+ "The realization that entanglement makes a difference, joined to the \
+observation that every \"isolated\" system a detached fragment of what was \
+once a larger system, points up the fact that in quantum mechanics the \
+\"isolated system\" concept is an idealization. But so also, for that same \
+reason, is the bipartite \"Alice/Bob system.\" One is driven to the view that \
+in quantum physics there is really only one system, only one state function, \
+and that refers to the whole universe! (But what, by any semi-standard \
+interpretation of quantum mechanics, can one mean by ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[CapitalPsi]", "universe"], TraditionalForm]]],
+ "?)\nThe question therefore arises: Why does the \"isolated system\" concept \
+enjoy such success in work-a-day quantum mechanics?\nThat entanglement does \
+not make a difference in classical physics\[LongDash]that one classically ",
+ StyleBox["can",
+  FontSlant->"Italic"],
+ " contemplate systems in isolation (I set aside \"Mach's Principle\" and all \
+similarly vague suggestions)\[LongDash]emerges therefore as \"",
+ StyleBox["the",
+  FontVariations->{"Underline"->True}],
+ " most characteristic feature of physics in the limit \[HBar] \[RightArrow] \
+0.\" And a major mystery, since \[HBar] does, in point of physical fact,",
+ StyleBox[" not",
+  FontSlant->"Italic"],
+ " \[RightArrow] 0: all \"classical\" systems are ultimately quantum \
+mechanical."
+}], "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+4. Generalization to the case of tripartite 2-component composite systems\
+\>", "Subsubsection"],
+
+Cell["Introduce ", "Text"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"\[Gamma]", "=", 
+   RowBox[{"(", GridBox[{
+      {
+       SubscriptBox["c", "1"]},
+      {
+       SubscriptBox["c", "2"]}
+     }], ")"}]}], ";"}]], "Input",
+ CellLabel->"In[107]:="],
+
+Cell["construct", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{"\[Alpha]", "\[CircleTimes]", "\[Beta]"}], ")"}], 
+   "\[CircleTimes]", "\[Gamma]"}], "//", "MatrixForm"}]], "Input",
+ CellLabel->"In[108]:="],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      RowBox[{
+       SubscriptBox["a", "1"], " ", 
+       SubscriptBox["b", "1"], " ", 
+       SubscriptBox["c", "1"]}]},
+     {
+      RowBox[{
+       SubscriptBox["a", "1"], " ", 
+       SubscriptBox["b", "1"], " ", 
+       SubscriptBox["c", "2"]}]},
+     {
+      RowBox[{
+       SubscriptBox["a", "1"], " ", 
+       SubscriptBox["b", "2"], " ", 
+       SubscriptBox["c", "1"]}]},
+     {
+      RowBox[{
+       SubscriptBox["a", "1"], " ", 
+       SubscriptBox["b", "2"], " ", 
+       SubscriptBox["c", "2"]}]},
+     {
+      RowBox[{
+       SubscriptBox["a", "2"], " ", 
+       SubscriptBox["b", "1"], " ", 
+       SubscriptBox["c", "1"]}]},
+     {
+      RowBox[{
+       SubscriptBox["a", "2"], " ", 
+       SubscriptBox["b", "1"], " ", 
+       SubscriptBox["c", "2"]}]},
+     {
+      RowBox[{
+       SubscriptBox["a", "2"], " ", 
+       SubscriptBox["b", "2"], " ", 
+       SubscriptBox["c", "1"]}]},
+     {
+      RowBox[{
+       SubscriptBox["a", "2"], " ", 
+       SubscriptBox["b", "2"], " ", 
+       SubscriptBox["c", "2"]}]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellLabel->"Out[108]//MatrixForm="]
+}, Open  ]],
+
+Cell["and attempt to solve", "Text"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   TagBox[
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {
+        RowBox[{
+         SubscriptBox["a", "1"], " ", 
+         SubscriptBox["b", "1"], " ", 
+         SubscriptBox["c", "1"]}]},
+       {
+        RowBox[{
+         SubscriptBox["a", "1"], " ", 
+         SubscriptBox["b", "1"], " ", 
+         SubscriptBox["c", "2"]}]},
+       {
+        RowBox[{
+         SubscriptBox["a", "1"], " ", 
+         SubscriptBox["b", "2"], " ", 
+         SubscriptBox["c", "1"]}]},
+       {
+        RowBox[{
+         SubscriptBox["a", "1"], " ", 
+         SubscriptBox["b", "2"], " ", 
+         SubscriptBox["c", "2"]}]},
+       {
+        RowBox[{
+         SubscriptBox["a", "2"], " ", 
+         SubscriptBox["b", "1"], " ", 
+         SubscriptBox["c", "1"]}]},
+       {
+        RowBox[{
+         SubscriptBox["a", "2"], " ", 
+         SubscriptBox["b", "1"], " ", 
+         SubscriptBox["c", "2"]}]},
+       {
+        RowBox[{
+         SubscriptBox["a", "2"], " ", 
+         SubscriptBox["b", "2"], " ", 
+         SubscriptBox["c", "1"]}]},
+       {
+        RowBox[{
+         SubscriptBox["a", "2"], " ", 
+         SubscriptBox["b", "2"], " ", 
+         SubscriptBox["c", "2"]}]}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+    Function[BoxForm`e$, 
+     MatrixForm[BoxForm`e$]]], "=", 
+   RowBox[{"(", GridBox[{
+      {
+       SubscriptBox["\[Psi]", "1"]},
+      {
+       SubscriptBox["\[Psi]", "2"]},
+      {
+       SubscriptBox["\[Psi]", "3"]},
+      {
+       SubscriptBox["\[Psi]", "4"]},
+      {
+       SubscriptBox["\[Psi]", "5"]},
+      {
+       SubscriptBox["\[Psi]", "6"]},
+      {
+       SubscriptBox["\[Psi]", "7"]},
+      {
+       SubscriptBox["\[Psi]", "8"]}
+     }], ")"}]}],
+  FontColor->GrayLevel[0.500008]]], "Input"],
+
+Cell["Immediately", "Text"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{"(", GridBox[{
+       {"1", "0", "1", "0", "1", "0"},
+       {"1", "0", "1", "0", "0", "1"},
+       {"1", "0", "0", "1", "1", "0"},
+       {"1", "0", "0", "1", "0", "1"},
+       {"0", "1", "1", "0", "1", "0"},
+       {"0", "1", "1", "0", "0", "1"},
+       {"0", "1", "0", "1", "1", "0"},
+       {"0", "1", "0", "1", "0", "1"}
+      }], ")"}], 
+    RowBox[{"(", GridBox[{
+       {
+        RowBox[{"Log", "[", 
+         SubscriptBox["a", "1"], "]"}]},
+       {
+        RowBox[{"Log", "[", 
+         SubscriptBox["a", "2"], "]"}]},
+       {
+        RowBox[{"Log", "[", 
+         SubscriptBox["b", "1"], "]"}]},
+       {
+        RowBox[{"Log", "[", 
+         SubscriptBox["b", "2"], "]"}]},
+       {
+        RowBox[{"Log", "[", 
+         SubscriptBox["c", "1"], "]"}]},
+       {
+        RowBox[{"Log", "[", 
+         SubscriptBox["c", "2"], "]"}]}
+      }], ")"}]}], "=", 
+   RowBox[{"Log", "[", 
+    RowBox[{"(", GridBox[{
+       {
+        SubscriptBox["\[Psi]", "1"]},
+       {
+        SubscriptBox["\[Psi]", "2"]},
+       {
+        SubscriptBox["\[Psi]", "3"]},
+       {
+        SubscriptBox["\[Psi]", "4"]},
+       {
+        SubscriptBox["\[Psi]", "5"]},
+       {
+        SubscriptBox["\[Psi]", "6"]},
+       {
+        SubscriptBox["\[Psi]", "7"]},
+       {
+        SubscriptBox["\[Psi]", "8"]}
+      }], ")"}], "]"}]}],
+  FontColor->GrayLevel[0.500008]]], "Input"],
+
+Cell["and from", "Text"],
+
+Cell[BoxData[
+ RowBox[{"NullSpace", "[", 
+  RowBox[{"(", GridBox[{
+     {"1", "0", "1", "0", "1", "0"},
+     {"1", "0", "1", "0", "0", "1"},
+     {"1", "0", "0", "1", "1", "0"},
+     {"1", "0", "0", "1", "0", "1"},
+     {"0", "1", "1", "0", "1", "0"},
+     {"0", "1", "1", "0", "0", "1"},
+     {"0", "1", "0", "1", "1", "0"},
+     {"0", "1", "0", "1", "0", "1"}
+    }], ")"}], "]"}]], "Input",
+ CellLabel->"In[109]:="],
+
+Cell["we are led to write", "Text"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{"(", GridBox[{
+       {
+        RowBox[{"Log", "[", 
+         SubscriptBox["a", "1"], "]"}]},
+       {
+        RowBox[{"Log", "[", 
+         SubscriptBox["a", "2"], "]"}]},
+       {
+        RowBox[{"Log", "[", 
+         SubscriptBox["b", "1"], "]"}]},
+       {
+        RowBox[{"Log", "[", 
+         SubscriptBox["b", "2"], "]"}]},
+       {
+        RowBox[{"Log", "[", 
+         SubscriptBox["c", "1"], "]"}]},
+       {
+        RowBox[{"Log", "[", 
+         SubscriptBox["c", "2"], "]"}]}
+      }], ")"}], "+", 
+    RowBox[{"(", GridBox[{
+       {"\[Lambda]"},
+       {"\[Lambda]"},
+       {"0"},
+       {"0"},
+       {
+        RowBox[{"-", "\[Lambda]"}]},
+       {
+        RowBox[{"-", "\[Lambda]"}]}
+      }], ")"}], "+", 
+    RowBox[{"(", GridBox[{
+       {"\[Mu]"},
+       {"\[Mu]"},
+       {
+        RowBox[{"-", "\[Mu]"}]},
+       {
+        RowBox[{"-", "\[Mu]"}]},
+       {"0"},
+       {"0"}
+      }], ")"}]}], "=", 
+   RowBox[{
+    RowBox[{"PseudoInverse", "[", 
+     RowBox[{"(", GridBox[{
+        {"1", "0", "1", "0", "1", "0"},
+        {"1", "0", "1", "0", "0", "1"},
+        {"1", "0", "0", "1", "1", "0"},
+        {"1", "0", "0", "1", "0", "1"},
+        {"0", "1", "1", "0", "1", "0"},
+        {"0", "1", "1", "0", "0", "1"},
+        {"0", "1", "0", "1", "1", "0"},
+        {"0", "1", "0", "1", "0", "1"}
+       }], ")"}], "]"}], ".", 
+    RowBox[{"Log", "[", 
+     RowBox[{"(", GridBox[{
+        {
+         SubscriptBox["\[Psi]", "1"]},
+        {
+         SubscriptBox["\[Psi]", "2"]},
+        {
+         SubscriptBox["\[Psi]", "3"]},
+        {
+         SubscriptBox["\[Psi]", "4"]},
+        {
+         SubscriptBox["\[Psi]", "5"]},
+        {
+         SubscriptBox["\[Psi]", "6"]},
+        {
+         SubscriptBox["\[Psi]", "7"]},
+        {
+         SubscriptBox["\[Psi]", "8"]}
+       }], ")"}], "]"}]}]}],
+  FontColor->GrayLevel[0.500008]]], "Input"],
+
+Cell["Writing", "Text"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"(", GridBox[{
+     {"\[Lambda]"},
+     {"\[Lambda]"},
+     {"0"},
+     {"0"},
+     {
+      RowBox[{"-", "\[Lambda]"}]},
+     {
+      RowBox[{"-", "\[Lambda]"}]}
+    }], ")"}], "=", 
+  RowBox[{"(", GridBox[{
+     {
+      RowBox[{"Log", "[", "k", "]"}]},
+     {
+      RowBox[{"Log", "[", "k", "]"}]},
+     {
+      RowBox[{"Log", "[", "1", "]"}]},
+     {
+      RowBox[{"Log", "[", "1", "]"}]},
+     {
+      RowBox[{"Log", "[", 
+       RowBox[{"1", "/", "k"}], "]"}]},
+     {
+      RowBox[{"Log", "[", 
+       RowBox[{"1", "/", "k"}], "]"}]}
+    }], ")"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"(", GridBox[{
+     {"\[Mu]"},
+     {"\[Mu]"},
+     {
+      RowBox[{"-", "\[Mu]"}]},
+     {
+      RowBox[{"-", "\[Mu]"}]},
+     {"0"},
+     {"0"}
+    }], ")"}], "=", 
+  RowBox[{"(", GridBox[{
+     {
+      RowBox[{"Log", "[", "m", "]"}]},
+     {
+      RowBox[{"Log", "[", "m", "]"}]},
+     {
+      RowBox[{"Log", "[", 
+       RowBox[{"1", "/", "m"}], "]"}]},
+     {
+      RowBox[{"Log", "[", 
+       RowBox[{"1", "/", "m"}], "]"}]},
+     {
+      RowBox[{"Log", "[", "1", "]"}]},
+     {
+      RowBox[{"Log", "[", "1", "]"}]}
+    }], ")"}]}]}], "Input",
+ FontColor->GrayLevel[0.500008]],
+
+Cell["\<\
+we would proceed essentially as before, paying no heed to the pseudo-inverse \
+is now even goofier:\
+\>", "Text"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"PseudoInverse", "[", 
+   RowBox[{"(", GridBox[{
+      {"1", "0", "1", "0", "1", "0"},
+      {"1", "0", "1", "0", "0", "1"},
+      {"1", "0", "0", "1", "1", "0"},
+      {"1", "0", "0", "1", "0", "1"},
+      {"0", "1", "1", "0", "1", "0"},
+      {"0", "1", "1", "0", "0", "1"},
+      {"0", "1", "0", "1", "1", "0"},
+      {"0", "1", "0", "1", "0", "1"}
+     }], ")"}], "]"}], "//", "MatrixForm"}]], "Input",
+ CellLabel->"In[110]:="],
+
+Cell[TextData[{
+ "I am encouraged to think that",
+ StyleBox[" the method described here works even in the n-partite case",
+  FontColor->RGBColor[1, 0, 0]],
+ ". The Schmidt decomposition method and such other methods for resolving the \
+decision problem as are presently known to me fail if n > 2."
+}], "Text"],
+
+Cell[BoxData[""], "Input"],
+
+Cell["\<\
+Note finally that such \"ambituity\" as is present in the tripartite case can \
+be traced to the obvious facts (1) that\
+\>", "Text"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"p", " ", "\[Alpha]"}], ")"}], "\[CircleTimes]", 
+     RowBox[{"(", 
+      RowBox[{"q", " ", "\[Beta]"}], ")"}]}], ")"}], "\[CircleTimes]", 
+   RowBox[{"(", 
+    RowBox[{"r", " ", "\[Gamma]"}], ")"}]}], "\[Equal]", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{"p", " ", "q", " ", "r"}], ")"}], 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"\[Alpha]", "\[CircleTimes]", "\[Beta]"}], ")"}], 
+    "\[CircleTimes]", "\[Gamma]"}]}]}]], "Input",
+ CellLabel->"In[111]:="],
+
+Cell["and (2) that the expression on the right reduces to", "Text"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{"\[Alpha]", "\[CircleTimes]", "\[Beta]"}], ")"}], 
+   "\[CircleTimes]", "\[Gamma]"}],
+  FontColor->GrayLevel[0.500008]]], "Input"],
+
+Cell[TextData[{
+ "when the constants ",
+ StyleBox["p", "Input"],
+ ", ",
+ StyleBox["q", "Input"],
+ ", ",
+ StyleBox["r", "Input"],
+ " are constrained to satisfy "
+}], "Text"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   RowBox[{"p", "  ", "q", " ", "r"}], "=", "1"}],
+  FontColor->GrayLevel[0.500008]]], "Input"],
+
+Cell["\<\
+The n-partite generalization of this remark is evident. As was previously \
+remarked, Schmidt decomposition and many of the other procedures described in \
+the literature are special to bipartite systems.
+\
+\>", "Text",
+ CellChangeTimes->{{3.569621137216343*^9, 3.569621137465001*^9}, 
+   3.569692225787878*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Important ADDENDUM", "Subsection"],
+
+Cell[TextData[{
+ "It was as a matter of (I thought) mere expository convenience that I have \
+heretofore assumed all vector components to be REAL. Here I discuss the \
+consequence of relaxing that assumption. It is (really this time!) as a \
+matter of mere expository convenience that I return to the particulars of \
+my",
+ StyleBox["  ",
+  FontSize->10],
+ StyleBox["FIRST EXAMPLE ", "Subsubsection",
+  FontSize->12]
+}], "Text"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"\[CapitalPsi]", "=", 
+   RowBox[{"(", GridBox[{
+      {
+       SqrtBox[
+        RowBox[{"3", "/", "8"}]]},
+      {
+       SqrtBox[
+        RowBox[{"3", "/", "8"}]]},
+      {
+       SqrtBox[
+        RowBox[{"1", "/", "8"}]]},
+      {
+       SqrtBox[
+        RowBox[{"1", "/", "8"}]]}
+     }], ")"}]}], ";"}]], "Input",
+ CellLabel->"In[104]:="],
+
+Cell["in which we make now the following adjustment:", "Text"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"\[CapitalPsi]", "=", 
+   RowBox[{"(", GridBox[{
+      {
+       RowBox[{
+        SqrtBox[
+         RowBox[{"3", "/", "8"}]], 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{"\[ImaginaryI]", " ", 
+          SubscriptBox["\[Phi]", "1"]}]]}]},
+      {
+       RowBox[{
+        SqrtBox[
+         RowBox[{"3", "/", "8"}]], 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{"\[ImaginaryI]", " ", 
+          SubscriptBox["\[Phi]", "2"]}]]}]},
+      {
+       RowBox[{
+        SqrtBox[
+         RowBox[{"1", "/", "8"}]], 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{"\[ImaginaryI]", " ", 
+          SubscriptBox["\[Phi]", "3"]}]]}]},
+      {
+       RowBox[{
+        SqrtBox[
+         RowBox[{"1", "/", "8"}]], 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{"\[ImaginaryI]", " ", 
+          SubscriptBox["\[Phi]", "4"]}]]}]}
+     }], ")"}]}], ";"}]], "Input",
+ CellLabel->"In[105]:="],
+
+Cell["Our algorithm then provides", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(", GridBox[{
+     {
+      SubscriptBox["a", "1"]},
+     {
+      SubscriptBox["a", "2"]},
+     {
+      SubscriptBox["b", "1"]},
+     {
+      SubscriptBox["b", "2"]}
+    }], ")"}], "=", 
+  RowBox[{
+   RowBox[{"(", GridBox[{
+      {
+       RowBox[{"1", "/", 
+        SubscriptBox["k", "a"]}], "0", "0", "0"},
+      {"0", 
+       RowBox[{"1", "/", 
+        SubscriptBox["k", "a"]}], "0", "0"},
+      {"0", "0", 
+       SubscriptBox["k", "b"], "0"},
+      {"0", "0", "0", 
+       SubscriptBox["k", "b"]}
+     }], ")"}], ".", 
+   RowBox[{"Exp", "[", 
+    RowBox[{
+     RowBox[{"PseudoInverse", "[", 
+      RowBox[{"(", GridBox[{
+         {"1", "0", "1", "0"},
+         {"1", "0", "0", "1"},
+         {"0", "1", "1", "0"},
+         {"0", "1", "0", "1"}
+        }], ")"}], "]"}], ".", 
+     RowBox[{"Log", "[", "\[CapitalPsi]", "]"}]}], "]"}]}]}]], "Input",
+ CellLabel->"In[106]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    FractionBox[
+     RowBox[{
+      SuperscriptBox["3", 
+       RowBox[{"3", "/", "8"}]], " ", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{"\[ImaginaryI]", " ", 
+          SubscriptBox["\[Phi]", "1"]}]], ")"}], 
+       RowBox[{"3", "/", "8"}]], " ", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{"\[ImaginaryI]", " ", 
+          SubscriptBox["\[Phi]", "2"]}]], ")"}], 
+       RowBox[{"3", "/", "8"}]]}], 
+     RowBox[{
+      SuperscriptBox["2", 
+       RowBox[{"3", "/", "4"}]], " ", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{"\[ImaginaryI]", " ", 
+          SubscriptBox["\[Phi]", "3"]}]], ")"}], 
+       RowBox[{"1", "/", "8"}]], " ", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{"\[ImaginaryI]", " ", 
+          SubscriptBox["\[Phi]", "4"]}]], ")"}], 
+       RowBox[{"1", "/", "8"}]], " ", 
+      SubscriptBox["k", "a"]}]], "}"}], ",", 
+   RowBox[{"{", 
+    FractionBox[
+     RowBox[{
+      SuperscriptBox[
+       RowBox[{"(", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{"\[ImaginaryI]", " ", 
+          SubscriptBox["\[Phi]", "3"]}]], ")"}], 
+       RowBox[{"3", "/", "8"}]], " ", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{"\[ImaginaryI]", " ", 
+          SubscriptBox["\[Phi]", "4"]}]], ")"}], 
+       RowBox[{"3", "/", "8"}]]}], 
+     RowBox[{
+      SuperscriptBox["2", 
+       RowBox[{"3", "/", "4"}]], " ", 
+      SuperscriptBox["3", 
+       RowBox[{"1", "/", "8"}]], " ", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{"\[ImaginaryI]", " ", 
+          SubscriptBox["\[Phi]", "1"]}]], ")"}], 
+       RowBox[{"1", "/", "8"}]], " ", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{"\[ImaginaryI]", " ", 
+          SubscriptBox["\[Phi]", "2"]}]], ")"}], 
+       RowBox[{"1", "/", "8"}]], " ", 
+      SubscriptBox["k", "a"]}]], "}"}], ",", 
+   RowBox[{"{", 
+    FractionBox[
+     RowBox[{
+      SuperscriptBox["3", 
+       RowBox[{"1", "/", "8"}]], " ", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{"\[ImaginaryI]", " ", 
+          SubscriptBox["\[Phi]", "1"]}]], ")"}], 
+       RowBox[{"3", "/", "8"}]], " ", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{"\[ImaginaryI]", " ", 
+          SubscriptBox["\[Phi]", "3"]}]], ")"}], 
+       RowBox[{"3", "/", "8"}]], " ", 
+      SubscriptBox["k", "b"]}], 
+     RowBox[{
+      SuperscriptBox["2", 
+       RowBox[{"3", "/", "4"}]], " ", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{"\[ImaginaryI]", " ", 
+          SubscriptBox["\[Phi]", "2"]}]], ")"}], 
+       RowBox[{"1", "/", "8"}]], " ", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{"\[ImaginaryI]", " ", 
+          SubscriptBox["\[Phi]", "4"]}]], ")"}], 
+       RowBox[{"1", "/", "8"}]]}]], "}"}], ",", 
+   RowBox[{"{", 
+    FractionBox[
+     RowBox[{
+      SuperscriptBox["3", 
+       RowBox[{"1", "/", "8"}]], " ", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{"\[ImaginaryI]", " ", 
+          SubscriptBox["\[Phi]", "2"]}]], ")"}], 
+       RowBox[{"3", "/", "8"}]], " ", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{"\[ImaginaryI]", " ", 
+          SubscriptBox["\[Phi]", "4"]}]], ")"}], 
+       RowBox[{"3", "/", "8"}]], " ", 
+      SubscriptBox["k", "b"]}], 
+     RowBox[{
+      SuperscriptBox["2", 
+       RowBox[{"3", "/", "4"}]], " ", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{"\[ImaginaryI]", " ", 
+          SubscriptBox["\[Phi]", "1"]}]], ")"}], 
+       RowBox[{"1", "/", "8"}]], " ", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{"\[ImaginaryI]", " ", 
+          SubscriptBox["\[Phi]", "3"]}]], ")"}], 
+       RowBox[{"1", "/", "8"}]]}]], "}"}]}], "}"}]], "Output",
+ CellLabel->"Out[106]="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"PowerExpand", "[", "%", "]"}]], "Input",
+ CellLabel->"In[107]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    FractionBox[
+     RowBox[{
+      SuperscriptBox["3", 
+       RowBox[{"3", "/", "8"}]], " ", 
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        FractionBox[
+         RowBox[{"3", " ", "\[ImaginaryI]", " ", 
+          SubscriptBox["\[Phi]", "1"]}], "8"], "+", 
+        FractionBox[
+         RowBox[{"3", " ", "\[ImaginaryI]", " ", 
+          SubscriptBox["\[Phi]", "2"]}], "8"], "-", 
+        FractionBox[
+         RowBox[{"\[ImaginaryI]", " ", 
+          SubscriptBox["\[Phi]", "3"]}], "8"], "-", 
+        FractionBox[
+         RowBox[{"\[ImaginaryI]", " ", 
+          SubscriptBox["\[Phi]", "4"]}], "8"]}]]}], 
+     RowBox[{
+      SuperscriptBox["2", 
+       RowBox[{"3", "/", "4"}]], " ", 
+      SubscriptBox["k", "a"]}]], "}"}], ",", 
+   RowBox[{"{", 
+    FractionBox[
+     SuperscriptBox["\[ExponentialE]", 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox[
+         RowBox[{"\[ImaginaryI]", " ", 
+          SubscriptBox["\[Phi]", "1"]}], "8"]}], "-", 
+       FractionBox[
+        RowBox[{"\[ImaginaryI]", " ", 
+         SubscriptBox["\[Phi]", "2"]}], "8"], "+", 
+       FractionBox[
+        RowBox[{"3", " ", "\[ImaginaryI]", " ", 
+         SubscriptBox["\[Phi]", "3"]}], "8"], "+", 
+       FractionBox[
+        RowBox[{"3", " ", "\[ImaginaryI]", " ", 
+         SubscriptBox["\[Phi]", "4"]}], "8"]}]], 
+     RowBox[{
+      SuperscriptBox["2", 
+       RowBox[{"3", "/", "4"}]], " ", 
+      SuperscriptBox["3", 
+       RowBox[{"1", "/", "8"}]], " ", 
+      SubscriptBox["k", "a"]}]], "}"}], ",", 
+   RowBox[{"{", 
+    FractionBox[
+     RowBox[{
+      SuperscriptBox["3", 
+       RowBox[{"1", "/", "8"}]], " ", 
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        FractionBox[
+         RowBox[{"3", " ", "\[ImaginaryI]", " ", 
+          SubscriptBox["\[Phi]", "1"]}], "8"], "-", 
+        FractionBox[
+         RowBox[{"\[ImaginaryI]", " ", 
+          SubscriptBox["\[Phi]", "2"]}], "8"], "+", 
+        FractionBox[
+         RowBox[{"3", " ", "\[ImaginaryI]", " ", 
+          SubscriptBox["\[Phi]", "3"]}], "8"], "-", 
+        FractionBox[
+         RowBox[{"\[ImaginaryI]", " ", 
+          SubscriptBox["\[Phi]", "4"]}], "8"]}]], " ", 
+      SubscriptBox["k", "b"]}], 
+     SuperscriptBox["2", 
+      RowBox[{"3", "/", "4"}]]], "}"}], ",", 
+   RowBox[{"{", 
+    FractionBox[
+     RowBox[{
+      SuperscriptBox["3", 
+       RowBox[{"1", "/", "8"}]], " ", 
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        RowBox[{"-", 
+         FractionBox[
+          RowBox[{"\[ImaginaryI]", " ", 
+           SubscriptBox["\[Phi]", "1"]}], "8"]}], "+", 
+        FractionBox[
+         RowBox[{"3", " ", "\[ImaginaryI]", " ", 
+          SubscriptBox["\[Phi]", "2"]}], "8"], "-", 
+        FractionBox[
+         RowBox[{"\[ImaginaryI]", " ", 
+          SubscriptBox["\[Phi]", "3"]}], "8"], "+", 
+        FractionBox[
+         RowBox[{"3", " ", "\[ImaginaryI]", " ", 
+          SubscriptBox["\[Phi]", "4"]}], "8"]}]], " ", 
+      SubscriptBox["k", "b"]}], 
+     SuperscriptBox["2", 
+      RowBox[{"3", "/", "4"}]]], "}"}]}], "}"}]], "Output",
+ CellLabel->"Out[107]="]
+}, Open  ]],
+
+Cell["So we have", "Text"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"\[Alpha]", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      FractionBox[
+       RowBox[{
+        SuperscriptBox["3", 
+         RowBox[{"3", "/", "8"}]], " ", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{
+          FractionBox[
+           RowBox[{"3", " ", "\[ImaginaryI]", " ", 
+            SubscriptBox["\[Phi]", "1"]}], "8"], "+", 
+          FractionBox[
+           RowBox[{"3", " ", "\[ImaginaryI]", " ", 
+            SubscriptBox["\[Phi]", "2"]}], "8"], "-", 
+          FractionBox[
+           RowBox[{"\[ImaginaryI]", " ", 
+            SubscriptBox["\[Phi]", "3"]}], "8"], "-", 
+          FractionBox[
+           RowBox[{"\[ImaginaryI]", " ", 
+            SubscriptBox["\[Phi]", "4"]}], "8"]}]]}], 
+       RowBox[{
+        SuperscriptBox["2", 
+         RowBox[{"3", "/", "4"}]], " ", 
+        SubscriptBox["k", "a"]}]], "}"}], ",", 
+     RowBox[{"{", 
+      FractionBox[
+       SuperscriptBox["\[ExponentialE]", 
+        RowBox[{
+         RowBox[{"-", 
+          FractionBox[
+           RowBox[{"\[ImaginaryI]", " ", 
+            SubscriptBox["\[Phi]", "1"]}], "8"]}], "-", 
+         FractionBox[
+          RowBox[{"\[ImaginaryI]", " ", 
+           SubscriptBox["\[Phi]", "2"]}], "8"], "+", 
+         FractionBox[
+          RowBox[{"3", " ", "\[ImaginaryI]", " ", 
+           SubscriptBox["\[Phi]", "3"]}], "8"], "+", 
+         FractionBox[
+          RowBox[{"3", " ", "\[ImaginaryI]", " ", 
+           SubscriptBox["\[Phi]", "4"]}], "8"]}]], 
+       RowBox[{
+        SuperscriptBox["2", 
+         RowBox[{"3", "/", "4"}]], " ", 
+        SuperscriptBox["3", 
+         RowBox[{"1", "/", "8"}]], " ", 
+        SubscriptBox["k", "a"]}]], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Beta]", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      FractionBox[
+       RowBox[{
+        SuperscriptBox["3", 
+         RowBox[{"1", "/", "8"}]], " ", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{
+          FractionBox[
+           RowBox[{"3", " ", "\[ImaginaryI]", " ", 
+            SubscriptBox["\[Phi]", "1"]}], "8"], "-", 
+          FractionBox[
+           RowBox[{"\[ImaginaryI]", " ", 
+            SubscriptBox["\[Phi]", "2"]}], "8"], "+", 
+          FractionBox[
+           RowBox[{"3", " ", "\[ImaginaryI]", " ", 
+            SubscriptBox["\[Phi]", "3"]}], "8"], "-", 
+          FractionBox[
+           RowBox[{"\[ImaginaryI]", " ", 
+            SubscriptBox["\[Phi]", "4"]}], "8"]}]], " ", 
+        SubscriptBox["k", "b"]}], 
+       SuperscriptBox["2", 
+        RowBox[{"3", "/", "4"}]]], "}"}], ",", 
+     RowBox[{"{", 
+      FractionBox[
+       RowBox[{
+        SuperscriptBox["3", 
+         RowBox[{"1", "/", "8"}]], " ", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{
+          RowBox[{"-", 
+           FractionBox[
+            RowBox[{"\[ImaginaryI]", " ", 
+             SubscriptBox["\[Phi]", "1"]}], "8"]}], "+", 
+          FractionBox[
+           RowBox[{"3", " ", "\[ImaginaryI]", " ", 
+            SubscriptBox["\[Phi]", "2"]}], "8"], "-", 
+          FractionBox[
+           RowBox[{"\[ImaginaryI]", " ", 
+            SubscriptBox["\[Phi]", "3"]}], "8"], "+", 
+          FractionBox[
+           RowBox[{"3", " ", "\[ImaginaryI]", " ", 
+            SubscriptBox["\[Phi]", "4"]}], "8"]}]], " ", 
+        SubscriptBox["k", "b"]}], 
+       SuperscriptBox["2", 
+        RowBox[{"3", "/", "4"}]]], "}"}]}], "}"}]}], ";"}]}], "Input",
+ CellLabel->"In[108]:="],
+
+Cell["\<\
+To properly manage the complex numbers I introduce this construction (due to \
+Joel Franklin):\
+\>", "Text"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"CompConj", "[", "A_", "]"}], " ", ":=", " ", 
+  RowBox[{"A", " ", "/.", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{"Complex", "[", 
+     RowBox[{"0", ",", "n_"}], "]"}], "->", 
+    RowBox[{"-", 
+     RowBox[{"Complex", "[", 
+      RowBox[{"0", ",", "n"}], "]"}]}]}]}]}]], "Input",
+ CellLabel->"In[110]:="],
+
+Cell[TextData[{
+ "The squared norms of ",
+ StyleBox["\[Alpha]", "Input"],
+ " and ",
+ StyleBox["\[Beta]", "Input"],
+ " are given now by expressions "
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Transpose", "[", 
+   RowBox[{"CompConj", "[", "\[Alpha]", "]"}], "]"}], ".", 
+  "\[Alpha]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Transpose", "[", 
+   RowBox[{"CompConj", "[", "\[Beta]", "]"}], "]"}], ".", 
+  "\[Beta]"}]}], "Input",
+ CellLabel->"In[111]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{
+    FractionBox["1", 
+     RowBox[{"2", " ", 
+      SqrtBox["2"], " ", 
+      SuperscriptBox["3", 
+       RowBox[{"1", "/", "4"}]], " ", 
+      SubsuperscriptBox["k", "a", "2"]}]], "+", 
+    FractionBox[
+     SuperscriptBox["3", 
+      RowBox[{"3", "/", "4"}]], 
+     RowBox[{"2", " ", 
+      SqrtBox["2"], " ", 
+      SubsuperscriptBox["k", "a", "2"]}]]}], "}"}], "}"}]], "Output",
+ CellLabel->"Out[111]="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   FractionBox[
+    RowBox[{
+     SuperscriptBox["3", 
+      RowBox[{"1", "/", "4"}]], " ", 
+     SubsuperscriptBox["k", "b", "2"]}], 
+    SqrtBox["2"]], "}"}], "}"}]], "Output",
+ CellLabel->"Out[112]="]
+}, Open  ]],
+
+Cell["\<\
+to which the phase factors make no contribution, so we are not surprised \
+todiscover that\
+\>", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"Solve", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     FractionBox["1", 
+      RowBox[{"2", " ", 
+       SqrtBox["2"], " ", 
+       SuperscriptBox["3", 
+        RowBox[{"1", "/", "4"}]], " ", 
+       SubsuperscriptBox["k", "a", "2"]}]], "+", 
+     FractionBox[
+      SuperscriptBox["3", 
+       RowBox[{"3", "/", "4"}]], 
+      RowBox[{"2", " ", 
+       SqrtBox["2"], " ", 
+       SubsuperscriptBox["k", "a", "2"]}]]}], "\[Equal]", "1"}], ",", " ", 
+   SubscriptBox["k", "a"]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Solve", "[", 
+  RowBox[{
+   RowBox[{
+    FractionBox[
+     RowBox[{
+      SuperscriptBox["3", 
+       RowBox[{"1", "/", "4"}]], " ", 
+      SubsuperscriptBox["k", "b", "2"]}], 
+     SqrtBox["2"]], "\[Equal]", "1"}], ",", 
+   SubscriptBox["k", "b"]}], "]"}]}], "Input",
+ CellLabel->"In[113]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     SubscriptBox["k", "a"], "\[Rule]", 
+     RowBox[{"-", 
+      FractionBox[
+       SuperscriptBox["2", 
+        RowBox[{"1", "/", "4"}]], 
+       SuperscriptBox["3", 
+        RowBox[{"1", "/", "8"}]]]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     SubscriptBox["k", "a"], "\[Rule]", 
+     FractionBox[
+      SuperscriptBox["2", 
+       RowBox[{"1", "/", "4"}]], 
+      SuperscriptBox["3", 
+       RowBox[{"1", "/", "8"}]]]}], "}"}]}], "}"}]], "Output",
+ CellLabel->"Out[113]="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     SubscriptBox["k", "b"], "\[Rule]", 
+     RowBox[{"-", 
+      FractionBox[
+       SuperscriptBox["2", 
+        RowBox[{"1", "/", "4"}]], 
+       SuperscriptBox["3", 
+        RowBox[{"1", "/", "8"}]]]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     SubscriptBox["k", "b"], "\[Rule]", 
+     FractionBox[
+      SuperscriptBox["2", 
+       RowBox[{"1", "/", "4"}]], 
+      SuperscriptBox["3", 
+       RowBox[{"1", "/", "8"}]]]}], "}"}]}], "}"}]], "Output",
+ CellLabel->"Out[114]="]
+}, Open  ]],
+
+Cell["\<\
+yield exactly the results that we obtained prior to the introduction of phase \
+factors\[LongDash]results that led us then to the conclusion that \
+\[CapitalPsi] was in this instance separable. \
+\>", "Text"],
+
+Cell["We have arrived now at the normalized complex vectors ", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"\[Alpha]", "=", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      FractionBox[
+       RowBox[{
+        SuperscriptBox["3", 
+         RowBox[{"3", "/", "8"}]], " ", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{
+          FractionBox[
+           RowBox[{"3", " ", "\[ImaginaryI]", " ", 
+            SubscriptBox["\[Phi]", "1"]}], "8"], "+", 
+          FractionBox[
+           RowBox[{"3", " ", "\[ImaginaryI]", " ", 
+            SubscriptBox["\[Phi]", "2"]}], "8"], "-", 
+          FractionBox[
+           RowBox[{"\[ImaginaryI]", " ", 
+            SubscriptBox["\[Phi]", "3"]}], "8"], "-", 
+          FractionBox[
+           RowBox[{"\[ImaginaryI]", " ", 
+            SubscriptBox["\[Phi]", "4"]}], "8"]}]]}], 
+       RowBox[{
+        SuperscriptBox["2", 
+         RowBox[{"3", "/", "4"}]], " ", 
+        SubscriptBox["k", "a"]}]], "}"}], ",", 
+     RowBox[{"{", 
+      FractionBox[
+       SuperscriptBox["\[ExponentialE]", 
+        RowBox[{
+         RowBox[{"-", 
+          FractionBox[
+           RowBox[{"\[ImaginaryI]", " ", 
+            SubscriptBox["\[Phi]", "1"]}], "8"]}], "-", 
+         FractionBox[
+          RowBox[{"\[ImaginaryI]", " ", 
+           SubscriptBox["\[Phi]", "2"]}], "8"], "+", 
+         FractionBox[
+          RowBox[{"3", " ", "\[ImaginaryI]", " ", 
+           SubscriptBox["\[Phi]", "3"]}], "8"], "+", 
+         FractionBox[
+          RowBox[{"3", " ", "\[ImaginaryI]", " ", 
+           SubscriptBox["\[Phi]", "4"]}], "8"]}]], 
+       RowBox[{
+        SuperscriptBox["2", 
+         RowBox[{"3", "/", "4"}]], " ", 
+        SuperscriptBox["3", 
+         RowBox[{"1", "/", "8"}]], " ", 
+        SubscriptBox["k", "a"]}]], "}"}]}], "}"}], "/.", 
+   RowBox[{
+    SubscriptBox["k", "a"], "\[Rule]", 
+    FractionBox[
+     SuperscriptBox["2", 
+      RowBox[{"1", "/", "4"}]], 
+     SuperscriptBox["3", 
+      RowBox[{"1", "/", "8"}]]]}]}]}], "\[IndentingNewLine]", 
+ RowBox[{"\[Beta]", "=", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      FractionBox[
+       RowBox[{
+        SuperscriptBox["3", 
+         RowBox[{"1", "/", "8"}]], " ", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{
+          FractionBox[
+           RowBox[{"3", " ", "\[ImaginaryI]", " ", 
+            SubscriptBox["\[Phi]", "1"]}], "8"], "-", 
+          FractionBox[
+           RowBox[{"\[ImaginaryI]", " ", 
+            SubscriptBox["\[Phi]", "2"]}], "8"], "+", 
+          FractionBox[
+           RowBox[{"3", " ", "\[ImaginaryI]", " ", 
+            SubscriptBox["\[Phi]", "3"]}], "8"], "-", 
+          FractionBox[
+           RowBox[{"\[ImaginaryI]", " ", 
+            SubscriptBox["\[Phi]", "4"]}], "8"]}]], " ", 
+        SubscriptBox["k", "b"]}], 
+       SuperscriptBox["2", 
+        RowBox[{"3", "/", "4"}]]], "}"}], ",", 
+     RowBox[{"{", 
+      FractionBox[
+       RowBox[{
+        SuperscriptBox["3", 
+         RowBox[{"1", "/", "8"}]], " ", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{
+          RowBox[{"-", 
+           FractionBox[
+            RowBox[{"\[ImaginaryI]", " ", 
+             SubscriptBox["\[Phi]", "1"]}], "8"]}], "+", 
+          FractionBox[
+           RowBox[{"3", " ", "\[ImaginaryI]", " ", 
+            SubscriptBox["\[Phi]", "2"]}], "8"], "-", 
+          FractionBox[
+           RowBox[{"\[ImaginaryI]", " ", 
+            SubscriptBox["\[Phi]", "3"]}], "8"], "+", 
+          FractionBox[
+           RowBox[{"3", " ", "\[ImaginaryI]", " ", 
+            SubscriptBox["\[Phi]", "4"]}], "8"]}]], " ", 
+        SubscriptBox["k", "b"]}], 
+       SuperscriptBox["2", 
+        RowBox[{"3", "/", "4"}]]], "}"}]}], "}"}], "/.", 
+   RowBox[{
+    SubscriptBox["k", "b"], "\[Rule]", 
+    FractionBox[
+     SuperscriptBox["2", 
+      RowBox[{"1", "/", "4"}]], 
+     SuperscriptBox["3", 
+      RowBox[{"1", "/", "8"}]]]}]}]}]}], "Input",
+ CellLabel->"In[115]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     FractionBox["1", "2"], " ", 
+     SqrtBox["3"], " ", 
+     SuperscriptBox["\[ExponentialE]", 
+      RowBox[{
+       FractionBox[
+        RowBox[{"3", " ", "\[ImaginaryI]", " ", 
+         SubscriptBox["\[Phi]", "1"]}], "8"], "+", 
+       FractionBox[
+        RowBox[{"3", " ", "\[ImaginaryI]", " ", 
+         SubscriptBox["\[Phi]", "2"]}], "8"], "-", 
+       FractionBox[
+        RowBox[{"\[ImaginaryI]", " ", 
+         SubscriptBox["\[Phi]", "3"]}], "8"], "-", 
+       FractionBox[
+        RowBox[{"\[ImaginaryI]", " ", 
+         SubscriptBox["\[Phi]", "4"]}], "8"]}]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     FractionBox["1", "2"], " ", 
+     SuperscriptBox["\[ExponentialE]", 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox[
+         RowBox[{"\[ImaginaryI]", " ", 
+          SubscriptBox["\[Phi]", "1"]}], "8"]}], "-", 
+       FractionBox[
+        RowBox[{"\[ImaginaryI]", " ", 
+         SubscriptBox["\[Phi]", "2"]}], "8"], "+", 
+       FractionBox[
+        RowBox[{"3", " ", "\[ImaginaryI]", " ", 
+         SubscriptBox["\[Phi]", "3"]}], "8"], "+", 
+       FractionBox[
+        RowBox[{"3", " ", "\[ImaginaryI]", " ", 
+         SubscriptBox["\[Phi]", "4"]}], "8"]}]]}], "}"}]}], "}"}]], "Output",
+ CellLabel->"Out[115]="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    FractionBox[
+     SuperscriptBox["\[ExponentialE]", 
+      RowBox[{
+       FractionBox[
+        RowBox[{"3", " ", "\[ImaginaryI]", " ", 
+         SubscriptBox["\[Phi]", "1"]}], "8"], "-", 
+       FractionBox[
+        RowBox[{"\[ImaginaryI]", " ", 
+         SubscriptBox["\[Phi]", "2"]}], "8"], "+", 
+       FractionBox[
+        RowBox[{"3", " ", "\[ImaginaryI]", " ", 
+         SubscriptBox["\[Phi]", "3"]}], "8"], "-", 
+       FractionBox[
+        RowBox[{"\[ImaginaryI]", " ", 
+         SubscriptBox["\[Phi]", "4"]}], "8"]}]], 
+     SqrtBox["2"]], "}"}], ",", 
+   RowBox[{"{", 
+    FractionBox[
+     SuperscriptBox["\[ExponentialE]", 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox[
+         RowBox[{"\[ImaginaryI]", " ", 
+          SubscriptBox["\[Phi]", "1"]}], "8"]}], "+", 
+       FractionBox[
+        RowBox[{"3", " ", "\[ImaginaryI]", " ", 
+         SubscriptBox["\[Phi]", "2"]}], "8"], "-", 
+       FractionBox[
+        RowBox[{"\[ImaginaryI]", " ", 
+         SubscriptBox["\[Phi]", "3"]}], "8"], "+", 
+       FractionBox[
+        RowBox[{"3", " ", "\[ImaginaryI]", " ", 
+         SubscriptBox["\[Phi]", "4"]}], "8"]}]], 
+     SqrtBox["2"]], "}"}]}], "}"}]], "Output",
+ CellLabel->"Out[116]="]
+}, Open  ]],
+
+Cell["We now construct", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"\[Alpha]", "\[CircleTimes]", "\[Beta]"}], "//", 
+  "MatrixForm"}]], "Input",
+ CellLabel->"In[117]:="],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      RowBox[{
+       FractionBox["1", "2"], " ", 
+       SqrtBox[
+        FractionBox["3", "2"]], " ", 
+       SuperscriptBox["\[ExponentialE]", 
+        RowBox[{
+         FractionBox[
+          RowBox[{"3", " ", "\[ImaginaryI]", " ", 
+           SubscriptBox["\[Phi]", "1"]}], "4"], "+", 
+         FractionBox[
+          RowBox[{"\[ImaginaryI]", " ", 
+           SubscriptBox["\[Phi]", "2"]}], "4"], "+", 
+         FractionBox[
+          RowBox[{"\[ImaginaryI]", " ", 
+           SubscriptBox["\[Phi]", "3"]}], "4"], "-", 
+         FractionBox[
+          RowBox[{"\[ImaginaryI]", " ", 
+           SubscriptBox["\[Phi]", "4"]}], "4"]}]]}]},
+     {
+      RowBox[{
+       FractionBox["1", "2"], " ", 
+       SqrtBox[
+        FractionBox["3", "2"]], " ", 
+       SuperscriptBox["\[ExponentialE]", 
+        RowBox[{
+         FractionBox[
+          RowBox[{"\[ImaginaryI]", " ", 
+           SubscriptBox["\[Phi]", "1"]}], "4"], "+", 
+         FractionBox[
+          RowBox[{"3", " ", "\[ImaginaryI]", " ", 
+           SubscriptBox["\[Phi]", "2"]}], "4"], "-", 
+         FractionBox[
+          RowBox[{"\[ImaginaryI]", " ", 
+           SubscriptBox["\[Phi]", "3"]}], "4"], "+", 
+         FractionBox[
+          RowBox[{"\[ImaginaryI]", " ", 
+           SubscriptBox["\[Phi]", "4"]}], "4"]}]]}]},
+     {
+      FractionBox[
+       SuperscriptBox["\[ExponentialE]", 
+        RowBox[{
+         FractionBox[
+          RowBox[{"\[ImaginaryI]", " ", 
+           SubscriptBox["\[Phi]", "1"]}], "4"], "-", 
+         FractionBox[
+          RowBox[{"\[ImaginaryI]", " ", 
+           SubscriptBox["\[Phi]", "2"]}], "4"], "+", 
+         FractionBox[
+          RowBox[{"3", " ", "\[ImaginaryI]", " ", 
+           SubscriptBox["\[Phi]", "3"]}], "4"], "+", 
+         FractionBox[
+          RowBox[{"\[ImaginaryI]", " ", 
+           SubscriptBox["\[Phi]", "4"]}], "4"]}]], 
+       RowBox[{"2", " ", 
+        SqrtBox["2"]}]]},
+     {
+      FractionBox[
+       SuperscriptBox["\[ExponentialE]", 
+        RowBox[{
+         RowBox[{"-", 
+          FractionBox[
+           RowBox[{"\[ImaginaryI]", " ", 
+            SubscriptBox["\[Phi]", "1"]}], "4"]}], "+", 
+         FractionBox[
+          RowBox[{"\[ImaginaryI]", " ", 
+           SubscriptBox["\[Phi]", "2"]}], "4"], "+", 
+         FractionBox[
+          RowBox[{"\[ImaginaryI]", " ", 
+           SubscriptBox["\[Phi]", "3"]}], "4"], "+", 
+         FractionBox[
+          RowBox[{"3", " ", "\[ImaginaryI]", " ", 
+           SubscriptBox["\[Phi]", "4"]}], "4"]}]], 
+       RowBox[{"2", " ", 
+        SqrtBox["2"]}]]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellLabel->"Out[117]//MatrixForm="]
+}, Open  ]],
+
+Cell["and find that to recover the given 4-vector", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[CapitalPsi]", "//", "MatrixForm"}]], "Input",
+ CellLabel->"In[118]:="],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      RowBox[{
+       FractionBox["1", "2"], " ", 
+       SqrtBox[
+        FractionBox["3", "2"]], " ", 
+       SuperscriptBox["\[ExponentialE]", 
+        RowBox[{"\[ImaginaryI]", " ", 
+         SubscriptBox["\[Phi]", "1"]}]]}]},
+     {
+      RowBox[{
+       FractionBox["1", "2"], " ", 
+       SqrtBox[
+        FractionBox["3", "2"]], " ", 
+       SuperscriptBox["\[ExponentialE]", 
+        RowBox[{"\[ImaginaryI]", " ", 
+         SubscriptBox["\[Phi]", "2"]}]]}]},
+     {
+      FractionBox[
+       SuperscriptBox["\[ExponentialE]", 
+        RowBox[{"\[ImaginaryI]", " ", 
+         SubscriptBox["\[Phi]", "3"]}]], 
+       RowBox[{"2", " ", 
+        SqrtBox["2"]}]]},
+     {
+      FractionBox[
+       SuperscriptBox["\[ExponentialE]", 
+        RowBox[{"\[ImaginaryI]", " ", 
+         SubscriptBox["\[Phi]", "4"]}]], 
+       RowBox[{"2", " ", 
+        SqrtBox["2"]}]]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellLabel->"Out[118]//MatrixForm="]
+}, Open  ]],
+
+Cell["it must be the case that ", "Text"],
+
+Cell[BoxData[{
+ StyleBox[
+  RowBox[{
+   RowBox[{
+    FractionBox[
+     RowBox[{"3", " ", "\[ImaginaryI]", " ", 
+      SubscriptBox["\[Phi]", "1"]}], "4"], "+", 
+    FractionBox[
+     RowBox[{"\[ImaginaryI]", " ", 
+      SubscriptBox["\[Phi]", "2"]}], "4"], "+", 
+    FractionBox[
+     RowBox[{"\[ImaginaryI]", " ", 
+      SubscriptBox["\[Phi]", "3"]}], "4"], "-", 
+    FractionBox[
+     RowBox[{"\[ImaginaryI]", " ", 
+      SubscriptBox["\[Phi]", "4"]}], "4"]}], "==", 
+   RowBox[{"\[ImaginaryI]", " ", 
+    SubscriptBox["\[Phi]", "1"]}]}],
+  FontColor->GrayLevel[0.500008]], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{
+   RowBox[{
+    FractionBox[
+     RowBox[{"\[ImaginaryI]", " ", 
+      SubscriptBox["\[Phi]", "1"]}], "4"], "+", 
+    FractionBox[
+     RowBox[{"3", " ", "\[ImaginaryI]", " ", 
+      SubscriptBox["\[Phi]", "2"]}], "4"], "-", 
+    FractionBox[
+     RowBox[{"\[ImaginaryI]", " ", 
+      SubscriptBox["\[Phi]", "3"]}], "4"], "+", 
+    FractionBox[
+     RowBox[{"\[ImaginaryI]", " ", 
+      SubscriptBox["\[Phi]", "4"]}], "4"]}], "==", 
+   RowBox[{"\[ImaginaryI]", "  ", 
+    SubscriptBox["\[Phi]", "2"]}]}],
+  FontColor->GrayLevel[0.500008]], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{
+   RowBox[{
+    FractionBox[
+     RowBox[{"\[ImaginaryI]", " ", 
+      SubscriptBox["\[Phi]", "1"]}], "4"], "-", 
+    FractionBox[
+     RowBox[{"\[ImaginaryI]", " ", 
+      SubscriptBox["\[Phi]", "2"]}], "4"], "+", 
+    FractionBox[
+     RowBox[{"3", " ", "\[ImaginaryI]", " ", 
+      SubscriptBox["\[Phi]", "3"]}], "4"], "+", 
+    FractionBox[
+     RowBox[{"\[ImaginaryI]", " ", 
+      SubscriptBox["\[Phi]", "4"]}], "4"]}], "==", 
+   RowBox[{"\[ImaginaryI]", " ", 
+    SubscriptBox["\[Phi]", "3"]}]}],
+  FontColor->GrayLevel[0.500008]], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{"-", 
+     FractionBox[
+      RowBox[{"\[ImaginaryI]", " ", 
+       SubscriptBox["\[Phi]", "1"]}], "4"]}], "+", 
+    FractionBox[
+     RowBox[{"\[ImaginaryI]", " ", 
+      SubscriptBox["\[Phi]", "2"]}], "4"], "+", 
+    FractionBox[
+     RowBox[{"\[ImaginaryI]", " ", 
+      SubscriptBox["\[Phi]", "3"]}], "4"], "+", 
+    FractionBox[
+     RowBox[{"3", " ", "\[ImaginaryI]", " ", 
+      SubscriptBox["\[Phi]", "4"]}], "4"]}], "==", 
+   RowBox[{"\[ImaginaryI]", " ", 
+    SubscriptBox["\[Phi]", "4"]}]}],
+  FontColor->GrayLevel[0.500008]]}], "Input"],
+
+Cell["These equations can be formulated", "Text"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{"(", GridBox[{
+       {
+        RowBox[{"-", 
+         FractionBox["1", "4"]}], 
+        FractionBox["1", "4"], 
+        FractionBox["1", "4"], 
+        RowBox[{"-", 
+         FractionBox["1", "4"]}]},
+       {
+        FractionBox["1", "4"], 
+        RowBox[{"-", 
+         FractionBox["1", "4"]}], 
+        RowBox[{"-", 
+         FractionBox["1", "4"]}], 
+        FractionBox["1", "4"]},
+       {
+        FractionBox["1", "4"], 
+        RowBox[{"-", 
+         FractionBox["1", "4"]}], 
+        RowBox[{"-", 
+         FractionBox["1", "4"]}], 
+        FractionBox["1", "4"]},
+       {
+        RowBox[{"-", 
+         FractionBox["1", "4"]}], 
+        FractionBox["1", "4"], 
+        FractionBox["1", "4"], 
+        RowBox[{"-", 
+         FractionBox["1", "4"]}]}
+      }], ")"}], ".", 
+    RowBox[{"(", GridBox[{
+       {
+        SubscriptBox["\[Phi]", "1"]},
+       {
+        SubscriptBox["\[Phi]", "2"]},
+       {
+        SubscriptBox["\[Phi]", "3"]},
+       {
+        SubscriptBox["\[Phi]", "4"]}
+      }], ")"}]}], "==", 
+   RowBox[{"(", GridBox[{
+      {"0"},
+      {"0"},
+      {"0"},
+      {"0"}
+     }], ")"}]}],
+  FontColor->GrayLevel[0.500008]]], "Input"],
+
+Cell["where, as it happens,", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Det", "[", 
+  RowBox[{"(", GridBox[{
+     {
+      RowBox[{"-", 
+       FractionBox["1", "4"]}], 
+      FractionBox["1", "4"], 
+      FractionBox["1", "4"], 
+      RowBox[{"-", 
+       FractionBox["1", "4"]}]},
+     {
+      FractionBox["1", "4"], 
+      RowBox[{"-", 
+       FractionBox["1", "4"]}], 
+      RowBox[{"-", 
+       FractionBox["1", "4"]}], 
+      FractionBox["1", "4"]},
+     {
+      FractionBox["1", "4"], 
+      RowBox[{"-", 
+       FractionBox["1", "4"]}], 
+      RowBox[{"-", 
+       FractionBox["1", "4"]}], 
+      FractionBox["1", "4"]},
+     {
+      RowBox[{"-", 
+       FractionBox["1", "4"]}], 
+      FractionBox["1", "4"], 
+      FractionBox["1", "4"], 
+      RowBox[{"-", 
+       FractionBox["1", "4"]}]}
+    }], ")"}], "]"}]], "Input",
+ CellLabel->"In[119]:="],
+
+Cell[BoxData["0"], "Output",
+ CellLabel->"Out[119]="]
+}, Open  ]],
+
+Cell["Looking to", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"NullSpace", "[", 
+  RowBox[{"(", GridBox[{
+     {
+      RowBox[{"-", 
+       FractionBox["1", "4"]}], 
+      FractionBox["1", "4"], 
+      FractionBox["1", "4"], 
+      RowBox[{"-", 
+       FractionBox["1", "4"]}]},
+     {
+      FractionBox["1", "4"], 
+      RowBox[{"-", 
+       FractionBox["1", "4"]}], 
+      RowBox[{"-", 
+       FractionBox["1", "4"]}], 
+      FractionBox["1", "4"]},
+     {
+      FractionBox["1", "4"], 
+      RowBox[{"-", 
+       FractionBox["1", "4"]}], 
+      RowBox[{"-", 
+       FractionBox["1", "4"]}], 
+      FractionBox["1", "4"]},
+     {
+      RowBox[{"-", 
+       FractionBox["1", "4"]}], 
+      FractionBox["1", "4"], 
+      FractionBox["1", "4"], 
+      RowBox[{"-", 
+       FractionBox["1", "4"]}]}
+    }], ")"}], "]"}]], "Input",
+ CellLabel->"In[120]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", "1"}], ",", "0", ",", "0", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "0", ",", "1", ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "1", ",", "0", ",", "0"}], "}"}]}], "}"}]], "Output",
+ CellLabel->"Out[120]="]
+}, Open  ]],
+
+Cell[TextData[{
+ "we conclude that the ",
+ StyleBox["\[Phi]", "Input"],
+ "s can be described"
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(", GridBox[{
+     {
+      SubscriptBox["\[Phi]", "1"]},
+     {
+      SubscriptBox["\[Phi]", "2"]},
+     {
+      SubscriptBox["\[Phi]", "3"]},
+     {
+      SubscriptBox["\[Phi]", "4"]}
+    }], ")"}], "=", 
+  RowBox[{
+   RowBox[{"x", 
+    RowBox[{"(", GridBox[{
+       {"1"},
+       {"1"},
+       {"0"},
+       {"0"}
+      }], ")"}]}], "+", 
+   RowBox[{"y", 
+    RowBox[{"(", GridBox[{
+       {"1"},
+       {"0"},
+       {"1"},
+       {"0"}
+      }], ")"}]}], "+", 
+   RowBox[{"z", 
+    RowBox[{"(", GridBox[{
+       {"1"},
+       {"0"},
+       {"0"},
+       {
+        RowBox[{"-", "1"}]}
+      }], ")"}]}]}]}]], "Input",
+ CellLabel->"In[121]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"x", "+", "y", "+", "z"}], "}"}], ",", 
+   RowBox[{"{", "x", "}"}], ",", 
+   RowBox[{"{", "y", "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"-", "z"}], "}"}]}], "}"}]], "Output",
+ CellLabel->"Out[121]="]
+}, Open  ]],
+
+Cell[TextData[{
+ "where ",
+ StyleBox["x", "Input"],
+ ", ",
+ StyleBox["y", "Input"],
+ " and ",
+ StyleBox["z", "Input"],
+ "  are arbitrary constants. The vector \[Alpha]",
+ StyleBox["\[CircleTimes]\[Beta]", "Input"],
+ "  therefore becomes"
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  TagBox[
+   RowBox[{"(", "\[NoBreak]", GridBox[{
+      {
+       RowBox[{
+        FractionBox["1", "2"], " ", 
+        SqrtBox[
+         FractionBox["3", "2"]], " ", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{
+          FractionBox[
+           RowBox[{"3", " ", "\[ImaginaryI]", " ", 
+            SubscriptBox["\[Phi]", "1"]}], "4"], "+", 
+          FractionBox[
+           RowBox[{"\[ImaginaryI]", " ", 
+            SubscriptBox["\[Phi]", "2"]}], "4"], "+", 
+          FractionBox[
+           RowBox[{"\[ImaginaryI]", " ", 
+            SubscriptBox["\[Phi]", "3"]}], "4"], "-", 
+          FractionBox[
+           RowBox[{"\[ImaginaryI]", " ", 
+            SubscriptBox["\[Phi]", "4"]}], "4"]}]]}]},
+      {
+       RowBox[{
+        FractionBox["1", "2"], " ", 
+        SqrtBox[
+         FractionBox["3", "2"]], " ", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{
+          FractionBox[
+           RowBox[{"\[ImaginaryI]", " ", 
+            SubscriptBox["\[Phi]", "1"]}], "4"], "+", 
+          FractionBox[
+           RowBox[{"3", " ", "\[ImaginaryI]", " ", 
+            SubscriptBox["\[Phi]", "2"]}], "4"], "-", 
+          FractionBox[
+           RowBox[{"\[ImaginaryI]", " ", 
+            SubscriptBox["\[Phi]", "3"]}], "4"], "+", 
+          FractionBox[
+           RowBox[{"\[ImaginaryI]", " ", 
+            SubscriptBox["\[Phi]", "4"]}], "4"]}]]}]},
+      {
+       FractionBox[
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{
+          FractionBox[
+           RowBox[{"\[ImaginaryI]", " ", 
+            SubscriptBox["\[Phi]", "1"]}], "4"], "-", 
+          FractionBox[
+           RowBox[{"\[ImaginaryI]", " ", 
+            SubscriptBox["\[Phi]", "2"]}], "4"], "+", 
+          FractionBox[
+           RowBox[{"3", " ", "\[ImaginaryI]", " ", 
+            SubscriptBox["\[Phi]", "3"]}], "4"], "+", 
+          FractionBox[
+           RowBox[{"\[ImaginaryI]", " ", 
+            SubscriptBox["\[Phi]", "4"]}], "4"]}]], 
+        RowBox[{"2", " ", 
+         SqrtBox["2"]}]]},
+      {
+       FractionBox[
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{
+          RowBox[{"-", 
+           FractionBox[
+            RowBox[{"\[ImaginaryI]", " ", 
+             SubscriptBox["\[Phi]", "1"]}], "4"]}], "+", 
+          FractionBox[
+           RowBox[{"\[ImaginaryI]", " ", 
+            SubscriptBox["\[Phi]", "2"]}], "4"], "+", 
+          FractionBox[
+           RowBox[{"\[ImaginaryI]", " ", 
+            SubscriptBox["\[Phi]", "3"]}], "4"], "+", 
+          FractionBox[
+           RowBox[{"3", " ", "\[ImaginaryI]", " ", 
+            SubscriptBox["\[Phi]", "4"]}], "4"]}]], 
+        RowBox[{"2", " ", 
+         SqrtBox["2"]}]]}
+     },
+     GridBoxAlignment->{
+      "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+       "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.7]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+   Function[BoxForm`e$, 
+    MatrixForm[BoxForm`e$]]], "/.", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     SubscriptBox["\[Phi]", "1"], "\[Rule]", 
+     RowBox[{"x", "+", "y", "+", "z"}]}], ",", 
+    RowBox[{
+     SubscriptBox["\[Phi]", "2"], "\[Rule]", "x"}], ",", 
+    RowBox[{
+     SubscriptBox["\[Phi]", "3"], "\[Rule]", "y"}], ",", 
+    RowBox[{
+     SubscriptBox["\[Phi]", "4"], "\[Rule]", 
+     RowBox[{"-", "z"}]}]}], "}"}]}]], "Input",
+ CellLabel->"In[122]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     FractionBox["1", "2"], " ", 
+     SqrtBox[
+      FractionBox["3", "2"]], " ", 
+     SuperscriptBox["\[ExponentialE]", 
+      RowBox[{
+       FractionBox[
+        RowBox[{"\[ImaginaryI]", " ", "x"}], "4"], "+", 
+       FractionBox[
+        RowBox[{"\[ImaginaryI]", " ", "y"}], "4"], "+", 
+       FractionBox[
+        RowBox[{"\[ImaginaryI]", " ", "z"}], "4"], "+", 
+       RowBox[{
+        FractionBox["3", "4"], " ", "\[ImaginaryI]", " ", 
+        RowBox[{"(", 
+         RowBox[{"x", "+", "y", "+", "z"}], ")"}]}]}]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     FractionBox["1", "2"], " ", 
+     SqrtBox[
+      FractionBox["3", "2"]], " ", 
+     SuperscriptBox["\[ExponentialE]", 
+      RowBox[{
+       FractionBox[
+        RowBox[{"3", " ", "\[ImaginaryI]", " ", "x"}], "4"], "-", 
+       FractionBox[
+        RowBox[{"\[ImaginaryI]", " ", "y"}], "4"], "-", 
+       FractionBox[
+        RowBox[{"\[ImaginaryI]", " ", "z"}], "4"], "+", 
+       RowBox[{
+        FractionBox["1", "4"], " ", "\[ImaginaryI]", " ", 
+        RowBox[{"(", 
+         RowBox[{"x", "+", "y", "+", "z"}], ")"}]}]}]]}], "}"}], ",", 
+   RowBox[{"{", 
+    FractionBox[
+     SuperscriptBox["\[ExponentialE]", 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox[
+         RowBox[{"\[ImaginaryI]", " ", "x"}], "4"]}], "+", 
+       FractionBox[
+        RowBox[{"3", " ", "\[ImaginaryI]", " ", "y"}], "4"], "-", 
+       FractionBox[
+        RowBox[{"\[ImaginaryI]", " ", "z"}], "4"], "+", 
+       RowBox[{
+        FractionBox["1", "4"], " ", "\[ImaginaryI]", " ", 
+        RowBox[{"(", 
+         RowBox[{"x", "+", "y", "+", "z"}], ")"}]}]}]], 
+     RowBox[{"2", " ", 
+      SqrtBox["2"]}]], "}"}], ",", 
+   RowBox[{"{", 
+    FractionBox[
+     SuperscriptBox["\[ExponentialE]", 
+      RowBox[{
+       FractionBox[
+        RowBox[{"\[ImaginaryI]", " ", "x"}], "4"], "+", 
+       FractionBox[
+        RowBox[{"\[ImaginaryI]", " ", "y"}], "4"], "-", 
+       FractionBox[
+        RowBox[{"3", " ", "\[ImaginaryI]", " ", "z"}], "4"], "-", 
+       RowBox[{
+        FractionBox["1", "4"], " ", "\[ImaginaryI]", " ", 
+        RowBox[{"(", 
+         RowBox[{"x", "+", "y", "+", "z"}], ")"}]}]}]], 
+     RowBox[{"2", " ", 
+      SqrtBox["2"]}]], "}"}]}], "}"}]], "Output",
+ CellLabel->"Out[122]="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Simplify", "[", "%", "]"}]], "Input",
+ CellLabel->"In[123]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     FractionBox["1", "2"], " ", 
+     SqrtBox[
+      FractionBox["3", "2"]], " ", 
+     SuperscriptBox["\[ExponentialE]", 
+      RowBox[{"\[ImaginaryI]", " ", 
+       RowBox[{"(", 
+        RowBox[{"x", "+", "y", "+", "z"}], ")"}]}]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     FractionBox["1", "2"], " ", 
+     SqrtBox[
+      FractionBox["3", "2"]], " ", 
+     SuperscriptBox["\[ExponentialE]", 
+      RowBox[{"\[ImaginaryI]", " ", "x"}]]}], "}"}], ",", 
+   RowBox[{"{", 
+    FractionBox[
+     SuperscriptBox["\[ExponentialE]", 
+      RowBox[{"\[ImaginaryI]", " ", "y"}]], 
+     RowBox[{"2", " ", 
+      SqrtBox["2"]}]], "}"}], ",", 
+   RowBox[{"{", 
+    FractionBox[
+     SuperscriptBox["\[ExponentialE]", 
+      RowBox[{
+       RowBox[{"-", "\[ImaginaryI]"}], " ", "z"}]], 
+     RowBox[{"2", " ", 
+      SqrtBox["2"]}]], "}"}]}], "}"}]], "Output",
+ CellLabel->"Out[123]="]
+}, Open  ]],
+
+Cell[TextData[{
+ "which with the restoration of ",
+ StyleBox["\[Phi]", "Input"],
+ "-notation becomes"
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       FractionBox["1", "2"], " ", 
+       SqrtBox[
+        FractionBox["3", "2"]], " ", 
+       SuperscriptBox["\[ExponentialE]", 
+        RowBox[{"\[ImaginaryI]", " ", 
+         RowBox[{"(", 
+          RowBox[{"x", "+", "y", "+", "z"}], ")"}]}]]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       FractionBox["1", "2"], " ", 
+       SqrtBox[
+        FractionBox["3", "2"]], " ", 
+       SuperscriptBox["\[ExponentialE]", 
+        RowBox[{"\[ImaginaryI]", " ", "x"}]]}], "}"}], ",", 
+     RowBox[{"{", 
+      FractionBox[
+       SuperscriptBox["\[ExponentialE]", 
+        RowBox[{"\[ImaginaryI]", " ", "y"}]], 
+       RowBox[{"2", " ", 
+        SqrtBox["2"]}]], "}"}], ",", 
+     RowBox[{"{", 
+      FractionBox[
+       SuperscriptBox["\[ExponentialE]", 
+        RowBox[{
+         RowBox[{"-", "\[ImaginaryI]"}], " ", "z"}]], 
+       RowBox[{"2", " ", 
+        SqrtBox["2"]}]], "}"}]}], "}"}], "/.", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"x", "\[Rule]", 
+      SubscriptBox["\[Phi]", "2"]}], ",", " ", 
+     RowBox[{"y", "\[Rule]", 
+      SubscriptBox["\[Phi]", "3"]}], ",", 
+     RowBox[{"z", "\[Rule]", 
+      RowBox[{"-", 
+       SubscriptBox["\[Phi]", "4"]}]}]}], "}"}]}], "//", 
+  "MatrixForm"}]], "Input",
+ CellLabel->"In[124]:="],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      RowBox[{
+       FractionBox["1", "2"], " ", 
+       SqrtBox[
+        FractionBox["3", "2"]], " ", 
+       SuperscriptBox["\[ExponentialE]", 
+        RowBox[{"\[ImaginaryI]", " ", 
+         RowBox[{"(", 
+          RowBox[{"x", "+", "y", "+", "z"}], ")"}]}]]}]},
+     {
+      RowBox[{
+       FractionBox["1", "2"], " ", 
+       SqrtBox[
+        FractionBox["3", "2"]], " ", 
+       SuperscriptBox["\[ExponentialE]", 
+        RowBox[{"\[ImaginaryI]", " ", "x"}]]}]},
+     {
+      FractionBox[
+       SuperscriptBox["\[ExponentialE]", 
+        RowBox[{"\[ImaginaryI]", " ", "y"}]], 
+       RowBox[{"2", " ", 
+        SqrtBox["2"]}]]},
+     {
+      FractionBox[
+       SuperscriptBox["\[ExponentialE]", 
+        RowBox[{
+         RowBox[{"-", "\[ImaginaryI]"}], " ", "z"}]], 
+       RowBox[{"2", " ", 
+        SqrtBox["2"]}]]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellLabel->"Out[124]//MatrixForm="]
+}, Open  ]],
+
+Cell[BoxData[
+ StyleBox[
+  TagBox[
+   RowBox[{"(", "\[NoBreak]", GridBox[{
+      {
+       RowBox[{
+        FractionBox["1", "2"], " ", 
+        SqrtBox[
+         FractionBox["3", "2"]], " ", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{"\[ImaginaryI]", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            SubscriptBox["\[Phi]", "2"], "+", 
+            SubscriptBox["\[Phi]", "3"], "-", 
+            SubscriptBox["\[Phi]", "4"]}], ")"}]}]]}]},
+      {
+       RowBox[{
+        FractionBox["1", "2"], " ", 
+        SqrtBox[
+         FractionBox["3", "2"]], " ", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{"\[ImaginaryI]", " ", 
+          SubscriptBox["\[Phi]", "2"]}]]}]},
+      {
+       RowBox[{"    ", 
+        RowBox[{
+         FractionBox["1", 
+          RowBox[{"2", " ", 
+           SqrtBox["2"]}]], 
+         SuperscriptBox["\[ExponentialE]", 
+          RowBox[{"\[ImaginaryI]", " ", 
+           SubscriptBox["\[Phi]", "3"]}]]}]}]},
+      {
+       RowBox[{"    ", 
+        RowBox[{
+         FractionBox["1", 
+          RowBox[{"2", " ", 
+           SqrtBox["2"]}]], 
+         SuperscriptBox["\[ExponentialE]", 
+          RowBox[{"\[ImaginaryI]", " ", 
+           SubscriptBox["\[Phi]", "4"]}]]}]}]}
+     },
+     GridBoxAlignment->{
+      "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+       "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.7]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+   Function[BoxForm`e$, 
+    MatrixForm[BoxForm`e$]]],
+  FontColor->GrayLevel[0.500008]]], "Input"],
+
+Cell["\<\
+while\[LongDash]by construction, but gratifyingly\[LongDash]from the given \
+4-vector \[CapitalPsi] we now recover the same thing:\
+\>", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"\[CapitalPsi]", "/.", 
+   RowBox[{"{", 
+    RowBox[{
+     SubscriptBox["\[Phi]", "1"], "\[Rule]", 
+     RowBox[{
+      SubscriptBox["\[Phi]", "2"], "+", 
+      SubscriptBox["\[Phi]", "3"], "-", 
+      SubscriptBox["\[Phi]", "4"]}]}], "}"}]}], "//", "MatrixForm"}]], "Input",\
+
+ CellLabel->"In[125]:="],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      RowBox[{
+       FractionBox["1", "2"], " ", 
+       SqrtBox[
+        FractionBox["3", "2"]], " ", 
+       SuperscriptBox["\[ExponentialE]", 
+        RowBox[{"\[ImaginaryI]", " ", 
+         RowBox[{"(", 
+          RowBox[{"x", "+", "y", "+", "z"}], ")"}]}]]}]},
+     {
+      RowBox[{
+       FractionBox["1", "2"], " ", 
+       SqrtBox[
+        FractionBox["3", "2"]], " ", 
+       SuperscriptBox["\[ExponentialE]", 
+        RowBox[{"\[ImaginaryI]", " ", "x"}]]}]},
+     {
+      FractionBox[
+       SuperscriptBox["\[ExponentialE]", 
+        RowBox[{"\[ImaginaryI]", " ", "y"}]], 
+       RowBox[{"2", " ", 
+        SqrtBox["2"]}]]},
+     {
+      FractionBox[
+       SuperscriptBox["\[ExponentialE]", 
+        RowBox[{
+         RowBox[{"-", "\[ImaginaryI]"}], " ", "z"}]], 
+       RowBox[{"2", " ", 
+        SqrtBox["2"]}]]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellLabel->"Out[125]//MatrixForm="]
+}, Open  ]],
+
+Cell[BoxData[""], "Input"],
+
+Cell[TextData[{
+ "We conclude that the separability decision problem splits into two \
+independent problems:\n\t\[Bullet] the ",
+ StyleBox["DECISION PROBLEM WITH RESPECT TO AMPLITUDES",
+  FontWeight->"Bold",
+  FontColor->RGBColor[1, 0, 0]],
+ ", and\n\t\[Bullet] the ",
+ StyleBox["DECISION PROBLEM WITH RESPECT TO PHASES",
+  FontWeight->"Bold",
+  FontColor->RGBColor[1, 0, 0]],
+ ".\nThe former is resolved by the procedure discussed in the main body of \
+the text, while the latter is resolved by the statement that for\t"
+}], "Text"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"(", GridBox[{
+     {
+      RowBox[{
+       SubscriptBox["\[CapitalPsi]", "1"], 
+       SuperscriptBox["\[ExponentialE]", 
+        RowBox[{"\[ImaginaryI]", " ", 
+         SubscriptBox["\[Phi]", "1"]}]]}]},
+     {
+      RowBox[{
+       SubscriptBox["\[CapitalPsi]", "2"], 
+       SuperscriptBox["\[ExponentialE]", 
+        RowBox[{"\[ImaginaryI]", " ", 
+         SubscriptBox["\[Phi]", "2"]}]]}]},
+     {
+      RowBox[{
+       SubscriptBox["\[CapitalPsi]", "3"], 
+       SuperscriptBox["\[ExponentialE]", 
+        RowBox[{"\[ImaginaryI]", " ", 
+         SubscriptBox["\[Phi]", "3"]}]]}]},
+     {
+      RowBox[{
+       SubscriptBox["\[CapitalPsi]", "4"], 
+       SuperscriptBox["\[ExponentialE]", 
+        RowBox[{"\[ImaginaryI]", " ", 
+         SubscriptBox["\[Phi]", "4"]}]]}]}
+    }], ")"}],
+  FontColor->GrayLevel[0.500008]]], "Input"],
+
+Cell["to be separable it must be the case that", "Text"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   SubscriptBox["\[Phi]", "1"], "=", 
+   RowBox[{
+    SubscriptBox["\[Phi]", "2"], "+", 
+    SubscriptBox["\[Phi]", "3"], "-", 
+    SubscriptBox["\[Phi]", "4"]}]}],
+  FontColor->GrayLevel[0.500008]]], "Input"],
+
+Cell[TextData[{
+ "It then follows (I revert now to my",
+ StyleBox[" ",
+  FontSize->10],
+ StyleBox["EXAMPLE", "Subsubsection",
+  FontSize->12],
+ ")"
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"\[Alpha]", "=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        FractionBox["1", "2"], " ", 
+        SqrtBox["3"], " ", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{
+          FractionBox[
+           RowBox[{"3", " ", "\[ImaginaryI]", " ", 
+            SubscriptBox["\[Phi]", "1"]}], "8"], "+", 
+          FractionBox[
+           RowBox[{"3", " ", "\[ImaginaryI]", " ", 
+            SubscriptBox["\[Phi]", "2"]}], "8"], "-", 
+          FractionBox[
+           RowBox[{"\[ImaginaryI]", " ", 
+            SubscriptBox["\[Phi]", "3"]}], "8"], "-", 
+          FractionBox[
+           RowBox[{"\[ImaginaryI]", " ", 
+            SubscriptBox["\[Phi]", "4"]}], "8"]}]]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        FractionBox["1", "2"], " ", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{
+          RowBox[{"-", 
+           FractionBox[
+            RowBox[{"\[ImaginaryI]", " ", 
+             SubscriptBox["\[Phi]", "1"]}], "8"]}], "-", 
+          FractionBox[
+           RowBox[{"\[ImaginaryI]", " ", 
+            SubscriptBox["\[Phi]", "2"]}], "8"], "+", 
+          FractionBox[
+           RowBox[{"3", " ", "\[ImaginaryI]", " ", 
+            SubscriptBox["\[Phi]", "3"]}], "8"], "+", 
+          FractionBox[
+           RowBox[{"3", " ", "\[ImaginaryI]", " ", 
+            SubscriptBox["\[Phi]", "4"]}], "8"]}]]}], "}"}]}], "}"}], "/.", 
+    RowBox[{
+     SubscriptBox["\[Phi]", "1"], "\[Rule]", 
+     RowBox[{
+      SubscriptBox["\[Phi]", "2"], "+", 
+      SubscriptBox["\[Phi]", "3"], "-", 
+      SubscriptBox["\[Phi]", "4"]}]}]}], "//", 
+   "Simplify"}]}], "\[IndentingNewLine]", 
+ RowBox[{"\[Beta]", "=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       FractionBox[
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{
+          FractionBox[
+           RowBox[{"3", " ", "\[ImaginaryI]", " ", 
+            SubscriptBox["\[Phi]", "1"]}], "8"], "-", 
+          FractionBox[
+           RowBox[{"\[ImaginaryI]", " ", 
+            SubscriptBox["\[Phi]", "2"]}], "8"], "+", 
+          FractionBox[
+           RowBox[{"3", " ", "\[ImaginaryI]", " ", 
+            SubscriptBox["\[Phi]", "3"]}], "8"], "-", 
+          FractionBox[
+           RowBox[{"\[ImaginaryI]", " ", 
+            SubscriptBox["\[Phi]", "4"]}], "8"]}]], 
+        SqrtBox["2"]], "}"}], ",", 
+      RowBox[{"{", 
+       FractionBox[
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{
+          RowBox[{"-", 
+           FractionBox[
+            RowBox[{"\[ImaginaryI]", " ", 
+             SubscriptBox["\[Phi]", "1"]}], "8"]}], "+", 
+          FractionBox[
+           RowBox[{"3", " ", "\[ImaginaryI]", " ", 
+            SubscriptBox["\[Phi]", "2"]}], "8"], "-", 
+          FractionBox[
+           RowBox[{"\[ImaginaryI]", " ", 
+            SubscriptBox["\[Phi]", "3"]}], "8"], "+", 
+          FractionBox[
+           RowBox[{"3", " ", "\[ImaginaryI]", " ", 
+            SubscriptBox["\[Phi]", "4"]}], "8"]}]], 
+        SqrtBox["2"]], "}"}]}], "}"}], "/.", 
+    RowBox[{
+     SubscriptBox["\[Phi]", "1"], "\[Rule]", 
+     RowBox[{
+      SubscriptBox["\[Phi]", "2"], "+", 
+      SubscriptBox["\[Phi]", "3"], "-", 
+      SubscriptBox["\[Phi]", "4"]}]}]}], "//", "Simplify"}]}]}], "Input",
+ CellLabel->"In[126]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     FractionBox["1", "2"], " ", 
+     SqrtBox["3"], " ", 
+     SuperscriptBox["\[ExponentialE]", 
+      RowBox[{
+       FractionBox["1", "4"], " ", "\[ImaginaryI]", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"3", " ", "x"}], "+", "y", "+", 
+         RowBox[{"2", " ", "z"}]}], ")"}]}]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     FractionBox["1", "2"], " ", 
+     SuperscriptBox["\[ExponentialE]", 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox["1", "4"]}], " ", "\[ImaginaryI]", " ", 
+       RowBox[{"(", 
+        RowBox[{"x", "-", "y", "+", 
+         RowBox[{"2", " ", "z"}]}], ")"}]}]]}], "}"}]}], "}"}]], "Output",
+ CellLabel->"Out[126]="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    FractionBox[
+     SuperscriptBox["\[ExponentialE]", 
+      RowBox[{
+       FractionBox["1", "4"], " ", "\[ImaginaryI]", " ", 
+       RowBox[{"(", 
+        RowBox[{"x", "+", 
+         RowBox[{"3", " ", "y"}], "+", 
+         RowBox[{"2", " ", "z"}]}], ")"}]}]], 
+     SqrtBox["2"]], "}"}], ",", 
+   RowBox[{"{", 
+    FractionBox[
+     SuperscriptBox["\[ExponentialE]", 
+      RowBox[{
+       FractionBox["1", "4"], " ", "\[ImaginaryI]", " ", 
+       RowBox[{"(", 
+        RowBox[{"x", "-", "y", "-", 
+         RowBox[{"2", " ", "z"}]}], ")"}]}]], 
+     SqrtBox["2"]], "}"}]}], "}"}]], "Output",
+ CellLabel->"Out[127]="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"\[Alpha]", "//", "MatrixForm"}], "\[IndentingNewLine]", 
+ RowBox[{"\[Beta]", "//", "MatrixForm"}]}], "Input",
+ CellLabel->"In[128]:="],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      RowBox[{
+       FractionBox["1", "2"], " ", 
+       SqrtBox["3"], " ", 
+       SuperscriptBox["\[ExponentialE]", 
+        RowBox[{
+         FractionBox["1", "4"], " ", "\[ImaginaryI]", " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"3", " ", "x"}], "+", "y", "+", 
+           RowBox[{"2", " ", "z"}]}], ")"}]}]]}]},
+     {
+      RowBox[{
+       FractionBox["1", "2"], " ", 
+       SuperscriptBox["\[ExponentialE]", 
+        RowBox[{
+         RowBox[{"-", 
+          FractionBox["1", "4"]}], " ", "\[ImaginaryI]", " ", 
+         RowBox[{"(", 
+          RowBox[{"x", "-", "y", "+", 
+           RowBox[{"2", " ", "z"}]}], ")"}]}]]}]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellLabel->"Out[128]//MatrixForm="],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      FractionBox[
+       SuperscriptBox["\[ExponentialE]", 
+        RowBox[{
+         FractionBox["1", "4"], " ", "\[ImaginaryI]", " ", 
+         RowBox[{"(", 
+          RowBox[{"x", "+", 
+           RowBox[{"3", " ", "y"}], "+", 
+           RowBox[{"2", " ", "z"}]}], ")"}]}]], 
+       SqrtBox["2"]]},
+     {
+      FractionBox[
+       SuperscriptBox["\[ExponentialE]", 
+        RowBox[{
+         FractionBox["1", "4"], " ", "\[ImaginaryI]", " ", 
+         RowBox[{"(", 
+          RowBox[{"x", "-", "y", "-", 
+           RowBox[{"2", " ", "z"}]}], ")"}]}]], 
+       SqrtBox["2"]]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellLabel->"Out[129]//MatrixForm="]
+}, Open  ]],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input"],
+
+Cell["Notice finally that from ", "Text"],
+
+Cell[BoxData[
+ RowBox[{
+  SubscriptBox["\[Phi]", "1"], "=."}]], "Input",
+ CellLabel->"In[131]:="],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   SubscriptBox["\[Phi]", "1"], "[", 
+   RowBox[{"\[Phi]2_", ",", "\[Phi]3_", ",", "\[Phi]4_"}], "]"}], ":=", 
+  RowBox[{"\[Phi]2", "+", "\[Phi]3", "-", "\[Phi]4"}]}]], "Input",
+ CellLabel->"In[132]:="],
+
+Cell["it follows that if", "Text"],
+
+Cell[BoxData[{
+ StyleBox[
+  RowBox[{
+   SubscriptBox["\[Phi]", "2"], "\[Rule]", 
+   RowBox[{
+    SubscriptBox["\[Phi]", "2"], "+", "\[Chi]"}]}],
+  FontColor->GrayLevel[0.500008]], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{
+   SubscriptBox["\[Phi]", "3"], "\[Rule]", 
+   RowBox[{
+    SubscriptBox["\[Phi]", "3"], "+", "\[Chi]"}]}],
+  FontColor->GrayLevel[0.500008]], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{
+   SubscriptBox["\[Phi]", "4"], "\[Rule]", 
+   RowBox[{
+    SubscriptBox["\[Phi]", "4"], "+", "\[Chi]"}]}],
+  FontColor->GrayLevel[0.500008]]}], "Input"],
+
+Cell["then by", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  SubscriptBox["\[Phi]", "1"], "[", 
+  RowBox[{
+   RowBox[{
+    SubscriptBox["\[Phi]", "2"], "+", "\[Chi]"}], ",", 
+   RowBox[{
+    SubscriptBox["\[Phi]", "3"], "+", "\[Chi]"}], ",", 
+   RowBox[{
+    SubscriptBox["\[Phi]", "4"], "+", "\[Chi]"}]}], "]"}]], "Input",
+ CellLabel->"In[133]:="],
+
+Cell[BoxData[
+ RowBox[{"x", "+", "y", "+", "z", "+", "\[Chi]"}]], "Output",
+ CellLabel->"Out[133]="]
+}, Open  ]],
+
+Cell["it is automatic that", "Text"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   SubscriptBox["\[Phi]", "1"], "\[Rule]", 
+   RowBox[{
+    SubscriptBox["\[Phi]", "1"], "+", "\[Chi]"}]}],
+  FontColor->GrayLevel[0.500008]]], "Input"],
+
+Cell["and in net effect we have the unphysical phase adjustment", "Text"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"\[CapitalPsi]", "\[Rule]", 
+   RowBox[{"\[CapitalPsi]", " ", 
+    SuperscriptBox["\[ExponentialE]", 
+     RowBox[{"\[ImaginaryI]", " ", "\[Chi]"}]]}]}],
+  FontColor->GrayLevel[0.500008]]], "Input"],
+
+Cell[TextData[{
+ "Looking to the induced response of the phases that enter into the \
+descriptions of ",
+ StyleBox["\[Alpha]", "Input"],
+ " and ",
+ StyleBox["\[Beta]", "Input"],
+ ", we have"
+}], "Text",
+ CellLabel->"In[129]:="],
+
+Cell[BoxData[{
+ StyleBox[
+  RowBox[{
+   RowBox[{
+    FractionBox["1", "4"], 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"3", " ", 
+       SubscriptBox["\[Phi]", "2"]}], "+", 
+      SubscriptBox["\[Phi]", "3"], "-", 
+      RowBox[{"2", " ", 
+       SubscriptBox["\[Phi]", "4"]}]}], ")"}]}], "\[Rule]", 
+   RowBox[{
+    RowBox[{
+     FractionBox["1", "4"], 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"3", " ", 
+        SubscriptBox["\[Phi]", "2"]}], "+", 
+       SubscriptBox["\[Phi]", "3"], "-", 
+       RowBox[{"2", " ", 
+        SubscriptBox["\[Phi]", "4"]}]}], ")"}]}], "+", 
+    RowBox[{
+     FractionBox["1", "2"], "\[Chi]"}]}]}],
+  FontColor->GrayLevel[0.500008]], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", 
+      FractionBox["1", "4"]}], 
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["\[Phi]", "2"], "-", 
+       SubscriptBox["\[Phi]", "3"], "-", 
+       RowBox[{"2", " ", 
+        SubscriptBox["\[Phi]", "4"]}]}], ")"}]}], "\[Rule]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"-", 
+       FractionBox["1", "4"]}], 
+      RowBox[{"(", 
+       RowBox[{
+        SubscriptBox["\[Phi]", "2"], "-", 
+        SubscriptBox["\[Phi]", "3"], "-", 
+        RowBox[{"2", " ", 
+         SubscriptBox["\[Phi]", "4"]}]}], ")"}]}], "+", 
+     RowBox[{
+      FractionBox["1", "2"], "\[Chi]"}]}]}], "\[IndentingNewLine]"}],
+  FontColor->GrayLevel[0.500008]], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{
+   RowBox[{
+    FractionBox["1", "4"], 
+    RowBox[{"(", 
+     RowBox[{
+      SubscriptBox["\[Phi]", "2"], "+", 
+      RowBox[{"3", " ", 
+       SubscriptBox["\[Phi]", "3"]}], "-", 
+      RowBox[{"2", " ", 
+       SubscriptBox["\[Phi]", "4"]}]}], ")"}]}], "\[Rule]", 
+   RowBox[{
+    RowBox[{
+     FractionBox["1", "4"], 
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["\[Phi]", "2"], "+", 
+       RowBox[{"3", " ", 
+        SubscriptBox["\[Phi]", "3"]}], "-", 
+       RowBox[{"2", " ", 
+        SubscriptBox["\[Phi]", "4"]}]}], ")"}]}], "+", 
+    RowBox[{
+     FractionBox["1", "2"], "\[Chi]"}]}]}],
+  FontColor->GrayLevel[0.500008]], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{
+   RowBox[{
+    FractionBox["1", "4"], 
+    RowBox[{"(", 
+     RowBox[{
+      SubscriptBox["\[Phi]", "2"], "-", 
+      SubscriptBox["\[Phi]", "3"], "+", 
+      RowBox[{"2", " ", 
+       SubscriptBox["\[Phi]", "4"]}]}], ")"}]}], "\[Rule]", 
+   RowBox[{
+    RowBox[{
+     FractionBox["1", "4"], 
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["\[Phi]", "2"], "-", 
+       SubscriptBox["\[Phi]", "3"], "+", 
+       RowBox[{"2", " ", 
+        SubscriptBox["\[Phi]", "4"]}]}], ")"}]}], "+", 
+    RowBox[{
+     FractionBox["1", "2"], "\[Chi]"}]}]}],
+  FontColor->GrayLevel[0.500008]]}], "Input"],
+
+Cell[TextData[{
+ "We have here traced  ",
+ Cell[BoxData[
+  RowBox[{"\[CapitalPsi]", "\[Rule]", 
+   RowBox[{"\[CapitalPsi]", " ", 
+    SuperscriptBox["\[ExponentialE]", 
+     RowBox[{"\[ImaginaryI]", " ", "\[Chi]"}]]}]}]]],
+ "  back to the statements"
+}], "Text"],
+
+Cell[BoxData[{
+ StyleBox[
+  RowBox[{"\[Alpha]", "\[Rule]", 
+   RowBox[{"\[Alpha]", " ", 
+    SuperscriptBox["\[ExponentialE]", 
+     RowBox[{"\[ImaginaryI]", " ", 
+      RowBox[{"\[Chi]", "/", "2"}]}]]}]}],
+  FontColor->GrayLevel[0.500008]], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{"\[Beta]", "\[Rule]", 
+   RowBox[{"\[Beta]", " ", 
+    SuperscriptBox["\[ExponentialE]", 
+     RowBox[{"\[ImaginaryI]", " ", 
+      RowBox[{"\[Chi]", "/", "2"}]}]]}]}],
+  FontColor->GrayLevel[0.500008]]}], "Input"],
+
+Cell[BoxData[""], "Input"],
+
+Cell[TextData[{
+ "We note belatedly that the multipliers ",
+ Cell[BoxData[
+  SubscriptBox["k", "a"]]],
+ "  and ",
+ Cell[BoxData[
+  SubscriptBox["k", "b"]]],
+ "  should, in the complex formalism, be endowed with phase factors, which \
+(as an examination of the argument would show) remain subject to no \
+restriction. Thus are we led to the unphysical phase adjustments",
+ StyleBox[" ", "Output"]
+}], "Text"],
+
+Cell[BoxData[{
+ StyleBox[
+  RowBox[{"\[Alpha]", "\[Rule]", 
+   RowBox[{"\[Alpha]", " ", 
+    SuperscriptBox["\[ExponentialE]", 
+     RowBox[{"\[ImaginaryI]", " ", 
+      RowBox[{
+       SubscriptBox["\[Chi]", "a"], "/", "2"}]}]]}]}],
+  FontColor->GrayLevel[0.500008]], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{"\[Beta]", "\[Rule]", 
+   RowBox[{"\[Beta]", " ", 
+    SuperscriptBox["\[ExponentialE]", 
+     RowBox[{"\[ImaginaryI]", " ", 
+      RowBox[{
+       SubscriptBox["\[Chi]", "b"], "/", "2"}]}]]}]}],
+  FontColor->GrayLevel[0.500008]]}], "Input"],
+
+Cell["which induce this equally unphysical composite companion:", "Text"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"\[CapitalPsi]", "\[Rule]", 
+   RowBox[{"\[CapitalPsi]", " ", 
+    SuperscriptBox["\[ExponentialE]", 
+     RowBox[{"\[ImaginaryI]", 
+      RowBox[{"(", 
+       RowBox[{
+        SubscriptBox["\[Chi]", "a"], "+", 
+        SubscriptBox["\[Chi]", "b"]}], ")"}]}]]}]}],
+  FontColor->GrayLevel[0.500008]]], "Input"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowToolbars->"EditBar",
+WindowSize->{1055, 745},
+WindowMargins->{{78, Automatic}, {Automatic, 5}},
+Magnification->1.25,
+FrontEndVersion->"7.0 for Mac OS X PowerPC (32-bit) (November 11, 2008)",
+StyleDefinitions->"TutorialBook.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[545, 20, 150, 4, 59, "Input"],
+Cell[CellGroupData[{
+Cell[720, 28, 27, 0, 67, "Title"],
+Cell[750, 30, 90, 2, 42, "Note"],
+Cell[843, 34, 442, 7, 74, "Note"],
+Cell[1288, 43, 87, 1, 59, "Input"],
+Cell[1378, 46, 918, 17, 122, "Text"],
+Cell[CellGroupData[{
+Cell[2321, 67, 106, 2, 43, "Subsection"],
+Cell[2430, 71, 337, 10, 27, "Text"],
+Cell[2770, 83, 26, 0, 33, "Input"],
+Cell[2799, 85, 202, 4, 48, "Text"],
+Cell[3004, 91, 253, 10, 58, "Input"],
+Cell[3260, 103, 196, 6, 27, "Text"],
+Cell[3459, 111, 275, 11, 58, "Input"],
+Cell[3737, 124, 68, 0, 27, "Text"],
+Cell[3808, 126, 249, 10, 58, "Input"],
+Cell[4060, 138, 275, 11, 58, "Input"],
+Cell[4338, 151, 39, 0, 27, "Text"],
+Cell[4380, 153, 255, 8, 59, "Input"],
+Cell[4638, 163, 97, 2, 27, "Text"],
+Cell[4738, 167, 45, 0, 59, "Input"],
+Cell[4786, 169, 184, 5, 27, "Text"],
+Cell[4973, 176, 45, 0, 59, "Input"],
+Cell[CellGroupData[{
+Cell[5043, 180, 63, 0, 40, "Subsubsection"],
+Cell[5109, 182, 183, 7, 30, "Text"],
+Cell[5295, 191, 628, 25, 140, "Input"],
+Cell[5926, 218, 54, 0, 27, "Text"],
+Cell[5983, 220, 572, 22, 84, "Input"],
+Cell[6558, 244, 57, 0, 27, "Text"],
+Cell[6618, 246, 1098, 31, 134, "Input"],
+Cell[7719, 279, 119, 3, 33, "Input"],
+Cell[7841, 284, 2966, 102, 174, "Input"],
+Cell[10810, 388, 205, 4, 48, "Text"],
+Cell[11018, 394, 26, 0, 33, "Input"],
+Cell[11047, 396, 174, 6, 27, "Text"],
+Cell[11224, 404, 204, 6, 33, "Input"],
+Cell[11431, 412, 95, 2, 33, "Input"],
+Cell[11529, 416, 91, 2, 27, "Text"],
+Cell[11623, 420, 439, 17, 111, "Input"],
+Cell[12065, 439, 193, 5, 59, "Input"],
+Cell[12261, 446, 93, 2, 27, "Text"],
+Cell[12357, 450, 691, 23, 59, "Input"],
+Cell[13051, 475, 45, 0, 59, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13133, 480, 104, 2, 40, "Subsubsection"],
+Cell[13240, 484, 111, 3, 27, "Text"],
+Cell[13354, 489, 187, 8, 58, "Input"],
+Cell[13544, 499, 20, 0, 27, "Text"],
+Cell[13567, 501, 88, 2, 33, "Input"],
+Cell[13658, 505, 201, 7, 30, "Text"],
+Cell[13862, 514, 230, 9, 58, "Input"],
+Cell[14095, 525, 107, 3, 33, "Input"],
+Cell[14205, 530, 235, 7, 30, "Text"],
+Cell[14443, 539, 561, 22, 108, "Input"],
+Cell[15007, 563, 102, 2, 27, "Text"],
+Cell[15112, 567, 45, 0, 59, "Input"],
+Cell[15160, 569, 68, 0, 27, "Text"],
+Cell[15231, 571, 187, 8, 58, "Input"],
+Cell[15421, 581, 40, 0, 27, "Text"],
+Cell[15464, 583, 230, 9, 58, "Input"],
+Cell[15697, 594, 107, 3, 33, "Input"],
+Cell[15807, 599, 27, 0, 27, "Text"],
+Cell[15837, 601, 1623, 48, 108, "Input"],
+Cell[17463, 651, 45, 0, 59, "Input"],
+Cell[17511, 653, 133, 3, 27, "Text"],
+Cell[17647, 658, 542, 24, 94, "Input"],
+Cell[18192, 684, 95, 2, 33, "Input"],
+Cell[18290, 688, 119, 5, 30, "Text"],
+Cell[18412, 695, 286, 9, 108, "Input"],
+Cell[18701, 706, 176, 6, 34, "Text"],
+Cell[18880, 714, 331, 12, 108, "Input"],
+Cell[19214, 728, 92, 2, 33, "Input"],
+Cell[19309, 732, 113, 4, 30, "Text"],
+Cell[19425, 738, 286, 9, 108, "Input"],
+Cell[19714, 749, 38, 0, 27, "Text"],
+Cell[19755, 751, 331, 12, 108, "Input"],
+Cell[20089, 765, 92, 2, 33, "Input"],
+Cell[20184, 769, 45, 0, 59, "Input"],
+Cell[20232, 771, 344, 8, 52, "Text"],
+Cell[20579, 781, 785, 22, 108, "Input"],
+Cell[21367, 805, 133, 4, 30, "Text"],
+Cell[21503, 811, 785, 22, 108, "Input"],
+Cell[22291, 835, 227, 7, 37, "Text"],
+Cell[22521, 844, 785, 22, 135, "Input"],
+Cell[23309, 868, 132, 4, 37, "Text"],
+Cell[23444, 874, 869, 25, 135, "Input"],
+Cell[24316, 901, 355, 9, 60, "Text"],
+Cell[24674, 912, 797, 29, 177, "Input"],
+Cell[25474, 943, 322, 8, 63, "Text"],
+Cell[25799, 953, 26, 0, 41, "Input"],
+Cell[25828, 955, 408, 10, 60, "Text"],
+Cell[26239, 967, 877, 32, 150, "Input"],
+Cell[27119, 1001, 662, 18, 60, "Text"],
+Cell[27784, 1021, 26, 0, 41, "Input"],
+Cell[27813, 1023, 108, 3, 33, "Text"],
+Cell[27924, 1028, 325, 13, 135, "Input"],
+Cell[28252, 1043, 26, 0, 33, "Text"],
+Cell[28281, 1045, 280, 8, 41, "Input"],
+Cell[28564, 1055, 123, 3, 33, "Text"],
+Cell[28690, 1060, 703, 22, 52, "Input"],
+Cell[29396, 1084, 102, 4, 37, "Text"],
+Cell[29501, 1090, 243, 7, 41, "Input"],
+Cell[29747, 1099, 48, 0, 33, "Text"],
+Cell[29798, 1101, 829, 27, 177, "Input"],
+Cell[30630, 1130, 24, 0, 33, "Text"],
+Cell[30657, 1132, 203, 7, 88, "Input"],
+Cell[30863, 1141, 137, 3, 33, "Text"],
+Cell[31003, 1146, 1113, 34, 135, "Input"],
+Cell[32119, 1182, 65, 0, 33, "Text"],
+Cell[32187, 1184, 523, 16, 41, "Input"],
+Cell[32713, 1202, 472, 16, 52, "Input"],
+Cell[33188, 1220, 45, 0, 73, "Input"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[33282, 1226, 67, 0, 43, "Subsection"],
+Cell[33352, 1228, 3585, 93, 608, "Text"],
+Cell[36940, 1323, 45, 0, 59, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[37022, 1328, 128, 5, 43, "Subsection"],
+Cell[37153, 1335, 110, 4, 60, "Text"],
+Cell[37266, 1341, 1338, 22, 185, "Text"],
+Cell[38607, 1365, 45, 0, 59, "Input"],
+Cell[38655, 1367, 312, 7, 48, "Text"],
+Cell[38970, 1376, 45, 0, 59, "Input"],
+Cell[39018, 1378, 234, 6, 158, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[39289, 1389, 65, 0, 43, "Subsection"],
+Cell[39357, 1391, 445, 20, 52, "Text"],
+Cell[39805, 1413, 718, 31, 108, "Input"],
+Cell[40526, 1446, 96, 2, 27, "Text"],
+Cell[40625, 1450, 45, 0, 59, "Input"],
+Cell[40673, 1452, 80, 4, 27, "Text"],
+Cell[40756, 1458, 1038, 47, 58, "Input"],
+Cell[41797, 1507, 390, 10, 51, "Text"],
+Cell[42190, 1519, 198, 5, 41, "Input"],
+Cell[42391, 1526, 78, 2, 33, "Text"],
+Cell[42472, 1530, 444, 16, 50, "Input"],
+Cell[42919, 1548, 489, 18, 63, "Text"],
+Cell[43411, 1568, 612, 24, 72, "Input"],
+Cell[44026, 1594, 45, 0, 73, "Input"],
+Cell[44074, 1596, 116, 2, 58, "Subsubsection"],
+Cell[CellGroupData[{
+Cell[44215, 1602, 34, 0, 36, "Subsubsection"],
+Cell[44252, 1604, 30, 0, 33, "Text"],
+Cell[44285, 1606, 1178, 43, 135, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[45500, 1654, 34, 0, 50, "Subsubsection"],
+Cell[45537, 1656, 21, 0, 33, "Text"],
+Cell[45561, 1658, 986, 38, 135, "Input"],
+Cell[46550, 1698, 66, 0, 33, "Text"],
+Cell[46619, 1700, 223, 8, 135, "Input"],
+Cell[46845, 1710, 243, 6, 60, "Text"],
+Cell[47091, 1718, 311, 10, 135, "Input"],
+Cell[47405, 1730, 62, 0, 33, "Text"],
+Cell[47470, 1732, 400, 16, 108, "Input"],
+Cell[47873, 1750, 51, 0, 27, "Text"],
+Cell[47927, 1752, 232, 10, 108, "Input"],
+Cell[48162, 1764, 21, 0, 27, "Text"],
+Cell[48186, 1766, 496, 23, 108, "Input"],
+Cell[48685, 1791, 40, 0, 27, "Text"],
+Cell[48728, 1793, 1260, 48, 108, "Input"],
+Cell[49991, 1843, 177, 3, 27, "Text"],
+Cell[50171, 1848, 272, 9, 108, "Input"],
+Cell[50446, 1859, 46, 0, 27, "Text"],
+Cell[50495, 1861, 135, 4, 33, "Input"],
+Cell[50633, 1867, 51, 0, 27, "Text"],
+Cell[50687, 1869, 1159, 43, 108, "Input"],
+Cell[51849, 1914, 45, 0, 59, "Input"],
+Cell[51897, 1916, 453, 15, 51, "Text"],
+Cell[52353, 1933, 330, 13, 108, "Input"],
+Cell[52686, 1948, 113, 3, 33, "Input"],
+Cell[52802, 1953, 96, 4, 27, "Text"],
+Cell[52901, 1959, 45, 0, 59, "Input"],
+Cell[52949, 1961, 53, 0, 27, "Text"],
+Cell[53005, 1963, 574, 21, 108, "Input"],
+Cell[53582, 1986, 24, 0, 27, "Text"],
+Cell[53609, 1988, 599, 22, 108, "Input"],
+Cell[54211, 2012, 52, 0, 27, "Text"],
+Cell[54266, 2014, 1144, 45, 112, "Input"],
+Cell[55413, 2061, 87, 2, 33, "Input"],
+Cell[55503, 2065, 286, 12, 30, "Text"],
+Cell[55792, 2079, 2263, 69, 159, "Input"],
+Cell[58058, 2150, 133, 4, 30, "Text"],
+Cell[58194, 2156, 142, 5, 33, "Input"],
+Cell[58339, 2163, 45, 0, 59, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[58421, 2168, 39, 0, 40, "Subsubsection"],
+Cell[58463, 2170, 32, 0, 27, "Text"],
+Cell[58498, 2172, 376, 17, 144, "Input"],
+Cell[58877, 2191, 36, 0, 27, "Text"],
+Cell[58916, 2193, 677, 24, 112, "Input"],
+Cell[59596, 2219, 1508, 50, 148, "Input"],
+Cell[61107, 2271, 278, 11, 30, "Text"],
+Cell[61388, 2284, 1566, 55, 138, "Input"],
+Cell[62957, 2341, 46, 0, 27, "Text"],
+Cell[63006, 2343, 144, 4, 33, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[63187, 2352, 40, 0, 40, "Subsubsection"],
+Cell[63230, 2354, 424, 17, 108, "Input"],
+Cell[63657, 2373, 677, 24, 112, "Input"],
+Cell[64337, 2399, 1646, 53, 161, "Input"],
+Cell[65986, 2454, 112, 3, 27, "Text"],
+Cell[66101, 2459, 1494, 51, 144, "Input"],
+Cell[67598, 2512, 201, 6, 33, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[67836, 2523, 39, 0, 40, "Subsubsection"],
+Cell[67878, 2525, 426, 17, 108, "Input"],
+Cell[68307, 2544, 726, 26, 112, "Input"],
+Cell[69036, 2572, 928, 29, 133, "Input"],
+Cell[69967, 2603, 260, 9, 27, "Text"],
+Cell[70230, 2614, 812, 26, 146, "Input"],
+Cell[71045, 2642, 20, 0, 27, "Text"],
+Cell[71068, 2644, 135, 4, 33, "Input"],
+Cell[71206, 2650, 76, 0, 27, "Text"],
+Cell[71285, 2652, 119, 3, 33, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[71441, 2660, 40, 0, 40, "Subsubsection"],
+Cell[71484, 2662, 41, 0, 27, "Text"],
+Cell[71528, 2664, 802, 26, 142, "Input"],
+Cell[72333, 2692, 175, 5, 27, "Text"],
+Cell[72511, 2699, 677, 24, 112, "Input"],
+Cell[73191, 2725, 156, 4, 30, "Text"],
+Cell[73350, 2731, 845, 27, 142, "Input"],
+Cell[74198, 2760, 145, 4, 30, "Text"],
+Cell[74346, 2766, 704, 25, 112, "Input"],
+Cell[75053, 2793, 46, 0, 27, "Text"],
+Cell[75102, 2795, 1423, 47, 148, "Input"],
+Cell[76528, 2844, 244, 9, 27, "Text"],
+Cell[76775, 2855, 271, 8, 59, "Input"],
+Cell[77049, 2865, 233, 11, 27, "Text"],
+Cell[77285, 2878, 374, 12, 51, "Text"],
+Cell[77662, 2892, 45, 0, 59, "Input"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[77756, 2898, 41, 0, 43, "Subsection"],
+Cell[CellGroupData[{
+Cell[77822, 2902, 42, 0, 40, "Subsubsection"],
+Cell[77867, 2904, 611, 14, 90, "Text"],
+Cell[78481, 2920, 222, 6, 33, "Input"],
+Cell[78706, 2928, 171, 5, 30, "Text"],
+Cell[78880, 2935, 108, 3, 33, "Input"],
+Cell[78991, 2940, 334, 10, 42, "Input"],
+Cell[79328, 2952, 57, 0, 27, "Text"],
+Cell[79388, 2954, 170, 5, 33, "Input"],
+Cell[79561, 2961, 42, 0, 27, "Text"],
+Cell[79606, 2963, 134, 3, 33, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[79777, 2971, 53, 0, 40, "Subsubsection"],
+Cell[79833, 2973, 392, 11, 134, "Input"],
+Cell[80228, 2986, 153, 3, 27, "Text"],
+Cell[80384, 2991, 409, 17, 111, "Input"],
+Cell[80796, 3010, 20, 0, 27, "Text"],
+Cell[80819, 3012, 136, 4, 33, "Input"],
+Cell[80958, 3018, 49, 0, 27, "Text"],
+Cell[81010, 3020, 271, 8, 33, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[81318, 3033, 76, 2, 41, "Subsubsection"],
+Cell[81397, 3037, 1464, 27, 217, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[82898, 3069, 106, 2, 40, "Subsubsection"],
+Cell[83007, 3073, 26, 0, 27, "Text"],
+Cell[83036, 3075, 216, 9, 58, "Input"],
+Cell[83255, 3086, 25, 0, 27, "Text"],
+Cell[CellGroupData[{
+Cell[83305, 3090, 206, 6, 33, "Input"],
+Cell[83514, 3098, 1626, 56, 207, "Output"]
+}, Open  ]],
+Cell[85155, 3157, 36, 0, 27, "Text"],
+Cell[85194, 3159, 2164, 76, 212, "Input"],
+Cell[87361, 3237, 27, 0, 27, "Text"],
+Cell[87391, 3239, 1425, 53, 212, "Input"],
+Cell[88819, 3294, 24, 0, 27, "Text"],
+Cell[88846, 3296, 418, 12, 208, "Input"],
+Cell[89267, 3310, 35, 0, 27, "Text"],
+Cell[89305, 3312, 1925, 75, 212, "Input"],
+Cell[91233, 3389, 23, 0, 27, "Text"],
+Cell[91259, 3391, 1218, 55, 336, "Input"],
+Cell[92480, 3448, 123, 3, 27, "Text"],
+Cell[92606, 3453, 465, 13, 208, "Input"],
+Cell[93074, 3468, 309, 6, 48, "Text"],
+Cell[93386, 3476, 26, 0, 33, "Input"],
+Cell[93415, 3478, 143, 3, 27, "Text"],
+Cell[93561, 3483, 557, 18, 33, "Input"],
+Cell[94121, 3503, 67, 0, 27, "Text"],
+Cell[94191, 3505, 195, 6, 33, "Input"],
+Cell[94389, 3513, 172, 8, 30, "Text"],
+Cell[94564, 3523, 131, 4, 33, "Input"],
+Cell[94698, 3529, 321, 7, 81, "Text"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[95068, 3542, 40, 0, 43, "Subsection"],
+Cell[95111, 3544, 428, 10, 69, "Text"],
+Cell[95542, 3556, 377, 17, 144, "Input"],
+Cell[95922, 3575, 62, 0, 27, "Text"],
+Cell[95987, 3577, 961, 33, 144, "Input"],
+Cell[96951, 3612, 43, 0, 27, "Text"],
+Cell[CellGroupData[{
+Cell[97019, 3616, 910, 35, 112, "Input"],
+Cell[97932, 3653, 4466, 135, 154, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[102435, 3793, 89, 2, 33, "Input"],
+Cell[102527, 3797, 3157, 94, 144, "Output"]
+}, Open  ]],
+Cell[105699, 3894, 26, 0, 27, "Text"],
+Cell[105728, 3896, 3497, 101, 162, "Input"],
+Cell[109228, 3999, 118, 3, 27, "Text"],
+Cell[109349, 4004, 343, 10, 33, "Input"],
+Cell[109695, 4016, 160, 6, 30, "Text"],
+Cell[CellGroupData[{
+Cell[109880, 4026, 302, 9, 59, "Input"],
+Cell[110185, 4037, 464, 16, 67, "Output"],
+Cell[110652, 4055, 248, 9, 64, "Output"]
+}, Open  ]],
+Cell[110915, 4067, 114, 3, 27, "Text"],
+Cell[CellGroupData[{
+Cell[111054, 4074, 838, 28, 154, "Input"],
+Cell[111895, 4104, 556, 20, 61, "Output"],
+Cell[112454, 4126, 556, 20, 61, "Output"]
+}, Open  ]],
+Cell[113025, 4149, 218, 4, 48, "Text"],
+Cell[113246, 4155, 70, 0, 27, "Text"],
+Cell[CellGroupData[{
+Cell[113341, 4159, 3876, 114, 163, "Input"],
+Cell[117220, 4275, 1319, 39, 55, "Output"],
+Cell[118542, 4316, 1272, 38, 73, "Output"]
+}, Open  ]],
+Cell[119829, 4357, 32, 0, 27, "Text"],
+Cell[CellGroupData[{
+Cell[119886, 4361, 136, 4, 33, "Input"],
+Cell[120025, 4367, 3138, 91, 247, "Output"]
+}, Open  ]],
+Cell[123178, 4461, 59, 0, 27, "Text"],
+Cell[CellGroupData[{
+Cell[123262, 4465, 96, 2, 33, "Input"],
+Cell[123361, 4469, 1462, 46, 223, "Output"]
+}, Open  ]],
+Cell[124838, 4518, 41, 0, 27, "Text"],
+Cell[124882, 4520, 2365, 73, 236, "Input"],
+Cell[127250, 4595, 49, 0, 27, "Text"],
+Cell[127302, 4597, 1224, 50, 152, "Input"],
+Cell[128529, 4649, 37, 0, 27, "Text"],
+Cell[CellGroupData[{
+Cell[128591, 4653, 808, 32, 152, "Input"],
+Cell[129402, 4687, 53, 1, 30, "Output"]
+}, Open  ]],
+Cell[129470, 4691, 26, 0, 27, "Text"],
+Cell[CellGroupData[{
+Cell[129521, 4695, 814, 32, 152, "Input"],
+Cell[130338, 4729, 336, 10, 30, "Output"]
+}, Open  ]],
+Cell[130689, 4742, 105, 4, 30, "Text"],
+Cell[CellGroupData[{
+Cell[130819, 4750, 680, 35, 108, "Input"],
+Cell[131502, 4787, 269, 9, 30, "Output"]
+}, Open  ]],
+Cell[131786, 4799, 249, 10, 30, "Text"],
+Cell[CellGroupData[{
+Cell[132060, 4813, 3606, 104, 216, "Input"],
+Cell[135669, 4919, 2337, 70, 135, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[138043, 4994, 86, 2, 33, "Input"],
+Cell[138132, 4998, 952, 32, 68, "Output"]
+}, Open  ]],
+Cell[139099, 5033, 113, 4, 30, "Text"],
+Cell[CellGroupData[{
+Cell[139237, 5041, 1348, 44, 112, "Input"],
+Cell[140588, 5087, 1422, 45, 221, "Output"]
+}, Open  ]],
+Cell[142025, 5135, 1782, 55, 180, "Input"],
+Cell[143810, 5192, 154, 3, 27, "Text"],
+Cell[CellGroupData[{
+Cell[143989, 5199, 336, 11, 33, "Input"],
+Cell[144328, 5212, 1422, 45, 221, "Output"]
+}, Open  ]],
+Cell[145765, 5260, 26, 0, 33, "Input"],
+Cell[145794, 5262, 533, 12, 126, "Text"],
+Cell[146330, 5276, 872, 28, 128, "Input"],
+Cell[147205, 5306, 56, 0, 27, "Text"],
+Cell[147264, 5308, 245, 8, 33, "Input"],
+Cell[147512, 5318, 159, 7, 27, "Text"],
+Cell[CellGroupData[{
+Cell[147696, 5329, 3345, 95, 145, "Input"],
+Cell[151044, 5426, 749, 24, 51, "Output"],
+Cell[151796, 5452, 678, 22, 69, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[152511, 5479, 159, 3, 59, "Input"],
+Cell[152673, 5484, 1251, 37, 101, "Output"],
+Cell[153927, 5523, 1176, 35, 123, "Output"]
+}, Open  ]],
+Cell[155118, 5561, 45, 0, 59, "Input"],
+Cell[155166, 5563, 41, 0, 27, "Text"],
+Cell[155210, 5565, 97, 3, 33, "Input"],
+Cell[155310, 5570, 237, 6, 33, "Input"],
+Cell[155550, 5578, 34, 0, 27, "Text"],
+Cell[155587, 5580, 568, 18, 84, "Input"],
+Cell[156158, 5600, 23, 0, 27, "Text"],
+Cell[CellGroupData[{
+Cell[156206, 5604, 313, 10, 33, "Input"],
+Cell[156522, 5616, 100, 2, 30, "Output"]
+}, Open  ]],
+Cell[156637, 5621, 36, 0, 27, "Text"],
+Cell[156676, 5623, 188, 6, 33, "Input"],
+Cell[156867, 5631, 73, 0, 27, "Text"],
+Cell[156943, 5633, 233, 6, 38, "Input"],
+Cell[157179, 5641, 227, 8, 44, "Text"],
+Cell[157409, 5651, 2744, 95, 255, "Input"],
+Cell[160156, 5748, 262, 8, 31, "Text"],
+Cell[160421, 5758, 501, 14, 69, "Input"],
+Cell[160925, 5774, 26, 0, 33, "Input"],
+Cell[160954, 5776, 407, 11, 49, "Text"],
+Cell[161364, 5789, 555, 16, 69, "Input"],
+Cell[161922, 5807, 73, 0, 27, "Text"],
+Cell[161998, 5809, 344, 10, 38, "Input"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

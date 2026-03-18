@@ -1,0 +1,230 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 6.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[      5776,        220]
+NotebookOptionsPosition[      4473,        171]
+NotebookOutlinePosition[      4860,        188]
+CellTagsIndexPosition[      4817,        185]
+WindowFrame->Normal
+ContainsDynamic->False*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[TextData[{
+ "Open a fresh notebook, go to ",
+ StyleBox["Window > Show Toolbar",
+  FontWeight->"Bold"],
+ " and notice the pull-down menu that has appeared at the top of the page. \
+Test\[LongDash]writing always in a fresh cell\[LongDash]the effect of each, \
+producing a page with the following appearance:"
+}], "Text",
+ CellChangeTimes->{{3.396721493170891*^9, 3.396721494499692*^9}},
+ FontColor->RGBColor[1, 0, 0]],
+
+Cell[CellGroupData[{
+
+Cell["Title", "Title"],
+
+Cell["Subtitle", "Subtitle"],
+
+Cell["Subsubtitle", "Subsubtitle"],
+
+Cell[CellGroupData[{
+
+Cell["Section", "Section"],
+
+Cell[CellGroupData[{
+
+Cell["Subsection", "Subsection"],
+
+Cell[CellGroupData[{
+
+Cell["Subsubsection", "Subsubsection"],
+
+Cell["Text", "Text"],
+
+Cell[BoxData["Input"], "Input"],
+
+Cell[TextData[{
+ "Use",
+ StyleBox[" ",
+  FontWeight->"Bold"],
+ StyleBox["Input",
+  FontWeight->"Bold",
+  FontColor->GrayLevel[0]],
+ StyleBox[" ONLY TO WRITE COMMANDS",
+  FontWeight->"Bold"],
+ ", never to write text or comments. As you see, you have, after all, plenty \
+of options!"
+}], "Text",
+ FontColor->RGBColor[1, 0, 0]],
+
+Cell[BoxData["Output"], "Output",
+ CellChangeTimes->{{3.3967216773308764`*^9, 3.396721679169242*^9}}],
+
+Cell["Inline Formula", "InlineFormula",
+ CellChangeTimes->{{3.396721712498156*^9, 3.39672171821347*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Display", " ", "Formula"}]], "DisplayFormula",
+ CellChangeTimes->{{3.396721730877787*^9, 3.396721734821807*^9}}],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input",
+ CellChangeTimes->{3.396721938124887*^9}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["New Section", "Section"],
+
+Cell["\<\
+Notice what has happened to the cell brackets, now that we have started a new \
+section.\
+\>", "Text",
+ CellChangeTimes->{{3.396721969225511*^9, 3.396721977925894*^9}},
+ FontColor->RGBColor[1, 0, 0]],
+
+Cell[TextData[{
+ "Now scroll back to the top of the page, go ",
+ StyleBox["Format > Style Sheet ",
+  FontWeight->"Bold"],
+ "and serially select each of the 16 styles listed, watching to  see its \
+effect. Note that the number and nature of the options listed in the \
+pull-down menu at the top of the page changes as you go from style to style."
+}], "Text",
+ CellChangeTimes->{3.396722022569556*^9},
+ FontColor->RGBColor[0, 0, 1]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Font Manipulation", "Section"],
+
+Cell[TextData[{
+ "Select a word, such as this \"bigger\" (or, for that matter, select an \
+entire cell), hit \[CloverLeaf]",
+ StyleBox[" ",
+  FontWeight->"Bold"],
+ StyleBox["+",
+  FontSize->14,
+  FontWeight->"Bold"],
+ StyleBox[" and",
+  FontSize->14],
+ StyleBox[" ",
+  FontSize->14,
+  FontWeight->"Bold"],
+ StyleBox["get ",
+  FontSize->14],
+ StyleBox["bigger",
+  FontSize->18],
+ StyleBox[".",
+  FontSize->14],
+ " Do it again and get",
+ StyleBox[" still bigger",
+  FontSize->18],
+ ".\n\nSimilarly, select \"smaller,\" hit \[CloverLeaf]",
+ StyleBox[" -",
+  FontWeight->"Bold"],
+ " and get ",
+ StyleBox["smaller",
+  FontSize->9],
+ " and still ",
+ StyleBox["smaller",
+  FontSize->8],
+ ".\n\n\[CloverLeaf] b enters/exits ",
+ StyleBox["BOLDFACE",
+  FontWeight->"Bold"],
+ "; \[CloverLeaf] i enters/exits ",
+ StyleBox["ITALIC",
+  FontSlant->"Italic"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.3967221413261623`*^9, 3.396722215359531*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Mode Selection from the Keyboard", "Section",
+ CellChangeTimes->{{3.39672267781321*^9, 3.396722688785974*^9}}],
+
+Cell["\<\
+Sucessively, hit \[CloverLeaf]1, \[CloverLeaf]2, \[Ellipsis] , \[CloverLeaf]9 \
+while watching the mode selector in the Toolbar. It will become obvious that \
+those keystrokes serve as speedy alternatives to mode-selection from the \
+Toolbar. There are, of course, some modes\[LongDash]in some styles many modes\
+\[LongDash]that cannot be selected in this way.\
+\>", "Text",
+ CellChangeTimes->{{3.396722725798595*^9, 3.396723000894846*^9}}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowToolbars->"EditBar",
+WindowSize->{839, 928},
+WindowMargins->{{12, Automatic}, {Automatic, 9}},
+Magnification->1.25,
+FrontEndVersion->"6.0 for Mac OS X PowerPC (32-bit) (June 19, 2007)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[568, 21, 420, 9, 51, "Text"],
+Cell[CellGroupData[{
+Cell[1013, 34, 22, 0, 95, "Title"],
+Cell[1038, 36, 28, 0, 57, "Subtitle"],
+Cell[1069, 38, 34, 0, 32, "Subsubtitle"],
+Cell[CellGroupData[{
+Cell[1128, 42, 26, 0, 83, "Section"],
+Cell[CellGroupData[{
+Cell[1179, 46, 32, 0, 42, "Subsection"],
+Cell[CellGroupData[{
+Cell[1236, 50, 38, 0, 31, "Subsubsection"],
+Cell[1277, 52, 20, 0, 32, "Text"],
+Cell[1300, 54, 31, 0, 33, "Input"],
+Cell[1334, 56, 325, 12, 51, "Text"],
+Cell[1662, 70, 101, 1, 33, "Output"],
+Cell[1766, 73, 104, 1, 25, "InlineFormula"],
+Cell[1873, 76, 136, 2, 25, "DisplayFormula"],
+Cell[2012, 80, 87, 1, 53, "Input"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2160, 88, 30, 0, 83, "Section"],
+Cell[2193, 90, 209, 5, 32, "Text"],
+Cell[2405, 97, 430, 9, 70, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2872, 111, 36, 0, 83, "Section"],
+Cell[2911, 113, 928, 39, 140, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3876, 157, 116, 1, 83, "Section"],
+Cell[3995, 160, 450, 7, 70, "Text"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

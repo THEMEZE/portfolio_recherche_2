@@ -1,0 +1,68 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 6.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[      1858,         59]
+NotebookOptionsPosition[      1606,         46]
+NotebookOutlinePosition[      1948,         61]
+CellTagsIndexPosition[      1905,         58]
+WindowFrame->Normal
+ContainsDynamic->False*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[TextData[{
+ "When I taught Quantum I in the Spring of 2007 I took Griffiths' book as my \
+nominal text, but illustrated/amplified/animated that material in the present \
+collection of ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " notebooks. Most lectures took place with this material projected on a \
+screen visible to the class.\n\nThe notebooks were written in ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " 5.2. I have today  used automatic resources to render them compatible with \
+",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " 6. This means that all animations are still presented in the old style, as \
+activated lists of figures. No use is made here of ",
+ StyleBox["Animate", "Input"],
+ " or ",
+ StyleBox["Manipulate", "Input"],
+ ". I have not worked through each notebook to make certain that everything \
+does in fact work as intended.\n\n\nNicholas Wheeler\nReed College Physics \
+Department\n14 December 2007"
+}], "Text",
+ CellChangeTimes->{{3.4066568305629587`*^9, 3.406657301116089*^9}}]
+},
+WindowSize->{640, 750},
+WindowMargins->{{529, Automatic}, {146, Automatic}},
+FrontEndVersion->"6.0 for Mac OS X PowerPC (32-bit) (June 19, 2007)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[568, 21, 1034, 23, 206, "Text"]
+}
+]
+*)
+
+(* End of internal cache information *)

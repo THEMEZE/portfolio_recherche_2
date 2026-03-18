@@ -1,0 +1,219 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 6.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[      6648,        209]
+NotebookOptionsPosition[      5866,        177]
+NotebookOutlinePosition[      6226,        193]
+CellTagsIndexPosition[      6183,        190]
+WindowFrame->Normal
+ContainsDynamic->True *)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"2", "-", "2"}]], "Input",
+ CellChangeTimes->{{3.4301539640083838`*^9, 3.4301539642778254`*^9}}],
+
+Cell[BoxData["0"], "Output",
+ CellChangeTimes->{3.4301539656713953`*^9}]
+}, Open  ]],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input",
+ CellChangeTimes->{3.430153973548798*^9}],
+
+Cell[CellGroupData[{
+
+Cell["Foucault Pendulum", "Subsection",
+ CellChangeTimes->{{3.430153991799268*^9, 3.430153997611005*^9}}],
+
+Cell["Working from (17) in COMMENTS 3, we set ", "Text",
+ CellChangeTimes->{{3.430154364936921*^9, 3.430154375355289*^9}, {
+  3.430154428592551*^9, 3.430154442551216*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"\[Omega]", "=", "1"}], ";"}]], "Input",
+ CellChangeTimes->{{3.430154459115931*^9, 3.430154467275226*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Orbit", "[", 
+   RowBox[{"t_", ",", "\[Beta]_"}], "]"}], ":=", 
+  RowBox[{"Flatten", "[", 
+   RowBox[{"Transpose", "[", 
+    RowBox[{
+     TagBox[
+      RowBox[{"(", "\[NoBreak]", GridBox[{
+         {
+          RowBox[{"Cos", "[", 
+           RowBox[{"t", " ", "\[Beta]"}], "]"}], 
+          RowBox[{"-", 
+           RowBox[{"Sin", "[", 
+            RowBox[{"t", " ", "\[Beta]"}], "]"}]}]},
+         {
+          RowBox[{"Sin", "[", 
+           RowBox[{"t", " ", "\[Beta]"}], "]"}], 
+          RowBox[{"Cos", "[", 
+           RowBox[{"t", " ", "\[Beta]"}], "]"}]}
+        },
+        GridBoxAlignment->{
+         "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, 
+          "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+        GridBoxSpacings->{"Columns" -> {
+            Offset[0.27999999999999997`], {
+             Offset[0.7]}, 
+            Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, 
+          "Rows" -> {
+            Offset[0.2], {
+             Offset[0.4]}, 
+            Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+      Function[BoxForm`e$, 
+       MatrixForm[BoxForm`e$]]], ".", 
+     RowBox[{"(", "\[NoBreak]", GridBox[{
+        {
+         RowBox[{"Cos", "[", 
+          RowBox[{"t", 
+           SqrtBox[
+            RowBox[{
+             SuperscriptBox["\[Omega]", "2"], "+", 
+             SuperscriptBox["\[Beta]", "2"]}]]}], "]"}]},
+        {"0"}
+       }], "\[NoBreak]", ")"}]}], "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.4301544977243958`*^9, 3.430154564386518*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Orbit", "[", 
+  RowBox[{"t", ",", "\[Beta]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.430154577228138*^9, 3.430154579032995*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Cos", "[", 
+     RowBox[{"t", " ", "\[Beta]"}], "]"}], " ", 
+    RowBox[{"Cos", "[", 
+     RowBox[{"t", " ", 
+      SqrtBox[
+       RowBox[{"1", "+", 
+        SuperscriptBox["\[Beta]", "2"]}]]}], "]"}]}], ",", 
+   RowBox[{
+    RowBox[{"Cos", "[", 
+     RowBox[{"t", " ", 
+      SqrtBox[
+       RowBox[{"1", "+", 
+        SuperscriptBox["\[Beta]", "2"]}]]}], "]"}], " ", 
+    RowBox[{"Sin", "[", 
+     RowBox[{"t", " ", "\[Beta]"}], "]"}]}]}], "}"}]], "Output",
+ CellChangeTimes->{3.430154580341134*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"ParametricPlot", "[", 
+    RowBox[{
+     RowBox[{"Orbit", "[", 
+      RowBox[{"t", ",", "\[Beta]"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", 
+       RowBox[{"0.8", 
+        RowBox[{"\[Pi]", "/", "\[Beta]"}]}]}], "}"}]}], "]"}], ",", " ", 
+   RowBox[{"{", 
+    RowBox[{"\[Beta]", ",", "0.01", ",", "0.1"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.430154604694742*^9, 3.430154662265226*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`\[Beta]$$ = 0.05, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`\[Beta]$$], 0.01, 0.1}}, Typeset`size$$ = {
+    450., {218., 226.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`\[Beta]$6537$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`\[Beta]$$ = 0.01}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`\[Beta]$$, $CellContext`\[Beta]$6537$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> ParametricPlot[
+        $CellContext`Orbit[$CellContext`t, $CellContext`\[Beta]$$], \
+{$CellContext`t, 0, 0.8 (Pi/$CellContext`\[Beta]$$)}], 
+      "Specifications" :> {{$CellContext`\[Beta]$$, 0.01, 0.1}}, 
+      "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{494.5, {284., 290.5}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.430154633656094*^9, 3.430154678593018*^9}}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{718, 769},
+WindowMargins->{{36, Automatic}, {Automatic, 84}},
+Magnification->1.25,
+FrontEndVersion->"6.0 for Mac OS X PowerPC (32-bit) (May 21, 2008)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[590, 23, 119, 2, 33, "Input"],
+Cell[712, 27, 72, 1, 33, "Output"]
+}, Open  ]],
+Cell[799, 31, 87, 1, 53, "Input"],
+Cell[CellGroupData[{
+Cell[911, 36, 105, 1, 42, "Subsection"],
+Cell[1019, 39, 171, 2, 32, "Text"],
+Cell[1193, 43, 140, 3, 33, "Input"],
+Cell[1336, 48, 1545, 44, 93, "Input"],
+Cell[CellGroupData[{
+Cell[2906, 96, 153, 3, 33, "Input"],
+Cell[3062, 101, 567, 19, 51, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3666, 125, 489, 13, 53, "Input"],
+Cell[4158, 140, 1680, 33, 595, "Output"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
