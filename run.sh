@@ -1,11 +1,13 @@
 #!/bin/bash
 
 echo "🔧 Compression PDF..."
+echo "🧹 Compression automatique..."
 #./run.sh compress
-python scripts/compress_pdf.py physics/faculty/themeze/documents/ --recursive --replace
+python scripts/compress_pdf.py physics/faculty/themeze/documents/ --recursive --split --replace
+python scripts/compress_pdf.py physics/faculty/themeze/documents/ --recursive --compress --replace
 
 echo "🌐 JSON..."
-bash scripts/json.py
+python -m scripts.json
 
 echo "📤 Push Git..."
 # ./run.sh push
@@ -13,6 +15,6 @@ bash scripts/git_push.sh
 
 echo "🌐 Lancement serveur..."
 # ./run.sh serve
-python scripts/serve.py &
+python scripts/server.py &
 
 
