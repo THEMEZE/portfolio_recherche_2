@@ -15,6 +15,6 @@ bash scripts/git_push.sh
 
 echo "🌐 Lancement serveur..."
 # ./run.sh serve
-python scripts/server.py &
+#python scripts/server.py &
 
 
