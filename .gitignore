@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.pyc
+*tmp/
+
+# Données lourdes
+#*.pdf
+
+# Dossiers scientifiques lourds
+#/physics/faculty/themeze/documents/Aggregation Physique-Chimie/
+/physics/faculty/themeze/documents/Aggregation Physique-Chimie/Livres/
+/physics/faculty/themeze/documents/Aggregation Physique-Chimie/Oraux/2020 Eloise Mestre/
+/physics/faculty/themeze/documents/Archives/
+/physics/faculty/themeze/documents/Chimie/
+/physics/faculty/themeze/documents/Data Science/
+/physics/faculty/themeze/documents/Design/
+#/physics/faculty/themeze/documents/Enseignement/
+/physics/faculty/themeze/documents/Gravitation/
+/physics/faculty/themeze/documents/Latex/
+/physics/faculty/themeze/documents/M-Theory/
+/physics/faculty/themeze/documents/Math-Physic/
+/physics/faculty/themeze/documents/Mathematic/
+/physics/faculty/themeze/documents/Particul Physic/
+/physics/faculty/themeze/documents/Physic/
+/physics/faculty/themeze/documents/Quantum Gravity/
+/physics/faculty/themeze/documents/Quantum Mechanic/
+/physics/faculty/themeze/documents/Qunatum Field Theory/
+
+
+/physics/faculty/themeze/documents/Quantum Mechanic/Quantum Mechanics - A Modern Development - L. Ballentine.pdf
+/physics/faculty/themeze/documents/Gravitation/session_Cosmologie_primordiale_merged.pdf
+/physics/faculty/themeze/documents/Physic/Does God Play Dice_  (Ian Stewart) .pdf
+/physics/faculty/themeze/documents/Mathematic/Les maths en tête - Algèbre et probabilités 2021 (Xavier Gourdon) v2.pdf
+/physics/faculty/themeze/documents/Quantum Mechanic/session_20251102_121822_merged_pdf.pdf
+/physics/faculty/themeze/documents/Quantum Mechanic/session_20251107_135818_merged_pdf.pdf
+/physics/faculty/themeze/documents/Math-Physic/session_20251102_064439_merged_pdf.pdf
+/physics/faculty/themeze/documents/Math-Physic/session_20251102_034631_merged_pdf.pdf
+/physics/faculty/themeze/documents/Physic/Physique statistique Nicolas.pdf
+/physics/faculty/themeze/documents/Quantum Mechanic/Physique quantique des champs et des transitions de phase Dragi Karevski.pdf
+/physics/faculty/themeze/documents/M-Theory/Introduction To Symmetry And Supersymmetry In Quantum Field Theory (J. Lopuszanski) (z-library.sk, 1lib.sk, z-lib.sk).pdf

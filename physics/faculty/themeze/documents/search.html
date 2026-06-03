@@ -1,0 +1,832 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <title>
+      Lectures-Notes Math-Physics| Guillaume THÉMÈZE | Search Biblio
+    </title>
+    <meta content="Lectures-Notes Math-Physics" name="Keywords" />
+
+    <meta content="width=device-width" name="viewport" />
+    <meta content="7fb4c178860a0f1b010931f88797dd03" name="cmsid" />
+
+    <meta name="color-scheme" content="light only" />
+    <meta name="description" content="Lectures-Nones Math-Physics" />
+    <meta property="og:site_name" content="Guillaume Themeze" />
+    <meta property="og:title" content="Guillaume Themeze" />
+    <meta property="og:type" content="Biblio" />
+    <meta property="og:description" content="Lectures-Notes Math-Physics" />
+    <!-- <meta
+      property="og:image"
+      content="https://raw.githubusercontent.com/THEMEZE/portfolio_general/main/assets/images/project-portfolio-lecture.png"
+    /> -->
+    <meta
+      property="og:image"
+      content="https://raw.githubusercontent.com/THEMEZE/portfolio_general/main/assets/images/portraits_001.png"
+    />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="800" />
+    <meta
+      property="og:url"
+      content="https://themeze.github.io/portfolio_recherche_2/physics/faculty/themeze/index.html"
+    />
+    <link
+      rel="canonical"
+      href="https://themeze.github.io/portfolio_recherche_2/physics/faculty/themeze/index.html"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?display=swap&family=Crimson+Text:ital,wght@0,400;0,700;1,400;1,700&family=Inter:ital,wght@0,700;1,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <link
+      href="../../../../physics/faculty/themeze/assets/css/site.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <link
+      rel="shortcut icon"
+      href="https://raw.githubusercontent.com/THEMEZE/portfolio_general/main/assets/images/portraits_001.png"
+      type="image/png"
+    />
+    <!-- <link rel="icon" href="./assets/images/icon.png" > -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      #searchContainer {
+        max-width: 700px;
+        margin-bottom: 20px;
+        position: relative;
+      }
+      #searchInput {
+        width: 100%;
+        padding: 8px;
+        font-size: 16px;
+        box-sizing: border-box;
+      }
+      #suggestions {
+        border: 1px solid #ccc;
+        background: #fff;
+        position: absolute;
+        top: 38px;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        display: none;
+        max-height: 200px;
+        overflow-y: auto;
+      }
+      #suggestions ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      #suggestions li {
+        padding: 5px 10px;
+        cursor: pointer;
+      }
+      #suggestions li:hover {
+        background: #f0f0f0;
+      }
+      #selectedTags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        margin: 5px 0;
+      }
+      .tag {
+        background: #007bff;
+        color: #fff;
+        padding: 4px 8px;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+      }
+      .tag span {
+        margin-left: 5px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      #searchBox {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        border: 1px solid #ccc;
+        padding: 5px;
+        min-height: 40px;
+        cursor: text;
+      }
+
+      #searchBox input {
+        border: none;
+        outline: none;
+        flex: 1;
+        min-width: 120px;
+        font-size: 16px;
+      }
+
+      #tagsInline {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+      }
+
+      #suggestions li {
+        display: flex;
+        gap: 6px;
+        align-items: center;
+      }
+
+      #suggestions .tag {
+        font-size: 11px;
+        padding: 2px 5px;
+      }
+
+      .tag {
+        background: #007bff;
+        color: white;
+        padding: 3px 6px;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+      }
+
+      .tag span {
+        margin-left: 5px;
+        cursor: pointer;
+      }
+
+      .tag.keyword {
+        background: #007bff;
+      }
+
+      .tag.author {
+        background: #28a745;
+      }
+
+      .tag.category {
+        background: #ff9800;
+      }
+
+      .tag.name {
+        background: #9c27b0; /* violet */
+      }
+
+      #searchButtons {
+        margin-top: 5px;
+      }
+      #searchButtons button {
+        padding: 6px 12px;
+        margin-right: 5px;
+        font-size: 14px;
+        cursor: pointer;
+      }
+      #docs {
+        margin-top: 20px;
+      }
+      #docs ul {
+        list-style: none;
+        padding-left: 0;
+      }
+      #docs li.folder {
+        margin: 5px 0;
+      }
+      #docs li.folder > strong {
+        cursor: pointer;
+      }
+      #docs li ul {
+        list-style: none;
+        padding-left: 20px;
+        display: none;
+      }
+      #docs li.folder ul {
+        display: block;
+      }
+      #filteredList {
+        margin-top: 10px;
+      }
+      #filteredList ul {
+        list-style: none;
+        padding-left: 0;
+      }
+      #filteredList li {
+        margin: 3px 0;
+      }
+      #filteredList li a {
+        text-decoration: none;
+        color: #007bff;
+      }
+      #filteredList li a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "//www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-M2JDTCG");
+    </script>
+
+    <div id="accessLinks">
+      <a href="#siteNav">Skip to site navigation.</a><br />
+      <a href="#nameplate">Skip to contact information.</a><br />
+      <a href="#mainContent">Skip to content.</a>
+    </div>
+    <div id="wrapper">
+      <div id="container">
+        <div id="headerContainer">
+          <div id="header">
+            <div id="nameplate">
+              <h1>
+                <a href="../index.html" title="Home page">Guillaume THÉMÈZE</a>
+              </h1>
+              <h2>Universite-paris-saclay</h2>
+              <p>
+                Institut d'Optique<br />
+                <a href="mailto:guillaume.themeze@gmail.com"
+                  >guillaume.themeze@gmail.com</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+        <div id="pageBody">
+          <div id="siteNav">
+            <div id="siteNav_links">
+              <h3>Site Navigation</h3>
+              <ul>
+                <li>
+                  <a href="../index.html">Home</a>
+                </li>
+                <li>
+                  <a href="./index.html">Documents</a>
+                </li>
+                <li>
+                  <a href="./search.html">Search Biblio</a>
+                </li>
+                <li>
+                  <a
+                    href="https://themeze.github.io/quartz_note/"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    >Lecture Notes Reflection</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div id="mainContent">
+            <div id="searchContainer">
+              <div id="searchBox">
+                <div id="tagsInline"></div>
+                <input
+                  type="text"
+                  id="searchInput"
+                  placeholder="Ajouter filtre..."
+                  autocomplete="off"
+                />
+              </div>
+              <div id="suggestions"></div>
+
+              <div id="searchButtons">
+                <button id="btnUnion">🟢 Union</button>
+                <button id="btnIntersection">🔵 Intersection</button>
+              </div>
+            </div>
+            <div id="filteredList"></div>
+            <!-- Liste des docs filtrés cliquables -->
+            <div id="docs"><ul></ul></div>
+            <hr />
+            <div id="mainContentFooter"></div>
+          </div>
+          <div id="secondaryContent"></div>
+          <div id="footer"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script>
+  let allDocs = [];
+  let selectedTags = []; // MAIS objets maintenant
+  let currentMode = "union";
+
+  function flattenDocs(tree) {
+    let result = [];
+
+    function recurse(node) {
+      if (node.type === "file") {
+        result.push({
+          name: node.name,
+          path: node.path,
+        });
+      }
+
+      if (node.type === "folder" && node.children) {
+        node.children.forEach(recurse);
+      }
+    }
+
+    tree.forEach(recurse);
+    return result;
+  }
+
+  function flattenDocs(tree) {
+    let result = [];
+
+    function recurse(node, parentKeywords = []) {
+      if (node.type === "file") {
+        result.push({
+          name: node.name,
+          path: node.path,
+          keywords: parentKeywords,
+        });
+      }
+
+      if (node.type === "folder") {
+        const newKeywords = [...parentKeywords, node.name];
+
+        (node.children || []).forEach((child) => recurse(child, newKeywords));
+      }
+    }
+
+    tree.forEach((n) => recurse(n));
+    return result;
+  }
+
+  async function loadDocs() {
+    try {
+      const [docsRes, searchRes] = await Promise.all([
+        fetch("docs.json"),
+        fetch("search.json"),
+      ]);
+
+      const docsTree = await docsRes.json();
+      const searchData = await searchRes.json();
+
+      const flatDocs = flattenDocs(docsTree);
+
+      // fusion
+      allDocs = flatDocs.map((doc) => {
+        const meta = searchData.find((m) => m.path === doc.path);
+        return {
+          ...doc,
+          author: meta?.author || [],
+          category: meta?.category || [],
+          keywords: [...(doc.keywords || []), ...(meta?.keywords || [])],
+        };
+      });
+
+      updateDocs(allDocs);
+      renderFilteredDocs(allDocs);
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  function initDocs() {
+    $("#docs li.folder").addClass("closed");
+
+    $("#docs li.folder > strong").wrap('<a href="#"></a>');
+  }
+
+  // Affiche l'arborescence avec icône 📂 ouvert/fermé
+  function updateDocs(docs) {
+    const container = document.querySelector("#docs ul");
+    container.innerHTML = "";
+
+    const keywordMap = {};
+
+    docs.forEach((doc) => {
+      (doc.keywords || []).forEach((kw) => {
+        const k = kw;
+        if (!keywordMap[k]) keywordMap[k] = [];
+        keywordMap[k].push(doc);
+      });
+    });
+
+    Object.keys(keywordMap)
+      .sort()
+      .forEach((kw) => {
+        const li = document.createElement("li");
+        li.className = "folder closed";
+
+        const a = document.createElement("a");
+        a.href = "#";
+
+        const strong = document.createElement("strong");
+        // strong.innerHTML = `📁 ${kw}`;
+        strong.innerHTML = `${kw}`;
+
+        a.appendChild(strong);
+        li.appendChild(a);
+
+        const ul = document.createElement("ul");
+
+        keywordMap[kw].forEach((doc) => {
+          const liDoc = document.createElement("li");
+          liDoc.className = "document";
+
+          const aDoc = document.createElement("a");
+          aDoc.href = doc.path;
+          aDoc.target = "_blank";
+          aDoc.rel = "noopener";
+          aDoc.textContent = doc.name;
+
+          liDoc.appendChild(aDoc);
+          ul.appendChild(liDoc);
+        });
+
+        li.appendChild(ul);
+
+        // toggle propre
+        a.addEventListener("click", (e) => {
+          e.preventDefault();
+          li.classList.toggle("closed");
+
+          // if (li.classList.contains("closed")) {
+          //   strong.innerHTML = `📁 ${kw}`;
+          // } else {
+          //   strong.innerHTML = `📂 ${kw}`;
+          // }
+        });
+
+        container.appendChild(li);
+      });
+  }
+
+  // Filtrage
+
+  function fuzzyMatch(text, query) {
+    return text.includes(query) || text.startsWith(query);
+  }
+
+  function filterDocs(tags) {
+    if (!tags.length) return allDocs;
+
+    return allDocs
+      .map((doc) => {
+        let score = 0;
+        let matchesPerTag = [];
+
+        tags.forEach((tag) => {
+          const val = tag.value.toLowerCase();
+          let matched = false;
+
+          // ===== NAME =====
+          if (tag.type === "name") {
+            const name = (doc.name || "").toLowerCase();
+
+            if (name === val) {
+              score += 20;
+              matched = true;
+            } else if (fuzzyMatch(name, val)) {
+              score += 10;
+              matched = true;
+            }
+          }
+
+          // ===== AUTHOR =====
+          else if (tag.type === "author") {
+            (doc.author || []).forEach((a) => {
+              const aa = a.toLowerCase();
+              if (aa === val) {
+                score += 10;
+                matched = true;
+              } else if (fuzzyMatch(aa, val)) {
+                score += 5;
+                matched = true;
+              }
+            });
+          }
+
+          // ===== CATEGORY =====
+          else if (tag.type === "category") {
+            (doc.category || []).forEach((c) => {
+              const cc = c.toLowerCase();
+              if (cc === val) {
+                score += 6;
+                matched = true;
+              } else if (fuzzyMatch(cc, val)) {
+                score += 3;
+                matched = true;
+              }
+            });
+          }
+
+          // ===== KEYWORD =====
+          else {
+            (doc.keywords || []).forEach((k) => {
+              const kk = k.toLowerCase();
+              if (kk === val) {
+                score += 4;
+                matched = true;
+              } else if (fuzzyMatch(kk, val)) {
+                score += 2;
+                matched = true;
+              }
+            });
+          }
+
+          matchesPerTag.push(matched);
+        });
+
+        return { ...doc, score, matchesPerTag };
+      })
+      .filter((doc) => {
+        if (currentMode === "union") {
+          return doc.score > 0;
+        }
+
+        if (currentMode === "intersection") {
+          // 🔥 CHAQUE tag doit matcher
+          return doc.matchesPerTag.every((m) => m === true);
+        }
+      })
+      .sort((a, b) => b.score - a.score);
+  }
+
+  function parseQuery(input) {
+    const tokens = input.split(/\s+/);
+    const tags = [];
+
+    tokens.forEach((token) => {
+      const match = token.match(/^(\w+):(.*)$/);
+
+      if (match) {
+        const [, type, value] = match;
+
+        if (["author", "keyword", "category", "name"].includes(type)) {
+          tags.push({ type, value });
+          return;
+        }
+      }
+
+      // fallback = keyword
+      if (token.trim()) {
+        tags.push({ type: "keyword", value: token });
+      }
+    });
+
+    return tags;
+  }
+
+  // Mettre à jour tags sélectionnés
+  // function renderTags() {
+  //   const container = $("#tagsInline");
+  //   container.empty();
+
+  //   selectedTags.forEach((tag) => {
+  //     const tagDiv = $(`<div class="tag">${tag}<span>×</span></div>`);
+
+  //     tagDiv.find("span").click(() => {
+  //       selectedTags = selectedTags.filter((t) => t !== tag);
+  //       renderTags();
+
+  //       const filtered = filterDocs(selectedTags);
+  //       updateDocs(filtered);
+  //       renderFilteredDocs(filtered);
+  //     });
+
+  //     container.append(tagDiv);
+  //   });
+  // }
+
+  function renderTags() {
+    const container = $("#tagsInline");
+    container.empty();
+
+    selectedTags.forEach((tag) => {
+      const tagDiv = $(
+        `<div class="tag ${tag.type}">${tag.value}<span>×</span></div>`,
+      );
+
+      tagDiv.find("span").click(() => {
+        // selectedTags = selectedTags.filter((t) => t.value !== tag.value);
+        selectedTags = selectedTags.filter(
+          (t) => !(t.value === tag.value && t.type === tag.type),
+        );
+        renderTags();
+
+        const filtered = filterDocs(selectedTags);
+        updateDocs(filtered);
+        renderFilteredDocs(filtered);
+      });
+
+      container.append(tagDiv);
+    });
+  }
+
+  // Suggestions dynamiques
+  $("#searchInput").on("input", function () {
+    const q = $(this).val().toLowerCase();
+    if (!q) {
+      $("#suggestions").hide();
+      return;
+    }
+    const sugMap = new Map();
+
+    allDocs.forEach((d) => {
+      (d.keywords || []).forEach((k) => {
+        if (k.toLowerCase().includes(q)) sugMap.set(k, "keyword");
+      });
+
+      (d.author || []).forEach((a) => {
+        if (a.toLowerCase().includes(q)) sugMap.set(a, "author");
+      });
+
+      (d.category || []).forEach((c) => {
+        if (c.toLowerCase().includes(q)) sugMap.set(c, "category");
+      });
+
+      if ((d.name || "").toLowerCase().includes(q)) {
+        sugMap.set(d.name, "name");
+      }
+    });
+    const sugDiv = $("#suggestions");
+    // sugDiv.html(
+    //   "<ul>" +
+    //     Array.from(sugSet)
+    //       .slice(0, 10)
+    //       .map((s) => `<li>${s}</li>`)
+    //       .join("") +
+    //     "</ul>",
+    // );
+    sugDiv.html(
+      "<ul>" +
+        Array.from(sugMap.entries())
+          .slice(0, 10)
+          .map(
+            ([value, type]) =>
+              `<li data-type="${type}" data-value="${value}">
+          <span class="tag ${type}">${type}</span> ${value}
+        </li>`,
+          )
+          .join("") +
+        "</ul>",
+    );
+    sugDiv.show();
+  });
+
+  $("#searchInput").on("keydown", function (e) {
+    if (e.key === "Enter") {
+      e.preventDefault();
+
+      const input = $(this).val();
+
+      const newTags = parseQuery(input);
+
+      newTags.forEach((tag) => {
+        if (
+          !selectedTags.some(
+            (t) => t.value === tag.value && t.type === tag.type,
+          )
+        ) {
+          selectedTags.push(tag);
+        }
+      });
+
+      renderTags();
+
+      $(this).val("");
+
+      const filtered = filterDocs(selectedTags);
+      updateDocs(filtered);
+      renderFilteredDocs(filtered);
+    }
+  });
+
+  // Click sur suggestion
+  // $("#suggestions").on("click", "li", function () {
+  //   const val = $(this).text();
+
+  //   if (!selectedTags.includes(val)) {
+  //     selectedTags.push(val);
+  //   }
+
+  //   renderTags();
+
+  //   $("#searchInput").val("").focus();
+  //   $("#suggestions").hide();
+
+  //   const filtered = filterDocs(selectedTags);
+  //   updateDocs(filtered);
+  //   renderFilteredDocs(filtered);
+  // });
+
+  // $("#suggestions").on("click", "li", function () {
+  //   const val = $(this).text();
+
+  //   let type = "keyword";
+
+  //   // détecter si c’est un auteur
+  //   if (allDocs.some((doc) => doc.name === val)) {
+  //     type = "name";
+  //   } else if (allDocs.some((doc) => (doc.author || []).includes(val))) {
+  //     type = "author";
+  //   } else if (
+  //     allDocs.some((doc) => (doc.category || []).some((c) => c === val))
+  //   ) {
+  //     type = "category";
+  //   }
+
+  //   // éviter doublons
+  //   if (!selectedTags.some((t) => t.value === val)) {
+  //     selectedTags.push({ value: val, type: type });
+  //   }
+
+  //   renderTags();
+
+  //   $("#searchInput").val("").focus();
+  //   $("#suggestions").hide();
+
+  //   const filtered = filterDocs(selectedTags);
+  //   updateDocs(filtered);
+  //   renderFilteredDocs(filtered);
+  // });
+
+  $("#suggestions").on("click", "li", function () {
+    const val = $(this).data("value");
+    const type = $(this).data("type");
+
+    if (!selectedTags.some((t) => t.value === val && t.type === type)) {
+      selectedTags.push({ value: val, type: type });
+    }
+
+    renderTags();
+
+    $("#searchInput").val("").focus();
+    $("#suggestions").hide();
+
+    const filtered = filterDocs(selectedTags);
+    updateDocs(filtered);
+    renderFilteredDocs(filtered);
+  });
+
+  $("#searchInput").on("keydown", function (e) {
+    if (e.key === "Backspace" && !this.value) {
+      selectedTags.pop();
+      renderTags();
+
+      const filtered = filterDocs(selectedTags);
+      updateDocs(filtered);
+      renderFilteredDocs(filtered);
+    }
+  });
+
+  $(document).click((e) => {
+    if (!$(e.target).closest("#suggestions, #searchInput").length)
+      $("#suggestions").hide();
+  });
+
+  // Boutons Union / Intersection
+  $("#btnUnion").click(() => {
+    currentMode = "union";
+    const filtered = filterDocs(selectedTags);
+    updateDocs(filtered);
+    renderFilteredDocs(filtered);
+  });
+  $("#btnIntersection").click(() => {
+    currentMode = "intersection";
+    const filtered = filterDocs(selectedTags);
+    updateDocs(filtered);
+    renderFilteredDocs(filtered);
+  });
+
+  // Affiche liste des documents filtrés cliquables
+  function renderFilteredDocs(docs) {
+    const container = $("#filteredList");
+    if (!selectedTags.length) {
+      container.html("");
+      return;
+    }
+    container.html(
+      "<ul>" +
+        docs
+          .map(
+            (doc) =>
+              `<li><a href="${doc.path}" target="_blank">${doc.name}</a></li>`,
+          )
+          .join("") +
+        "</ul>",
+    );
+  }
+
+  $(document).ready(() => loadDocs());
+</script>

@@ -1,0 +1,1816 @@
+[
+  {
+    "type": "folder",
+    "name": "AdS",
+    "children": [
+      {
+        "type": "file",
+        "name": "AdS/CFT Duality User Guide",
+        "path": "M-Theory/natsuume.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Supergravity",
+        "path": "M-Theory/Supergravity%20freedman.pdf"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "AdS-CFT Correspondence",
+    "children": [
+      {
+        "type": "file",
+        "name": "Moduli spaces in AdS 4 supergravity JHEP05(2014)102.pdf",
+        "path": "M-Theory/Moduli spaces in AdS 4 supergravity JHEP05(2014)102.pdf"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "Aggregation",
+    "children": [
+      {
+        "type": "file",
+        "name": "LeconsChimie.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/LeconsChimie.pdf"
+      },
+      {
+        "type": "file",
+        "name": "LeconsPhysique.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/LeconsPhysique.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Plans.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/Plans.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Plans_Allys et Fauvarque.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/Plans_Allys et Fauvarque.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Plans_Chateau.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/Plans_Chateau.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Plans_JF_2019.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/Plans_JF_2019.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Plans_Lecomte.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/Plans_Lecomte.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Plans_Mmelzani.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/Plans_Mmelzani.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Plans_Thibierge.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/Plans_Thibierge.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Suet.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/Suet.pdf"
+      },
+      {
+        "type": "file",
+        "name": "lecon_physique_marchetti.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/lecon_physique_marchetti.pdf"
+      },
+      {
+        "type": "file",
+        "name": "plans_lecon_chimie.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/plans_lecon_chimie.pdf"
+      },
+      {
+        "type": "file",
+        "name": "plans_lecon_physique.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/plans_lecon_physique.pdf"
+      },
+      {
+        "type": "file",
+        "name": "plans_montage_physique.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/plans_montage_physique.pdf"
+      },
+      {
+        "type": "file",
+        "name": "tp-phi.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/tp-phi.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Chimie - PCSI - Tout en un - J'integre - Nouveau Programme (Proetudes_blogspot_com).pdf",
+        "path": "Aggregation Physique-Chimie/Livres/Chimie - PCSI - Tout en un - J'integre - Nouveau Programme (Proetudes_blogspot_com).pdf"
+      },
+      {
+        "type": "file",
+        "name": "Orale.pdf",
+        "path": "Aggregation Physique-Chimie/Livres/Orale.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Avance du pėrihėlie de Mercure.pdf",
+        "path": "Aggregation Physique-Chimie/Oraux/LP/Avance du pėrihėlie de Mercure.pdf"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "Algebras",
+    "children": [
+      {
+        "type": "file",
+        "name": "Topology, C^∗-Algebras, and String Duality",
+        "path": "Math-Physic/topstrduality.pdf"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "Branes",
+    "children": [
+      {
+        "type": "file",
+        "name": "Branes, Calibrations and Supergravity 0305074v3.pdf",
+        "path": "M-Theory/Branes, Calibrations and Supergravity 0305074v3.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Lectures on Gauged Supergravity and Flux Compactifications 0808.4076v1.pdf",
+        "path": "M-Theory/Lectures on Gauged Supergravity and Flux Compactifications 0808.4076v1.pdf"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "CFT",
+    "children": [
+      {
+        "type": "file",
+        "name": "AdS/CFT Duality User Guide",
+        "path": "M-Theory/natsuume.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Supergravity",
+        "path": "M-Theory/Supergravity%20freedman.pdf"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "Calcul des variations",
+    "children": [
+      {
+        "type": "file",
+        "name": "Géométrie différentielle et Physique mathématique",
+        "path": "Archives/Frédéric Hélein/M2/m2-26-03-03.pdf"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "Champs",
+    "children": [
+      {
+        "type": "file",
+        "name": "Méthode quantique",
+        "path": "Quantum%20Mechanic/Méthode%20quantique.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Méthode quantique",
+        "path": "Quantum%20Mechanic/session_Methodes_quantiques_Champs_N-corps_diffusion_merged.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Introduction à la théorie quantique des champs",
+        "path": "Qunatum%20Field%20Theory/TQC_UJF_17_pdf.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Quantum Field Theory I",
+        "path": "Qunatum%20Field%20Theory/qft.pdf"
+      },
+      {
+        "type": "file",
+        "name": "QUANTUM FIELD THEORY and the STANDARD MODEL",
+        "path": "Qunatum%20Field%20Theory/qft_sm.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Gauge Field Theory",
+        "path": "Math-Physic/gft_lecture_notes.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Mathematical aspects of gauge theory: lecture notes",
+        "path": "Math-Physic/lsgntgaugetheory.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Topology, C^∗-Algebras, and String Duality",
+        "path": "Math-Physic/topstrduality.pdf"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "Deuxième partie",
+    "children": [
+      {
+        "type": "file",
+        "name": "Géométrie différentielle et Physique mathématique",
+        "path": "Archives/Frédéric Hélein/M2/m2-26-03-10.pdf"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "Diffusion",
+    "children": [
+      {
+        "type": "file",
+        "name": "Méthode quantique",
+        "path": "Quantum%20Mechanic/Méthode%20quantique.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Méthode quantique",
+        "path": "Quantum%20Mechanic/session_Methodes_quantiques_Champs_N-corps_diffusion_merged.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Introduction à la théorie quantique des champs",
+        "path": "Qunatum%20Field%20Theory/TQC_UJF_17_pdf.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Quantum Field Theory I",
+        "path": "Qunatum%20Field%20Theory/qft.pdf"
+      },
+      {
+        "type": "file",
+        "name": "QUANTUM FIELD THEORY and the STANDARD MODEL",
+        "path": "Qunatum%20Field%20Theory/qft_sm.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Gauge Field Theory",
+        "path": "Math-Physic/gft_lecture_notes.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Mathematical aspects of gauge theory: lecture notes",
+        "path": "Math-Physic/lsgntgaugetheory.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Topology, C^∗-Algebras, and String Duality",
+        "path": "Math-Physic/topstrduality.pdf"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "Duality",
+    "children": [
+      {
+        "type": "file",
+        "name": "Duality Symmetric String and M-Theory 1306.2643v2.pdf",
+        "path": "M-Theory/Duality Symmetric String and M-Theory 1306.2643v2.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Gauge Gravity Duality.pdf",
+        "path": "M-Theory/Gauge Gravity Duality.pdf"
+      },
+      {
+        "type": "file",
+        "name": "AdS/CFT Duality User Guide",
+        "path": "M-Theory/natsuume.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Supergravity",
+        "path": "M-Theory/Supergravity%20freedman.pdf"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "Ensemble",
+    "children": [
+      {
+        "type": "file",
+        "name": "quelques rappels",
+        "path": "Archives/Frédéric Hélein/L1/RM2-2021-rappels.pdf"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "Field",
+    "children": [
+      {
+        "type": "file",
+        "name": "Gauge Field Theory",
+        "path": "Math-Physic/gft_lecture_notes.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Mathematical aspects of gauge theory: lecture notes",
+        "path": "Math-Physic/lsgntgaugetheory.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Topology, C^∗-Algebras, and String Duality",
+        "path": "Math-Physic/topstrduality.pdf"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "Fundamental Theory",
+    "children": [
+      {
+        "type": "file",
+        "name": "Strings Conformal Fields And M-Theory.pdf",
+        "path": "M-Theory/Strings Conformal Fields And M-Theory.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Introduction to Superstrings and M-Theory kaku1999.pdf",
+        "path": "M-Theory/Introduction to Superstrings and M-Theory kaku1999.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Duality Symmetric String and M-Theory 1306.2643v2.pdf",
+        "path": "M-Theory/Duality Symmetric String and M-Theory 1306.2643v2.pdf"
+      },
+      {
+        "type": "file",
+        "name": "M(atrix) Theory Matrix Quantum Mechanics as a Fundamental Theory 0101126v2.pdf",
+        "path": "M-Theory/M(atrix) Theory Matrix Quantum Mechanics as a Fundamental Theory 0101126v2.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Basics of M-Theory 0509137v2.pdf",
+        "path": "M-Theory/Basics of M-Theory 0509137v2.pdf"
+      },
+      {
+        "type": "file",
+        "name": "From superstrings to M theoryq schwarz1999.pdf",
+        "path": "M-Theory/From superstrings to M theoryq schwarz1999.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Moduli spaces in AdS 4 supergravity JHEP05(2014)102.pdf",
+        "path": "M-Theory/Moduli spaces in AdS 4 supergravity JHEP05(2014)102.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Gauge Gravity Duality.pdf",
+        "path": "M-Theory/Gauge Gravity Duality.pdf"
+      },
+      {
+        "type": "file",
+        "name": "AdS/CFT Duality User Guide",
+        "path": "M-Theory/natsuume.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Supergravity",
+        "path": "M-Theory/Supergravity%20freedman.pdf"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "Gauge",
+    "children": [
+      {
+        "type": "file",
+        "name": "Gauge Gravity Duality.pdf",
+        "path": "M-Theory/Gauge Gravity Duality.pdf"
+      },
+      {
+        "type": "file",
+        "name": "AdS/CFT Duality User Guide",
+        "path": "M-Theory/natsuume.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Supergravity",
+        "path": "M-Theory/Supergravity%20freedman.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Gauge Field Theory",
+        "path": "Math-Physic/gft_lecture_notes.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Mathematical aspects of gauge theory: lecture notes",
+        "path": "Math-Physic/lsgntgaugetheory.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Topology, C^∗-Algebras, and String Duality",
+        "path": "Math-Physic/topstrduality.pdf"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "Global Symmetries",
+    "children": [
+      {
+        "type": "file",
+        "name": "Moduli spaces in AdS 4 supergravity JHEP05(2014)102.pdf",
+        "path": "M-Theory/Moduli spaces in AdS 4 supergravity JHEP05(2014)102.pdf"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "Gravitation",
+    "children": [
+      {
+        "type": "file",
+        "name": "0601090.pdf",
+        "path": "Gravitation/0601090.pdf"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "Gravity",
+    "children": [
+      {
+        "type": "file",
+        "name": "Gauge Gravity Duality.pdf",
+        "path": "M-Theory/Gauge Gravity Duality.pdf"
+      },
+      {
+        "type": "file",
+        "name": "AdS/CFT Duality User Guide",
+        "path": "M-Theory/natsuume.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Supergravity",
+        "path": "M-Theory/Supergravity%20freedman.pdf"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "Géométrie différentielle",
+    "children": [
+      {
+        "type": "file",
+        "name": "Géométrie différentielle et Physique mathématique",
+        "path": "Archives/Frédéric Hélein/M2/m2-26-03-03.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Géométrie différentielle et Physique mathématique",
+        "path": "Archives/Frédéric Hélein/M2/m2-26-03-10.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Géométrie différentielle et Physique mathématique",
+        "path": "Archives/Frédéric Hélein/M2/m2-26-03-17.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Géométrie différentielle et Physique mathématique",
+        "path": "Archives/Frédéric Hélein/M2/m2-25-03-28.pdf"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "Géométrie différentielle et Physique mathématique",
+    "children": [
+      {
+        "type": "file",
+        "name": "Géométrie différentielle et Physique mathématique",
+        "path": "Archives/Frédéric Hélein/M2/m2-26-03-03.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Géométrie différentielle et Physique mathématique",
+        "path": "Archives/Frédéric Hélein/M2/m2-26-03-10.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Géométrie différentielle et Physique mathématique",
+        "path": "Archives/Frédéric Hélein/M2/m2-26-03-17.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Géométrie différentielle et Physique mathématique",
+        "path": "Archives/Frédéric Hélein/M2/m2-25-03-28.pdf"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "L1",
+    "children": [
+      {
+        "type": "file",
+        "name": "quelques rappels",
+        "path": "Archives/Frédéric Hélein/L1/RM2-2021-rappels.pdf"
+      },
+      {
+        "type": "file",
+        "name": "quelques rappels",
+        "path": "Archives/Frédéric Hélein/L1/poly-RM2-2021-01-28.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Ouverts de R",
+        "path": "Archives/Frédéric Hélein/L1/poly-RM2-2021-02-01.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Ouverts de R",
+        "path": "Archives/Frédéric Hélein/L1/poly-RM2-2021-02-01.pdf"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "Le théorème de Noether : version générale",
+    "children": [
+      {
+        "type": "file",
+        "name": "Géométrie différentielle et Physique mathématique",
+        "path": "Archives/Frédéric Hélein/M2/m2-26-03-10.pdf"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "Lie algebras",
+    "children": [
+      {
+        "type": "file",
+        "name": "Lie algebras",
+        "path": "Mathematic/lie_algebras.pdf"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "M-Theory",
+    "children": [
+      {
+        "type": "file",
+        "name": "STRING THEORY AND M-THEORY",
+        "path": "M-Theory/STRING THEORY AND M-THEORY becker_st.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Strings Conformal Fields And M-Theory.pdf",
+        "path": "M-Theory/Strings Conformal Fields And M-Theory.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Introduction to Superstrings and M-Theory kaku1999.pdf",
+        "path": "M-Theory/Introduction to Superstrings and M-Theory kaku1999.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Duality Symmetric String and M-Theory 1306.2643v2.pdf",
+        "path": "M-Theory/Duality Symmetric String and M-Theory 1306.2643v2.pdf"
+      },
+      {
+        "type": "file",
+        "name": "M(atrix) Theory Matrix Quantum Mechanics as a Fundamental Theory 0101126v2.pdf",
+        "path": "M-Theory/M(atrix) Theory Matrix Quantum Mechanics as a Fundamental Theory 0101126v2.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Basics of M-Theory 0509137v2.pdf",
+        "path": "M-Theory/Basics of M-Theory 0509137v2.pdf"
+      },
+      {
+        "type": "file",
+        "name": "From superstrings to M theoryq schwarz1999.pdf",
+        "path": "M-Theory/From superstrings to M theoryq schwarz1999.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Moduli spaces in AdS 4 supergravity JHEP05(2014)102.pdf",
+        "path": "M-Theory/Moduli spaces in AdS 4 supergravity JHEP05(2014)102.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Branes, Calibrations and Supergravity 0305074v3.pdf",
+        "path": "M-Theory/Branes, Calibrations and Supergravity 0305074v3.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Lectures on Gauged Supergravity and Flux Compactifications 0808.4076v1.pdf",
+        "path": "M-Theory/Lectures on Gauged Supergravity and Flux Compactifications 0808.4076v1.pdf"
+      },
+      {
+        "type": "file",
+        "name": "SUPERGRAVITY 0212245v1.pdf",
+        "path": "M-Theory/SUPERGRAVITY 0212245v1.pdf"
+      },
+      {
+        "type": "file",
+        "name": "LEVIMsusylectures.pdf",
+        "path": "M-Theory/LEVIMsusylectures.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Gauge Gravity Duality.pdf",
+        "path": "M-Theory/Gauge Gravity Duality.pdf"
+      },
+      {
+        "type": "file",
+        "name": "AdS/CFT Duality User Guide",
+        "path": "M-Theory/natsuume.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Supergravity",
+        "path": "M-Theory/Supergravity%20freedman.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Supersymmetry and Supergravity.pdf",
+        "path": "M-Theory/Supersymmetry and Supergravity.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Géométrie différentielle et Physique mathématique",
+        "path": "Archives/Frédéric Hélein/M2/m2-26-03-17.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Les bases du calcul différentiel extérieur",
+        "path": "Archives/Frédéric%20Hélein/M2/M2geo.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Les bases du calcul différentiel extérieur",
+        "path": "Archives/Frédéric%20Hélein/M2/caldiffext.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Lie algebras",
+        "path": "Mathematic/lie_algebras.pdf"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "M2",
+    "children": [
+      {
+        "type": "file",
+        "name": "Géométrie différentielle et Physique mathématique",
+        "path": "Archives/Frédéric Hélein/M2/m2-26-03-03.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Géométrie différentielle et Physique mathématique",
+        "path": "Archives/Frédéric Hélein/M2/m2-26-03-10.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Géométrie différentielle et Physique mathématique",
+        "path": "Archives/Frédéric Hélein/M2/m2-26-03-17.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Géométrie différentielle et Physique mathématique",
+        "path": "Archives/Frédéric Hélein/M2/m2-25-03-28.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Les bases du calcul différentiel extérieur",
+        "path": "Archives/Frédéric%20Hélein/M2/M2geo.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Les bases du calcul différentiel extérieur",
+        "path": "Archives/Frédéric%20Hélein/M2/caldiffext.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Lie algebras",
+        "path": "Mathematic/lie_algebras.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Méthode quantique",
+        "path": "Quantum%20Mechanic/Méthode%20quantique.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Méthode quantique",
+        "path": "Quantum%20Mechanic/session_Methodes_quantiques_Champs_N-corps_diffusion_merged.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Introduction à la théorie quantique des champs",
+        "path": "Qunatum%20Field%20Theory/TQC_UJF_17_pdf.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Quantum Field Theory I",
+        "path": "Qunatum%20Field%20Theory/qft.pdf"
+      },
+      {
+        "type": "file",
+        "name": "QUANTUM FIELD THEORY and the STANDARD MODEL",
+        "path": "Qunatum%20Field%20Theory/qft_sm.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Gauge Field Theory",
+        "path": "Math-Physic/gft_lecture_notes.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Mathematical aspects of gauge theory: lecture notes",
+        "path": "Math-Physic/lsgntgaugetheory.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Topology, C^∗-Algebras, and String Duality",
+        "path": "Math-Physic/topstrduality.pdf"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "Mathematique",
+    "children": [
+      {
+        "type": "file",
+        "name": "quelques rappels",
+        "path": "Archives/Frédéric Hélein/L1/RM2-2021-rappels.pdf"
+      },
+      {
+        "type": "file",
+        "name": "quelques rappels",
+        "path": "Archives/Frédéric Hélein/L1/poly-RM2-2021-01-28.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Ouverts de R",
+        "path": "Archives/Frédéric Hélein/L1/poly-RM2-2021-02-01.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Mathematical aspects of gauge theory: lecture notes",
+        "path": "Math-Physic/lsgntgaugetheory.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Topology, C^∗-Algebras, and String Duality",
+        "path": "Math-Physic/topstrduality.pdf"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "Matrix",
+    "children": [
+      {
+        "type": "file",
+        "name": "Strings Conformal Fields And M-Theory.pdf",
+        "path": "M-Theory/Strings Conformal Fields And M-Theory.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Introduction to Superstrings and M-Theory kaku1999.pdf",
+        "path": "M-Theory/Introduction to Superstrings and M-Theory kaku1999.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Duality Symmetric String and M-Theory 1306.2643v2.pdf",
+        "path": "M-Theory/Duality Symmetric String and M-Theory 1306.2643v2.pdf"
+      },
+      {
+        "type": "file",
+        "name": "M(atrix) Theory Matrix Quantum Mechanics as a Fundamental Theory 0101126v2.pdf",
+        "path": "M-Theory/M(atrix) Theory Matrix Quantum Mechanics as a Fundamental Theory 0101126v2.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Basics of M-Theory 0509137v2.pdf",
+        "path": "M-Theory/Basics of M-Theory 0509137v2.pdf"
+      },
+      {
+        "type": "file",
+        "name": "From superstrings to M theoryq schwarz1999.pdf",
+        "path": "M-Theory/From superstrings to M theoryq schwarz1999.pdf"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "Motivation",
+    "children": [
+      {
+        "type": "file",
+        "name": "Géométrie différentielle et Physique mathématique",
+        "path": "Archives/Frédéric Hélein/M2/m2-25-03-28.pdf"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "Méthode quantique",
+    "children": [
+      {
+        "type": "file",
+        "name": "Méthode quantique",
+        "path": "Quantum%20Mechanic/Méthode%20quantique.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Méthode quantique",
+        "path": "Quantum%20Mechanic/session_Methodes_quantiques_Champs_N-corps_diffusion_merged.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Introduction à la théorie quantique des champs",
+        "path": "Qunatum%20Field%20Theory/TQC_UJF_17_pdf.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Quantum Field Theory I",
+        "path": "Qunatum%20Field%20Theory/qft.pdf"
+      },
+      {
+        "type": "file",
+        "name": "QUANTUM FIELD THEORY and the STANDARD MODEL",
+        "path": "Qunatum%20Field%20Theory/qft_sm.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Gauge Field Theory",
+        "path": "Math-Physic/gft_lecture_notes.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Mathematical aspects of gauge theory: lecture notes",
+        "path": "Math-Physic/lsgntgaugetheory.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Topology, C^∗-Algebras, and String Duality",
+        "path": "Math-Physic/topstrduality.pdf"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "N-corps",
+    "children": [
+      {
+        "type": "file",
+        "name": "Méthode quantique",
+        "path": "Quantum%20Mechanic/Méthode%20quantique.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Méthode quantique",
+        "path": "Quantum%20Mechanic/session_Methodes_quantiques_Champs_N-corps_diffusion_merged.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Introduction à la théorie quantique des champs",
+        "path": "Qunatum%20Field%20Theory/TQC_UJF_17_pdf.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Quantum Field Theory I",
+        "path": "Qunatum%20Field%20Theory/qft.pdf"
+      },
+      {
+        "type": "file",
+        "name": "QUANTUM FIELD THEORY and the STANDARD MODEL",
+        "path": "Qunatum%20Field%20Theory/qft_sm.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Gauge Field Theory",
+        "path": "Math-Physic/gft_lecture_notes.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Mathematical aspects of gauge theory: lecture notes",
+        "path": "Math-Physic/lsgntgaugetheory.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Topology, C^∗-Algebras, and String Duality",
+        "path": "Math-Physic/topstrduality.pdf"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "Ouverts de R",
+    "children": [
+      {
+        "type": "file",
+        "name": "Ouverts de R",
+        "path": "Archives/Frédéric Hélein/L1/poly-RM2-2021-02-01.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Ouverts de R",
+        "path": "Archives/Frédéric Hélein/L1/poly-RM2-2021-02-01.pdf"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "Physique mathématique",
+    "children": [
+      {
+        "type": "file",
+        "name": "Géométrie différentielle et Physique mathématique",
+        "path": "Archives/Frédéric Hélein/M2/m2-26-03-03.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Géométrie différentielle et Physique mathématique",
+        "path": "Archives/Frédéric Hélein/M2/m2-26-03-03.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Géométrie différentielle et Physique mathématique",
+        "path": "Archives/Frédéric Hélein/M2/m2-26-03-10.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Géométrie différentielle et Physique mathématique",
+        "path": "Archives/Frédéric Hélein/M2/m2-26-03-10.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Géométrie différentielle et Physique mathématique",
+        "path": "Archives/Frédéric Hélein/M2/m2-26-03-17.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Géométrie différentielle et Physique mathématique",
+        "path": "Archives/Frédéric Hélein/M2/m2-26-03-17.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Géométrie différentielle et Physique mathématique",
+        "path": "Archives/Frédéric Hélein/M2/m2-25-03-28.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Géométrie différentielle et Physique mathématique",
+        "path": "Archives/Frédéric Hélein/M2/m2-25-03-28.pdf"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "Première partie",
+    "children": [
+      {
+        "type": "file",
+        "name": "Géométrie différentielle et Physique mathématique",
+        "path": "Archives/Frédéric Hélein/M2/m2-26-03-03.pdf"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "Quantique",
+    "children": [
+      {
+        "type": "file",
+        "name": "Méthode quantique",
+        "path": "Quantum%20Mechanic/Méthode%20quantique.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Méthode quantique",
+        "path": "Quantum%20Mechanic/session_Methodes_quantiques_Champs_N-corps_diffusion_merged.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Introduction à la théorie quantique des champs",
+        "path": "Qunatum%20Field%20Theory/TQC_UJF_17_pdf.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Quantum Field Theory I",
+        "path": "Qunatum%20Field%20Theory/qft.pdf"
+      },
+      {
+        "type": "file",
+        "name": "QUANTUM FIELD THEORY and the STANDARD MODEL",
+        "path": "Qunatum%20Field%20Theory/qft_sm.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Gauge Field Theory",
+        "path": "Math-Physic/gft_lecture_notes.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Mathematical aspects of gauge theory: lecture notes",
+        "path": "Math-Physic/lsgntgaugetheory.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Topology, C^∗-Algebras, and String Duality",
+        "path": "Math-Physic/topstrduality.pdf"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "Quantum Mechanics",
+    "children": [
+      {
+        "type": "file",
+        "name": "Strings Conformal Fields And M-Theory.pdf",
+        "path": "M-Theory/Strings Conformal Fields And M-Theory.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Introduction to Superstrings and M-Theory kaku1999.pdf",
+        "path": "M-Theory/Introduction to Superstrings and M-Theory kaku1999.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Duality Symmetric String and M-Theory 1306.2643v2.pdf",
+        "path": "M-Theory/Duality Symmetric String and M-Theory 1306.2643v2.pdf"
+      },
+      {
+        "type": "file",
+        "name": "M(atrix) Theory Matrix Quantum Mechanics as a Fundamental Theory 0101126v2.pdf",
+        "path": "M-Theory/M(atrix) Theory Matrix Quantum Mechanics as a Fundamental Theory 0101126v2.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Basics of M-Theory 0509137v2.pdf",
+        "path": "M-Theory/Basics of M-Theory 0509137v2.pdf"
+      },
+      {
+        "type": "file",
+        "name": "From superstrings to M theoryq schwarz1999.pdf",
+        "path": "M-Theory/From superstrings to M theoryq schwarz1999.pdf"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "Quatrieme partie",
+    "children": [
+      {
+        "type": "file",
+        "name": "Géométrie différentielle et Physique mathématique",
+        "path": "Archives/Frédéric Hélein/M2/m2-25-03-28.pdf"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "Qunatum Field Theory",
+    "children": [
+      {
+        "type": "file",
+        "name": "Introduction à la théorie quantique des champs",
+        "path": "Qunatum%20Field%20Theory/TQC_UJF_17_pdf.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Quantum Field Theory I",
+        "path": "Qunatum%20Field%20Theory/qft.pdf"
+      },
+      {
+        "type": "file",
+        "name": "QUANTUM FIELD THEORY and the STANDARD MODEL",
+        "path": "Qunatum%20Field%20Theory/qft_sm.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Gauge Field Theory",
+        "path": "Math-Physic/gft_lecture_notes.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Mathematical aspects of gauge theory: lecture notes",
+        "path": "Math-Physic/lsgntgaugetheory.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Topology, C^∗-Algebras, and String Duality",
+        "path": "Math-Physic/topstrduality.pdf"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "String",
+    "children": [
+      {
+        "type": "file",
+        "name": "Topology, C^∗-Algebras, and String Duality",
+        "path": "Math-Physic/topstrduality.pdf"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "String Theory",
+    "children": [
+      {
+        "type": "file",
+        "name": "STRING THEORY AND M-THEORY",
+        "path": "M-Theory/STRING THEORY AND M-THEORY becker_st.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Strings Conformal Fields And M-Theory.pdf",
+        "path": "M-Theory/Strings Conformal Fields And M-Theory.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Introduction to Superstrings and M-Theory kaku1999.pdf",
+        "path": "M-Theory/Introduction to Superstrings and M-Theory kaku1999.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Duality Symmetric String and M-Theory 1306.2643v2.pdf",
+        "path": "M-Theory/Duality Symmetric String and M-Theory 1306.2643v2.pdf"
+      },
+      {
+        "type": "file",
+        "name": "From superstrings to M theoryq schwarz1999.pdf",
+        "path": "M-Theory/From superstrings to M theoryq schwarz1999.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Moduli spaces in AdS 4 supergravity JHEP05(2014)102.pdf",
+        "path": "M-Theory/Moduli spaces in AdS 4 supergravity JHEP05(2014)102.pdf"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "Supergravity Models",
+    "children": [
+      {
+        "type": "file",
+        "name": "M(atrix) Theory Matrix Quantum Mechanics as a Fundamental Theory 0101126v2.pdf",
+        "path": "M-Theory/M(atrix) Theory Matrix Quantum Mechanics as a Fundamental Theory 0101126v2.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Basics of M-Theory 0509137v2.pdf",
+        "path": "M-Theory/Basics of M-Theory 0509137v2.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Moduli spaces in AdS 4 supergravity JHEP05(2014)102.pdf",
+        "path": "M-Theory/Moduli spaces in AdS 4 supergravity JHEP05(2014)102.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Branes, Calibrations and Supergravity 0305074v3.pdf",
+        "path": "M-Theory/Branes, Calibrations and Supergravity 0305074v3.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Lectures on Gauged Supergravity and Flux Compactifications 0808.4076v1.pdf",
+        "path": "M-Theory/Lectures on Gauged Supergravity and Flux Compactifications 0808.4076v1.pdf"
+      },
+      {
+        "type": "file",
+        "name": "SUPERGRAVITY 0212245v1.pdf",
+        "path": "M-Theory/SUPERGRAVITY 0212245v1.pdf"
+      },
+      {
+        "type": "file",
+        "name": "LEVIMsusylectures.pdf",
+        "path": "M-Theory/LEVIMsusylectures.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Supergravity",
+        "path": "M-Theory/Supergravity%20freedman.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Supergravity freedman.pdf",
+        "path": "M-Theory/Supergravity freedman.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Supersymmetry and Supergravity.pdf",
+        "path": "M-Theory/Supersymmetry and Supergravity.pdf"
+      },
+      {
+        "type": "file",
+        "name": "vannieuwenhuizen1981.pdf",
+        "path": "M-Theory/vannieuwenhuizen1981.pdf"
+      },
+      {
+        "type": "file",
+        "name": "macdowell1977.pdf",
+        "path": "M-Theory/macdowell1977.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Géométrie différentielle et Physique mathématique",
+        "path": "Archives/Frédéric Hélein/M2/m2-26-03-17.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Les bases du calcul différentiel extérieur",
+        "path": "Archives/Frédéric%20Hélein/M2/M2geo.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Les bases du calcul différentiel extérieur",
+        "path": "Archives/Frédéric%20Hélein/M2/caldiffext.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Lie algebras",
+        "path": "Mathematic/lie_algebras.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Méthode quantique",
+        "path": "Quantum%20Mechanic/Méthode%20quantique.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Méthode quantique",
+        "path": "Quantum%20Mechanic/session_Methodes_quantiques_Champs_N-corps_diffusion_merged.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Introduction à la théorie quantique des champs",
+        "path": "Qunatum%20Field%20Theory/TQC_UJF_17_pdf.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Quantum Field Theory I",
+        "path": "Qunatum%20Field%20Theory/qft.pdf"
+      },
+      {
+        "type": "file",
+        "name": "QUANTUM FIELD THEORY and the STANDARD MODEL",
+        "path": "Qunatum%20Field%20Theory/qft_sm.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Gauge Field Theory",
+        "path": "Math-Physic/gft_lecture_notes.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Mathematical aspects of gauge theory: lecture notes",
+        "path": "Math-Physic/lsgntgaugetheory.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Topology, C^∗-Algebras, and String Duality",
+        "path": "Math-Physic/topstrduality.pdf"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "Superstrings Theory",
+    "children": [
+      {
+        "type": "file",
+        "name": "From superstrings to M theoryq schwarz1999.pdf",
+        "path": "M-Theory/From superstrings to M theoryq schwarz1999.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Moduli spaces in AdS 4 supergravity JHEP05(2014)102.pdf",
+        "path": "M-Theory/Moduli spaces in AdS 4 supergravity JHEP05(2014)102.pdf"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "Supersymmetry Models",
+    "children": [
+      {
+        "type": "file",
+        "name": "M(atrix) Theory Matrix Quantum Mechanics as a Fundamental Theory 0101126v2.pdf",
+        "path": "M-Theory/M(atrix) Theory Matrix Quantum Mechanics as a Fundamental Theory 0101126v2.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Basics of M-Theory 0509137v2.pdf",
+        "path": "M-Theory/Basics of M-Theory 0509137v2.pdf"
+      },
+      {
+        "type": "file",
+        "name": "LEVIMsusylectures.pdf",
+        "path": "M-Theory/LEVIMsusylectures.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Gauge Gravity Duality.pdf",
+        "path": "M-Theory/Gauge Gravity Duality.pdf"
+      },
+      {
+        "type": "file",
+        "name": "AdS/CFT Duality User Guide",
+        "path": "M-Theory/natsuume.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Supergravity",
+        "path": "M-Theory/Supergravity%20freedman.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Supersymmetry and Supergravity.pdf",
+        "path": "M-Theory/Supersymmetry and Supergravity.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Géométrie différentielle et Physique mathématique",
+        "path": "Archives/Frédéric Hélein/M2/m2-26-03-17.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Les bases du calcul différentiel extérieur",
+        "path": "Archives/Frédéric%20Hélein/M2/M2geo.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Les bases du calcul différentiel extérieur",
+        "path": "Archives/Frédéric%20Hélein/M2/caldiffext.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Lie algebras",
+        "path": "Mathematic/lie_algebras.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Méthode quantique",
+        "path": "Quantum%20Mechanic/Méthode%20quantique.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Méthode quantique",
+        "path": "Quantum%20Mechanic/session_Methodes_quantiques_Champs_N-corps_diffusion_merged.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Introduction à la théorie quantique des champs",
+        "path": "Qunatum%20Field%20Theory/TQC_UJF_17_pdf.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Quantum Field Theory I",
+        "path": "Qunatum%20Field%20Theory/qft.pdf"
+      },
+      {
+        "type": "file",
+        "name": "QUANTUM FIELD THEORY and the STANDARD MODEL",
+        "path": "Qunatum%20Field%20Theory/qft_sm.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Gauge Field Theory",
+        "path": "Math-Physic/gft_lecture_notes.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Mathematical aspects of gauge theory: lecture notes",
+        "path": "Math-Physic/lsgntgaugetheory.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Topology, C^∗-Algebras, and String Duality",
+        "path": "Math-Physic/topstrduality.pdf"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "Symmetric",
+    "children": [
+      {
+        "type": "file",
+        "name": "Duality Symmetric String and M-Theory 1306.2643v2.pdf",
+        "path": "M-Theory/Duality Symmetric String and M-Theory 1306.2643v2.pdf"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "Topology",
+    "children": [
+      {
+        "type": "file",
+        "name": "Topology, C^∗-Algebras, and String Duality",
+        "path": "Math-Physic/topstrduality.pdf"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "Troisième partie",
+    "children": [
+      {
+        "type": "file",
+        "name": "Géométrie différentielle et Physique mathématique",
+        "path": "Archives/Frédéric Hélein/M2/m2-26-03-17.pdf"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "Variété de Poisson",
+    "children": [
+      {
+        "type": "file",
+        "name": "Géométrie différentielle et Physique mathématique",
+        "path": "Archives/Frédéric Hélein/M2/m2-26-03-17.pdf"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "Voisinages",
+    "children": [
+      {
+        "type": "file",
+        "name": "quelques rappels",
+        "path": "Archives/Frédéric Hélein/L1/poly-RM2-2021-01-28.pdf"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "calcul différentiel extérieur",
+    "children": [
+      {
+        "type": "file",
+        "name": "Les bases du calcul différentiel extérieur",
+        "path": "Archives/Frédéric%20Hélein/M2/M2geo.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Les bases du calcul différentiel extérieur",
+        "path": "Archives/Frédéric%20Hélein/M2/caldiffext.pdf"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "chimie",
+    "children": [
+      {
+        "type": "file",
+        "name": "LeconsChimie.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/LeconsChimie.pdf"
+      },
+      {
+        "type": "file",
+        "name": "LeconsPhysique.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/LeconsPhysique.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Plans.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/Plans.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Plans_Allys et Fauvarque.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/Plans_Allys et Fauvarque.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Plans_Chateau.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/Plans_Chateau.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Plans_JF_2019.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/Plans_JF_2019.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Plans_Lecomte.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/Plans_Lecomte.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Plans_Mmelzani.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/Plans_Mmelzani.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Plans_Thibierge.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/Plans_Thibierge.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Suet.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/Suet.pdf"
+      },
+      {
+        "type": "file",
+        "name": "lecon_physique_marchetti.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/lecon_physique_marchetti.pdf"
+      },
+      {
+        "type": "file",
+        "name": "plans_lecon_chimie.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/plans_lecon_chimie.pdf"
+      },
+      {
+        "type": "file",
+        "name": "plans_lecon_physique.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/plans_lecon_physique.pdf"
+      },
+      {
+        "type": "file",
+        "name": "plans_montage_physique.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/plans_montage_physique.pdf"
+      },
+      {
+        "type": "file",
+        "name": "tp-phi.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/tp-phi.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Chimie - PCSI - Tout en un - J'integre - Nouveau Programme (Proetudes_blogspot_com).pdf",
+        "path": "Aggregation Physique-Chimie/Livres/Chimie - PCSI - Tout en un - J'integre - Nouveau Programme (Proetudes_blogspot_com).pdf"
+      },
+      {
+        "type": "file",
+        "name": "Orale.pdf",
+        "path": "Aggregation Physique-Chimie/Livres/Orale.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Avance du pėrihėlie de Mercure.pdf",
+        "path": "Aggregation Physique-Chimie/Oraux/LP/Avance du pėrihėlie de Mercure.pdf"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "fermés",
+    "children": [
+      {
+        "type": "file",
+        "name": "quelques rappels",
+        "path": "Archives/Frédéric Hélein/L1/poly-RM2-2021-01-28.pdf"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "leçon",
+    "children": [
+      {
+        "type": "file",
+        "name": "LeconsChimie.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/LeconsChimie.pdf"
+      },
+      {
+        "type": "file",
+        "name": "LeconsPhysique.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/LeconsPhysique.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Plans.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/Plans.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Plans_Allys et Fauvarque.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/Plans_Allys et Fauvarque.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Plans_Chateau.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/Plans_Chateau.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Plans_JF_2019.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/Plans_JF_2019.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Plans_Lecomte.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/Plans_Lecomte.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Plans_Mmelzani.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/Plans_Mmelzani.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Plans_Thibierge.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/Plans_Thibierge.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Suet.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/Suet.pdf"
+      },
+      {
+        "type": "file",
+        "name": "lecon_physique_marchetti.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/lecon_physique_marchetti.pdf"
+      },
+      {
+        "type": "file",
+        "name": "plans_lecon_chimie.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/plans_lecon_chimie.pdf"
+      },
+      {
+        "type": "file",
+        "name": "plans_lecon_physique.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/plans_lecon_physique.pdf"
+      },
+      {
+        "type": "file",
+        "name": "plans_montage_physique.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/plans_montage_physique.pdf"
+      },
+      {
+        "type": "file",
+        "name": "tp-phi.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/tp-phi.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Chimie - PCSI - Tout en un - J'integre - Nouveau Programme (Proetudes_blogspot_com).pdf",
+        "path": "Aggregation Physique-Chimie/Livres/Chimie - PCSI - Tout en un - J'integre - Nouveau Programme (Proetudes_blogspot_com).pdf"
+      },
+      {
+        "type": "file",
+        "name": "Orale.pdf",
+        "path": "Aggregation Physique-Chimie/Livres/Orale.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Avance du pėrihėlie de Mercure.pdf",
+        "path": "Aggregation Physique-Chimie/Oraux/LP/Avance du pėrihėlie de Mercure.pdf"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "ouverts",
+    "children": [
+      {
+        "type": "file",
+        "name": "quelques rappels",
+        "path": "Archives/Frédéric Hélein/L1/poly-RM2-2021-01-28.pdf"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "physique-chimie",
+    "children": [
+      {
+        "type": "file",
+        "name": "LeconsChimie.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/LeconsChimie.pdf"
+      },
+      {
+        "type": "file",
+        "name": "LeconsPhysique.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/LeconsPhysique.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Plans.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/Plans.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Plans_Allys et Fauvarque.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/Plans_Allys et Fauvarque.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Plans_Chateau.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/Plans_Chateau.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Plans_JF_2019.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/Plans_JF_2019.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Plans_Lecomte.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/Plans_Lecomte.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Plans_Mmelzani.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/Plans_Mmelzani.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Plans_Thibierge.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/Plans_Thibierge.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Suet.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/Suet.pdf"
+      },
+      {
+        "type": "file",
+        "name": "lecon_physique_marchetti.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/lecon_physique_marchetti.pdf"
+      },
+      {
+        "type": "file",
+        "name": "plans_lecon_chimie.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/plans_lecon_chimie.pdf"
+      },
+      {
+        "type": "file",
+        "name": "plans_lecon_physique.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/plans_lecon_physique.pdf"
+      },
+      {
+        "type": "file",
+        "name": "plans_montage_physique.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/plans_montage_physique.pdf"
+      },
+      {
+        "type": "file",
+        "name": "tp-phi.pdf",
+        "path": "Aggregation Physique-Chimie/Archives/tp-phi.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Chimie - PCSI - Tout en un - J'integre - Nouveau Programme (Proetudes_blogspot_com).pdf",
+        "path": "Aggregation Physique-Chimie/Livres/Chimie - PCSI - Tout en un - J'integre - Nouveau Programme (Proetudes_blogspot_com).pdf"
+      },
+      {
+        "type": "file",
+        "name": "Orale.pdf",
+        "path": "Aggregation Physique-Chimie/Livres/Orale.pdf"
+      },
+      {
+        "type": "file",
+        "name": "Avance du pėrihėlie de Mercure.pdf",
+        "path": "Aggregation Physique-Chimie/Oraux/LP/Avance du pėrihėlie de Mercure.pdf"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "quelques rappels",
+    "children": [
+      {
+        "type": "file",
+        "name": "quelques rappels",
+        "path": "Archives/Frédéric Hélein/L1/RM2-2021-rappels.pdf"
+      }
+    ]
+  }
+]
