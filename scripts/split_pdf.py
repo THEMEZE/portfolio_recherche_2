@@ -190,7 +190,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 input_pdf = BASE_DIR / "physics/faculty/themeze/documents/Aggregation Physique-Chimie/Oraux/LP/L.P.08-F1-Notionde_viscosite_Ecoulement_visqueux.pdf"
 output_pdf = BASE_DIR / "physics/faculty/themeze/documents/Aggregation Physique-Chimie/Oraux/LP/L.P.08-F1-Notionde_viscosite_Ecoulement_visqueux_split.pdf"
 
-
 split_pdf(
     str(input_pdf),
     str(output_pdf),
