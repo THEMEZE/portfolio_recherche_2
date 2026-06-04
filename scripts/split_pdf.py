@@ -175,11 +175,11 @@ def pdf_to_png(pdf_path, output_dir=None, dpi=150):
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-input_pdf = BASE_DIR / "physics/faculty/themeze/documents/Aggregation Physique-Chimie/Oraux/LP/Avance du pėrihėlie de Mercure.pdf"
-output_pdf = BASE_DIR / "physics/faculty/themeze/documents/Aggregation Physique-Chimie/Oraux/LP/remarkable_Avance_du_perihelie_de_Mercure.pdf"
+#input_pdf = BASE_DIR / "physics/faculty/themeze/documents/Aggregation Physique-Chimie/Oraux/LP/Avance du pėrihėlie de Mercure.pdf"
+#output_pdf = BASE_DIR / "physics/faculty/themeze/documents/Aggregation Physique-Chimie/Oraux/LP/remarkable_Avance_du_perihelie_de_Mercure.pdf"
 
-input_pdf = BASE_DIR / "physics/faculty/themeze/documents/Enseignement/TP Laser/Aide_barette.pdf"
-output_pdf = BASE_DIR / "physics/faculty/themeze/documents/Enseignement/TP Laser/remarkable_Aide_barette.pdf"
+#input_pdf = BASE_DIR / "physics/faculty/themeze/documents/Enseignement/TP Laser/Aide_barette.pdf"
+#output_pdf = BASE_DIR / "physics/faculty/themeze/documents/Enseignement/TP Laser/remarkable_Aide_barette.pdf"
 
 #input_pdf = BASE_DIR / "physics/faculty/themeze/documents/Enseignement/TP Laser/Polarisation_SU(2)_et_SO(3).pdf"
 #output_pdf = BASE_DIR / "physics/faculty/themeze/documents/Enseignement/TP Laser/remarkable_Polarisation_SU(2)_et_SO(3).pdf"
@@ -187,6 +187,8 @@ output_pdf = BASE_DIR / "physics/faculty/themeze/documents/Enseignement/TP Laser
 #input_pdf = BASE_DIR / "physics/faculty/themeze/documents/Enseignement/TP Laser/Note_TP_He-Ne.pdf"
 #output_pdf = BASE_DIR / "physics/faculty/themeze/documents/Enseignement/TP Laser/remarkable_Note_TP_He-Ne.pdf"
 
+input_pdf = BASE_DIR / "physics/faculty/themeze/documents/Aggregation Physique-Chimie/Oraux/LP/L.P.08-F1-Notiondeviscositéd'unfuideĖcoulementvisqueuxpdf"
+output_pdf = BASE_DIR / "physics/faculty/themeze/documents/Aggregation Physique-Chimie/Oraux/LP/L.P.08-F1-Notiondeviscositéd'unfuideĖcoulementvisqueux_split.pdf"
 
 
 split_pdf(
@@ -198,4 +200,4 @@ split_pdf(
     overlap=80
 )
 
-pdf_to_png(output_pdf, dpi=200)
+#pdf_to_png(output_pdf, dpi=200)
