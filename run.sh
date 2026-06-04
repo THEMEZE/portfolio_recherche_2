@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "🔧 split pdf"
-#python scripts/split_pdf.py
+python scripts/split_pdf.py
 
 echo "🔧 Compression PDF..."
 echo "🧹 Compression automatique..."

@@ -187,8 +187,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 #input_pdf = BASE_DIR / "physics/faculty/themeze/documents/Enseignement/TP Laser/Note_TP_He-Ne.pdf"
 #output_pdf = BASE_DIR / "physics/faculty/themeze/documents/Enseignement/TP Laser/remarkable_Note_TP_He-Ne.pdf"
 
-input_pdf = BASE_DIR / "physics/faculty/themeze/documents/Aggregation Physique-Chimie/Oraux/LP/L.P.08-F1-Notiondeviscositéd'unfuideĖcoulementvisqueuxpdf"
-output_pdf = BASE_DIR / "physics/faculty/themeze/documents/Aggregation Physique-Chimie/Oraux/LP/L.P.08-F1-Notiondeviscositéd'unfuideĖcoulementvisqueux_split.pdf"
+input_pdf = BASE_DIR / "physics/faculty/themeze/documents/Aggregation Physique-Chimie/Oraux/LP/L.P.08-F1-Notionde_viscosite_Ecoulement_visqueux.pdf"
+output_pdf = BASE_DIR / "physics/faculty/themeze/documents/Aggregation Physique-Chimie/Oraux/LP/L.P.08-F1-Notionde_viscosite_Ecoulement_visqueux_split.pdf"
 
 
 split_pdf(
