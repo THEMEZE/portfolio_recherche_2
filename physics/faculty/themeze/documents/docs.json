@@ -11634,12 +11634,12 @@
   },
   {
     "type": "folder",
-    "name": "Particul Phusic",
+    "name": "Particul Physic",
     "children": [
       {
         "type": "file",
         "name": "Quarks_and_Leptons,_an_Introductory_Course_in_Modern_Particle_Physics.pdf",
-        "path": "Particul Phusic/Quarks_and_Leptons,_an_Introductory_Course_in_Modern_Particle_Physics.pdf"
+        "path": "Particul Physic/Quarks_and_Leptons,_an_Introductory_Course_in_Modern_Particle_Physics.pdf"
       }
     ]
   },
