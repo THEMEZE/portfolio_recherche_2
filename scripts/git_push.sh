@@ -69,9 +69,9 @@ TOTAL_SIZE=$(du -sm . | cut -f1)
 echo "📊 Totale taille fichiers ${TOTAL_SIZE} MB)"
 TOTAL_SIZE=$(git ls-files -z | xargs -0 du -m | awk '{sum += $1} END {print sum}')
 echo "📊 Totale taille des fichiers trackés ${TOTAL_SIZE} MB)"
-if [ "$TOTAL_SIZE" -gt 1800 ]; then
+if [ "$TOTAL_SIZE" -gt 2000 ]; then
     echo "❌ Repo trop lourd (>1.8GB)"
-    echo "⚠️  Warning (>1.8GB): (${TOTAL_SIZE} MB)"
+    echo "⚠️  Warning (>2.0GB): (${TOTAL_SIZE} MB)"
     echo "👉 Nettoie ou utilise Git LFS"
     echo "git lfs install"
     echo 'git lfs track "*.pdf"'
