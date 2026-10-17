@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Bibliothèque de physique | Guillaume THÉMÈZE</title>
+  <meta name="description" content="Bibliothèque numérique interactive : étagères, dossiers, recherche, panier et bureaux de lecture.">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?display=swap&family=Crimson+Text:ital,wght@0,400;0,700;1,400">
+  <link rel="stylesheet" href="css/biblio.css">
+  <!-- même version de PDF.js et même CDN que quantum-mechanics-thesis/Outils/manipage.html -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js" defer></script>
+  <script type="module" src="js/app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Aller au contenu</a>
+  <header class="top">
+    <a class="brand" href="#/library"><strong>Bibliothèque</strong><span>Physique &amp; mathématiques</span></a>
+    <nav id="nav" aria-label="Navigation principale">
+      <a href="#/library" data-r="library">Bibliothèque</a>
+      <a href="#/folders" data-r="folders">Dossiers</a>
+      <a href="#/search" data-r="search">Recherche</a>
+      <a href="#/cart" data-r="cart">Panier <span id="cartn" class="n">0</span></a>
+      <a href="#/desk/" data-r="desk" id="desklink">Bureaux</a>
+    </nav>
+    <label class="deskpick">Bureau <select id="deskNav" aria-label="Choisir ou créer un bureau de lecture"></select></label>
+  </header>
+  <p id="warn" class="warn" role="status" hidden></p>
+  <main id="main" tabindex="-1"><p id="boot" class="empty">Chargement du catalogue…</p></main>
+  <aside id="card" role="dialog" aria-label="Détails du livre" hidden></aside>
+  <div id="toast" role="status" hidden></div>
+  <noscript><p class="empty">Cette application nécessite JavaScript.</p></noscript>
+</body>
+</html>
